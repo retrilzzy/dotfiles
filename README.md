@@ -14,7 +14,9 @@
 - [Rofi](#rofi)
 
 
-## Hyprland (Оконный менеджер) [[конфиги](./Configs/hypr/)]
+## Hyprland
+
+Оконный менеджер (WM) [[конфиги](./Configs/hypr/)]
 
 ```
 sudo pacman -S hyprland hyprpaper hyprlock
@@ -24,9 +26,14 @@ sudo pacman -S hyprland hyprpaper hyprlock
 - [[Бинды](./Configs/hypr/keybindings.conf)]
 
 
-### Hyprpaper (Установка обоев) [[конфиг](./Configs/hypr/hyprpaper.conf)]
+### Hyprpaper
 
-### Hyprlock (Блокировка экрана) [[конфиг](./Configs/hypr/hyprlock.conf)]
+Установка обоев [[конфиг](./Configs/hypr/hyprpaper.conf)]
+
+### Hyprlock
+
+Блокировка экрана [[конфиг](./Configs/hypr/hyprlock.conf)]
+
 
 <details><summary><b>Скриншот</b></summary>
 
@@ -34,7 +41,11 @@ sudo pacman -S hyprland hyprpaper hyprlock
 
 </details>
 
-## Waybar (Wayland бар) [[конфиг](./Configs/waybar/)]
+## Waybar
+
+Wayland бар [[конфиг](./Configs/waybar/)]
+
+
 ```
 sudo pacman -S waybar
 ```
@@ -46,7 +57,10 @@ sudo pacman -S waybar
 </details>
 
 
-## Rofi (Запуск приложений, интерфейс для буфера и Wi-Fi) [[конфиги](./Configs/rofi/)]
+## Rofi
+
+Запуск приложений, интерфейс для буфера обмена и Wi-Fi [[конфиги](./Configs/rofi/)]
+
 
 ```
 sudo pacman -S rofi networkmanager xdg-utils wl-clipboard cliphist
@@ -70,7 +84,7 @@ sudo pacman -S rofi networkmanager xdg-utils wl-clipboard cliphist
 
 </details>
 
-## ...
+### ...
 
 <br><hr>
 *PS: это мои первые конфиги для оконных менеджеров в общем.*
