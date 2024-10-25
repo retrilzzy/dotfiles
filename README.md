@@ -1,9 +1,6 @@
 # Dotfiles
 
-<details><summary><b>Скриншот</b></summary>
-
 ![ScreenShot](./Assets/general.png)
-</details>
 
 
 
@@ -143,7 +140,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sudo pacman -S exa
 ```
 
-Корректировщик предыдущей команды [The F*ck](https://github.com/nvbn/thefuck)
+Установка [The F*ck](https://github.com/nvbn/thefuck) (корректировщик предыдущих команд в терминале)
 ```
 sudo pacman -S thefuck
 ```
