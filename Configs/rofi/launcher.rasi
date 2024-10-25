@@ -20,7 +20,8 @@ window {
 }
 
 mainbox {
-    padding:    12px;
+    padding:        12px;
+    border-radius:  24px;
 }
 
 inputbar {
@@ -90,4 +91,8 @@ element-text {
 
 element selected {
     text-color: @select-fg;
+}
+
+mode-switcher, button {
+    padding:    8px 0 3px 0;
 }

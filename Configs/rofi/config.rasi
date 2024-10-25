@@ -1,1 +1,15 @@
-@theme "/home/rzx/.config/rofi/themes/launcher.rasi"
+configuration {
+    modi: "run,drun,window";
+    show-icons: true;
+    terminal: "kitty";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: false;
+    drun-display-format: "{icon} {name}";
+    display-drun: "  ";
+    display-run: "  ";
+    display-window: " 﩯 ";
+    sidebar-mode: true;
+}
+
+@theme "~/.config/rofi/launcher.rasi"

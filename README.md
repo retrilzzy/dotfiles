@@ -148,7 +148,7 @@ sudo pacman -S thefuck
 
 
 ## Fastfetch
-Вывод информации о системе [[конфиг](./Configs/fastfetch/)]
+В объяснении не нуждается [[конфиг](./Configs/fastfetch/)]
 
 <details><summary><b>Скриншот</b></summary>
 
