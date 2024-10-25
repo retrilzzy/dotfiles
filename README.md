@@ -147,6 +147,16 @@ sudo pacman -S thefuck
 
 
 
+## Fastfetch
+Вывод информации о системе [[конфиг](./Configs/fastfetch/)]
+
+<details><summary><b>Скриншот</b></summary>
+
+![ScreenShot](./Assets/fastfetch.png)
+</details><br>
+
+
+
 ## Дополнительные пакеты
 
 Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
