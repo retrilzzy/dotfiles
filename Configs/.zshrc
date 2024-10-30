@@ -59,14 +59,14 @@ export ARCHFLAGS="-arch x86_64"
 # bindkey "^[[1;3D" backward-word # ALT + ArrowLeft
 
 # Aliases
-eval $(thefuck --alias bruh)
+# eval $(thefuck --alias bruh)
 
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa"
     alias la="exa --long --all --group"
 fi
 
-alias clck="tty-clock -c -s -b"
+alias clck="tty-clock -c -s -b -C 7"
 
 alias icat="kitten icat"
 alias s="kitten ssh"
