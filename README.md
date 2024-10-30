@@ -5,6 +5,8 @@
 ## Навигация
 
 - [Hyprland](#hyprland)
+  - [Плагины](#плагины)
+  - [Hypridle](#hypridle)
   - [Hyprpaper](#hyprpaper)
   - [Hyprlock](#hyprlock)
 - [Waybar](#waybar)
@@ -19,20 +21,23 @@
 
 - [[Основной конфиг](./Configs/hypr/hyprland.conf)]
 - [[Бинды](./Configs/hypr/keybindings.conf)]
-- [[Плагины](./Configs/hypr/plugins.conf)]
 
 ```
-sudo pacman -S hyprland hyprpaper hyprlock
+sudo pacman -S hyprland hyprpaper hyprlock hypridle
 ```
+
+### Плагины
+
+Дополнения к Hyprland
+
+[[конфиг](./Configs/hypr/plugins.conf)] | [[Hyprland Wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/)]
+
+**[Hyperspace](https://github.com/KZDKM/Hyprspace)** - обзор рабочих столов
+
 
 ### Hypridle
 
 Поведение при бездействии [[конфиг](./Configs/hypr/hypridle.conf)]
-
-```
-sudo pacman -S hypridle
-```
-
 
 | Действие          | Таймаут   |
 | ----------------- | --------- |
