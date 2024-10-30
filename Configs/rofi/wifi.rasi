@@ -16,7 +16,7 @@ window {
     cursor:                      "default";
     spacing:                     0em;
     padding:                     0em;
-//    border-color:                @main-br;
+    border-color:                @main-br;
     background-color:            @main-bg;
 }
 mainbox {
