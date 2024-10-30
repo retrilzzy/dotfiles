@@ -6,11 +6,11 @@
 @import "$HOME/.config/waybar/theme.css";
 
 window {
-    background-color: rgba(17, 17, 27, 0.35);
+    background-color: @wl-bg;
 }
 
 button {
-    color: @main-fg;
+    color: @wl-button-fg;
     font-weight: bold;
     background-color: transparent;
     outline-style: none;
@@ -26,11 +26,11 @@ button {
 }
 
 button:focus {
-    background-color: @main-bg;
+    background-color: @wl-button-bg;
 }
 
 button:hover {
-    background-color: @main-bg;
+    background-color: @wl-button-bg;
     background-size: 40%;
     border-radius: ${active_rad}px;
     animation: gradient_f 20s ease-in infinite;
