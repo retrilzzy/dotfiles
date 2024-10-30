@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
-  "height": 28, // uncomment to set fixed height
+  // "height": 28, // uncomment to set fixed height
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
@@ -10,65 +10,46 @@
 
   // Positions
   "modules-left": [
-    "custom/ws", // window icon
-    "custom/left1",
+    "custom/ws", // logo
 
     "hyprland/workspaces", // workspaces
-    "custom/right1",
 
-    "custom/paddw",
     "hyprland/window" // window title
   ],
 
   "modules-center": [
-    "custom/paddc",
-    "custom/left2",
     "custom/cpuinfo", // temperature
 
-    "custom/left3",
     "memory", // memory
 
-    "custom/left4",
     "custom/cpu", // cpu
-    "custom/leftin1",
 
-    "custom/left5",
-    "idle_inhibitor", // arch logo
-    "custom/right2",
+    "idle_inhibitor",
 
-    "custom/rightin1",
     "clock#time", // time
-    "custom/right3",
 
     "clock#date", // date
-    "custom/right4",
 
-    "custom/wifi", // connection
-    "custom/right5"
+    "custom/wifi" // connection
   ],
 
   "modules-right": [
     "tray", // tray
 
-    "custom/left6",
     "hyprland/language", // language
 
-    "custom/left7",
     "pulseaudio", // output device
 
-    "custom/left8",
     "custom/backlight", // brightness
 
-    "custom/left9",
     "battery", // battery
 
-    "custom/leftin2",
     "custom/power" // power button
   ],
 
   // Modules
   "custom/ws": {
-    "format": "  ",
+    "format": " ",
     "tooltip": false,
     "min-length": 3,
     "max-length": 4
@@ -95,16 +76,16 @@
     "format": "{}",
     "separate-outputs": true,
     "rewrite": {
-      // desktop
-      "": "<span foreground='#89b4fa'> </span> Hyprland",
+      // Desktop
+      "": "󰢤 No window",
 
-      // terminal
-      "sejjy@archlinux:(.*)": "  $1",
-      "(.*)sejjy@archlinux:~": "  sejjy@archlinux",
+      // Terminal
+      "rzx@arch:(.*)": "  $1",
+      "(.*)rzx@arch:~": "  rzx@arch",
 
-      // Firefox
-      "(.*) — Mozilla Firefox": "<span foreground='#f38ba8'>󰈹 </span> $1",
-      "(.*)Mozilla Firefox": "<span foreground='#f38ba8'>󰈹 </span> Firefox",
+      // Brave
+      "(.*) - Brave": "<span foreground='#e07f00'> </span> $1",
+      "(.*)Brave-browser": "<span foreground='#e07f00'> </span> Brave",
 
       // VSCode
       "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
@@ -128,11 +109,6 @@
 
       // GIMP
       "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GNU Image Manipulation Program",
-
-      // Godot
-      "Godot": "<span foreground='#89b4fa'> </span> Godot Engine",
-      "Godot Engine - (.*)": "<span foreground='#89b4fa'> </span> $1",
-      "(.*) - Godot Engine": "<span foreground='#89b4fa'> </span> $1",
 
       // OnlyOffice
       "ONLYOFFICE Desktop Editors": "<span foreground='#f38ba8'> </span> OnlyOffice Desktop",
@@ -295,94 +271,6 @@
     "on-click": "~/.config/waybar/scripts/logoutlaunch.sh 2",
     "on-click-right": "~/.config/waybar/scripts/logoutlaunch.sh 1",
     "interval": 86400
-  },
-
-  // Padding
-  "custom/paddw": {
-    "format": " ",
-    "tooltip": false
-  },
-
-  // adjust padding in style.css if you have a long network name
-  // so that the modules remain centered.
-  "custom/paddc": {
-    "format": " ",
-    "tooltip": false
-  },
-
-  // Left Arrows
-  "custom/left1": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left2": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left3": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left4": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left5": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left6": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left7": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left8": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/left9": {
-    "format": "",
-    "tooltip": false
-  },
-
-  // Right Arrows
-  "custom/right1": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/right2": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/right3": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/right4": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/right5": {
-    "format": "",
-    "tooltip": false
-  },
-
-  // Left Inverse
-  "custom/leftin1": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/leftin2": {
-    "format": "",
-    "tooltip": false
-  },
-
-  // Right Inverse
-  "custom/rightin1": {
-    "format": "",
-    "tooltip": false
   }
+
 }

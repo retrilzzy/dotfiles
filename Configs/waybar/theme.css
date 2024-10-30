@@ -1,26 +1,38 @@
-/* 
-bg - background
-fg - foreground
-act - active
-hvr - hover
-*/
+/* General */
+@define-color background        #0f0f0f;
+@define-color foreground        rgba(200, 200, 200, 1.0);
+@define-color hover             rgba(200, 200, 200, 0.2);
 
-/* Main Colors */
-@define-color background        #11111b;
-@define-color foreground        #cdd6f4;
-@define-color hover             #2b2b45;
 
-/* Workspace Button Colors */
-@define-color active-bg         #9399b2;
-@define-color active-fg         #11111b;
-@define-color hover-bg          #45475a;
-@define-color hover-fg          #cdd6f4;
+/* Waybar */
+/* Workspace */
+@define-color active-bg         rgba(150, 150, 150, 0.3);
+@define-color active-fg         #0f0f0f;
+@define-color hover-bg          rgba(220, 220, 220, 0.2);
+@define-color hover-fg          rgba(200, 200, 200, 1.0);
 
-/* Wlogout Colors */
-@define-color bar-bg            #11111b;
-@define-color main-bg           #11111b;
-@define-color main-fg           #cdd6f4;
-@define-color wb-act-bg         #9399b2;
-@define-color wb-act-fg         #11111b;
-@define-color wb-hvr-bg         #6c7086;
-@define-color wb-hvr-fg         #11111b;
+/* Module */
+@define-color tooltip           rgba(30, 30, 30, 0.9);
+@define-color logo              rgba(30, 30, 30, 0.8);
+@define-color workspaces        rgba(30, 30, 30, 0.8);
+@define-color window            rgba(30, 30, 30, 0.8);
+@define-color cpuinfo           rgba(30, 30, 30, 0.8);
+@define-color memory            rgba(50, 50, 50, 0.8);
+@define-color cpu               rgba(70, 70, 70, 0.8);
+@define-color idle_inhibitor    rgba(80, 80, 80, 0.8);
+@define-color time              rgba(70, 70, 70, 0.8);
+@define-color date              rgba(50, 50, 50, 0.8);
+@define-color wifi              rgba(30, 30, 30, 0.8);
+@define-color tray              rgba(40, 40, 40, 0.8);
+@define-color language          rgba(45, 45, 45, 0.8);
+@define-color pulseaudio        rgba(50, 50, 50, 0.8);
+@define-color backlight         rgba(50, 50, 50, 0.8);
+@define-color battery           rgba(70, 70, 70, 0.8);
+@define-color power             rgba(70, 70, 70, 0.8);
+@define-color power-hv          rgba(50, 50, 50, 0.8);
+
+
+/* Wlogout */
+@define-color wl-bg             rgba(10, 10, 10, 0.3);
+@define-color wl-button-bg      rgba(50, 50, 50, 0.9);
+@define-color wl-button-fg      rgba(200, 200, 200, 1.0);

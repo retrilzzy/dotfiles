@@ -5,31 +5,24 @@
   font-weight: bold;
   font-size: 14px;
   min-height: 14px;
-  color: rgba(200, 200, 200, 1.0);
+  color: @foreground;
 }
 
 @import "./theme.css";
 
 /* Main Background */
 window#waybar {
-  background: @background;
-}
-
-/* [new] Drop Shadow */
-window#waybar > box {
-  background-color: transparent;
-  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 1);
-  margin: 2px 2px 2px 2px;
+  background: transparent;
 }
 
 /* Tooltip Styling */
 tooltip {
   color: @foreground;
-  background: @background;
+  background: @tooltip;
   border: solid;
   border-width: 1.5px;
   border-radius: 7px;
-  border-color: white;
+  border-color: @foreground;
 }
 
 /* Workspace Button */
@@ -51,8 +44,8 @@ tooltip {
 #workspaces button.active {
   color: @active-fg;
   background: @active-bg;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 1);
+  text-shadow: 0px 0px 2px rgba(22, 22, 22, 0.6);
+  box-shadow: 0px 0px 2px 1px rgba(22, 22, 22, 1);
   margin-right: 2px;
   margin-left: 2px;
   padding-right: 6px;
@@ -87,190 +80,115 @@ tooltip {
   margin-bottom: 0px;
   padding-right: 4px;
   padding-left: 4px;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
+  text-shadow: 0px 0px 2px rgba(22, 22, 22, 0.8);
 }
 
-/* General Left Arrow Styling */
-#custom-left1,
-#custom-left2,
-#custom-left3,
-#custom-left4,
-#custom-left5,
-#custom-left6,
-#custom-left7,
-#custom-left8,
-#custom-left9 {
-  font-size: 11pt;
-  text-shadow: -1px 0px 2px rgba(0, 0, 0, 1);
-}
-
-/* General Right Arrow Styling */
-#custom-right1,
-#custom-right2,
-#custom-right3,
-#custom-right4,
-#custom-right5 {
-  font-size: 11pt;
-  padding-right: 3px;
-  text-shadow: 1px 0px 2px rgba(0, 0, 0, 1);
-}
-
-/* Color Definitions */
-@define-color workspaces        #181825;
-@define-color cpuinfo           #181825;
-@define-color memory            #1e1e2e;
-@define-color cpu               #313244;
-@define-color arch              #9399b2;
-@define-color time              #313244;
-@define-color date              #1e1e2e;
-@define-color wifi              #181825;
-@define-color language          #161621;
-@define-color pulseaudio        #181825;
-@define-color backlight         #1e1e2e;
-@define-color battery           #313244;
-@define-color power             #9399b2;
-
-/* Window Icon */
+/* Logo */
 #custom-ws {
-  background: @background;
+  background: @logo;
+  border-radius: 8px;
+  padding: 1px 0 0 3px;
+  margin: 0px;
+  margin-right: 2px;
 }
 
 /* Workspaces */
-#custom-left1 {
-  color: @workspaces;
-  background: @background;
-  padding-left: 2px;
-}
-
 #workspaces {
   background: @workspaces;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
-#custom-right1 {
-  color: @workspaces;
-  background: @background;
+/* Window Title */
+#window {
+  background: @window;
+  margin-left: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 8px;
 }
 
 /* Temperature */
-#custom-paddc {
-  padding-right: 22px;
-}
-
-#custom-left2 {
-  color: @cpuinfo;
-  background: @background;
-  border-radius: 10px;
-  padding-left: 3px;
-}
-
 #custom-cpuinfo {
   background: @cpuinfo;
   padding-left: 1px;
   padding-right: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* Memory */
-#custom-left3 {
-  color: @memory;
-  background: @cpuinfo;
-  padding-left: 3px;
-}
-
 #memory {
   background: @memory;
   padding-left: 1px;
   padding-right: 0px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* CPU */
-#custom-left4 {
-  color: @cpu;
-  background: @memory;
-  padding-left: 3px;
-}
-
 #custom-cpu {
   background: @cpu;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
-#custom-leftin1 {
-  color: @cpu;
-  font-size: 14.5pt;
-  margin-bottom: -2px;
-}
-
-/* Arch Logo */
-#custom-left5 {
-  color: @arch;
-  background: @background;
-  text-shadow: -1px 0px 2px rgba(0, 0, 0, 0.6);
-  padding-left: 3px;
-}
-
+/* Idle Inhibitor */
 #idle_inhibitor {
-  color: black;
-  background: @arch;
+  color: @foreground;
+  background: @idle_inhibitor;
   font-size: 11pt;
-  margin-right: -1px;
-  margin-bottom: -2px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
   padding-right: 5px;
   padding-left: 5px;
-  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
-}
-
-#custom-right2 {
-  color: @arch;
-  background: @background;
+  text-shadow: 0px 0px 1.5px rgba(22, 22, 22, 1);
 }
 
 /* Time */
-#custom-rightin1 {
-  color: @time;
-  font-size: 14.5pt;
-  margin-bottom: -2px;
-}
-
 #clock.time {
   background: @time;
-}
-
-#custom-right3 {
-  color: @time;
-  background: @date;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* Date */
 #clock.date {
   background: @date;
-}
-
-#custom-right4 {
-  color: @date;
-  background: @wifi;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 #custom-wifi {
   background: @wifi;
   padding-right: 6px;
   padding-left: 4px;
-}
-
-#custom-right5 {
-  color: @wifi;
-  background: @background;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* Tray */
 #tray {
-  background: @background;
-  padding-right: 8px;
-  padding-left: 8px;
+  padding-right: 6px;
+  padding-left: 6px;
+  background: @tray;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 #tray menu {
-  background: @background;
   color: @foreground;
   border-radius: 13px;
+  background: @tooltip;
 }
 
 #tray menu separator {
@@ -286,47 +204,35 @@ tooltip {
 }
 
 /* Language */
-#custom-left6 {
-  color: @language;
-  background: @background;
-  padding-left: 3px;
-}
-
 #language {
   background: @language;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* PulseAudio */
-#custom-left7 {
-  color: @pulseaudio;
-  background: @language;
-  padding-left: 3px;
-}
-
 #pulseaudio {
   background: @pulseaudio;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* Brightness */
-#custom-left8 {
-  color: @backlight;
-  background: @pulseaudio;
-  padding-left: 3px;
-}
-
 #custom-backlight {
   background: @backlight;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 /* Battery */
-#custom-left9 {
-  color: @battery;
-  background: @backlight;
-  padding-left: 3px;
-}
-
 #battery {
   background: @battery;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
 }
 
 #battery.warning {
@@ -338,29 +244,19 @@ tooltip {
 }
 
 /* Power Button */
-#custom-leftin2 {
-  color: @battery;
-  background: @background;
-  font-size: 14.5pt;
-  margin-bottom: -2px;
-}
-
 #custom-power {
-  color: @background;
   background: @power;
-  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 1);
-  border-radius: 20px;
-  margin-top: 2px;
+  color: @foreground;
+  border-radius: 10px;
   margin-right: 4px;
-  margin-bottom: 2px;
+  margin-left: 2px;
   padding-right: 6px;
   padding-left: 9px;
 }
 
 #custom-power:hover {
   color: @hover-fg;
-  background: @hover-bg;
+  background: @power-hv;
   box-shadow: none;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
