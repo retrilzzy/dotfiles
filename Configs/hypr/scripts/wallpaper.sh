@@ -21,6 +21,10 @@ while [[ $# -gt 0 ]]; do
       ACTION="clear"
       shift
       ;;
+    -r|--random)
+      ACTION="random"
+      shift
+      ;;
     *)
       echo "Неправильный флаг: $1"
       exit 1
@@ -45,6 +49,8 @@ elif [[ "$ACTION" == "clear" ]]; then
   hyprctl hyprpaper unload all
   notify-send "Все обои выгружены."
   exit 0
+elif [[ "$ACTION" == "random" ]]; then
+  CURRENT_INDEX=$((RANDOM % WALLPAPER_COUNT))
 else
   exit 0
 fi
@@ -52,9 +58,6 @@ fi
 echo "$CURRENT_INDEX" > "$INDEX_FILE"
 
 SELECTED_WALLPAPER="${WALLPAPERS[$CURRENT_INDEX]}"
-CURRENT_WALLPAPER=$(hyprctl -j monitors | jq -r '.[] | select(.name=="eDP-1") | .wallpaper')
 
-if [ "$CURRENT_WALLPAPER" != "$SELECTED_WALLPAPER" ]; then
-  hyprctl hyprpaper preload "$SELECTED_WALLPAPER"
-  hyprctl hyprpaper wallpaper "eDP-1,$SELECTED_WALLPAPER"
-fi
+hyprctl hyprpaper preload "$SELECTED_WALLPAPER"
+hyprctl hyprpaper wallpaper "eDP-1,$SELECTED_WALLPAPER"
