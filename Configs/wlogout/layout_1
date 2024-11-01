@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "loginctl lock-session",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -14,7 +14,7 @@
 
 {
     "label" : "suspend",
-    "action" : "systemctl suspend && hyprlock --immediate",
+    "action" : "loginctl lock-session && systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
@@ -28,7 +28,7 @@
 
 {
     "label" : "hibernate",
-    "action" : "systemctl hibernate && hyprlock --immediate",
+    "action" : "loginctl lock-session && systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
