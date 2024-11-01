@@ -31,7 +31,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 - Скриншоты - [hyprshot](https://aur.archlinux.org/packages/?K=hyprshot)
 
 ```
-sudo pacman -S brightnessctl xdg-utils iw
+sudo pacman -S brightnessctl xdg-utils iw && yay -S hyprshot
 ```
 
 
