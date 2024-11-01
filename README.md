@@ -2,8 +2,10 @@
 
 ![ScreenShot](./Assets/Current/general.png)
 
+
 ## Навигация
 
+- [Необходимые пакеты](#необходимые-пакеты)
 - [Hyprland](#hyprland)
   - [Плагины](#плагины)
   - [Hypridle](#hypridle)
@@ -13,7 +15,25 @@
 - [Rofi](#rofi)
 - [Wlogout](#wlogout)
 - [Терминал](#терминал)
-- [Дополнительные пакеты](#дополнительные-пакеты)
+
+
+## Необходимые пакеты
+
+- Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
+
+```
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+- Управления яркостью экрана (используется в биндах и waybar) - [brightnessctl](https://archlinux.org/packages/?name=brightnessctl)
+- Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/?name=xdg-utils)
+- Получение информации о соединении с интернетом (используется в waybar) - [iw](https://archlinux.org/packages/?name=iw)
+- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/?K=hyprshot)
+
+```
+sudo pacman -S brightnessctl xdg-utils iw
+```
+
 
 ## Hyprland
 
@@ -28,37 +48,46 @@ sudo pacman -S hyprland hyprpaper hyprlock hypridle
 
 ### Плагины
 
-Дополнения к Hyprland
+Дополнения к Hyprland [[конфиг](./Configs/hypr/plugins.conf)]
 
-[[конфиг](./Configs/hypr/plugins.conf)] | [[Hyprland Wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/)]
+[[Hyprland Wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/)]
 
 **[Hyperspace](https://github.com/KZDKM/Hyprspace)** - обзор рабочих столов
 
+Установка через Hyprpm
+```
+hyprpm add https://github.com/KZDKM/Hyprspace && hyprpm enable Hyprspace
+```
 
 ### Hypridle
 
 Поведение при бездействии [[конфиг](./Configs/hypr/hypridle.conf)]
 
-| Действие          | Таймаут   |
-| ----------------- | --------- |
-| Снижение яркости  | 5 мин.    |
-| Блокировка экрана | 10 мин.   |
-| Выключение экрана | 10.2 мин. |
-| Спящий режим      | 20 мин.   |
+| Действие              | Таймаут   |
+| --------------------- | --------- |
+| Снижение яркости      | 5 мин.    |
+| Блокировка экрана     | 10 мин.   |
+| Выключение экрана     | 10.2 мин. |
+| Спящий режим          | 20 мин.   |
+
 
 ### Hyprpaper
 
 Установка обоев [[конфиг](./Configs/hypr/hyprpaper.conf)]
+*в конфиге надо поменять путь к изображению*
 
 ### Hyprlock
 
 Блокировка экрана [[конфиг](./Configs/hypr/hyprlock.conf)]
+*в конфиге надо поменять путь к изображению*
 
 <details><summary><b>Скриншот</b></summary>
 
 ![ScreenShot](./Assets/V1/hyprlock.png)
 
 </details>
+
+
 
 ## Waybar
 
@@ -73,6 +102,8 @@ sudo pacman -S waybar
 ![ScreenShot](./Assets/Current/waybar.png)
 
 </details>
+
+
 
 ## Rofi
 
@@ -100,15 +131,23 @@ sudo pacman -S rofi networkmanager wl-clipboard cliphist
 
 </details>
 
+
+
 ## Wlogout
 
 Блокировка экрана, выход, перезагрузка, выключение и т.д. [[конфиг](./Configs/wlogout/)]
+
+```
+yay -S wlogout
+```
 
 <details><summary><b>Скриншот</b></summary>
 
 ![ScreenShot](./Assets/Current/wlogout.png)
 
 </details>
+
+
 
 ## Терминал
 
@@ -170,18 +209,44 @@ sudo pacman -S exa
 sudo pacman -S thefuck
 ```
 
+
+
 ## Fastfetch
 
-В объяснении не нуждается [[конфиг](./Configs/fastfetch/)]
+В объяснении не нуждается [[конфиг](./Configs/fastfetch/config.jsonc)]
+
+```
+sudo pacman -S fastfetch
+```
 
 <details><summary><b>Скриншот</b></summary>
 
 ![ScreenShot](./Assets/V1/fastfetch.png)
 
-</details><br>
+</details>
 
-## Дополнительные пакеты
 
-Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 
-Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/?name=xdg-utils)
+## Nwg-look
+
+Настройка GTK3 [[конфиг](./Configs/nwg-look/config)]
+
+```
+sudo pacman -S nwg-look
+```
+
+
+
+## Dunst
+
+Уведомления [[конфиг](./Configs/dunst/dunstrc)]
+
+```
+sudo pacman -S dunst
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![ScreenShot](./Assets/Current/dunst.png)
+
+</details>
