@@ -19,11 +19,11 @@
 @define-color cpuinfo           rgba(30, 30, 30, 0.8);
 @define-color memory            rgba(50, 50, 50, 0.8);
 @define-color cpu               rgba(70, 70, 70, 0.8);
-@define-color idle_inhibitor    rgba(80, 80, 80, 0.8);
 @define-color time              rgba(70, 70, 70, 0.8);
 @define-color date              rgba(50, 50, 50, 0.8);
 @define-color wifi              rgba(30, 30, 30, 0.8);
 @define-color tray              rgba(40, 40, 40, 0.8);
+@define-color network           rgba(40, 40, 40, 0.8);
 @define-color language          rgba(45, 45, 45, 0.8);
 @define-color pulseaudio        rgba(50, 50, 50, 0.8);
 @define-color backlight         rgba(50, 50, 50, 0.8);

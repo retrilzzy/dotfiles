@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
-  // "height": 28, // uncomment to set fixed height
+  "height": 24, // uncomment to set fixed height
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
@@ -10,7 +10,7 @@
 
   // Positions
   "modules-left": [
-    "custom/ws", // logo
+    "idle_inhibitor",
 
     "hyprland/workspaces", // workspaces
 
@@ -18,13 +18,12 @@
   ],
 
   "modules-center": [
+    "custom/paddc", // padding
     "custom/cpuinfo", // temperature
 
     "memory", // memory
 
     "custom/cpu", // cpu
-
-    "idle_inhibitor",
 
     "clock#time", // time
 
@@ -34,6 +33,8 @@
   ],
 
   "modules-right": [
+    "network", // network speed
+
     "tray", // tray
 
     "hyprland/language", // language
@@ -48,11 +49,14 @@
   ],
 
   // Modules
-  "custom/ws": {
-    "format": " ",
-    "tooltip": false,
-    "min-length": 3,
-    "max-length": 4
+  "idle_inhibitor": {
+    "format": " -rzx.ovh",
+    "tooltip": true,
+    "tooltip-format-activated": "Presentation Mode",
+    "tooltip-format-deactivated": "Idle Mode",
+    "start-activated": false,
+    "max-length": 20,
+    "timeout": 5
   },
 
   "hyprland/workspaces": {
@@ -166,15 +170,6 @@
     "max-length": 6
   },
 
-  "idle_inhibitor": {
-    "format": "rzx.ovh",
-    "tooltip": true,
-    "tooltip-format-activated": "Presentation Mode",
-    "tooltip-format-deactivated": "Idle Mode",
-    "start-activated": false,
-    "timeout": 5
-  },
-
   "clock#time": {
     "format": "󱑂 {:%H:%M}",
     "tooltip": true,
@@ -203,9 +198,17 @@
     "format": "{}", // in wifiinfo.sh, change "Wi-Fi" to "${essid}" to display network name
     "tooltip": true,
     "on-click": "~/.config/waybar/scripts/wifimenu.sh",
-    "interval": 1,
+    "interval": 2,
     "min-length": 7,
     "max-length": 7
+  },
+
+  "network": {
+    "interface": "wlan0",
+    "interval": 2,
+    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format-disconnected": "",
+    "max-length": 24
   },
 
   "tray": {
@@ -218,8 +221,8 @@
     "format": "{}",
     "format-en": "EN",
     "format-ru": "RU",
-    "min-length": 5,
-    "max-length": 5
+    "min-length": 4,
+    "max-length": 4
   },
 
   "pulseaudio": {
@@ -258,9 +261,10 @@
     "format": "{icon} {capacity}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "format-charging": "󱘖 {capacity}%",
+    "tooltip": true,
     "tooltip-format": "Time to Empty: {time}",
     "tooltip-format-charging": "Time to Full: {time}",
-    "interval": 1,
+    "interval": 2,
     "min-length": 6,
     "max-length": 6
   },
@@ -271,6 +275,11 @@
     "on-click": "~/.config/waybar/scripts/logoutlaunch.sh 2",
     "on-click-right": "~/.config/waybar/scripts/logoutlaunch.sh 1",
     "interval": 86400
+  },
+
+  "custom/paddc": {
+    "format": " ",
+    "tooltip": false
   }
 
 }

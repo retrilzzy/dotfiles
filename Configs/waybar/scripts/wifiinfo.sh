@@ -90,8 +90,8 @@ else
     # bssid="N/A"
     chan="N/A"
     # rssi="N/A"
-    rx_bitrate=""
-    tx_bitrate=""
+    # rx_bitrate=""
+    # tx_bitrate=""
     phy_mode=""
     signal=$(echo "$wifi_info" | awk -F: '{print $3}')
 
@@ -119,10 +119,10 @@ else
             # rssi=$(echo "$iw_output" | grep "signal:" | awk '{print $2 " dBm"}')
 
             # Upload speed
-            rx_bitrate=$(echo "$iw_output" | grep "rx bitrate:" | awk '{print $3 " " $4}')
+            # rx_bitrate=$(echo "$iw_output" | grep "rx bitrate:" | awk '{print $3 " " $4}')
 
             # Download speed
-            tx_bitrate=$(echo "$iw_output" | grep "tx bitrate:" | awk '{print $3 " " $4}')
+            # tx_bitrate=$(echo "$iw_output" | grep "tx bitrate:" | awk '{print $3 " " $4}')
 
             # Physical Layer Mode
             if echo "$iw_output" | grep -E -q "rx bitrate:.* VHT"; then
@@ -147,13 +147,13 @@ else
         # tooltip+="\nRSSI:        ${rssi}"
         tooltip+="\nStrength:   ${signal} / 100"
 
-        if [ -n "$rx_bitrate" ]; then
-            tooltip+="\nRx Rate:     ${rx_bitrate}"
-        fi
+        # if [ -n "$rx_bitrate" ]; then
+        #     tooltip+="\nRx Rate:     ${rx_bitrate}"
+        # fi
 
-        if [ -n "$tx_bitrate" ]; then
-            tooltip+="\nTx Rate:     ${tx_bitrate}"
-        fi
+        # if [ -n "$tx_bitrate" ]; then
+        #     tooltip+="\nTx Rate:     ${tx_bitrate}"
+        # fi
 
         if [ -n "$phy_mode" ]; then
             tooltip+="\nPHY Mode:    ${phy_mode}"

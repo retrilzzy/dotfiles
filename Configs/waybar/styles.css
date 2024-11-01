@@ -15,6 +15,10 @@ window#waybar {
   background: transparent;
 }
 
+window#waybar > box {
+  margin-top: 4px;
+}
+
 /* Tooltip Styling */
 tooltip {
   color: @foreground;
@@ -64,7 +68,7 @@ tooltip {
 }
 
 /* General Module Styling */
-#custom-ws,
+#idle_inhibitor,
 #workspaces,
 #window,
 #custom-cpuinfo,
@@ -72,117 +76,84 @@ tooltip {
 #custom-cpu,
 #clock,
 #custom-wifi,
+#tray,
+#network,
+#language,
 #pulseaudio,
 #custom-backlight,
 #battery,
 #custom-power {
   opacity: 1;
   margin-bottom: 0px;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
+  margin-right: 2px;
+  margin-left: 2px;
+  border-radius: 8px;
   text-shadow: 0px 0px 2px rgba(22, 22, 22, 0.8);
 }
 
-/* Logo */
-#custom-ws {
+/* Idle Inhibitor */
+#idle_inhibitor {
   background: @logo;
-  border-radius: 8px;
-  padding: 1px 0 0 3px;
-  margin: 0px;
-  margin-right: 2px;
+  margin-left: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 /* Workspaces */
 #workspaces {
   background: @workspaces;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Window Title */
 #window {
   background: @window;
-  margin-left: 2px;
   padding-right: 10px;
   padding-left: 10px;
-  border-radius: 8px;
 }
 
 /* Temperature */
+#custom-paddc {
+  padding-right: 12px;
+}
+
 #custom-cpuinfo {
   background: @cpuinfo;
-  padding-left: 1px;
-  padding-right: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Memory */
 #memory {
   background: @memory;
-  padding-left: 1px;
-  padding-right: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* CPU */
 #custom-cpu {
   background: @cpu;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
-}
-
-/* Idle Inhibitor */
-#idle_inhibitor {
-  color: @foreground;
-  background: @idle_inhibitor;
-  font-size: 11pt;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
-  padding-right: 5px;
-  padding-left: 5px;
-  text-shadow: 0px 0px 1.5px rgba(22, 22, 22, 1);
 }
 
 /* Time */
 #clock.time {
   background: @time;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Date */
 #clock.date {
   background: @date;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
+/* Wifi */
 #custom-wifi {
   background: @wifi;
   padding-right: 6px;
   padding-left: 4px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Tray */
 #tray {
-  padding-right: 6px;
-  padding-left: 6px;
+  padding-right: 8px;
+  padding-left: 8px;
   background: @tray;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 #tray menu {
@@ -203,36 +174,35 @@ tooltip {
   background-color: @hover;
 }
 
+/* Network */
+#network {
+  background: @network;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
 /* Language */
 #language {
   background: @language;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 /* PulseAudio */
 #pulseaudio {
   background: @pulseaudio;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Brightness */
 #custom-backlight {
   background: @backlight;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
 }
 
 /* Battery */
 #battery {
   background: @battery;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-radius: 8px;
+  padding-right: 6px;
+  padding-left: 6px;
 }
 
 #battery.warning {
@@ -246,10 +216,7 @@ tooltip {
 /* Power Button */
 #custom-power {
   background: @power;
-  color: @foreground;
-  border-radius: 10px;
-  margin-right: 4px;
-  margin-left: 2px;
+  margin-right: 6px;
   padding-right: 6px;
   padding-left: 9px;
 }
