@@ -37,6 +37,8 @@
 
     "tray", // tray
 
+    "privacy",
+
     "hyprland/language", // language
 
     "pulseaudio", // output device
@@ -215,6 +217,24 @@
     "icon-size": 18,
     "rotate": 0,
     "spacing": 10
+  },
+
+  "privacy": {
+	  "icon-spacing": 5,
+	  "icon-size": 14,
+	  "transition-duration": 250,
+	  "modules": [
+	  	{
+	  		"type": "screenshare",
+	  		"tooltip": true,
+	  		"tooltip-icon-size": 20
+	  	},
+	  	{
+	  		"type": "audio-in",
+	  		"tooltip": true,
+	  		"tooltip-icon-size": 20
+	  	}
+	  ]
   },
 
   "hyprland/language": {
