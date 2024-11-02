@@ -74,11 +74,13 @@ hyprpm add https://github.com/KZDKM/Hyprspace && hyprpm enable Hyprspace
 ### Hyprpaper
 
 Установка обоев [[конфиг](./Configs/hypr/hyprpaper.conf)]
+
 *в конфиге надо поменять путь к изображению*
 
 ### Hyprlock
 
 Блокировка экрана [[конфиг](./Configs/hypr/hyprlock.conf)]
+
 *в конфиге надо поменять путь к изображению*
 
 <details><summary><b>Скриншот</b></summary>
@@ -234,6 +236,10 @@ sudo pacman -S fastfetch
 ```
 sudo pacman -S nwg-look
 ```
+
+GTK тема - [Orchis-Grey-Dark](https://github.com/vinceliuice/Orchis-theme) 
+
+*нужно установить в директорию `~/.themes`*
 
 
 
