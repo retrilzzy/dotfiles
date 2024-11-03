@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "loginctl lock-session",
+    "action" : "~/.config/wlogout/curent_wall.sh && loginctl lock-session",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -14,7 +14,7 @@
 
 {
     "label" : "suspend",
-    "action" : "loginctl lock-session && systemctl suspend",
+    "action" : "~/.config/wlogout/curent_wall.sh && loginctl lock-session && systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
@@ -28,7 +28,7 @@
 
 {
     "label" : "hibernate",
-    "action" : "loginctl lock-session && systemctl hibernate",
+    "action" : "~/.config/wlogout/curent_wall.sh && loginctl lock-session && systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }
