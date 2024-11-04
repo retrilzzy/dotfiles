@@ -167,16 +167,16 @@ tooltip {
 
 #tray menu {
   color: @foreground;
-  border-radius: 13px;
+  border-radius: 10px;
   background: @tooltip;
 }
 
 #tray menu separator {
-  min-height: 5px;
+  min-height: 3px;
 }
 
 #tray menu menuitem {
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 #tray menu menuitem:hover {
