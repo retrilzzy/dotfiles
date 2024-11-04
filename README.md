@@ -155,11 +155,11 @@ yay -S wlogout
 
 Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/kitty/)]
 
-Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc)]
+Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc) (`~/.zshrc`)]
 
 Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
-Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh)]
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh) (`~/.p10k.zsh`)]
 
 <details><summary><b>Скриншот</b></summary>
 
@@ -237,9 +237,13 @@ sudo pacman -S fastfetch
 sudo pacman -S nwg-look
 ```
 
-GTK тема - [Orchis-Grey-Dark](https://github.com/vinceliuice/Orchis-theme) 
+**Темная тема Adwaita**
 
-*нужно установить в директорию `~/.themes`*
+`~/.themes/Adwaita-Dark/gtk-3.0/gtk.css`
+```
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+```
+
 
 
 
