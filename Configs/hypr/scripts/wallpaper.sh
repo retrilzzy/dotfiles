@@ -50,7 +50,11 @@ elif [[ "$ACTION" == "clear" ]]; then
   notify-send "Все обои выгружены."
   exit 0
 elif [[ "$ACTION" == "random" ]]; then
-  CURRENT_INDEX=$((RANDOM % WALLPAPER_COUNT))
+  NEW_INDEX=$CURRENT_INDEX
+  while [[ $NEW_INDEX -eq $CURRENT_INDEX ]]; do
+    NEW_INDEX=$((RANDOM % WALLPAPER_COUNT))
+  done
+  CURRENT_INDEX=$NEW_INDEX
 else
   exit 0
 fi
@@ -61,3 +65,4 @@ SELECTED_WALLPAPER="${WALLPAPERS[$CURRENT_INDEX]}"
 
 hyprctl hyprpaper preload "$SELECTED_WALLPAPER"
 hyprctl hyprpaper wallpaper "eDP-1,$SELECTED_WALLPAPER"
+
