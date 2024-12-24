@@ -2,7 +2,7 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
-  "height": 24, // uncomment to set fixed height
+  "height": 24, // fixed height
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
@@ -18,18 +18,16 @@
   ],
 
   "modules-center": [
-    "custom/paddc", // padding
+    "custom/cpu", // cpu
+
     "custom/cpuinfo", // temperature
 
     "memory", // memory
 
-    "custom/cpu", // cpu
-
     "clock#time", // time
 
-    "clock#date", // date
+    "clock#date" // date
 
-    "custom/wifi" // connection
   ],
 
   "modules-right": [
@@ -52,7 +50,7 @@
 
   // Modules
   "idle_inhibitor": {
-    "format": " -rzx.ovh",
+    "format": " rzx.ovh",
     "tooltip": true,
     "tooltip-format-activated": "Presentation Mode",
     "tooltip-format-deactivated": "Idle Mode",
@@ -139,7 +137,7 @@
       "Authenticate": "  Authenticate"
     },
     "min-length": 5,
-    "max-length": 45
+    "max-length": 50
   },
 
   "custom/cpuinfo": {
@@ -192,17 +190,6 @@
     "actions": { "on-click-right": "mode" },
     "min-length": 8,
     "max-length": 8
-  },
-
-  "custom/wifi": {
-    "exec": "~/.config/waybar/scripts/wifiinfo.sh",
-    "return-type": "json",
-    "format": "{}", // in wifiinfo.sh, change "Wi-Fi" to "${essid}" to display network name
-    "tooltip": true,
-    "on-click": "~/.config/waybar/scripts/wifimenu.sh",
-    "interval": 2,
-    "min-length": 7,
-    "max-length": 7
   },
 
   "network": {
@@ -295,11 +282,6 @@
     "on-click": "~/.config/waybar/scripts/logoutlaunch.sh 2",
     "on-click-right": "~/.config/waybar/scripts/logoutlaunch.sh 1",
     "interval": 86400
-  },
-
-  "custom/paddc": {
-    "format": " ",
-    "tooltip": false
   }
 
 }

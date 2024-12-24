@@ -141,6 +141,7 @@ tooltip {
 /* Date */
 #clock.date {
   background: @date;
+
 }
 
 /* Wifi */
@@ -226,8 +227,8 @@ tooltip {
 #custom-power {
   background: @power;
   margin-right: 6px;
-  padding-right: 6px;
-  padding-left: 9px;
+  padding-right: 7px;
+  padding-left:11px;
 }
 
 #custom-power:hover {
