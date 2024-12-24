@@ -9,6 +9,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+
 # Set name of the theme to load.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -36,6 +37,10 @@ git
 zsh-syntax-highlighting
 zsh-autosuggestions
 dirhistory
+docker
+archlinux
+poetry
+
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -49,10 +54,6 @@ export ARCHFLAGS="-arch x86_64"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Free JetBrains Pro (https://3.jetbra.in)
-#PS1='[\u@\h \W]\$ '
-#___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
 # Keybind
 # bindkey "^[[1;3C" forward-word # ALT + ArrowRight
