@@ -2,40 +2,34 @@
 
 ![ScreenShot](./Assets/Current/general.png)
 
+- [yay](#yay) - помощник для установки пакетов из AUR
+- [Hyprland](#hyprland) - оконный менеджер
+  - [Бинды](#бинды)
+  - [Плагины](#плагины) - настройка плагинов
+  - [Hypridle](#hypridle) - поведение при бездействии
+  - [Hyprlock](#hyprlock) - экран блокировки
+- [Waybar](#waybar) - wayland бар
+- [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
+- [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
+- [Fastfetch](#fastfetch)
+- [Nwg-look](#nwg-look) - настройка GTK3
+- [Терминал](#терминал) - настройка терминала
+- [Swaync](#swaync) - уведомления
+- [Waypaper](#waypaper) - GUI для простого управление обоями
+- [Emote](#emote) - выбор эмодзи
 
-## Навигация
-
-- [Необходимые пакеты](#необходимые-пакеты)
-- [Hyprland](#hyprland)
-  - [Плагины](#плагины)
-  - [Hypridle](#hypridle)
-  - [Hyprpaper](#hyprpaper)
-  - [Hyprlock](#hyprlock)
-- [Waybar](#waybar)
-- [Rofi](#rofi)
-- [Wlogout](#wlogout)
-- [Терминал](#терминал)
 
 
 > [!IMPORTANT]
 > Я возможно упустил некоторые пакеты-зависимости 😇
 
 
-## Необходимые пакеты
+## yay
 
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
 
 ```
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-```
-
-- Управления яркостью экрана (используется в биндах и waybar) - [brightnessctl](https://archlinux.org/packages/?name=brightnessctl)
-- Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/?name=xdg-utils)
-- Получение информации о соединении с интернетом (используется в waybar) - [iw](https://archlinux.org/packages/?name=iw)
-- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/?K=hyprshot)
-
-```
-sudo pacman -S brightnessctl xdg-utils iw && yay -S hyprshot
 ```
 
 
@@ -46,9 +40,55 @@ sudo pacman -S brightnessctl xdg-utils iw && yay -S hyprshot
 - [[Основной конфиг](./Configs/hypr/hyprland.conf)]
 - [[Бинды](./Configs/hypr/keybindings.conf)]
 
+Дополнительно надо установить пакеты
+- Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
+- Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/extra/any/xdg-utils/)
+- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
+
 ```
-sudo pacman -S hyprland hyprpaper hyprlock hypridle
+sudo pacman -S brightnessctl xdg-utils grim && yay -S hyprshot
 ```
+### Бинды
+
+| Клавиши | Действие |
+| :--- | :--- |
+| <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал |
+| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений |
+| <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (nautilus) |
+| <kbd>Super</kbd> + <kbd>C</kbd> | Редактор (VSCode) |
+| <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
+| <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей Keepassxc |
+| <kbd>Super</kbd> + <kbd>CONTROL</kbd> + <kbd>W</kbd> | Управление обоями waypaper |
+| <kbd>Super</kbd> + <kbd>V</kbd> | Менеджер буфера обмена (cliphist) |
+| <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (swaync) |
+| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из папки Wallpapers |
+| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из папки AniWall |
+| <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
+| <kbd>Super</kbd> + <kbd>Q</kbd> | Закрыть активное окно |
+| <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим |
+| <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" |
+| <kbd>Super</kbd> + <kbd>D</kbd> | Переключение режима разделения окна |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd> | Переключение на следующее окно |
+| <kbd>Super</kbd> + <kbd>L</kbd> | Заблокировать экран |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
+| <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
+| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd> | Перемещение окон |
+| <kbd>Super</kbd> + <kbd>[1-9]</kbd> | Переключение между рабочими пространствами |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[1-9]</kbd> | Перемещение окна в рабочее пространство |
+| <kbd>Super</kbd> + <kbd>Tab</kbd> | Переключение обзора окон (плагин Overview) |
+| <kbd>Super</kbd> + <kbd>S</kbd> | Переключение на специальное рабочее пространство |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Перемещение окна в специальное рабочее пространство |
+| <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
+| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
+| <kbd>Super</kbd> + <kbd>ПКМ</kbd> | Изменение размера окон мышью |
+| <kbd>Print</kbd> | Скриншот всего экрана |
+| <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области |
+| <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи |
+
+
 
 ### Плагины
 
@@ -63,9 +103,15 @@ sudo pacman -S hyprland hyprpaper hyprlock hypridle
 hyprpm add https://github.com/KZDKM/Hyprspace && hyprpm enable Hyprspace
 ```
 
+
+
 ### Hypridle
 
 Поведение при бездействии [[конфиг](./Configs/hypr/hypridle.conf)]
+
+```
+sudo pacman -S hypridle
+```
 
 | Действие              | Таймаут   |
 | --------------------- | --------- |
@@ -75,17 +121,16 @@ hyprpm add https://github.com/KZDKM/Hyprspace && hyprpm enable Hyprspace
 | Спящий режим          | 20 мин.   |
 
 
-### Hyprpaper
-
-Установка обоев [[конфиг](./Configs/hypr/hyprpaper.conf)]
-
-*в конфиге надо поменять путь к изображению*
 
 ### Hyprlock
 
 Блокировка экрана [[конфиг](./Configs/hypr/hyprlock.conf)]
 
 *в конфиге надо поменять путь к изображению*
+
+```
+sudo pacman -S hyprlock
+```
 
 <details><summary><b>Скриншот</b></summary>
 
@@ -250,17 +295,40 @@ sudo pacman -S nwg-look
 
 
 
+## SwayNC
 
-## Dunst
-
-Уведомления [[конфиг](./Configs/dunst/dunstrc)]
+Уведомления [[конфиг](./Configs/swaync/)]
 
 ```
-sudo pacman -S dunst
+sudo pacman -S swaync
 ```
 
-<details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/Current/dunst.png)
 
-</details>
+## Waypaper
+
+GUI для простого управление обоями
+
+```
+yay -S waypaper
+```
+
+Для статичных изображений и gif
+```
+sudo pacman -S swww
+```
+
+Для видео
+```
+sudo pacman -S mpvpaper
+```
+
+
+
+## Emote
+
+Выбор эмодзи
+
+```
+yay -S emote
+```
