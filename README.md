@@ -26,6 +26,13 @@
 > Я возможно упустил некоторые пакеты-зависимости 😇
 
 
+**По классике жанра для начала**
+```
+sudo pacman -Syu
+```
+
+
+
 ## Yay
 
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
@@ -43,12 +50,14 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 - [[Бинды](./Configs/hypr/keybindings.conf)]
 
 ### Дополнительные пакеты
+- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
+-  Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
 - Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 - Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/extra/any/xdg-utils/)
 - Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
 
 ```
-sudo pacman -S brightnessctl xdg-utils grim && yay -S hyprshot
+sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xdg-utils grim && yay -S hyprshot
 ```
 ### Бинды
 
