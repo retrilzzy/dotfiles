@@ -64,20 +64,20 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | Клавиши | Действие |
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал |
-| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений |
+| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (rofi) |
 | <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (nautilus) |
-| <kbd>Super</kbd> + <kbd>C</kbd> | Редактор (VSCode) |
+| <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
 | <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
-| <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей Keepassxc |
+| <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей (Keepassxc) |
 | <kbd>Super</kbd> + <kbd>CONTROL</kbd> + <kbd>W</kbd> | Управление обоями waypaper |
-| <kbd>Super</kbd> + <kbd>V</kbd> | Менеджер буфера обмена (cliphist) |
+| <kbd>Super</kbd> + <kbd>V</kbd> | Открыть буфера обмена (cliphist) |
 | <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (swaync) |
-| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из папки Wallpapers |
-| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из папки AniWall |
+| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
+| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
 | <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
 | <kbd>Super</kbd> + <kbd>Q</kbd> | Закрыть активное окно |
-| <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим |
-| <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" |
+| <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим (pseudo) |
+| <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" (float) |
 | <kbd>Super</kbd> + <kbd>D</kbd> | Переключение режима разделения окна |
 | <kbd>Alt</kbd> + <kbd>Tab</kbd> | Переключение на следующее окно |
 | <kbd>Super</kbd> + <kbd>L</kbd> | Заблокировать экран |
@@ -86,9 +86,9 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
 | <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd> | Перемещение окон |
-| <kbd>Super</kbd> + <kbd>[1-9]</kbd> | Переключение между рабочими пространствами |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[1-9]</kbd> | Перемещение окна в рабочее пространство |
-| <kbd>Super</kbd> + <kbd>Tab</kbd> | Переключение обзора окон (плагин Overview) |
+| <kbd>Super</kbd> + <kbd>[0-9]</kbd> | Переключение между рабочими пространствами с 1 по 10 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10 |
+| <kbd>Super</kbd> + <kbd>Tab</kbd> | Обзор окон (плагин hyprexpo) |
 | <kbd>Super</kbd> + <kbd>S</kbd> | Переключение на специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Перемещение окна в специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
@@ -97,6 +97,7 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Print</kbd> | Скриншот всего экрана |
 | <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области |
 | <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи |
 
 
@@ -107,13 +108,11 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 
 [[Hyprland Wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/)]
 
-**[Hyperspace](https://github.com/KZDKM/Hyprspace)** - обзор рабочих столов
-
-Установка через Hyprpm
 ```
-hyprpm add https://github.com/KZDKM/Hyprspace && hyprpm enable Hyprspace
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+hyprpm enable hyprexpo
+hyprpm reload
 ```
-
 
 
 ### Hypridle
