@@ -7,7 +7,13 @@ If it doesn't work on your system, check the commands in the functions:
 `send_notification()` and `copy_to_clipboard()`
 
 Usage:
-    python3.12 chibisafe_uploader.py /path/to/file
+    chibisafe_uploader.py [-h] file_path
+
+Positional arguments:
+    file_path   Full path to the file to upload
+
+Options:
+    -h, --help  show this help message and exit
 """
 
 import os
@@ -18,7 +24,7 @@ import logging
 import argparse
 
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 dotenv.load_dotenv()
@@ -49,7 +55,7 @@ def upload_file(file_path: str) -> None:
             url=f"{os.getenv("CHIBISAFE_URL")}/api/upload",
             
             headers={
-                "x-api-key": os.getenv("CHIBISAFE_API_TOKEN"),
+                "x-api-key": os.getenv("CHIBISAFE_API_KEY"),
                 "user-agent": "Mozilla/5.0 Chrome/131.0.0.0 Safari/537.36",
             },
             
