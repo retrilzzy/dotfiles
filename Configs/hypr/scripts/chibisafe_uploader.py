@@ -13,7 +13,7 @@ Positional arguments:
     file_path   Full path to the file to upload
 
 Options:
-    -h, --help  show this help message and exit
+    -h, --help  Show help message
 """
 
 import os
@@ -39,7 +39,7 @@ def copy_to_clipboard(url: str) -> None:
 
 def upload_file(file_path: str) -> None:
     """
-    Upload a file to Chibisafe API.
+    Upload a file to Chibisafe.
     """
     if not os.path.exists(file_path):
         logger.error(f"Error. File {file_path} not found.")
