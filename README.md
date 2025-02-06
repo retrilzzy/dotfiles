@@ -7,7 +7,6 @@
 - [Hyprland](#hyprland) - оконный менеджер
   - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
   - [Бинды](#бинды) - все сочетания клавиш
-  - [Плагины](#плагины) - настройка плагинов
   - [Hypridle](#hypridle) - поведение при бездействии
   - [Hyprlock](#hyprlock) - экран блокировки
 - [Waybar](#waybar) - wayland бар
@@ -100,19 +99,6 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи |
 
-
-
-### Плагины
-
-Дополнения к Hyprland [[конфиг](./Configs/hypr/plugins.conf)]
-
-[[Hyprland Wiki](https://wiki.hyprland.org/Plugins/Using-Plugins/)]
-
-```
-hyprpm add https://github.com/hyprwm/hyprland-plugins
-hyprpm enable hyprexpo
-hyprpm reload
-```
 
 
 ### Hypridle
