@@ -1,6 +1,6 @@
 # Dotfiles
 
-![ScreenShot](./Assets/Current/general.png)
+![Screenshot](./Assets/Current/general.png)
 
 ## Навигация
 - [Yay](#yay) - помощник для установки пакетов из AUR
@@ -45,8 +45,8 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 
 Оконный менеджер (WM)
 
-- [[Основной конфиг](./Configs/hypr/hyprland.conf)]
-- [[Бинды](./Configs/hypr/keybindings.conf)]
+- [[Основной конфиг](./Configs/.config/hypr/hyprland.conf)]
+- [[Бинды](./Configs/.config/hypr/keybindings.conf)]
 
 ### Дополнительные пакеты
 - Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
@@ -96,6 +96,7 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Print</kbd> | Скриншот всего экрана |
 | <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области |
 | <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (мощная утилита для скриншотов) |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи |
 
@@ -103,7 +104,7 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 
 ### Hypridle
 
-Поведение при бездействии [[конфиг](./Configs/hypr/hypridle.conf)]
+Поведение при бездействии [[конфиг](./Configs/.config/hypr/hypridle.conf)]
 
 ```
 sudo pacman -S hypridle
@@ -120,7 +121,7 @@ sudo pacman -S hypridle
 
 ### Hyprlock
 
-Блокировка экрана [[конфиг](./Configs/hypr/hyprlock.conf)]
+Блокировка экрана [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
 *в конфиге надо поменять путь к изображению*
 
@@ -130,7 +131,7 @@ sudo pacman -S hyprlock
 
 <details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/V1/hyprlock.png)
+![Screenshot](./Assets/V1/hyprlock.png)
 
 </details>
 
@@ -138,7 +139,7 @@ sudo pacman -S hyprlock
 
 ## Waybar
 
-Wayland бар [[конфиг](./Configs/waybar/)]
+Wayland бар [[конфиг](./Configs/.config/waybar/)]
 
 ```
 sudo pacman -S waybar
@@ -146,7 +147,7 @@ sudo pacman -S waybar
 
 <details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/Current/waybar.png)
+![Screenshot](./Assets/Current/waybar.png)
 
 </details>
 
@@ -154,7 +155,7 @@ sudo pacman -S waybar
 
 ## Rofi
 
-Запуск приложений, интерфейс для буфера обмена [[конфиг](./Configs/rofi/)]
+Запуск приложений, интерфейс для буфера обмена [[конфиг](./Configs/.config/rofi/)]
 
 ```
 sudo pacman -S rofi wl-clipboard cliphist
@@ -162,13 +163,13 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 <details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
 
-![ScreenShot](./Assets/Current/rofi_app-launcher.png)
+![Screenshot](./Assets/Current/rofi_app-launcher.png)
 
 </details>
 
 <details><summary><b>Скриншот (Буфер обмена)</b></summary>
 
-![ScreenShot](./Assets/Current/rofi_clipboard.png)
+![Screenshot](./Assets/Current/rofi_clipboard.png)
 
 </details>
 
@@ -176,7 +177,7 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 ## Wlogout
 
-Блокировка экрана, выход, перезагрузка, выключение и т.д. [[конфиг](./Configs/wlogout/)]
+Блокировка экрана, выход, перезагрузка, выключение и т.д. [[конфиг](./Configs/.config/wlogout/)]
 
 ```
 yay -S wlogout
@@ -184,7 +185,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/Current/wlogout.png)
+![Screenshot](./Assets/Current/wlogout.png)
 
 </details>
 
@@ -192,17 +193,17 @@ yay -S wlogout
 
 ## Терминал
 
-Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/kitty/)]
+Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/.config/kitty/)]
 
-Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc) (`~/.zshrc`)]
+Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.config/.zshrc) (`~/.zshrc`)]
 
 Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
-Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh) (`~/.p10k.zsh`)]
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.config/.p10k.zsh) (`~/.p10k.zsh`)]
 
 <details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/V1/terminal.png)
+![Screenshot](./Assets/V1/terminal.png)
 
 </details><br>
 
@@ -254,7 +255,7 @@ sudo pacman -S thefuck
 
 ## Fastfetch
 
-В объяснении не нуждается [[конфиг](./Configs/fastfetch/config.jsonc)]
+В объяснении не нуждается [[конфиг](./Configs/.config/fastfetch/)]
 
 ```
 sudo pacman -S fastfetch
@@ -262,7 +263,7 @@ sudo pacman -S fastfetch
 
 <details><summary><b>Скриншот</b></summary>
 
-![ScreenShot](./Assets/V1/fastfetch.png)
+![Screenshot](./Assets/V1/fastfetch.png)
 
 </details>
 
@@ -270,7 +271,7 @@ sudo pacman -S fastfetch
 
 ## Nwg-look
 
-Настройка GTK3 [[конфиг](./Configs/nwg-look/config)]
+Настройка GTK3 [[конфиг](./Configs/.config/nwg-look/)]
 
 ```
 sudo pacman -S nwg-look
@@ -287,7 +288,7 @@ sudo pacman -S nwg-look
 
 ## SwayNC
 
-Уведомления [[конфиг](./Configs/swaync/)]
+Уведомления [[конфиг](./Configs/.config/swaync/)]
 
 ```
 sudo pacman -S swaync
@@ -322,3 +323,19 @@ sudo pacman -S mpvpaper
 ```
 yay -S emote
 ```
+
+
+
+## Flameshot
+
+Мощная утилита для скриншотов [[конфиг](./Configs/.config/flameshot/)]
+
+```
+sudo pacman -S flameshot
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/Current/flameshot.png)
+
+</details>
