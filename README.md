@@ -62,15 +62,16 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 
 | Клавиши | Действие |
 | :--- | :--- |
-| <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал |
-| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (rofi) |
-| <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (nautilus) |
+| <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал (Kitty) |
+| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (Rofi) |
+| <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (Nautilus) |
 | <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
 | <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
 | <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей (Keepassxc) |
-| <kbd>Super</kbd> + <kbd>CONTROL</kbd> + <kbd>W</kbd> | Управление обоями waypaper |
-| <kbd>Super</kbd> + <kbd>V</kbd> | Открыть буфера обмена (cliphist) |
-| <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (swaync) |
+| <kbd>Super</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Управление обоями (Waypaper) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи (Emote) |
+| <kbd>Super</kbd> + <kbd>V</kbd> | Открыть буфера обмена (Cliphist) |
+| <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (Swaync) |
 | <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
 | <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
 | <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
@@ -98,7 +99,6 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (мощная утилита для скриншотов) |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи |
 
 
 
