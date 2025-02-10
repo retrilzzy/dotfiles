@@ -18,11 +18,9 @@
 - [Swaync](#swaync) - уведомления
 - [Waypaper](#waypaper) - GUI для простого управление обоями
 - [Emote](#emote) - выбор эмодзи
+- [Flameshot](#flameshot) - скриншоты
 
 
-
-> [!IMPORTANT]
-> Я возможно упустил некоторые пакеты-зависимости 😇
 
 
 **По классике жанра для начала**
@@ -58,20 +56,22 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 ```
 sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xdg-utils grim && yay -S hyprshot
 ```
+
+
 ### Бинды
 
 #### Запуск приложений 
 | Клавиши | Действие |
 | :--- | :--- |
-| <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал (Kitty) |
+| <kbd>Super</kbd> + <kbd>W</kbd> | Терминал (Kitty) |
 | <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (Rofi) |
 | <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (Nautilus) |
 | <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
 | <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
 | <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей (Keepassxc) |
-| <kbd>Super</kbd> + <kbd>V</kbd> | Открыть буфера обмена (Cliphist) |
-| <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (Swaync) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи (Emote) |
+| <kbd>Super</kbd> + <kbd>V</kbd> | Буфер обмена (Cliphist) |
+| <kbd>Super</kbd> + <kbd>N</kbd> | Центр уведомлений (Swaync) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote) |
 | <kbd>Super</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Управление обоями (Waypaper) |
 
 #### Взаимодействие с окнами
@@ -85,6 +85,7 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
 | <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd> | Перемещение окон |
+| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
 | <kbd>Super</kbd> + <kbd>ПКМ</kbd> | Изменение размера окон мышью |
 
 #### Рабочие пространства (столы)
@@ -92,7 +93,6 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>[0-9]</kbd> | Переключение между рабочими пространствами с 1 по 10 |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10 |
-| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
 | <kbd>Super</kbd> + <kbd>S</kbd> | Переключение на специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Перемещение окна в специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
