@@ -60,6 +60,7 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 ```
 ### Бинды
 
+#### Запуск приложений 
 | Клавиши | Действие |
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>W</kbd> | Открыть терминал (Kitty) |
@@ -68,38 +69,56 @@ sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xd
 | <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
 | <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
 | <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей (Keepassxc) |
-| <kbd>Super</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Управление обоями (Waypaper) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи (Emote) |
 | <kbd>Super</kbd> + <kbd>V</kbd> | Открыть буфера обмена (Cliphist) |
 | <kbd>Super</kbd> + <kbd>N</kbd> | Открыть центр уведомлений (Swaync) |
-| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
-| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
-| <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Открыть меню эмодзи (Emote) |
+| <kbd>Super</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Управление обоями (Waypaper) |
+
+#### Взаимодействие с окнами
+| Клавиши | Действие |
+| :--- | :--- | 
 | <kbd>Super</kbd> + <kbd>Q</kbd> | Закрыть активное окно |
 | <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим (pseudo) |
 | <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" (float) |
 | <kbd>Super</kbd> + <kbd>D</kbd> | Переключение режима разделения окна |
 | <kbd>Alt</kbd> + <kbd>Tab</kbd> | Переключение на следующее окно |
-| <kbd>Super</kbd> + <kbd>L</kbd> | Заблокировать экран |
-| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей |
-| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
 | <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
 | <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd> | Перемещение окон |
+| <kbd>Super</kbd> + <kbd>ПКМ</kbd> | Изменение размера окон мышью |
+
+#### Рабочие пространства (столы)
+| Клавиши | Действие |
+| :--- | :--- |
 | <kbd>Super</kbd> + <kbd>[0-9]</kbd> | Переключение между рабочими пространствами с 1 по 10 |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10 |
-| <kbd>Super</kbd> + <kbd>Tab</kbd> | Обзор окон (плагин hyprexpo) |
+| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
 | <kbd>Super</kbd> + <kbd>S</kbd> | Переключение на специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Перемещение окна в специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
-| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
-| <kbd>Super</kbd> + <kbd>ПКМ</kbd> | Изменение размера окон мышью |
+
+#### Скриншоты
+| Клавиши | Действие |
+| :--- | :--- |
 | <kbd>Print</kbd> | Скриншот всего экрана |
 | <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области |
 | <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (мощная утилита для скриншотов) |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
 
+#### Управление экраном/питанием
+| Клавиши | Действие |
+| :--- | :--- |
+| <kbd>Super</kbd> + <kbd>L</kbd> | Заблокировать экран |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
+
+#### Остальное
+| Клавиши | Действие |
+| :--- | :--- |
+| <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
+| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
+| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
 
 
 ### Hypridle
