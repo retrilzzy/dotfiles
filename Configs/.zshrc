@@ -40,7 +40,6 @@ dirhistory
 docker
 archlinux
 poetry
-
 )
 
 source $ZSH/oh-my-zsh.sh
