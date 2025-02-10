@@ -3,31 +3,52 @@
 ![Screenshot](./Assets/Current/general.png)
 
 ## Навигация
-- [Yay](#yay) - помощник для установки пакетов из AUR
-- [Hyprland](#hyprland) - оконный менеджер
-  - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
-  - [Бинды](#бинды) - все сочетания клавиш
-  - [Hypridle](#hypridle) - поведение при бездействии
-  - [Hyprlock](#hyprlock) - экран блокировки
-- [Waybar](#waybar) - wayland бар
-- [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
-- [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
-- [Fastfetch](#fastfetch) - похвастаться линуксом
-- [Nwg-look](#nwg-look) - настройка GTK3
-- [Терминал](#терминал) - настройка терминала
-- [Swaync](#swaync) - уведомления
-- [Waypaper](#waypaper) - GUI для простого управление обоями
-- [Emote](#emote) - выбор эмодзи
-- [Flameshot](#flameshot) - скриншоты
+- [Установка](#установка)
+- [Обзор риса](#обзор-риса)
+  - [Yay](#yay) - помощник для установки пакетов из AUR
+  - [Hyprland](#hyprland) - оконный менеджер
+    - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
+    - [Бинды](#бинды) - все сочетания клавиш
+    - [Hypridle](#hypridle) - поведение при бездействии
+    - [Hyprlock](#hyprlock) - экран блокировки
+  - [Waybar](#waybar) - wayland бар
+  - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
+  - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
+  - [Fastfetch](#fastfetch) - похвастаться линуксом
+  - [Nwg-look](#nwg-look) - настройка GTK3
+  - [Терминал](#терминал) - настройка терминала
+  - [Swaync](#swaync) - уведомления
+  - [Waypaper](#waypaper) - GUI для простого управление обоями
+  - [Emote](#emote) - выбор эмодзи
+  - [Flameshot](#flameshot) - мощная утилита для скриншотов
 
 
 
-
-**По классике жанра для начала**
+## Установка
 ```
-sudo pacman -Syu
+# Обновление системы и установка Git
+sudo pacman -Syu git
+
+# Клонирование репозитория c конфигами
+git clone https://github.com/retrilzzy/dotfiles.git ~/dotfiles && cd ~/dotfiles
+
+# Запуск скрипта установки пакетов
+chmod +x ./Scripts/install_packages.sh
+./Scripts/install_packages.sh
+
+# Копирование старых конфигов в отдельную директорию
+mkdir -p ~/.config_backup
+cp -r ~/.config ~/.config_backup/
+cp ~/{.zshrc,.p10k.zsh,.nanorc} ~/.config_backup/ 2>/dev/null
+
+# Копирование новых конфигов из dotfiles
+cp -r ~/dotfiles/Configs/.config/* ~/.config/
+cp ~/dotfiles/Configs/.zshrc ~/dotfiles/Configs/.p10k.zsh ~/dotfiles/Configs/.nanorc ~/
 ```
 
+
+
+## Обзор риса
 
 
 ## Yay
@@ -35,7 +56,9 @@ sudo pacman -Syu
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
 
 ```
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S --needed git base-devel \
+  && git clone https://aur.archlinux.org/yay.git \
+  && cd yay && makepkg -si
 ```
 
 
@@ -45,6 +68,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 
 - [[Основной конфиг](./Configs/.config/hypr/hyprland.conf)]
 - [[Бинды](./Configs/.config/hypr/keybindings.conf)]
+- [[Правила окон и рабочих столов](./Configs/.config/hypr/rules.conf)]
 
 ### Дополнительные пакеты
 - Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
@@ -54,7 +78,10 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 - Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
 
 ```
-sudo pacman -S network-manager-applet bluez bluez-tools blueman brightnessctl xdg-utils grim && yay -S hyprshot
+sudo pacman -S network-manager-applet \
+  bluez bluez-tools blueman \
+  brightnessctl xdg-utils grim \
+  && yay -S hyprshot
 ```
 
 
