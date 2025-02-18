@@ -9,6 +9,7 @@
   - [Hyprland](#hyprland) - оконный менеджер
     - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
     - [Бинды](#бинды) - все сочетания клавиш
+    - [Курсор](#курсор)
     - [Hypridle](#hypridle) - поведение при бездействии
     - [Hyprlock](#hyprlock) - экран блокировки
   - [Waybar](#waybar) - wayland бар
@@ -146,6 +147,18 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
 | <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
 | <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
+
+
+
+### Курсор
+
+https://github.com/rose-pine/cursor
+
+https://github.com/ndom91/rose-pine-hyprcursor
+
+```
+yay -S rose-pine-cursor rose-pine-hyprcursor
+```
 
 
 ### Hypridle

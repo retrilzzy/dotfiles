@@ -24,6 +24,8 @@ install "Yay (AUR помощник) [Без Yay вы не сможете уст�
     "sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
 
+install "Тема курсора (rose-pine)" "yay -S --noconfirm rose-pine-cursor rose-pine-hyprcursor"
+
 install "Xdg-utils, Xdg-desktop-portal (утилиты для работы с XDG)" \
     "sudo pacman -S --noconfirm xdg-utils xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal"
 
