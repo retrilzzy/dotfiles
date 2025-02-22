@@ -10,6 +10,7 @@
     - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
     - [Бинды](#бинды) - все сочетания клавиш
     - [Курсор](#курсор)
+    - [Шрифты](#шрифты)
     - [Hypridle](#hypridle) - поведение при бездействии
     - [Hyprlock](#hyprlock) - экран блокировки
   - [Waybar](#waybar) - wayland бар
@@ -159,6 +160,25 @@ https://github.com/ndom91/rose-pine-hyprcursor
 ```
 yay -S rose-pine-cursor rose-pine-hyprcursor
 ```
+
+
+### Шрифты
+
+Поддержка всех символов
+```
+sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
+```
+
+Шрифт для VSCode
+```
+sudo pacman -S ttf-jetbrains-mono-nerd
+```
+
+Шрифт для терминала
+```
+yay -S ttf-meslo-nerd-font-powerlevel10k
+```
+
 
 
 ### Hypridle
