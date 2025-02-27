@@ -9,14 +9,14 @@
   - [Hyprland](#hyprland) - оконный менеджер
     - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
     - [Бинды](#бинды) - все сочетания клавиш
-    - [Курсор](#курсор)
-    - [Шрифты](#шрифты)
+    - [Курсор](#курсор) - тема курсора
+    - [Шрифты](#шрифты) - установка шрифтов
     - [Hypridle](#hypridle) - поведение при бездействии
     - [Hyprlock](#hyprlock) - экран блокировки
   - [Waybar](#waybar) - wayland бар
   - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
   - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
-  - [Fastfetch](#fastfetch) - похвастаться линуксом
+  - [Fastfetch](#fastfetch) - похвастаться линуксом)
   - [Nwg-look](#nwg-look) - настройка GTK3
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
@@ -200,7 +200,7 @@ sudo pacman -S hypridle
 
 ### Hyprlock
 
-Блокировка экрана [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
+Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
 *в конфиге надо поменять путь к изображению*
 
@@ -274,11 +274,11 @@ yay -S wlogout
 
 Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/.config/kitty/)]
 
-Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.config/.zshrc) (`~/.zshrc`)]
+Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.config/.zshrc)]
 
 Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
-Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.config/.p10k.zsh) (`~/.p10k.zsh`)]
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.config/.p10k.zsh)]
 
 <details><summary><b>Скриншот</b></summary>
 
@@ -334,7 +334,7 @@ sudo pacman -S thefuck
 
 ## Fastfetch
 
-В объяснении не нуждается [[конфиг](./Configs/.config/fastfetch/)]
+Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
 
 ```
 sudo pacman -S fastfetch
