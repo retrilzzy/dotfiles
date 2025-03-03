@@ -21,12 +21,14 @@
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
   - [Waypaper](#waypaper) - GUI для простого управление обоями
+    - [Обои](#обои) - коллекция обоев/фонов
   - [Emote](#emote) - выбор эмодзи
   - [Flameshot](#flameshot) - мощная утилита для скриншотов
 
 
 
 ## Установка
+
 ```
 # Обновление системы и установка Git
 sudo pacman -Syu git
@@ -392,6 +394,11 @@ sudo pacman -S swww
 ```
 sudo pacman -S mpvpaper
 ```
+
+
+### Обои
+- [Монохром](https://cdn.rzx.ovh/a/logffks5vds3cwyo)
+- Возможно будут еще...
 
 
 
