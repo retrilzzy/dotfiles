@@ -95,6 +95,7 @@ sudo pacman -S network-manager-applet \
 | Клавиши | Действие |
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>W</kbd> | Терминал (Kitty) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)|
 | <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (Rofi) |
 | <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (Nautilus) |
 | <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
@@ -103,7 +104,7 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>V</kbd> | Буфер обмена (Cliphist) |
 | <kbd>Super</kbd> + <kbd>N</kbd> | Центр уведомлений (Swaync) |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote) |
-| <kbd>Super</kbd> + <kbd>SHIFT</kbd> + <kbd>W</kbd> | Управление обоями (Waypaper) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper) |
 
 #### Взаимодействие с окнами
 | Клавиши | Действие |
@@ -148,8 +149,7 @@ sudo pacman -S network-manager-applet \
 | Клавиши | Действие |
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
-| <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории Wallpapers |
-| <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>W</kbd> | Случайный фон из директории AniWall |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
 
 
 
