@@ -397,7 +397,7 @@ sudo pacman -S mpvpaper
 
 
 ### Обои
-- [Монохром](https://cdn.rzx.ovh/a/logffks5vds3cwyo)
+- [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
 
 
