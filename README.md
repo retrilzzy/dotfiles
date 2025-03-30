@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Screenshot](./Assets/Current/general.png)
+![Screenshot](./Assets/general.png)
 
 ## Навигация
 - [Установка](#установка)
@@ -221,7 +221,7 @@ sudo pacman -S hyprlock
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/V1/hyprlock.png)
+![Screenshot](./Assets/hyprlock.png)
 
 </details>
 
@@ -237,7 +237,7 @@ sudo pacman -S waybar
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/Current/waybar.png)
+![Screenshot](./Assets/waybar.png)
 
 </details>
 
@@ -253,13 +253,13 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 <details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
 
-![Screenshot](./Assets/Current/rofi_app-launcher.png)
+![Screenshot](./Assets/rofi_app-launcher.png)
 
 </details>
 
 <details><summary><b>Скриншот (Буфер обмена)</b></summary>
 
-![Screenshot](./Assets/Current/rofi_clipboard.png)
+![Screenshot](./Assets/rofi_clipboard.png)
 
 </details>
 
@@ -275,7 +275,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/Current/wlogout.png)
+![Screenshot](./Assets/wlogout.png)
 
 </details>
 
@@ -293,7 +293,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/V1/terminal.png)
+![Screenshot](./Assets/legacy/terminal.png)
 
 </details><br>
 
@@ -353,7 +353,7 @@ sudo pacman -S fastfetch
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/V1/fastfetch.png)
+![Screenshot](./Assets/fastfetch.png)
 
 </details>
 
@@ -431,6 +431,6 @@ sudo pacman -S flameshot
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/Current/flameshot.png)
+![Screenshot](./Assets/flameshot.png)
 
 </details>
