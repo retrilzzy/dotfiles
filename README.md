@@ -9,6 +9,7 @@
   - [Hyprland](#hyprland) - оконный менеджер
     - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
     - [Бинды](#бинды) - все сочетания клавиш
+    - [Иконки](#иконки) - пак иконок
     - [Курсор](#курсор) - тема курсора
     - [Шрифты](#шрифты) - установка шрифтов
     - [Hypridle](#hypridle) - поведение при бездействии
@@ -151,6 +152,14 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>F2</kbd> | Перезапуск Waybar |
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
 
+
+### Иконки
+
+https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+
+```
+sudo pacman -S papirus-icon-theme
+```
 
 
 ### Курсор
