@@ -19,9 +19,9 @@ EOF
 notify_mute() {
     mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
     if [ "${mute}" = "yes" ]; then
-        notify-send -r 91190 "Muted"
+        notify-send -r 91190 "Volume" "Muted"
     else
-        notify-send -r 91190 "Unmuted"
+        notify-send -r 91190 "Volume" "Unmuted"
     fi
 }
 
@@ -102,5 +102,3 @@ d) action_volume d ;;
 m) pactl set-sink-mute @DEFAULT_SINK@ toggle && notify_mute && exit 0 ;;
 *) print_error ;;
 esac
-
-send_notification

@@ -30,7 +30,6 @@ while getopts o: opt; do
             else
                 brightnessctl set +5%
             fi
-            send_notification
             ;;
         d) # Decrease brightness
             if [[ $brightness -le 1 ]]; then
@@ -40,7 +39,6 @@ while getopts o: opt; do
             else
                 brightnessctl set 5%-
             fi
-            send_notification
             ;;
         *)
             print_error

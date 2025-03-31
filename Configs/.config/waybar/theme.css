@@ -4,24 +4,29 @@
 @define-color hover             rgba(200, 200, 200, 0.2);
 
 
-/* Waybar */
 /* Workspace */
 @define-color active-bg         rgba(150, 150, 150, 0.3);
 @define-color active-fg         #0f0f0f;
 @define-color hover-bg          rgba(220, 220, 220, 0.2);
 @define-color hover-fg          rgba(200, 200, 200, 1.0);
 
-/* Module */
+
+/* Modules */
+
+/* Left */
 @define-color tooltip           rgba(40, 40, 40, 0.95);
 @define-color logo              rgba(40, 40, 40, 0.95);
 @define-color workspaces        rgba(40, 40, 40, 0.95);
 @define-color window            rgba(40, 40, 40, 0.95);
+
+/* Central */
+@define-color cpu               rgba(40, 40, 40, 0.95);
 @define-color cpuinfo           rgba(40, 40, 40, 0.95);
 @define-color memory            rgba(40, 40, 40, 0.95);
-@define-color cpu               rgba(40, 40, 40, 0.95);
 @define-color time              rgba(40, 40, 40, 0.95);
 @define-color date              rgba(40, 40, 40, 0.95);
-@define-color wifi              rgba(40, 40, 40, 0.95);
+
+/* Right */
 @define-color network           rgba(40, 40, 40, 0.95);
 @define-color tray              rgba(40, 40, 40, 0.95);
 @define-color privacy           rgba(40, 40, 40, 0.95);
@@ -31,9 +36,3 @@
 @define-color battery           rgba(40, 40, 40, 0.95);
 @define-color power             rgba(40, 40, 40, 0.95);
 @define-color power-hv          rgba(40, 40, 40, 0.95);
-
-
-/* Wlogout */
-@define-color wl-bg             rgba(10, 10, 10, 0.3);
-@define-color wl-button-bg      rgba(50, 50, 50, 0.9);
-@define-color wl-button-fg      rgba(200, 200, 200, 1.0);

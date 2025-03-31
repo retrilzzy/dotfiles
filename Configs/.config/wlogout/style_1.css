@@ -1,9 +1,12 @@
+@define-color wl-bg             rgba(10, 10, 10, 0.3);
+@define-color wl-button-bg      rgba(50, 50, 50, 0.9);
+@define-color wl-button-fg      rgba(200, 200, 200, 1.0);
+
+
 * {
     background-image: none;
     font-size: 16px;
 }
-
-@import "$HOME/.config/waybar/theme.css";
 
 window {
     background-color: @wl-bg;
