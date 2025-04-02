@@ -1,42 +1,41 @@
 {
-    "label" : "lock",
-    "action" : "~/.config/wlogout/current_wall.sh && loginctl lock-session",
-    "text" : "Lock",
-    "keybind" : "l"
+    "label": "lock",
+    "action": "~/.config/wlogout/current_wall.sh && loginctl lock-session",
+    "text": "Lock",
+    "keybind": "l"
 }
 
 {
-    "label" : "logout",
-    "action" : "hyprctl dispatch exit 0",
-    "text" : "Logout",
-    "keybind" : "e"
+    "label": "logout",
+    "action": "hyprctl dispatch exit 0",
+    "text": "Logout",
+    "keybind": "e"
 }
 
 {
-    "label" : "suspend",
-    "action" : "~/.config/wlogout/current_wall.sh && loginctl lock-session && systemctl suspend",
-    "text" : "Suspend",
-    "keybind" : "u"
+    "label": "suspend",
+    "action": "~/.config/wlogout/current_wall.sh && systemctl suspend",
+    "text": "Suspend",
+    "keybind": "u"
 }
 
 {
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown",
-    "keybind" : "s"
+    "label": "shutdown",
+    "action": "systemctl poweroff",
+    "text": "Shutdown",
+    "keybind": "s"
 }
 
 {
-    "label" : "hibernate",
-    "action" : "~/.config/wlogout/current_wall.sh && loginctl lock-session && systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
+    "label": "hibernate",
+    "action": "~/.config/wlogout/current_wall.sh && systemctl hibernate",
+    "text": "Hibernate",
+    "keybind": "h"
 }
 
 {
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot",
-    "keybind" : "r"
+    "label": "reboot",
+    "action": "systemctl reboot",
+    "text": "Reboot",
+    "keybind": "r"
 }
-
