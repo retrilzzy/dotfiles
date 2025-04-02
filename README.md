@@ -149,7 +149,7 @@ sudo pacman -S network-manager-applet \
 #### Остальное
 | Клавиши | Действие |
 | :--- | :--- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd> | Перезапуск Waybar |
+| <kbd>Super</kbd> + <kbd>Escape</kbd> | Скрыть/показать Waybar |
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
 
 
