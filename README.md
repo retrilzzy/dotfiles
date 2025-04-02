@@ -30,23 +30,23 @@
 
 ## Установка
 
-```
-# Обновление системы и установка Git
+```diff
++ Обновление системы и установка Git
 sudo pacman -Syu git
 
-# Клонирование репозитория c конфигами
++ Клонирование репозитория c конфигами
 git clone https://github.com/retrilzzy/dotfiles.git ~/dotfiles && cd ~/dotfiles
 
-# Запуск скрипта установки пакетов
++ Запуск скрипта установки пакетов
 chmod +x ./Scripts/install_packages.sh
 ./Scripts/install_packages.sh
 
-# Копирование старых конфигов в отдельную директорию
++ Копирование старых конфигов в отдельную директорию
 mkdir -p ~/.config_backup
 cp -r ~/.config ~/.config_backup/
 cp ~/{.zshrc,.p10k.zsh,.nanorc} ~/.config_backup/ 2>/dev/null
 
-# Копирование новых конфигов из dotfiles
++ Копирование новых конфигов из dotfiles
 cp -r ~/dotfiles/Configs/.config/* ~/.config/
 cp ~/dotfiles/Configs/.zshrc ~/dotfiles/Configs/.p10k.zsh ~/dotfiles/Configs/.nanorc ~/
 ```
