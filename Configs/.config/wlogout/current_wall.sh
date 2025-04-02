@@ -2,7 +2,7 @@
 
 TARGET_DIR="$HOME/Pictures"
 
-SELECTED_WALLPAPER=$(waypaper --list | sed -n 's/.*"wallpaper":\s*"\(.*\)".*/\1/p')
+SELECTED_WALLPAPER=$(waypaper --list | waypaper --list | jq -r '.[0].wallpaper')
 
 
 cp "$SELECTED_WALLPAPER" "$TARGET_DIR/wlogoutbg"
