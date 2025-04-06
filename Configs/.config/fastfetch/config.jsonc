@@ -3,18 +3,20 @@
     "logo": {
         "padding": {
             "top": 2,
+            "right": 2,
             "left": 1
         }
     },
     // "logo": {
-    // 	"source": "~/.config/fastfetch/chad.png",
-    // 	"type": "auto",
-    // 	"height": 17,
-    //  "width": 40,
-    // 	"padding": {
-    // 		"top": 2,
+    //     "source": "~/.config/fastfetch/chad.png",
+    //     "type": "auto",
+    //     "height": 15,
+    //     "width": 32,
+    //     "padding": {
+    //         "top": 4,
+    //         "right": 2,
     //         "left": 2
-    // 	}
+    //     }
     // },
     "display": {
         "separator": " "
@@ -23,36 +25,37 @@
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────Hardware─────────────────────────────────┐"
+            "format": "\u001b[90m┌─────────Hardware─────────────────────────────┐"
         },
         {
             "type": "host",
             "key": "󰌢 Laptop",
             "keyColor": "green",
-            "format": "{2}"
+            "format": "{name}"
         },
         {
             "type": "display",
             "key": "│ ├ Display",
             "keyColor": "green",
-            "format": "{1}x{2} @ {3}Hz {12}″"
+            "format": "{type} {width}x{height} @ {refresh-rate}Hz {inch}″"
         },
         {
             "type": "cpu",
             "key": "│ ├󰻠 CPU",
             "keyColor": "green",
-            "format": "{1} ({5})"
+            "format": "{name}"
         },
         {
             "type": "gpu",
             "key": "│ ├󰍛 GPU",
             "keyColor": "green",
-            "format": "{1} {2}"
+            "format": "{vendor} {name}"
         },
         {
             "type": "disk",
             "key": "│ ├ Disk",
-            "keyColor": "green"
+            "keyColor": "green",
+            "format": "{size-used} / {size-total} ({size-percentage}) {filesystem}"
         },
         {
             "type": "memory",
@@ -61,12 +64,12 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└──────────────────────────────────────────────┘"
         },
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────Software─────────────────────────────────┐"
+            "format": "\u001b[90m┌─────────Software─────────────────────────────┐"
         },
         {
             "type": "os",
@@ -100,12 +103,12 @@
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└──────────────────────────────────────────────┘"
         },
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────Misc─────────────────────────────────────┐"
+            "format": "\u001b[90m┌─────────Misc─────────────────────────────────┐"
         },
         {
             "type": "command",
@@ -120,11 +123,11 @@
         // },
         {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└──────────────────────────────────────────────┘"
         },
         {
             "type": "colors",
-            "paddingLeft": 19,
+            "paddingLeft": 15,
             "symbol": "circle",
             "block": {
                 "width": 20
