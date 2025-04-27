@@ -118,7 +118,7 @@
       "Authenticate": "  Authenticate"
     },
     "min-length": 5,
-    "max-length": 50
+    "max-length": 40
   },
 
 
