@@ -113,6 +113,7 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Q</kbd> | Закрыть активное окно |
 | <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим (pseudo) |
 | <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" (float) |
+| <kbd>Super</kbd> + <kbd>S</kbd> | Закрепление окна поверх всех рабочих столов (pin) |
 | <kbd>Super</kbd> + <kbd>D</kbd> | Переключение режима разделения окна |
 | <kbd>Alt</kbd> + <kbd>Tab</kbd> | Переключение на следующее окно |
 | <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
@@ -126,8 +127,8 @@ sudo pacman -S network-manager-applet \
 | :--- | :--- |
 | <kbd>Super</kbd> + <kbd>[0-9]</kbd> | Переключение между рабочими пространствами с 1 по 10 |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10 |
-| <kbd>Super</kbd> + <kbd>S</kbd> | Переключение на специальное рабочее пространство |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Перемещение окна в специальное рабочее пространство |
+| <kbd>Super</kbd> + <kbd>Tab</kbd> | Переключение на специальное рабочее пространство |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> | Перемещение окна в специальное рабочее пространство |
 | <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
 
 #### Скриншоты
