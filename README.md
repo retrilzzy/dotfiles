@@ -3,6 +3,7 @@
 ![Screenshot](./Assets/general.png)
 
 ## Навигация
+
 - [Установка](#установка)
 - [Обзор риса](#обзор-риса)
   - [Yay](#yay) - помощник для установки пакетов из AUR
@@ -25,8 +26,6 @@
     - [Обои](#обои) - коллекция обоев/фонов
   - [Emote](#emote) - выбор эмодзи
   - [Flameshot](#flameshot) - мощная утилита для скриншотов
-
-
 
 ## Установка
 
@@ -51,10 +50,7 @@ cp -r ~/dotfiles/Configs/.config/* ~/.config/
 cp ~/dotfiles/Configs/.zshrc ~/dotfiles/Configs/.p10k.zsh ~/dotfiles/Configs/.nanorc ~/
 ```
 
-
-
 ## Обзор риса
-
 
 ## Yay
 
@@ -66,7 +62,6 @@ sudo pacman -S --needed git base-devel \
   && cd yay && makepkg -si
 ```
 
-
 ## Hyprland
 
 Оконный менеджер (WM)
@@ -76,8 +71,9 @@ sudo pacman -S --needed git base-devel \
 - [[Правила окон и рабочих столов](./Configs/.config/hypr/rules.conf)]
 
 ### Дополнительные пакеты
+
 - Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
--  Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
+- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
 - Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
 - Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/extra/any/xdg-utils/)
 - Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
@@ -89,70 +85,74 @@ sudo pacman -S network-manager-applet \
   && yay -S hyprshot
 ```
 
-
 ### Бинды
 
-#### Запуск приложений 
-| Клавиши | Действие |
-| :--- | :--- |
-| <kbd>Super</kbd> + <kbd>W</kbd> | Терминал (Kitty) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)|
-| <kbd>Super</kbd> + <kbd>R</kbd> | Меню приложений (Rofi) |
-| <kbd>Super</kbd> + <kbd>E</kbd> | Файловый менеджер (Nautilus) |
-| <kbd>Super</kbd> + <kbd>C</kbd> | Редактор кода (VSCode) |
-| <kbd>Super</kbd> + <kbd>B</kbd> | Браузер (Brave) |
-| <kbd>Super</kbd> + <kbd>K</kbd> | Менеджер паролей (Keepassxc) |
-| <kbd>Super</kbd> + <kbd>V</kbd> | Буфер обмена (Cliphist) |
-| <kbd>Super</kbd> + <kbd>N</kbd> | Центр уведомлений (Swaync) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper) |
+#### Запуск приложений
+
+| Клавиши                                            | Действие                            |
+| :------------------------------------------------- | :---------------------------------- |
+| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                    |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float) |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)              |
+| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)        |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode)              |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave)                     |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (Keepassxc)        |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Cliphist)             |
+| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (Swaync)          |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)        |
 
 #### Взаимодействие с окнами
-| Клавиши | Действие |
-| :--- | :--- | 
-| <kbd>Super</kbd> + <kbd>Q</kbd> | Закрыть активное окно |
-| <kbd>Super</kbd> + <kbd>A</kbd> | Переключение на псевдоплиточный режим (pseudo) |
-| <kbd>Super</kbd> + <kbd>F</kbd> | Переключение окна в режим "плавающее" (float) |
-| <kbd>Super</kbd> + <kbd>S</kbd> | Закрепление окна поверх всех рабочих столов (pin) |
-| <kbd>Super</kbd> + <kbd>D</kbd> | Переключение режима разделения окна |
-| <kbd>Alt</kbd> + <kbd>Tab</kbd> | Переключение на следующее окно |
-| <kbd>Super</kbd> + <kbd>Стрелки</kbd> | Перемещение фокуса между окнами |
-| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd> | Перемещение окон |
-| <kbd>Super</kbd> + <kbd>ЛКМ</kbd> | Перемещение окон мышью |
-| <kbd>Super</kbd> + <kbd>ПКМ</kbd> | Изменение размера окон мышью |
+
+| Клавиши                                                    | Действие                                          |
+| :--------------------------------------------------------- | :------------------------------------------------ |
+| <kbd>Super</kbd> + <kbd>Q</kbd>                            | Закрыть активное окно                             |
+| <kbd>Super</kbd> + <kbd>A</kbd>                            | Переключение на псевдоплиточный режим (pseudo)    |
+| <kbd>Super</kbd> + <kbd>F</kbd>                            | Переключение окна в режим "плавающее" (float)     |
+| <kbd>Super</kbd> + <kbd>S</kbd>                            | Закрепление окна поверх всех рабочих столов (pin) |
+| <kbd>Super</kbd> + <kbd>D</kbd>                            | Переключение режима разделения окна               |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd>                            | Переключение на следующее окно                    |
+| <kbd>Super</kbd> + <kbd>Стрелки</kbd>                      | Перемещение фокуса между окнами                   |
+| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна                  |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd>   | Перемещение окон                                  |
+| <kbd>Super</kbd> + <kbd>ЛКМ</kbd>                          | Перемещение окон мышью                            |
+| <kbd>Super</kbd> + <kbd>ПКМ</kbd>                          | Изменение размера окон мышью                      |
 
 #### Рабочие пространства (столы)
-| Клавиши | Действие |
-| :--- | :--- |
-| <kbd>Super</kbd> + <kbd>[0-9]</kbd> | Переключение между рабочими пространствами с 1 по 10 |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10 |
-| <kbd>Super</kbd> + <kbd>Tab</kbd> | Переключение на специальное рабочее пространство |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd> | Перемещение окна в специальное рабочее пространство |
-| <kbd>Super</kbd> + <kbd>Колесо мыши</kbd> | Переключение между рабочими пространствами |
 
-#### Скриншоты
-| Клавиши | Действие |
-| :--- | :--- |
-| <kbd>Print</kbd> | Скриншот всего экрана |
-| <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области |
-| <kbd>Super</kbd> + <kbd>Print</kbd> | Скриншот выборного окна |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (мощная утилита для скриншотов) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
+| Клавиши                                                | Действие                                             |
+| :----------------------------------------------------- | :--------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>[0-9]</kbd>                    | Переключение между рабочими пространствами с 1 по 10 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10    |
+| <kbd>Super</kbd> + <kbd>Tab</kbd>                      | Переключение на специальное рабочее пространство     |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>   | Перемещение окна в специальное рабочее пространство  |
+| <kbd>Super</kbd> + <kbd>Колесо мыши</kbd>              | Переключение между рабочими пространствами           |
 
 #### Управление экраном/питанием
-| Клавиши | Действие |
-| :--- | :--- |
-| <kbd>Super</kbd> + <kbd>L</kbd> | Заблокировать экран |
-| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей |
+
+| Клавиши                                          | Действие                                       |
+| :----------------------------------------------- | :--------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>L</kbd>                  | Заблокировать экран                            |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей                     |
 | <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
 
-#### Остальное
-| Клавиши | Действие |
-| :--- | :--- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd> | Скрыть/показать Waybar |
-| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
+#### Скриншоты
 
+| Клавиши                                                | Действие                                           |
+| :----------------------------------------------------- | :------------------------------------------------- |
+| <kbd>Print</kbd>                                       | Скриншот всего экрана                              |
+| <kbd>Shift</kbd> + <kbd>Print</kbd>                    | Скриншот выделенной области                        |
+| <kbd>Super</kbd> + <kbd>Print</kbd>                    | Скриншот выборного окна                            |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>     | Flameshot GUI (мощная утилита для скриншотов)      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
+
+#### Остальное
+
+| Клавиши                                         | Действие                               |
+| :---------------------------------------------- | :------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>            | Скрыть/показать Waybar                 |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
 
 ### Иконки
 
@@ -161,7 +161,6 @@ https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 ```
 sudo pacman -S papirus-icon-theme
 ```
-
 
 ### Курсор
 
@@ -173,25 +172,25 @@ https://github.com/ndom91/rose-pine-hyprcursor
 yay -S rose-pine-cursor rose-pine-hyprcursor
 ```
 
-
 ### Шрифты
 
 Поддержка всех символов
+
 ```
 sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
 ```
 
 Шрифт для VSCode
+
 ```
 sudo pacman -S ttf-jetbrains-mono-nerd
 ```
 
 Шрифт для терминала
+
 ```
 yay -S ttf-meslo-nerd-font-powerlevel10k
 ```
-
-
 
 ### Hypridle
 
@@ -201,20 +200,18 @@ yay -S ttf-meslo-nerd-font-powerlevel10k
 sudo pacman -S hypridle
 ```
 
-| Действие              | Таймаут   |
-| --------------------- | --------- |
-| Снижение яркости      | 5 мин.    |
-| Блокировка экрана     | 10 мин.   |
-| Выключение экрана     | 10.2 мин. |
-| Спящий режим          | 20 мин.   |
-
-
+| Действие          | Таймаут   |
+| ----------------- | --------- |
+| Снижение яркости  | 5 мин.    |
+| Блокировка экрана | 10 мин.   |
+| Выключение экрана | 10.2 мин. |
+| Спящий режим      | 20 мин.   |
 
 ### Hyprlock
 
 Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
-*в конфиге надо поменять путь к изображению*
+_в конфиге надо поменять путь к изображению_
 
 ```
 sudo pacman -S hyprlock
@@ -225,8 +222,6 @@ sudo pacman -S hyprlock
 ![Screenshot](./Assets/hyprlock.png)
 
 </details>
-
-
 
 ## Waybar
 
@@ -241,8 +236,6 @@ sudo pacman -S waybar
 ![Screenshot](./Assets/waybar.png)
 
 </details>
-
-
 
 ## Rofi
 
@@ -264,8 +257,6 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 </details>
 
-
-
 ## Wlogout
 
 Блокировка экрана, выход, перезагрузка, выключение и т.д. [[конфиг](./Configs/.config/wlogout/)]
@@ -279,8 +270,6 @@ yay -S wlogout
 ![Screenshot](./Assets/wlogout.png)
 
 </details>
-
-
 
 ## Терминал
 
@@ -336,13 +325,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sudo pacman -S exa
 ```
 
-Установка [The F*ck](https://github.com/nvbn/thefuck) (корректировщик предыдущих команд в терминале)
+Установка [The F\*ck](https://github.com/nvbn/thefuck) (корректировщик предыдущих команд в терминале)
 
 ```
 sudo pacman -S thefuck
 ```
-
-
 
 ## Fastfetch
 
@@ -358,8 +345,6 @@ sudo pacman -S fastfetch
 
 </details>
 
-
-
 ## Nwg-look
 
 Настройка GTK3 [[конфиг](./Configs/.config/nwg-look/)]
@@ -371,11 +356,10 @@ sudo pacman -S nwg-look
 **Темная тема Adwaita**
 
 `~/.themes/Adwaita-Dark/gtk-3.0/gtk.css`
+
 ```
 @import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
 ```
-
-
 
 ## SwayNC
 
@@ -384,8 +368,6 @@ sudo pacman -S nwg-look
 ```
 sudo pacman -S swaync
 ```
-
-
 
 ## Waypaper
 
@@ -396,21 +378,21 @@ yay -S waypaper
 ```
 
 Для статичных изображений и gif
+
 ```
 sudo pacman -S swww
 ```
 
 Для видео
+
 ```
 sudo pacman -S mpvpaper
 ```
 
-
 ### Обои
+
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
-
-
 
 ## Emote
 
@@ -419,8 +401,6 @@ sudo pacman -S mpvpaper
 ```
 yay -S emote
 ```
-
-
 
 ## Flameshot
 
