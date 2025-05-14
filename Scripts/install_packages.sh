@@ -59,6 +59,10 @@ install "Grim, Hyprshot (cкриншоты)" \
     "sudo pacman -S --noconfirm grim && yay -S --noconfirm hyprshot"
 
 
+install "wf-recorder (запись экрана)" \
+    "sudo pacman -S --noconfirm wf-recorder"
+
+
 install "Wlogout (меню выключения)" \
     "yay -S --noconfirm wlogout"
 

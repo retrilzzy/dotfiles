@@ -81,7 +81,7 @@ sudo pacman -S --needed git base-devel \
 ```
 sudo pacman -S network-manager-applet \
   bluez bluez-tools blueman \
-  brightnessctl xdg-utils grim \
+  brightnessctl xdg-utils wf-recorder grim \
   && yay -S hyprshot
 ```
 
@@ -149,10 +149,11 @@ sudo pacman -S network-manager-applet \
 
 #### Остальное
 
-| Клавиши                                         | Действие                               |
-| :---------------------------------------------- | :------------------------------------- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd>            | Скрыть/показать Waybar                 |
-| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd> | Случайный фон из директории Wallpapers |
+| Клавиши                                            | Действие                                   |
+| :------------------------------------------------- | :----------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                     |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers     |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать запись области экрана (wf-recorder) |
 
 ### Иконки
 
