@@ -54,6 +54,8 @@
         "waypaper",
         "wlogout",
         "wpctl",
-        "XCURSOR"
+        "XCURSOR",
+        "конфигов",
+        "бэкапов"
     ]
 }
