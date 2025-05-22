@@ -133,9 +133,9 @@ install "Nwg-look (настройка GTK)" "sudo pacman -S --noconfirm nwg-look
 install "Swaync (уведомления похожие на GNOME)" "sudo pacman -S --noconfirm swaync"
 
 
-install "Waypaper (интерфейс для управления обоями)" "yay -S --noconfirm waypaper"
-
-install "Swww (бэкенд для статичных обоев)" "sudo pacman -S --noconfirm swww"
+install "Waypaper (интерфейс для управления обоями)" \
+    "yay -S --noconfirm waypaper swww \
+    && cp -r ~/dotfiles/Assets/wallpapers/* ~/Pictures/Wallpapers/"
 
 install "Mpvpaper (бэкенд для видео обоев)" "sudo pacman -S --noconfirm mpvpaper"
 
