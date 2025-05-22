@@ -29,25 +29,38 @@
 
 ## Установка
 
-```diff
-+ Обновление системы и установка Git
-sudo pacman -Syu git
+0. Обновление системы
 
-+ Клонирование репозитория c конфигами
-git clone https://github.com/retrilzzy/dotfiles.git ~/dotfiles && cd ~/dotfiles
+   ```
+   sudo pacman -Syu
+   ```
 
-+ Запуск скрипта установки пакетов
-chmod +x ./Scripts/install_packages.sh
-./Scripts/install_packages.sh
+1. Установка Git
 
-+ Копирование старых конфигов в отдельную директорию
-mkdir -p ~/.config_backup
-cp -r ~/.config ~/.config_backup/
-cp ~/{.zshrc,.p10k.zsh,.nanorc} ~/.config_backup/ 2>/dev/null
+   ```
+   sudo pacman -S git
+   ```
 
-+ Копирование новых конфигов из dotfiles
-cp -r ~/dotfiles/Configs/.config/* ~/.config/
-cp ~/dotfiles/Configs/.zshrc ~/dotfiles/Configs/.p10k.zsh ~/dotfiles/Configs/.nanorc ~/
+2. Клонирование репозитория
+
+   ```
+   git clone https://github.com/retrilzzy/dotfiles.git ~/dotfiles && cd ~/dotfiles
+   ```
+
+3. Запуск скрипта установки
+
+   _Автоматически создаст резервную копию старых конфигов `~/.config/` в `~/.config-backups/`_
+
+   ```
+   chmod +x ./Scripts/install.sh
+   ./Scripts/install.sh
+   ```
+
+### Восстановление резервной копии конфигов
+
+```
+chmod +x ~/dotfiles/Scripts/restore.sh
+~/dotfiles/Scripts/restore.sh
 ```
 
 ## Обзор риса
@@ -58,8 +71,8 @@ cp ~/dotfiles/Configs/.zshrc ~/dotfiles/Configs/.p10k.zsh ~/dotfiles/Configs/.na
 
 ```
 sudo pacman -S --needed git base-devel \
-  && git clone https://aur.archlinux.org/yay.git \
-  && cd yay && makepkg -si
+ && git clone https://aur.archlinux.org/yay.git \
+ && cd yay && makepkg -si
 ```
 
 ## Hyprland
@@ -80,9 +93,9 @@ sudo pacman -S --needed git base-devel \
 
 ```
 sudo pacman -S network-manager-applet \
-  bluez bluez-tools blueman \
-  brightnessctl xdg-utils wf-recorder grim \
-  && yay -S hyprshot
+ bluez bluez-tools blueman \
+ brightnessctl xdg-utils wf-recorder grim \
+ && yay -S hyprshot
 ```
 
 ### Бинды
@@ -212,8 +225,6 @@ sudo pacman -S hypridle
 
 Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
-_в конфиге надо поменять путь к изображению_
-
 ```
 sudo pacman -S hyprlock
 ```
@@ -292,6 +303,12 @@ yay -S wlogout
 
 ```
 sudo pacman -S kitty zsh
+```
+
+Смена оболочки
+
+```
+chsh -s $(which zsh)
 ```
 
 Установка Oh My Zsh
