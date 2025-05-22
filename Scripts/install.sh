@@ -52,7 +52,7 @@ install "Git, Curl (жизненно необходимые пакеты)" \
 
 
 install "Yay (AUR помощник) [Без Yay вы не сможете установить часть пакетов!]" \
-    "sudo pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
+    "sudo pacman -S --noconfirm --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
 
 
 install "Network Manager (сетевые инструменты)" \
@@ -76,7 +76,8 @@ install "Playerctl (управление медиа плеером)" \
 
 
 install "Шрифты (Noto, JetBrains Mono, Nerd Fonts)" \
-    "sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono ttf-nerd-fonts-symbols"
+    "sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono \
+    && yay -S --noconfirm ttf-meslo-nerd-font-powerlevel10k"
 
 
 install "Rose Pine (тема курсора)" \
