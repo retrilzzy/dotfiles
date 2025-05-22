@@ -1,12 +1,11 @@
 /* General */
-@define-color background        #0f0f0f;
+@define-color background        rgba(0, 0, 0, 0);
 @define-color foreground        rgba(200, 200, 200, 1.0);
 @define-color hover             rgba(200, 200, 200, 0.2);
 
-
 /* Workspace */
 @define-color active-bg         rgba(150, 150, 150, 0.3);
-@define-color active-fg         #0f0f0f;
+@define-color active-fg         rgba(15, 15, 15, 1.0);
 @define-color hover-bg          rgba(220, 220, 220, 0.2);
 @define-color hover-fg          rgba(200, 200, 200, 1.0);
 

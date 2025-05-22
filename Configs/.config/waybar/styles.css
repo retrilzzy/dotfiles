@@ -12,10 +12,10 @@
 
 /* Main Background */
 window#waybar {
-  background: transparent;
+  background: @background;
 }
 
-window#waybar > box {
+window#waybar>box {
   margin-top: 4px;
 }
 
@@ -233,7 +233,7 @@ tooltip {
   background: @power;
   margin-right: 6px;
   padding-right: 5px;
-  padding-left:11px;
+  padding-left: 11px;
 }
 
 #custom-power:hover {

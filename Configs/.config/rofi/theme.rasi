@@ -1,10 +1,10 @@
 * {
-    main-bg:            rgba(20, 20, 20, 0.95);
+    main-bg:            rgba(35, 35, 35, 0.98);
     main-fg:            rgba(200, 200, 200, 1.0);
-    main-br:            rgba(150, 150, 150, 0.3);
+    main-br:            rgba(150, 150, 150, 0.4);
     main-ex:            rgba(200, 200, 200, 1.0);
-    select-bg:          rgba(220, 220, 220, 0.9);
-    select-fg:          #0f0f0f;
-    separatorcolor:     transparent;
+    select-bg:          rgba(220, 220, 220, 1);
+    select-fg:          rgba(15, 15, 15, 1.0);
+    separatorcolor:     rgba(0, 0, 0, 0);
     border-color:       rgba(220, 220, 220, 0.3);
 }
