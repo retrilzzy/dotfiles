@@ -6,9 +6,8 @@
 
 - [Установка](#установка)
 - [Обзор риса](#обзор-риса)
-  - [Yay](#yay) - помощник для установки пакетов из AUR
+  - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
   - [Hyprland](#hyprland) - оконный менеджер
-    - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
     - [Бинды](#бинды) - все сочетания клавиш
     - [Иконки](#иконки) - пак иконок
     - [Курсор](#курсор) - тема курсора
@@ -18,12 +17,12 @@
   - [Waybar](#waybar) - wayland бар
   - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
   - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
-  - [Fastfetch](#fastfetch) - похвастаться линуксом)
   - [Nwg-look](#nwg-look) - настройка GTK3
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
   - [Waypaper](#waypaper) - GUI для простого управление обоями
     - [Обои](#обои) - коллекция обоев/фонов
+  - [Fastfetch](#fastfetch) - похвастаться линуксом)
   - [Emote](#emote) - выбор эмодзи
   - [Flameshot](#flameshot) - мощная утилита для скриншотов
 
@@ -65,14 +64,31 @@ chmod +x ~/dotfiles/Scripts/restore.sh
 
 ## Обзор риса
 
-## Yay
+## Дополнительные пакеты
 
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
 
+  ```
+  sudo pacman -S --needed git base-devel \
+   && git clone https://aur.archlinux.org/yay.git \
+   && cd yay && makepkg -si
+  ```
+
+- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
+- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
+- Управления яркостью экрана - [brightnessctl](https://archlinux.org/packages/extra/x86_64/brightnessctl/)
+- Управление мультимедиа - [playerctl](https://archlinux.org/packages/extra/x86_64/playerctl/)
+- Интеграция приложений с рабочим столом - [xdg-utils, xdg-desktop-portal](https://archlinux.org/packages/extra/any/xdg-utils/)
+- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
+- Запись с экрана - [wf-recorder](https://archlinux.org/packages/extra/x86_64/wf-recorder/)
+
 ```
-sudo pacman -S --needed git base-devel \
- && git clone https://aur.archlinux.org/yay.git \
- && cd yay && makepkg -si
+sudo pacman -S network-manager-applet \
+ bluez bluez-tools blueman \
+ brightnessctl playerctl \
+ xdg-utils xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal \
+ wf-recorder \
+ && yay -S hyprshot
 ```
 
 ## Hyprland
@@ -83,24 +99,12 @@ sudo pacman -S --needed git base-devel \
 - [[Бинды](./Configs/.config/hypr/keybindings.conf)]
 - [[Правила окон и рабочих столов](./Configs/.config/hypr/rules.conf)]
 
-### Дополнительные пакеты
+## Бинды
 
-- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
-- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
-- Управления яркостью экрана - [brightnessctl](https://github.com/Hummer12007/brightnessctl)
-- Копирование изображения в буфер обмена - [xdg-utils](https://archlinux.org/packages/extra/any/xdg-utils/)
-- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
-
-```
-sudo pacman -S network-manager-applet \
- bluez bluez-tools blueman \
- brightnessctl xdg-utils wf-recorder grim \
- && yay -S hyprshot
-```
-
-### Бинды
-
-#### Запуск приложений
+<details>
+   <summary>
+      <h4>Запуск приложений</h4>
+   </summary>
 
 | Клавиши                                            | Действие                            |
 | :------------------------------------------------- | :---------------------------------- |
@@ -116,7 +120,12 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                 |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)        |
 
-#### Взаимодействие с окнами
+</details>
+
+<details>
+   <summary>
+      <h4>Взаимодействие с окнами</h4>
+   </summary>
 
 | Клавиши                                                    | Действие                                          |
 | :--------------------------------------------------------- | :------------------------------------------------ |
@@ -132,7 +141,12 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>ЛКМ</kbd>                          | Перемещение окон мышью                            |
 | <kbd>Super</kbd> + <kbd>ПКМ</kbd>                          | Изменение размера окон мышью                      |
 
-#### Рабочие пространства (столы)
+</details>
+
+<details>
+   <summary>
+      <h4>Рабочие пространства (столы)</h4>
+   </summary>
 
 | Клавиши                                                | Действие                                             |
 | :----------------------------------------------------- | :--------------------------------------------------- |
@@ -142,7 +156,12 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>   | Перемещение окна в специальное рабочее пространство  |
 | <kbd>Super</kbd> + <kbd>Колесо мыши</kbd>              | Переключение между рабочими пространствами           |
 
-#### Управление экраном/питанием
+</details>
+
+<details>
+   <summary>
+      <h4> Управление экраном/питанием</h4>
+   </summary>
 
 | Клавиши                                          | Действие                                       |
 | :----------------------------------------------- | :--------------------------------------------- |
@@ -150,7 +169,12 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей                     |
 | <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
 
-#### Скриншоты
+</details>
+
+<details>
+   <summary>
+      <h4>Скриншоты</h4>
+   </summary>
 
 | Клавиши                                                | Действие                                           |
 | :----------------------------------------------------- | :------------------------------------------------- |
@@ -160,7 +184,12 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>     | Flameshot GUI (мощная утилита для скриншотов)      |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
 
-#### Остальное
+</details>
+
+<details>
+   <summary>
+      <h4>Остальное</h4>
+   </summary>
 
 | Клавиши                                            | Действие                                   |
 | :------------------------------------------------- | :----------------------------------------- |
@@ -168,7 +197,9 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers     |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать запись области экрана (wf-recorder) |
 
-### Иконки
+</details>
+
+## Иконки
 
 https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 
@@ -176,7 +207,7 @@ https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
 sudo pacman -S papirus-icon-theme
 ```
 
-### Курсор
+## Курсор
 
 https://github.com/rose-pine/cursor
 
@@ -186,27 +217,27 @@ https://github.com/ndom91/rose-pine-hyprcursor
 yay -S rose-pine-cursor rose-pine-hyprcursor
 ```
 
-### Шрифты
+## Шрифты
 
-Поддержка всех символов
+- [Noto](https://www.google.com/get/noto/) - поддержка всех языков + эмодзи + специальные символы
 
-```
-sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
-```
+  ```
+  sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
+  ```
 
-Шрифт для VSCode
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и Waybar
 
-```
-sudo pacman -S ttf-jetbrains-mono-nerd
-```
+  ```
+  sudo pacman -S ttf-jetbrains-mono-nerd
+  ```
 
-Шрифт для терминала
+- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) рекомендуемый шрифт для powerlevel10k (Zsh тема)
 
-```
-yay -S ttf-meslo-nerd-font-powerlevel10k
-```
+  ```
+  yay -S ttf-meslo-nerd-font-powerlevel10k
+  ```
 
-### Hypridle
+## Hypridle
 
 Поведение при бездействии [[конфиг](./Configs/.config/hypr/hypridle.conf)]
 
@@ -214,14 +245,15 @@ yay -S ttf-meslo-nerd-font-powerlevel10k
 sudo pacman -S hypridle
 ```
 
-| Действие          | Таймаут   |
-| ----------------- | --------- |
-| Снижение яркости  | 5 мин.    |
-| Блокировка экрана | 10 мин.   |
-| Выключение экрана | 10.2 мин. |
-| Спящий режим      | 20 мин.   |
+| Действие          | Таймаут |
+| ----------------- | ------- |
+| Снижение яркости  | 10 мин. |
+| Уведомление       | 13 мин. |
+| Блокировка сессии | 15 мин. |
+| Выключение экрана | 16 мин. |
+| Спящий режим      | 18 мин. |
 
-### Hyprlock
+## Hyprlock
 
 Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
@@ -349,20 +381,6 @@ sudo pacman -S exa
 sudo pacman -S thefuck
 ```
 
-## Fastfetch
-
-Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
-
-```
-sudo pacman -S fastfetch
-```
-
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/fastfetch.png)
-
-</details>
-
 ## Nwg-look
 
 Настройка GTK3 [[конфиг](./Configs/.config/nwg-look/)]
@@ -411,6 +429,20 @@ sudo pacman -S mpvpaper
 
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
+
+## Fastfetch
+
+Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
+
+```
+sudo pacman -S fastfetch
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/fastfetch.png)
+
+</details>
 
 ## Emote
 
