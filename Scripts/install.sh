@@ -92,7 +92,7 @@ install "Grim, Hyprshot (cкриншоты)" \
     "sudo pacman -S --noconfirm grim && yay -S --noconfirm hyprshot"
 
 
-install "wf-recorder (запись экрана)" \
+install "Wf-recorder (запись экрана)" \
     "sudo pacman -S --noconfirm wf-recorder"
 
 
@@ -128,7 +128,10 @@ install "Плагины для Zsh" \
     && git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 
-install "Nwg-look (настройка GTK)" "sudo pacman -S --noconfirm nwg-look"
+install "Nwg-look (настройка GTK)" \
+    "mkdir -p ~/.themes/Adwaita-Dark/gtk-3.0 \
+    && echo '@import url(\"resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css\");' > ~/.themes/Adwaita-Dark/gtk-3.0/gtk.css \
+    && sudo pacman -S --noconfirm nwg-look"
 
 
 install "Swaync (уведомления похожие на GNOME)" "sudo pacman -S --noconfirm swaync"
