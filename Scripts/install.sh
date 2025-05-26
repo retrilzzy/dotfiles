@@ -88,14 +88,6 @@ install "Papirus (иконки)" \
     "sudo pacman -S --noconfirm papirus-icon-theme"
 
 
-install "Grim, Hyprshot (cкриншоты)" \
-    "sudo pacman -S --noconfirm grim && yay -S --noconfirm hyprshot"
-
-
-install "Wf-recorder (запись экрана)" \
-    "sudo pacman -S --noconfirm wf-recorder"
-
-
 install "Wlogout (меню выключения)" \
     "yay -S --noconfirm wlogout"
 
@@ -134,6 +126,10 @@ install "Nwg-look (настройка GTK)" \
     && sudo pacman -S --noconfirm nwg-look"
 
 
+install "Qt5ct (настройка Qt)" \
+    "sudo pacman -S --noconfirm qt5ct"
+
+
 install "Swaync (уведомления похожие на GNOME)" "sudo pacman -S --noconfirm swaync"
 
 
@@ -142,6 +138,14 @@ install "Waypaper (интерфейс для управления обоями)"
     && cp -r ~/dotfiles/Assets/wallpapers/* ~/Pictures/Wallpapers/"
 
 install "Mpvpaper (бэкенд для видео обоев)" "sudo pacman -S --noconfirm mpvpaper"
+
+
+install "Grim, Hyprshot (cкриншоты)" \
+    "sudo pacman -S --noconfirm grim && yay -S --noconfirm hyprshot"
+
+
+install "Wf-recorder (запись экрана)" \
+    "sudo pacman -S --noconfirm wf-recorder"
 
 
 install "Emote (выбор эмодзи)" "yay -S --noconfirm emote"

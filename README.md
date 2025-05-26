@@ -18,6 +18,7 @@
   - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
   - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
   - [Nwg-look](#nwg-look) - настройка GTK3
+  - [Qt5ct](#qt5ct) - настройка Qt5
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
   - [Waypaper](#waypaper) - GUI для простого управление обоями
@@ -395,6 +396,14 @@ sudo pacman -S nwg-look
 
 ```
 @import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+```
+
+## Qt5ct
+
+Настройка Qt5 [[конфиг](./Configs/.config/qt5ct/)]
+
+```
+sudo pacman -S qt5ct
 ```
 
 ## SwayNC
