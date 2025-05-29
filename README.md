@@ -328,7 +328,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/legacy/terminal.png)
+![Screenshot](./Assets/terminal.png)
 
 </details><br>
 
