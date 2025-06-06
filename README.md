@@ -376,12 +376,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 sudo pacman -S exa
 ```
 
-Установка [The F\*ck](https://github.com/nvbn/thefuck) (корректировщик предыдущих команд в терминале)
-
-```
-sudo pacman -S thefuck
-```
-
 ## Nwg-look
 
 Настройка GTK3 [[конфиг](./Configs/.config/nwg-look/)]

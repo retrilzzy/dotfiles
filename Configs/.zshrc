@@ -13,6 +13,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="dd/mm/yyyy"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -21,32 +27,27 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-HIST_STAMPS="dd/mm/yyyy"
-
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/h
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
 git
 zsh-syntax-highlighting
 zsh-autosuggestions
+zsh-wakatime
 dirhistory
 docker
 archlinux
 poetry
+golang
 )
+
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# User configuration
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -54,13 +55,7 @@ export ARCHFLAGS="-arch x86_64"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Keybind
-# bindkey "^[[1;3C" forward-word # ALT + ArrowRight
-# bindkey "^[[1;3D" backward-word # ALT + ArrowLeft
-
 # Aliases
-eval $(thefuck --alias bruh)
-
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa"
     alias la="exa --long --all --group"
