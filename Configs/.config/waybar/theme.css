@@ -11,27 +11,28 @@
 
 
 /* Modules */
+@define-color module-bg         rgba(40, 40, 40, 0.95);
 
 /* Left */
-@define-color tooltip           rgba(40, 40, 40, 0.95);
-@define-color logo              rgba(40, 40, 40, 0.95);
-@define-color workspaces        rgba(40, 40, 40, 0.95);
-@define-color window            rgba(40, 40, 40, 0.95);
+@define-color tooltip           @module-bg;
+@define-color logo              @module-bg;
+@define-color workspaces        @module-bg;
+@define-color window            @module-bg;
 
 /* Central */
-@define-color cpu               rgba(40, 40, 40, 0.95);
-@define-color cpuinfo           rgba(40, 40, 40, 0.95);
-@define-color memory            rgba(40, 40, 40, 0.95);
-@define-color time              rgba(40, 40, 40, 0.95);
-@define-color date              rgba(40, 40, 40, 0.95);
+@define-color cpu               @module-bg;
+@define-color cpuinfo           @module-bg;
+@define-color memory            @module-bg;
+@define-color time              @module-bg;
+@define-color date              @module-bg;
 
 /* Right */
-@define-color network           rgba(40, 40, 40, 0.95);
-@define-color tray              rgba(40, 40, 40, 0.95);
-@define-color privacy           rgba(40, 40, 40, 0.95);
-@define-color language          rgba(40, 40, 40, 0.95);
-@define-color pulseaudio        rgba(40, 40, 40, 0.95);
-@define-color backlight         rgba(40, 40, 40, 0.95);
-@define-color battery           rgba(40, 40, 40, 0.95);
-@define-color power             rgba(40, 40, 40, 0.95);
-@define-color power-hv          rgba(40, 40, 40, 0.95);
+@define-color network           @module-bg;
+@define-color tray              @module-bg;
+@define-color privacy           @module-bg;
+@define-color language          @module-bg;
+@define-color pulseaudio        @module-bg;
+@define-color backlight         @module-bg;
+@define-color battery           @module-bg;
+@define-color power             @module-bg;
+@define-color power-hv          rgba(55, 55, 55, 1);
