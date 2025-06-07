@@ -38,12 +38,11 @@
 
   // Left modules
   "idle_inhibitor": {
-    "format": " rzx.ovh",
+    "format": "  ",
     "tooltip": true,
     "tooltip-format-activated": "Presentation Mode",
     "tooltip-format-deactivated": "Idle Mode",
     "start-activated": false,
-    "max-length": 20,
     "timeout": 5
   },
 
@@ -69,56 +68,57 @@
     "separate-outputs": true,
     "rewrite": {
       // Desktop
-      "": "󰢤 No window",
+      "": " rzx.ovh",
 
       // Terminal
-      "rzx@arch:(.*)": "  $1",
-      "(.*)rzx@arch:~": "  rzx@arch",
+      "(.*):~": "  $1",
 
       // Brave
       "(.*) - Brave": "<span foreground='#e07f00'> </span> $1",
-      "(.*)Brave-browser": "<span foreground='#e07f00'> </span> Brave",
 
       // VSCode
       "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
       "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
 
       // Discord
-      "vesktop": "<span foreground='#89b4fa'> </span> Discord",
-      "• Discord(.*)": "Discord$1",
-      "(.*)Discord(.*)": "<span foreground='#89b4fa'> </span> $1Discord$2",
+      "(.*) - Discord": "<span foreground='#89b4fa'> </span> Discord$2",
+
+      // Obsidian
+      "(.*) - Obsidian(.*)": "<span foreground='#9B59B6'> </span> $1",
+
+      // Steam
+      "(.*)Big Picture": "<span foreground='#66C0F4'> </span> Steam Big Picture",
+      "(.*)Steam": "<span foreground='#66C0F4'> </span> Steam",
 
       // OBS Studio
-      "OBS(.*)": "<span foreground='#a6adc8'>󰐌 </span> OBS Studio",
+      "OBS (.*)": "<span foreground='#a6adc8'>󰐌 </span> OBS Studio",
 
       // VLC Media Player
       "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
       "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
 
-      // OnlyOffice
-      "ONLYOFFICE Desktop Editors": "<span foreground='#f38ba8'> </span> OnlyOffice Desktop",
-      "(.*).docx": "<span foreground='#89b4fa'> </span> $1.docx",
-      "(.*).xlsx": "<span foreground='#a6e3a1'> </span> $1.xlsx",
-      "(.*).pptx": "<span foreground='#fab387'> </span> $1.pptx",
-      "(.*).pdf": "<span foreground='#f38ba8'> </span> $1.pdf",
+      // Office
+      "ONLYOFFICE": "<span foreground='#C6C6C6'> </span> OnlyOffice",
+      "LibreOffice": "<span foreground='#34C34F'> </span> LibreOffice",
+      "(.*).docx(.*)": "<span foreground='#89b4fa'> </span> $1.docx",
+      "(.*).xlsx(.*)": "<span foreground='#00B05A'> </span> $1.xlsx",
+      "(.*).pptx(.*)": "<span foreground='#E88A50'> </span> $1.pptx",
+      "(.*).pdf(.*)": "<span foreground='#E53935'> </span> $1.pdf",
 
-      // File Mmanager
-      "/": "  File Manager",
-
-      // qView
-      "qView": "  qView",
+      // Image Viewer
+      "Image Viewer": "  Image Viewer",
       "(.*).jpg": "  $1.jpg",
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
 
       // Timeshift
-      "Timeshift-gtk": "<span foreground='#a6e3a1'> </span> Timeshift",
+      "Timeshift-gtk": "<span foreground='#a6e3a1'>󰁯 </span> Timeshift",
 
       // Security
       "Authenticate": "  Authenticate"
     },
-    "min-length": 5,
-    "max-length": 40
+    "min-length": 3,
+    "max-length": 50
   },
 
 
