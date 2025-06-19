@@ -193,7 +193,7 @@
   "tray": {
     "icon-size": 18,
     "rotate": 0,
-    "spacing": 5
+    "spacing": 8
   },
 
   "privacy": {
