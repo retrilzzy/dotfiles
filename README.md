@@ -177,13 +177,11 @@ sudo pacman -S network-manager-applet \
       <h4>Скриншоты</h4>
    </summary>
 
-| Клавиши                                                | Действие                                           |
-| :----------------------------------------------------- | :------------------------------------------------- |
-| <kbd>Print</kbd>                                       | Скриншот всего экрана                              |
-| <kbd>Shift</kbd> + <kbd>Print</kbd>                    | Скриншот выделенной области                        |
-| <kbd>Super</kbd> + <kbd>Print</kbd>                    | Скриншот выборного окна                            |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>     | Flameshot GUI (мощная утилита для скриншотов)      |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Print</kbd> | Скриншот выделенной области и загрузка в Chibisafe |
+| Клавиши                                            | Действие                                                        |
+| :------------------------------------------------- | :-------------------------------------------------------------- |
+| <kbd>Print</kbd>                                   | Скриншот всего экрана                                           |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (мощная утилита для скриншотов)                   |
+| <kbd>Super</kbd> + <kbd>Print</kbd>                | Скриншот и ато загрузка на [Zipline](https://zipline.diced.sh/) |
 
 </details>
 

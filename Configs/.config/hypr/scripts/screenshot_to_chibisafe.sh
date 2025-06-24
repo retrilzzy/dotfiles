@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/env bash
+
+# Chibisafe
+# https://chibisafe.app/
 
 set -e
 
@@ -11,9 +14,8 @@ if [[ -z "$CHIBISAFE_URL" || -z "$CHIBISAFE_API_KEY" ]]; then
     exit 1
 fi
 
-DIR="/tmp"
-FILENAME="$(date +%F_%H-%M-%S)_grim+url.png"
-FILE_PATH="$DIR/$FILENAME"
+FILENAME="$(date +%F_%H-%M-%S).png"
+FILE_PATH="/tmp/$FILENAME"
 
 REGION=$(slurp) || exit 1
 [ -n "$REGION" ] || exit 1
@@ -21,7 +23,7 @@ REGION=$(slurp) || exit 1
 grim -g "$REGION" "$FILE_PATH" || exit 1
 
 send_notification() {
-    notify-send "Chibisafe Uploader" "$1" -t 3000
+    notify-send "Chibisafe Uploader" "$1" -t 2000
 }
 
 copy_to_clipboard() {
@@ -50,5 +52,3 @@ else
     send_notification "❌ Upload failed"
     exit 1
 fi
-
-rm "$FILE_PATH"
