@@ -318,11 +318,11 @@ yay -S wlogout
 
 Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/.config/kitty/)]
 
-Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.config/.zshrc)]
+Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc)]
 
 Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 
-Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.config/.p10k.zsh)]
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh)]
 
 <details><summary><b>Скриншот</b></summary>
 
