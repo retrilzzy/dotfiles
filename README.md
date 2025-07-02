@@ -75,13 +75,13 @@ chmod +x ~/dotfiles/Scripts/restore.sh
    && cd yay && makepkg -si
   ```
 
-- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/extra/x86_64/network-manager-applet/)
-- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/extra/x86_64/bluez/)
-- Управления яркостью экрана - [brightnessctl](https://archlinux.org/packages/extra/x86_64/brightnessctl/)
-- Управление мультимедиа - [playerctl](https://archlinux.org/packages/extra/x86_64/playerctl/)
-- Интеграция приложений с рабочим столом - [xdg-utils, xdg-desktop-portal](https://archlinux.org/packages/extra/any/xdg-utils/)
+- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/?sort=&q=network-manager-applet)
+- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/?sort=&q=bluez)
+- Управления яркостью экрана - [brightnessctl](https://archlinux.org/packages/?sort=&q=brightnessctl)
+- Управление мультимедиа - [playerctl](https://archlinux.org/packages/?sort=&q=playerctl)
+- Интеграция приложений с рабочим столом - [xdg-utils, xdg-desktop-portal](https://archlinux.org/packages/?sort=&q=xdg-)
 - Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
-- Запись с экрана - [wf-recorder](https://archlinux.org/packages/extra/x86_64/wf-recorder/)
+- Запись с экрана - [wf-recorder](https://archlinux.org/packages/?sort=&q=wf-recorder)
 
 ```
 sudo pacman -S network-manager-applet \
@@ -240,6 +240,9 @@ yay -S rose-pine-cursor rose-pine-hyprcursor
 
 Поведение при бездействии [[конфиг](./Configs/.config/hypr/hypridle.conf)]
 
+https://wiki.hypr.land/Hypr-Ecosystem/hypridle |
+https://github.com/hyprwm/hypridle
+
 ```
 sudo pacman -S hypridle
 ```
@@ -256,6 +259,8 @@ sudo pacman -S hypridle
 
 Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
+https://github.com/hyprwm/hyprlock
+
 ```
 sudo pacman -S hyprlock
 ```
@@ -270,6 +275,8 @@ sudo pacman -S hyprlock
 
 Wayland бар [[конфиг](./Configs/.config/waybar/)]
 
+https://github.com/Alexays/Waybar
+
 ```
 sudo pacman -S waybar
 ```
@@ -283,6 +290,8 @@ sudo pacman -S waybar
 ## Rofi
 
 Запуск приложений, интерфейс для буфера обмена [[конфиг](./Configs/.config/rofi/)]
+
+https://github.com/davatorium/rofi
 
 ```
 sudo pacman -S rofi wl-clipboard cliphist
@@ -303,6 +312,8 @@ sudo pacman -S rofi wl-clipboard cliphist
 ## Wlogout
 
 Блокировка экрана, выход, перезагрузка, выключение и т.д. [[конфиг](./Configs/.config/wlogout/)]
+
+https://github.com/ArtsyMacaw/wlogout
 
 ```
 yay -S wlogout
@@ -330,7 +341,7 @@ yay -S wlogout
 
 </details><br>
 
-Установка kitty и zsh
+Установка Kitty и Zsh
 
 ```
 sudo pacman -S kitty zsh
@@ -376,7 +387,9 @@ sudo pacman -S exa
 
 ## Nwg-look
 
-Настройка GTK3 [[конфиг](./Configs/.config/nwg-look/)]
+Настройка GTK [[конфиг](./Configs/.config/nwg-look/)]
+
+https://github.com/nwg-piotr/nwg-look
 
 ```
 sudo pacman -S nwg-look
@@ -394,6 +407,8 @@ sudo pacman -S nwg-look
 
 Настройка Qt5 [[конфиг](./Configs/.config/qt5ct/)]
 
+https://github.com/desktop-app/qt5ct
+
 ```
 sudo pacman -S qt5ct
 ```
@@ -402,6 +417,8 @@ sudo pacman -S qt5ct
 
 Уведомления [[конфиг](./Configs/.config/swaync/)]
 
+https://github.com/ErikReider/SwayNotificationCenter
+
 ```
 sudo pacman -S swaync
 ```
@@ -409,6 +426,8 @@ sudo pacman -S swaync
 ## Waypaper
 
 GUI для простого управление обоями
+
+https://github.com/anufrievroman/waypaper
 
 ```
 yay -S waypaper
@@ -435,6 +454,8 @@ sudo pacman -S mpvpaper
 
 Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
 
+https://github.com/fastfetch-cli/fastfetch
+
 ```
 sudo pacman -S fastfetch
 ```
@@ -449,6 +470,8 @@ sudo pacman -S fastfetch
 
 Выбор эмодзи
 
+https://github.com/tom-james-watson/Emote
+
 ```
 yay -S emote
 ```
@@ -456,6 +479,8 @@ yay -S emote
 ## Flameshot
 
 Мощная утилита для скриншотов [[конфиг](./Configs/.config/flameshot/)]
+
+https://flameshot.org
 
 ```
 sudo pacman -S flameshot
