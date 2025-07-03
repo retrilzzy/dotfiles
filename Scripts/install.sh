@@ -121,9 +121,11 @@ install "Плагины для Zsh" \
 
 
 install "Nwg-look (настройка GTK)" \
-    "mkdir -p ~/.themes/Adwaita-Dark/gtk-3.0 \
+    "sudo pacman -S --noconfirm nwg-look \
+    && mkdir -p ~/.themes/Adwaita-Dark/gtk-3.0 \
     && echo '@import url(\"resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css\");' > ~/.themes/Adwaita-Dark/gtk-3.0/gtk.css \
-    && sudo pacman -S --noconfirm nwg-look"
+    && gsettings set org.gnome.desktop.interface color-scheme prefer-dark \
+    && gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark"
 
 
 install "Qt5ct (настройка Qt)" \

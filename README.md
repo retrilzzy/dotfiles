@@ -396,12 +396,17 @@ https://github.com/nwg-piotr/nwg-look
 sudo pacman -S nwg-look
 ```
 
-**Темная тема Adwaita**
-
-`~/.themes/Adwaita-Dark/gtk-3.0/gtk.css`
+**Дефолтная темная тема**
 
 ```
+> ~/.themes/Adwaita-Dark/gtk-3.0/gtk.css
+
 @import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+```
+
+```
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 ```
 
 ## Qt5ct
