@@ -202,6 +202,7 @@ sudo pacman -S network-manager-applet \
 | <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                     |
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers     |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать запись области экрана (wf-recorder) |
+| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона             |
 
 </details>
 
