@@ -110,19 +110,22 @@ sudo pacman -S network-manager-applet \
       <h4>Запуск приложений</h4>
    </summary>
 
-| Клавиши                                            | Действие                            |
-| :------------------------------------------------- | :---------------------------------- |
-| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                    |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float) |
-| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)              |
-| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)        |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode)              |
-| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave)                     |
-| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (Keepassxc)        |
-| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Cliphist)             |
-| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (Swaync)          |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                 |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)        |
+| Клавиши                                            | Действие                                 |
+| :------------------------------------------------- | :--------------------------------------- |
+| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                         |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)      |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)                   |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений с запуском через Oniux\* |
+| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)             |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode)                   |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave)                          |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (Keepassxc)             |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Cliphist)                  |
+| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (Swaync)               |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)             |
+
+\*Oniux - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/
 
 </details>
 
