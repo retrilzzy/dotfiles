@@ -218,6 +218,7 @@
     "format": "󰇧 {}",
     "format-en": "EN",
     "format-ru": "RU",
+    "on-click": "hyprctl switchxkblayout current next",
     "min-length": 6,
     "max-length": 6
   },
