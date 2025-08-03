@@ -184,10 +184,14 @@
 
   // Right modules
   "network": {
-    "interface": "wlan0",
+    "interface": "*0",
     "interval": 2,
-    "format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format": " {bandwidthTotalBytes}",
+    "format-alt": " {bandwidthUpBytes}  {bandwidthDownBytes}",
     "format-disconnected": "",
+    "tooltip-format": "  {ifname} \n {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "tooltip-format-wifi": "󰖩 {essid} ({signalStrength}%) \n {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "Disconnected",
     "max-length": 24
   },
 
