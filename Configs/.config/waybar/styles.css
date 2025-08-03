@@ -192,6 +192,10 @@ tooltip {
   padding-left: 8px;
 }
 
+#privacy-item.screenshare {
+  padding-left: 3px;
+}
+
 /* Right modules group */
 #language,
 #pulseaudio,

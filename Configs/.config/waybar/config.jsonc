@@ -198,7 +198,7 @@
   },
 
   "privacy": {
-    "icon-spacing": 5,
+    "icon-spacing": 8,
     "icon-size": 14,
     "transition-duration": 250,
     "modules": [
@@ -211,6 +211,12 @@
         "type": "audio-in",
         "tooltip": true,
         "tooltip-icon-size": 20
+      }
+    ],
+    "ignore": [
+      {
+        "type": "audio-in",
+        "name": "cava"
       }
     ]
   },
