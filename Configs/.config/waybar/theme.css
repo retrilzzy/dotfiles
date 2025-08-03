@@ -9,7 +9,6 @@
 @define-color hover-bg          rgba(220, 220, 220, 0.2);
 @define-color hover-fg          rgba(200, 200, 200, 1.0);
 
-
 /* Modules */
 @define-color module-bg         rgba(40, 40, 40, 0.95);
 
@@ -33,6 +32,7 @@
 @define-color language          @module-bg;
 @define-color pulseaudio        @module-bg;
 @define-color backlight         @module-bg;
+@define-color power-profiles    @module-bg;
 @define-color battery           @module-bg;
 @define-color power             @module-bg;
 @define-color power-hv          rgba(55, 55, 55, 1);

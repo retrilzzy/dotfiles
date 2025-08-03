@@ -31,6 +31,7 @@
     "hyprland/language", // language indicator
     "pulseaudio",
     "custom/backlight",
+    "power-profiles-daemon",
     "battery",
     "custom/power" // power button
   ],
@@ -253,6 +254,20 @@
     "interval": 1,
     "min-length": 7,
     "max-length": 7
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    },
+    "min-length": 2,
+    "max-length": 2
   },
 
   "battery": {
