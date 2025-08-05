@@ -6,7 +6,7 @@
 
 - [Установка](#установка)
 - [Детальный обзор](#детальный-обзор)
-  - [Доп. пакеты](#дополнительные-пакеты) необходимые для корректной работы системы
+  - [Доп. пакеты](#дополнительные-пакеты) необходимые для полноценной работы
   - [Hyprland](#hyprland) - оконный менеджер
     - [Бинды](#бинды) - все сочетания клавиш
     - [Иконки](#иконки) - пак иконок
@@ -18,19 +18,22 @@
   - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
   - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
   - [Nwg-look](#nwg-look) - настройка GTK3
-  - [Qt5ct](#qt5ct) - настройка Qt5
+  - [Qt5ct/Qt6ct](#qt5ct-qt6ct) - настройка Qt5 и Qt6
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
   - [Waypaper](#waypaper) - GUI для простого управление обоями
     - [Обои](#обои) - коллекция обоев/фонов
-  - [Fastfetch](#fastfetch) - похвастаться линуксом)
   - [Emote](#emote) - выбор эмодзи
   - [Flameshot](#flameshot) - мощная утилита для скриншотов
+  - [Fastfetch](#fastfetch) - похвастаться линуксом)
 
 > [!WARNING]  
-> Мои конфиги не рассчитаны на универсальное применение и не автоматизированы на 100%, поэтому они могут потребовать ручной донастройки. Я не несу ответственности за не корректную работу конфигов или программного обеспечения.
+> Мои конфиги не рассчитаны на универсальное применение и не автоматизированы на 100%, поэтому они могут потребовать ручной донастройки. Я не гарантирую корректную работу конфигов или программного обеспечения на вашей системе.
 
 # Установка
+
+> [!NOTE]
+> Вам нужна работающая установка Hyprland.
 
 0. Обновление системы
 
@@ -38,37 +41,60 @@
    sudo pacman -Syu
    ```
 
-1. Установка Git
+1. Запуск скрипта установки
 
    ```
-   sudo pacman -S git
+   curl https://github.com/retrilzzy/dotfiles/raw/refs/heads/main/Scripts/install.sh | bash
    ```
 
-2. Клонирование репозитория
+   - установка пакетов
+   - клонирование репозитория в `~/dotfiles`
+   - резервное копирование текущих конфигов в `~/.config-backups/$date_time`
+   - применение конфигов
 
-   ```
-   git clone https://github.com/retrilzzy/dotfiles.git ~/dotfiles && cd ~/dotfiles
-   ```
+## После установки
 
-3. Запуск скрипта установки
+Действия которые вы вероятно хотите сделать
 
-   _Автоматически создаст резервную копию старых конфигов `~/.config/` в `~/.config-backups/`_
+**Общее:**
 
-   ```
-   chmod +x ./Scripts/install.sh
-   ./Scripts/install.sh
-   ```
+- Запустить nwg-look (GTK Settings) для настройки GTK
+- Запустить Qt5ct и Qt6ct для настройки Qt5 и Qt6
+- Добавить свои обои в ~/Pictures/Wallpapers
+- Запустить `p10k configure` для настройки темы терминала
+- Убрать лишние для вас плагины Zsh в `~/.zshrc`:
+  ```zsh
+  plugins=(...)
+  ```
 
-### Восстановление резервной копии конфигов
+**ПК юзерам:**
+
+- Отключить модули waybar: custom/backlight, battery в `~/.config/waybar/config.jsonc` и добавить стилей для закругления правой группы модулей `~/.config/waybar/styles.css`:
+
+  ```css
+  #pulseaudio {
+    background: @pulseaudio;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-right: 3px;
+    padding-right: 6px;
+  }
+  ```
+
+## Восстановление резервной копии конфигов
 
 ```
-chmod +x ~/dotfiles/Scripts/restore.sh
 ~/dotfiles/Scripts/restore.sh
 ```
 
 # Детальный обзор
 
 ## Дополнительные пакеты
+
+Используемые в биндах hyprland и модулях waybar, a также для улучшения опыта использования.
+
+> [!NOTE]
+> Исключения из списка: пакеты которые подробнее упомянуты в этом README.md и программы по типу браузеров, терминалов и т.д.
 
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
 
@@ -78,22 +104,23 @@ chmod +x ~/dotfiles/Scripts/restore.sh
    && cd yay && makepkg -si
   ```
 
-- Трей апплет для управления WiFi соединениями - [network-manager-applet](https://archlinux.org/packages/?sort=&q=network-manager-applet)
-- Bluetooth - [bluez, bluez-tools, blueman](https://archlinux.org/packages/?sort=&q=bluez)
-- Управления яркостью экрана - [brightnessctl](https://archlinux.org/packages/?sort=&q=brightnessctl)
-- Управление мультимедиа - [playerctl](https://archlinux.org/packages/?sort=&q=playerctl)
-- Интеграция приложений с рабочим столом - [xdg-utils, xdg-desktop-portal](https://archlinux.org/packages/?sort=&q=xdg-)
-- Скриншоты - [hyprshot](https://aur.archlinux.org/packages/hyprshot)
-- Запись с экрана - [wf-recorder](https://archlinux.org/packages/?sort=&q=wf-recorder)
-
-```
-sudo pacman -S network-manager-applet \
- bluez bluez-tools blueman \
- brightnessctl playerctl \
- xdg-utils xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal \
- wf-recorder \
- && yay -S hyprshot
-```
+- blueman
+- brightnessctl
+- cliphist
+- gnome-bluetooth-3.0
+- hyprshot
+- network-manager-applet
+- networkmanager
+- pipewire-pulse
+- playerctl
+- polkit-gnome-authentication-agent
+- power-profile-daemon
+- wf-recorder
+- xdg-utils
+- xdg-desktop-portal
+- xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gtk
+- xdg-desktop-portal-wlr
 
 ## Hyprland
 
@@ -416,14 +443,16 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 ```
 
-## Qt5ct
+## Qt5ct Qt6ct
 
 Настройка Qt5 [[конфиг](./Configs/.config/qt5ct/)]
+Настройка Qt6 [[конфиг](./Configs/.config/qt6ct/)]
 
-https://github.com/desktop-app/qt5ct
+https://sourceforge.net/projects/qt5ct/
+https://www.opencode.net/trialuser/qt6ct
 
 ```
-sudo pacman -S qt5ct
+sudo pacman -S qt5ct qt6ct
 ```
 
 ## SwayNC
@@ -463,16 +492,6 @@ sudo pacman -S mpvpaper
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
 
-## Fastfetch
-
-Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
-
-https://github.com/fastfetch-cli/fastfetch
-
-```
-sudo pacman -S fastfetch
-```
-
 <details><summary><b>Скриншот</b></summary>
 
 ![Screenshot](./Assets/fastfetch.png)
@@ -504,3 +523,13 @@ sudo pacman -S flameshot
 ![Screenshot](./Assets/flameshot.png)
 
 </details>
+
+## Fastfetch
+
+Похвастаться линуксом) [[конфиг](./Configs/.config/fastfetch/)]
+
+https://github.com/fastfetch-cli/fastfetch
+
+```
+sudo pacman -S fastfetch
+```
