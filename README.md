@@ -414,10 +414,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-Установка [exa](https://github.com/ogham/exa) (замена ls)
+Установка [lsd](https://github.com/lsd-rs/lsd) (замена ls)
 
 ```
-sudo pacman -S exa
+sudo pacman -S lsd
 ```
 
 ## Nwg-look

@@ -56,9 +56,10 @@ export ARCHFLAGS="-arch x86_64"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Aliases
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa"
-    alias la="exa --long --all --group"
+if [ -x "$(command -v lsd)" ]; then
+    alias ls="lsd"
+    alias la="lsd --long --all --group-dirs first"
+    alias lt="lsd --tree --group-dirs first"
 fi
 
 alias clck="tty-clock -c -s -b -C 7"
