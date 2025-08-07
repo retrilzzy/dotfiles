@@ -44,7 +44,7 @@
 1. Запуск скрипта установки
 
    ```
-   curl https://github.com/retrilzzy/dotfiles/raw/refs/heads/main/Scripts/install.sh | bash
+   curl https://raw.githubusercontent.com/retrilzzy/dotfiles/refs/heads/main/Scripts/install.sh | bash
    ```
 
    - установка пакетов
