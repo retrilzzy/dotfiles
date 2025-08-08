@@ -1,10 +1,11 @@
 #!/bin/env bash
 
+DATE=$(date +%Y-%m-%d_%H-%M-%S)
+BACKUP_DIR=~/.config-backups/"$DATE"
+
 backup_configs() {
     echo "📦 Создание полной резервной копии ~/.config..."
 
-    DATE=$(date +%Y-%m-%d_%H:%M:%S)
-    BACKUP_DIR=~/.config-backups/"$DATE"
     mkdir -p "$BACKUP_DIR"
 
     if command -v rsync >/dev/null 2>&1; then
