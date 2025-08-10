@@ -259,7 +259,7 @@ yay -S rose-pine-cursor rose-pine-hyprcursor
   sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
   ```
 
-- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и Waybar
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и [Waybar](#waybar)
 
   ```
   sudo pacman -S ttf-jetbrains-mono-nerd
@@ -269,6 +269,12 @@ yay -S rose-pine-cursor rose-pine-hyprcursor
 
   ```
   yay -S ttf-meslo-nerd-font-powerlevel10k
+  ```
+
+- [Inter](https://rsms.me/inter/) необходимый шрифт для [Hyprlock](#hyprlock)
+
+  ```
+  sudo pacman -S inter-font
   ```
 
 ## Hypridle

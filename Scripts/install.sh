@@ -167,7 +167,7 @@ main() {
     install_pacman brightnessctl playerctl
 
     print_section "🔤 Шрифты"
-    install_pacman noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono
+    install_pacman noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono inter-font
     install_yay ttf-meslo-nerd-font-powerlevel10k
 
     print_section "🎨 Темы и иконки"

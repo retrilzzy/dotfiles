@@ -2,7 +2,10 @@
 
 TARGET_DIR="$HOME/.cache"
 
-SELECTED_WALLPAPER=$(waypaper --list | waypaper --list | jq -r '.[0].wallpaper')
+SELECTED_WALLPAPER=$(waypaper --list | jq -r '.[0].wallpaper' 2>/dev/null)
 
-
-cp "$SELECTED_WALLPAPER" "$TARGET_DIR/wlogout_background"
+if [[ -n "$SELECTED_WALLPAPER" && -f "$SELECTED_WALLPAPER" ]]; then
+    cp "$SELECTED_WALLPAPER" "$TARGET_DIR/lock_background"
+else
+    echo "Failed to retrieve wallpaper from waypaper" >&2
+fi
