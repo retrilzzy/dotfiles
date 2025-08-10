@@ -1,11 +1,17 @@
 # Dotfiles
 
-<p align="center">
-  <img src="./Assets/screenshots/general.png" width="600">
-</p>
-
-| <img src="./Assets/screenshots/hyprlock.png" width="200"> | <img src="./Assets/screenshots/rofi_app-launcher.png" width="200"> | <img src="./Assets/screenshots/terminal.png" width="200"> |
-| --------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------- |
+<table>
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./Assets/screenshots/general.png" width="600">
+    </td>
+  </tr>
+  <tr>
+    <td><img src="./Assets/screenshots/hyprlock.png" width="200"></td>
+    <td><img src="./Assets/screenshots/rofi_app-launcher.png" width="200"></td>
+    <td><img src="./Assets/screenshots/terminal.png" width="200"></td>
+  </tr>
+</table>
 
 # Навигация
 
