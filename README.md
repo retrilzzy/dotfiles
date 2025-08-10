@@ -1,6 +1,11 @@
 # Dotfiles
 
-![Screenshot](./Assets/screenshots/general.png)
+<p align="center">
+  <img src="./Assets/screenshots/general.png" width="600">
+</p>
+
+| <img src="./Assets/screenshots/hyprlock.png" width="200"> | <img src="./Assets/screenshots/rofi_app-launcher.png" width="200"> | <img src="./Assets/screenshots/terminal.png" width="200"> |
+| --------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------- |
 
 # Навигация
 
@@ -111,7 +116,11 @@
 - hyprshot
 - network-manager-applet
 - networkmanager
+- pipewire
 - pipewire-pulse
+- pipewire-alsa
+- pipewire-audio
+- pipewire-jack
 - playerctl
 - polkit-gnome-authentication-agent
 - power-profile-daemon
@@ -134,7 +143,7 @@
 
 <details>
    <summary>
-      <h4>Запуск приложений</h4>
+      <b>Запуск приложений</b>
    </summary>
 
 | Клавиши                                            | Действие                                 |
@@ -158,7 +167,7 @@
 
 <details>
    <summary>
-      <h4>Взаимодействие с окнами</h4>
+      <b>Взаимодействие с окнами</b>
    </summary>
 
 | Клавиши                                                    | Действие                                          |
@@ -179,7 +188,7 @@
 
 <details>
    <summary>
-      <h4>Рабочие пространства (столы)</h4>
+      <b>Рабочие пространства (столы)</b>
    </summary>
 
 | Клавиши                                                | Действие                                             |
@@ -194,7 +203,7 @@
 
 <details>
    <summary>
-      <h4> Управление экраном/питанием</h4>
+      <b> Управление экраном/питанием</b>
    </summary>
 
 | Клавиши                                          | Действие                                       |
@@ -207,7 +216,7 @@
 
 <details>
    <summary>
-      <h4>Скриншоты</h4>
+      <b>Скриншоты</b>
    </summary>
 
 | Клавиши                                            | Действие                                                         |
@@ -221,7 +230,7 @@
 
 <details>
    <summary>
-      <h4>Остальное</h4>
+      <b>Остальное</b>
    </summary>
 
 | Клавиши                                            | Действие                                   |
