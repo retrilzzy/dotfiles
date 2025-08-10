@@ -157,6 +157,9 @@ main() {
     print_section "🌐 Сетевые инструменты"
     install_pacman networkmanager network-manager-applet
 
+    print_section "🔊 Установка PipeWire"
+    install_pacman pipewire pipewire-pulse pipewire-audio pipewire-alsa pipewire-jack
+
     print_section "🔵 Bluetooth"
     install_pacman bluez bluez-tools blueman
 
