@@ -1,15 +1,50 @@
 configuration {
-    modi: "run,drun,window";
-    show-icons: true;
-    terminal: "kitty";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: false;
-    drun-display-format: "{icon} {name}";
-    display-drun: "  ";
-    display-run: "  ";
-    display-window: " 﩯 ";
-    sidebar-mode: true;
-}
+	/*---------- General setting ----------*/
+	font: "Noto Sans 12";
+	icon-theme: "Papirus";
+	case-sensitive: false;
+	cycle: true;
+	filter: "";
+	scroll-method: 0;
+	normalize-match: true;
+	show-icons: true;
 
-@theme "~/.config/rofi/launcher.rasi"
+	/*---------- Run settings ----------*/
+	terminal: "kitty";
+	run-command: "{cmd}";
+	run-list-command: "";
+	run-shell-command: "{terminal} -e {cmd}";
+
+	/*---------- Fallback Icon ----------*/
+	run,drun {
+		fallback-icon: "application-x-addon";
+	}
+
+	/*---------- Window switcher settings ----------*/
+	window-match-fields: "title,class,role,name,desktop";
+	window-command: "wmctrl -i -R {window}";
+	window-format: "{w} - {c} - {t:0}";
+	window-thumbnail: false;
+
+	/*---------- History and Sorting ----------*/
+	disable-history: false;
+	sorting-method: "normal";
+	max-history-size: 25;
+
+	/*---------- Misc setting ----------*/
+	sort: false;
+	threads: 0;
+	click-to-exit: true;
+
+	/*---------- File browser settings ----------*/
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+
+	/*---------- Other settings ----------*/
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+}

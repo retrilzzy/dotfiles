@@ -1,98 +1,144 @@
-@import "~/.config/rofi/theme.rasi"
+/*****----- Global Properties -----*****/
+@import                          "colors.rasi"
 
-* {
-    font:   "Roboto 12";
-
-    background-color:   transparent;
-    text-color:         @main-fg;
-
-    margin:     0px;
-    padding:    0px;
-    spacing:    0px;
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               " ";
+	drun-display-format:        "{name}";
 }
 
+/*****----- Main Window -----*****/
 window {
-    location:       center;
-    width:          480;
-    border-radius:  24px;
-    
-    background-color:   @main-bg;
+    transparency:                "real";
+    location:                    south;
+    width:                       600px;
+    x-offset:                    0px;
+    y-offset:                    -50px;
+    margin:                      0;
+    padding:                     0px;
+    border:                      2px solid;
+    border-radius:               30px;
+    border-color:                @selected;
+    background-color:            @background;
 }
 
+/*****----- Main Box -----*****/
 mainbox {
-    padding:        12px;
-    border-radius:  24px;
+    spacing:                     20px;
+    margin:                      0px;
+    padding:                     20px;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
 }
 
+/*****----- Inputbar -----*****/
 inputbar {
-    background-color:   @main-bg;
-    border-color:       @border-color;
-
-    border:         2px;
-    border-radius:  10px;
-
-    padding:    8px 16px;
-    spacing:    8px;
-    children:   [ entry ];
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     12px 16px;
+    border:                      0px 0px 2px 0px;
+    border-radius:               100%;
+    border-color:                @selected;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    children:                    [ "prompt", "entry" ];
 }
 
+prompt {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+textbox-prompt-colon {
+    expand:                      false;
+    str:                         "::";
+    background-color:            inherit;
+    text-color:                  inherit;
+}
 entry {
-    placeholder:        "Search";
-    placeholder-color:  @main-fg;
+    background-color:            inherit;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search Apps";
+    placeholder-color:           inherit;
 }
 
-message {
-    margin:             12px 0 0;
-    border-radius:      16px;
-    border-color:       @main-br;
-    background-color:   @main-fg;
-}
-
-textbox {
-    padding:    8px 24px;
-}
-
+/*****----- Listview -----*****/
 listview {
-    background-color:   transparent;
-
-    margin:     12px 0 0;
-    lines:      8;
-    columns:    1;
-
-    fixed-height: false;
+    columns:                     3;
+    lines:                       3;
+    cycle:                       false;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               false;
+    spacing:                     5px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
 }
 
+/*****----- Elements -----*****/
 element {
-    padding:        8px 16px;
-    spacing:        8px;
-    border-radius:  16px;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    orientation:                 vertical;
+    cursor:                      pointer;
 }
-
-element normal active {
-    text-color: @select-fg;
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @foreground;
 }
-
-element alternate active {
-    text-color: @main-ex;
+element selected.normal {
+    border:                      0px 0px 2px 0px;
+    border-radius:               12px;
+    border-color:                @selected;
+    background-color:            @selected;
+    text-color:                  @foreground;
 }
-
-element selected normal, element selected active {
-    background-color:   @select-bg;
-}
-
 element-icon {
-    size:           1em;
-    vertical-align: 0.5;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        48px;
+    cursor:                      inherit;
 }
-
 element-text {
-    text-color: inherit;
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
 }
 
-element selected {
-    text-color: @select-fg;
+/*****----- Message -----*****/
+error-message {
+    padding:                     20px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            black / 10%;
+    text-color:                  @foreground;
 }
-
-mode-switcher, button {
-    padding:    8px 0 3px 0;
+textbox {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
