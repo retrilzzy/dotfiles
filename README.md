@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Screenshot](./Assets/general.png)
+![Screenshot](./Assets/screenshots/general.png)
 
 # Навигация
 
@@ -33,7 +33,7 @@
 # Установка
 
 > [!NOTE]
-> Вам нужна работающая установка Hyprland.
+> Перед установкой у вас должна быть работающая установка Hyprland.
 
 0. Обновление системы
 
@@ -308,7 +308,7 @@ sudo pacman -S hyprlock
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/hyprlock.png)
+![Screenshot](./Assets/screenshots/hyprlock.png)
 
 </details>
 
@@ -324,7 +324,7 @@ sudo pacman -S waybar
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/waybar.png)
+![Screenshot](./Assets/screenshots/waybar.png)
 
 </details>
 
@@ -340,13 +340,13 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 <details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
 
-![Screenshot](./Assets/rofi_app-launcher.png)
+![Screenshot](./Assets/screenshots/rofi_app-launcher.png)
 
 </details>
 
 <details><summary><b>Скриншот (Буфер обмена)</b></summary>
 
-![Screenshot](./Assets/rofi_clipboard.png)
+![Screenshot](./Assets/screenshots/rofi_clipboard.png)
 
 </details>
 
@@ -362,7 +362,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/wlogout.png)
+![Screenshot](./Assets/screenshots/wlogout.png)
 
 </details>
 
@@ -378,7 +378,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/terminal.png)
+![Screenshot](./Assets/screenshots/terminal.png)
 
 </details><br>
 
@@ -500,7 +500,7 @@ sudo pacman -S mpvpaper
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/fastfetch.png)
+![Screenshot](./Assets/screenshots/fastfetch.png)
 
 </details>
 
@@ -526,7 +526,7 @@ sudo pacman -S flameshot
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/flameshot.png)
+![Screenshot](./Assets/screenshots/flameshot.png)
 
 </details>
 
