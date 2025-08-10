@@ -69,7 +69,7 @@
     "separate-outputs": true,
     "rewrite": {
       // Desktop
-      "": " rzx.ovh",
+      "": " Hyprland",
 
       // Terminal
       "(.*):~": "  $1",
@@ -185,7 +185,7 @@
   // Right modules
   "network": {
     "interface": "*0",
-    "interval": 2,
+    "interval": 5,
     "format": " {bandwidthTotalBytes}",
     "format-alt": " {bandwidthUpBytes}  {bandwidthDownBytes}",
     "format-disconnected": "",
@@ -303,7 +303,7 @@
     "tooltip": true,
     "tooltip-format": "Time to Empty: {time}",
     "tooltip-format-charging": "Time to Full: {time}",
-    "interval": 2,
+    "interval": 5,
     "min-length": 7,
     "max-length": 7
   },
