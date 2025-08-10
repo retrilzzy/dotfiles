@@ -29,7 +29,7 @@
   - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена
   - [Wlogout](#wlogout) - блокировка экрана, выход, перезагрузка, выключение и т.д
   - [Nwg-look](#nwg-look) - настройка GTK3
-  - [Qt5ct/Qt6ct](#qt5ct-qt6ct) - настройка Qt5 и Qt6
+  - [Qt5/Qt6](#qt5-qt6) - настройка Qt5 и Qt6
   - [Терминал](#терминал) - настройка терминала
   - [Swaync](#swaync) - уведомления
   - [Waypaper](#waypaper) - GUI для простого управление обоями
@@ -464,7 +464,7 @@ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 ```
 
-## Qt5ct Qt6ct
+## Qt5 Qt6
 
 Настройка Qt5 [[конфиг](./Configs/.config/qt5ct/)]
 Настройка Qt6 [[конфиг](./Configs/.config/qt6ct/)]
@@ -513,12 +513,6 @@ sudo pacman -S mpvpaper
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
 
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/fastfetch.png)
-
-</details>
-
 ## Emote
 
 Выбор эмодзи
@@ -554,3 +548,9 @@ https://github.com/fastfetch-cli/fastfetch
 ```
 sudo pacman -S fastfetch
 ```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/fastfetch.png)
+
+</details>
