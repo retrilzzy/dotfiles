@@ -39,9 +39,9 @@ mainbox {
 
 /*****----- Inputbar -----*****/
 inputbar {
-    spacing:                     10px;
+    spacing:                     8px;
     margin:                      0px;
-    padding:                     12px 16px;
+    padding:                     8px 16px;
     border:                      0px 0px 2px 0px;
     border-radius:               100%;
     border-color:                @selected;
