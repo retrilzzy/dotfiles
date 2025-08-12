@@ -355,13 +355,13 @@ sudo pacman -S rofi wl-clipboard cliphist
 
 <details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
 
-![Screenshot](./Assets/screenshots/rofi_app-launcher.png)
+![Screenshot](./Assets/screenshots/rofi-launcher.png)
 
 </details>
 
 <details><summary><b>Скриншот (Буфер обмена)</b></summary>
 
-![Screenshot](./Assets/screenshots/rofi_clipboard.png)
+![Screenshot](./Assets/screenshots/rofi-clipboard.png)
 
 </details>
 
