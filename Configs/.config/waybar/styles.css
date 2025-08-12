@@ -5,8 +5,7 @@
   border: none;
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
-  font-size: 14.8px;
-  min-height: 14.8px;
+  font-size: 14px;
   color: @foreground;
 }
 
@@ -15,17 +14,20 @@ window#waybar {
 }
 
 window#waybar > box {
-  margin: 6px 4px 0 4px;
+  margin: 5px 6px 0 6px;
+  padding: 2px 0;
+  background-color: @background;
+  border-radius: 15px;
+  border: 2px solid @selected;
 }
 
 /* -- Tooltip Styling -- */
 tooltip {
-  color: @foreground;
-  background: @tooltip;
+  background: @background;
   border: solid;
-  border-width: 0.7px;
+  border-width: 1px;
   border-radius: 10px;
-  border-color: @foreground;
+  border-color: @selected;
 }
 
 /* -- General Module Styling -- */
@@ -47,31 +49,25 @@ tooltip {
 #battery,
 #custom-power {
   opacity: 1;
-  padding: 3px 6px;
-  margin: 0 3px;
-  border-radius: 10px;
-  text-shadow: 0px 0px 2px rgba(22, 22, 22, 0.8);
+  padding: 0px 3px;
+  margin: 0px 3px;
 }
 
 /* -- Left Modules -- */
+.modules-left {
+  margin-left: 6px;
+}
+
 /* Idle Inhibitor */
 #custom-idle_inhibitor {
-  background: @logo;
-  margin-left: 6px;
-  padding-right: 7px;
-  padding-left: 2px;
+  padding: 0 0 0 4px;
 }
 
 /* Workspaces */
-#workspaces {
-  background: @workspaces;
-}
-
 /* Workspace Button */
 #workspaces button {
   color: @foreground;
   border-radius: 8px;
-  box-shadow: none;
   margin: 2px 1px;
   padding: 0 2px;
   animation: ws_normal 20s ease-in-out 1;
@@ -79,9 +75,7 @@ tooltip {
 
 /* Active Workspace Button */
 #workspaces button.active {
-  color: @active-fg;
-  background: @active-bg;
-  text-shadow: 0px 0px 2px rgba(22, 22, 22, 0.6);
+  background: @selected;
   margin-right: 2px;
   margin-left: 2px;
   padding: 0 5px;
@@ -91,176 +85,65 @@ tooltip {
 
 /* Hover Effect for Workspace Buttons */
 #workspaces button:hover {
-  color: @hover-fg;
-  background: @hover-bg;
-  box-shadow: none;
+  background: @selected;
   animation: ws_hover 20s ease-in-out 1;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-/* Window Title */
-#window {
-  background: @window;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-/* -- Central Modules --  */
-#custom-cpu,
-#custom-cpuinfo,
-#memory,
-#clock.time,
-#clock.date {
-  margin-left: 0;
-  margin-right: 0;
-  border-radius: 0;
-  padding: 3px 3px;
-}
-
-/* CPU */
-#custom-cpu {
-  background: @cpu;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin-left: 6px;
-  padding-left: 6px;
-}
-
-/* CPU Temperature */
-#custom-cpuinfo {
-  background: @cpuinfo;
-}
-
-/* Memory */
-#memory {
-  background: @memory;
-}
-
-/* Time */
-#clock.time {
-  background: @time;
-}
-
-/* Date */
-#clock.date {
-  background: @date;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-right: 6px;
-  padding-right: 6px;
-}
-
 /* -- Right Modules -- */
-
 /* Network */
 #network {
-  background: @network;
-  padding-right: 8px;
-  padding-left: 8px;
   font-size: 13px;
 }
 
 /* Tray */
 #tray {
-  padding-right: 8px;
-  padding-left: 8px;
-  background: @tray;
+  padding: 0 6px;
+  background: @background;
 }
 
 #tray menu {
-  color: @foreground;
   border-radius: 10px;
-  background: @tooltip;
-}
-
-#tray menu separator {
-  min-height: 3px;
+  background: @background;
 }
 
 #tray menu menuitem {
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 #tray menu menuitem:hover {
-  background-color: @hover;
+  background-color: @selected;
 }
 
 /* Privacy */
 #privacy {
-  background: @privacy;
-  padding-right: 8px;
-  padding-left: 8px;
-}
-
-#privacy-item.screenshare {
-  padding-left: 3px;
-}
-
-/* Right modules group */
-#language,
-#pulseaudio,
-#custom-backlight,
-#power-profiles-daemon,
-#battery {
-  margin-left: 0;
-  margin-right: 0;
-  border-radius: 0;
-  padding: 3px 2px;
-}
-
-/* Language */
-#language {
-  background: @language;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  margin-left: 3px;
-  padding-left: 6px;
-}
-
-/* PulseAudio */
-#pulseaudio {
-  background: @pulseaudio;
-}
-
-/* Brightness */
-#custom-backlight {
-  background: @backlight;
+  background-color: #005000;
+  border-radius: 6px;
+  padding: 0 6px;
 }
 
 /* Power Profiles */
 #power-profiles-daemon {
-  background: @power-profiles;
-  padding-right: 2px;
-}
-
-/* Battery */
-#battery {
-  background: @battery;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  margin-right: 3px;
   padding-right: 6px;
 }
 
+/* Battery */
 #battery.warning {
-  color: #f9e2af;
+  color: #f9da95;
 }
 
 #battery.critical {
-  color: #f38ba8;
+  color: #f7668f;
 }
 
 /* Power Button */
 #custom-power {
-  background: @power;
-  margin-right: 6px;
-  padding-right: 5px;
-  padding-left: 11px;
+  padding-right: 3px;
+  padding-left: 9px;
+  border-radius: 8px;
 }
 
 #custom-power:hover {
-  color: @hover-fg;
-  background: @power-hv;
-  box-shadow: none;
+  background: @selected;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }

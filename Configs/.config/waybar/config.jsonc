@@ -43,7 +43,9 @@
     "on-click": "~/.config/waybar/scripts/idle-inhibitor.sh --toggle",
     "return-type": "json",
     "tooltip": true,
-    "interval": 10
+    "interval": 10,
+    "min-length": 2,
+    "max-length": 2
   },
 
   "hyprland/workspaces": {
@@ -128,8 +130,8 @@
     "return-type": "json",
     "tooltip": true,
     "interval": 5,
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
   "custom/cpuinfo": {
     "exec": "~/.config/waybar/scripts/cpuinfo.sh",
@@ -137,8 +139,8 @@
     "format": "{}",
     "tooltip": true,
     "interval": 5,
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
 
   "memory": {
@@ -150,16 +152,16 @@
     "tooltip": true,
     "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
     "interval": 5,
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
 
   "clock#time": {
     "format": "󱑂 {:%H:%M}",
     "tooltip": true,
     "tooltip-format": "12-hour Format: {:%I:%M %p}",
-    "min-length": 8,
-    "max-length": 8
+    "min-length": 7,
+    "max-length": 7
   },
 
   "clock#date": {
@@ -167,17 +169,19 @@
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "month",
-      "mode-mon-col": 6,
+      "mode-mon-col": 4,
       "on-click-right": "mode",
       "format": {
-        "today": "<span color='#f38ba8'><b>{}</b></span>"
+        "today": "<span color='#a6e3a1'><b>{}</b></span>"
       }
     },
     "actions": {
-      "on-click-right": "mode"
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
     },
-    "min-length": 8,
-    "max-length": 8
+    "min-length": 7,
+    "max-length": 7
   },
 
 
@@ -229,8 +233,8 @@
     "format-en": "EN",
     "format-ru": "RU",
     "on-click": "hyprctl switchxkblayout current next",
-    "min-length": 6,
-    "max-length": 6
+    "min-length": 4,
+    "max-length": 4
   },
 
   "pulseaudio": {
@@ -249,8 +253,8 @@
     "on-click": "~/.config/waybar/scripts/volumecontrol.sh -o m",
     "on-scroll-up": "~/.config/waybar/scripts/volumecontrol.sh -o i",
     "on-scroll-down": "~/.config/waybar/scripts/volumecontrol.sh -o d",
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
 
   "custom/backlight": {
@@ -261,8 +265,8 @@
     "on-scroll-up": "~/.config/waybar/scripts/brightnesscontrol.sh -o i",
     "on-scroll-down": "~/.config/waybar/scripts/brightnesscontrol.sh -o d",
     "interval": 1,
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
 
   "power-profiles-daemon": {
@@ -275,8 +279,8 @@
       "balanced": "",
       "power-saver": ""
     },
-    "min-length": 2,
-    "max-length": 2
+    "min-length": 1,
+    "max-length": 1
   },
 
   "battery": {
@@ -303,8 +307,8 @@
     "tooltip-format": "Time to Empty: {time}",
     "tooltip-format-charging": "Time to Full: {time}",
     "interval": 5,
-    "min-length": 7,
-    "max-length": 7
+    "min-length": 6,
+    "max-length": 6
   },
 
   "custom/power": {

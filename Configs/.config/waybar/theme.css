@@ -1,38 +1,5 @@
-/* General */
-@define-color background        rgba(35, 35, 35, 0.95);
-@define-color foreground        rgba(200, 200, 200, 1.0);
-@define-color hover             rgba(200, 200, 200, 0.2);
-
-/* Workspace */
-@define-color active-bg         rgba(150, 150, 150, 0.3);
-@define-color active-fg         rgba(15, 15, 15, 1.0);
-@define-color hover-bg          rgba(220, 220, 220, 0.2);
-@define-color hover-fg          rgba(200, 200, 200, 1.0);
-
-/* Modules */
-@define-color module-bg         rgba(37, 37, 37, 0.95);
-
-/* Left */
-@define-color tooltip           @module-bg;
-@define-color logo              @module-bg;
-@define-color workspaces        @module-bg;
-@define-color window            @module-bg;
-
-/* Central */
-@define-color cpu               @module-bg;
-@define-color cpuinfo           @module-bg;
-@define-color memory            @module-bg;
-@define-color time              @module-bg;
-@define-color date              @module-bg;
-
-/* Right */
-@define-color network           @module-bg;
-@define-color tray              @module-bg;
-@define-color privacy           @module-bg;
-@define-color language          @module-bg;
-@define-color pulseaudio        @module-bg;
-@define-color backlight         @module-bg;
-@define-color power-profiles    @module-bg;
-@define-color battery           @module-bg;
-@define-color power             @module-bg;
-@define-color power-hv          rgba(50, 50, 50, 1);
+@define-color background      #212121;
+@define-color background-alt  #303030;
+@define-color foreground      #b0b0b0;
+@define-color selected        #444444;
+@define-color active          #0F0F0F;

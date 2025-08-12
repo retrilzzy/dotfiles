@@ -14,9 +14,9 @@ toggle() {
 
 status_json() {
     if [[ -f "$PID_FILE" ]] && kill -0 "$(cat "$PID_FILE")" 2>/dev/null; then
-        echo '{"text":"  ","tooltip":"Idle Inhibitor: On"}'
+        echo '{"text":" ","tooltip":"Idle Inhibitor: On"}'
     else
-        echo '{"text":"  ","tooltip":"Idle Inhibitor: Off"}'
+        echo '{"text":" ","tooltip":"Idle Inhibitor: Off"}'
     fi
 }
 
