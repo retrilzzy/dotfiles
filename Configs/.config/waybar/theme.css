@@ -1,5 +1,5 @@
 /* General */
-@define-color background        rgba(0, 0, 0, 0);
+@define-color background        rgba(35, 35, 35, 0.95);
 @define-color foreground        rgba(200, 200, 200, 1.0);
 @define-color hover             rgba(200, 200, 200, 0.2);
 
@@ -10,7 +10,7 @@
 @define-color hover-fg          rgba(200, 200, 200, 1.0);
 
 /* Modules */
-@define-color module-bg         rgba(40, 40, 40, 0.95);
+@define-color module-bg         rgba(37, 37, 37, 0.95);
 
 /* Left */
 @define-color tooltip           @module-bg;
@@ -35,4 +35,4 @@
 @define-color power-profiles    @module-bg;
 @define-color battery           @module-bg;
 @define-color power             @module-bg;
-@define-color power-hv          rgba(55, 55, 55, 1);
+@define-color power-hv          rgba(50, 50, 50, 1);

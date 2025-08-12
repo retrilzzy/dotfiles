@@ -11,11 +11,11 @@
 }
 
 window#waybar {
-  background: @background;
+  background: transparent;
 }
 
 window#waybar > box {
-  margin-top: 4px;
+  margin: 6px 4px 0 4px;
 }
 
 /* -- Tooltip Styling -- */
@@ -29,7 +29,7 @@ tooltip {
 }
 
 /* -- General Module Styling -- */
-#idle_inhibitor,
+#custom-idle_inhibitor,
 #workspaces,
 #window,
 #custom-cpuinfo,
@@ -55,7 +55,7 @@ tooltip {
 
 /* -- Left Modules -- */
 /* Idle Inhibitor */
-#idle_inhibitor {
+#custom-idle_inhibitor {
   background: @logo;
   margin-left: 6px;
   padding-right: 7px;

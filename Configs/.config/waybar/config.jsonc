@@ -11,7 +11,7 @@
 
   // Positions
   "modules-left": [
-    "idle_inhibitor",
+    "custom/idle_inhibitor",
     "hyprland/workspaces", // workspaces
     "hyprland/window" // window title
   ],
@@ -38,13 +38,12 @@
 
 
   // Left modules
-  "idle_inhibitor": {
-    "format": "  ",
+  "custom/idle_inhibitor": {
+    "exec": "~/.config/waybar/scripts/idle-inhibitor.sh",
+    "on-click": "~/.config/waybar/scripts/idle-inhibitor.sh --toggle",
+    "return-type": "json",
     "tooltip": true,
-    "tooltip-format-activated": "Presentation Mode",
-    "tooltip-format-deactivated": "Idle Mode",
-    "start-activated": false,
-    "timeout": 5
+    "interval": 10
   },
 
   "hyprland/workspaces": {
