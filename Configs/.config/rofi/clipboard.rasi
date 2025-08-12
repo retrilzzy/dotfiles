@@ -1,5 +1,5 @@
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/colors.rasi"
+@import "./colors.rasi"
 * {
     background-color:   transparent;
     text-color:         @foreground;
@@ -24,7 +24,7 @@ window {
     border-radius:      24px;
     border:             2px solid;
     background-color:   @background;
-    border-color:       @urgent;
+    border-color:       @selected;
 }
 
 /*****----- Main Box -----*****/
@@ -60,7 +60,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search Pastes";
+    placeholder:                 "Search";
     placeholder-color:           inherit;
 }
 
@@ -88,7 +88,7 @@ element alternate active {
     text-color:    @active;
 }
 element selected normal, element selected active {
-    background-color:   @selected;
+    background-color:   @background-alt;
 }
 element-text {
     text-color:    inherit;

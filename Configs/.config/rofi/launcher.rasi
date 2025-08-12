@@ -1,11 +1,12 @@
 /*****----- Global Properties -----*****/
-@import                          "colors.rasi"
+@import                          "./colors.rasi"
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun";
+	modi:                       "run,drun";
     show-icons:                 true;
     display-drun:               " ";
+    display-run:                " ";
 	drun-display-format:        "{name}";
 }
 
@@ -63,7 +64,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search Apps";
+    placeholder:                 "Search";
     placeholder-color:           inherit;
 }
 
@@ -109,7 +110,7 @@ element selected.normal {
     border:                      0px 0px 2px 0px;
     border-radius:               12px;
     border-color:                @selected;
-    background-color:            @selected;
+    background-color:            @background-alt;
     text-color:                  @foreground;
 }
 element-icon {

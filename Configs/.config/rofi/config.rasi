@@ -1,5 +1,6 @@
 configuration {
 	/*---------- General setting ----------*/
+	modi: "drun,run,filebrowser,window";
 	font: "Noto Sans 12";
 	icon-theme: "Papirus";
 	case-sensitive: false;
@@ -40,6 +41,7 @@ configuration {
     filebrowser {
         directories-first: true;
         sorting-method:    "name";
+		directory: "/home";
     }
 
 	/*---------- Other settings ----------*/
