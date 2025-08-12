@@ -8,7 +8,7 @@
   </tr>
   <tr>
     <td><img src="./Assets/screenshots/hyprlock.png" width="200"></td>
-    <td><img src="./Assets/screenshots/rofi_app-launcher.png" width="200"></td>
+    <td><img src="./Assets/screenshots/rofi-launcher.png" width="200"></td>
     <td><img src="./Assets/screenshots/terminal.png" width="200"></td>
   </tr>
 </table>
