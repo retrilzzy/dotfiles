@@ -1,5 +1,5 @@
-@define-color wl-bg             rgba(10, 10, 10, 0.3);
-@define-color wl-button-bg      rgba(50, 50, 50, 0.9);
+@define-color wl-bg             rgba(0, 0, 0, 0.3);
+@define-color wl-button-bg      rgb(33, 33, 33);
 @define-color wl-button-fg      rgba(200, 200, 200, 1.0);
 
 
@@ -88,7 +88,7 @@ button:hover#reboot {
     margin : ${mgn}px 0px ${mgn}px 0px;
 }
 
-#shutdown {
+#poweroff {
     background-image: image(url("$HOME/.config/wlogout/icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
     border-radius: 13px;
     margin : ${mgn}px 0px ${mgn}px 0px;

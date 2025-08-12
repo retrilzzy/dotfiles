@@ -16,14 +16,14 @@
     "label": "suspend",
     "action": "~/.config/wlogout/current_wall.sh && systemctl suspend",
     "text": "Suspend",
-    "keybind": "u"
+    "keybind": "s"
 }
 
 {
-    "label": "shutdown",
+    "label": "poweroff",
     "action": "systemctl poweroff",
-    "text": "Shutdown",
-    "keybind": "s"
+    "text": "Poweroff",
+    "keybind": "p"
 }
 
 {
