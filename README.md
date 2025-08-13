@@ -3,13 +3,22 @@
 <table>
   <tr>
     <td colspan="3" align="center">
-      <img src="./Assets/screenshots/general.png" width="600">
+      <img src="./Assets/screenshots/general.png" width="600"><br>
     </td>
   </tr>
   <tr>
-    <td><img src="./Assets/screenshots/hyprlock.png" width="200"></td>
-    <td><img src="./Assets/screenshots/rofi-launcher.png" width="200"></td>
-    <td><img src="./Assets/screenshots/terminal.png" width="200"></td>
+    <td align="center">
+      <img src="./Assets/screenshots/hyprlock.png" width="200"><br>
+      <sub>Hyprlock</sub>
+    </td>
+    <td align="center">
+      <img src="./Assets/screenshots/rofi-launcher.png" width="200"><br>
+      <sub>Rofi</sub>
+    </td>
+    <td align="center">
+      <img src="./Assets/screenshots/terminal.png" width="200"><br>
+      <sub>Kitty</sub>
+    </td>
   </tr>
 </table>
 
@@ -44,35 +53,35 @@
 # Установка
 
 > [!NOTE]
-> Перед установкой у вас должна быть работающая установка Hyprland.
+> Перед установкой у вас должна быть работающий Hyprland.
 
-0. Обновление системы
+0. Обновление системы:
 
    ```
    sudo pacman -Syu
    ```
 
-1. Запуск скрипта установки
+1. Запуск скрипта установки:
 
    ```
    curl https://raw.githubusercontent.com/retrilzzy/dotfiles/refs/heads/main/Scripts/install.sh | bash
    ```
 
-   - установка пакетов
-   - клонирование репозитория в `~/dotfiles`
-   - резервное копирование текущих конфигов в `~/.config-backups/$date_time`
-   - применение конфигов
+   - Установка пакетов.
+   - Клонирование репозитория в `~/dotfiles`.
+   - Резервное копирование текущих конфигов в `~/.config-backups/$date_time`.
+   - Применение конфигов.
 
 ## После установки
 
-Действия которые вы вероятно хотите сделать
+Действия которые вы вероятно хотите сделать.
 
 **Общее:**
 
-- Запустить nwg-look (GTK Settings) для настройки GTK
-- Запустить Qt5ct и Qt6ct для настройки Qt5 и Qt6
-- Добавить свои обои в ~/Pictures/Wallpapers
-- Запустить `p10k configure` для настройки темы терминала
+- Запустить nwg-look (GTK Settings) для настройки GTK.
+- Запустить Qt5ct и Qt6ct для настройки Qt5 и Qt6.
+- Добавить свои обои в ~/Pictures/Wallpapers.
+- Запустить `p10k configure` для настройки темы терминала.
 - Убрать лишние для вас плагины Zsh в `~/.zshrc`:
   ```zsh
   plugins=(...)
@@ -80,17 +89,7 @@
 
 **ПК юзерам:**
 
-- Отключить модули waybar: custom/backlight, battery в `~/.config/waybar/config.jsonc` и добавить стилей для закругления правой группы модулей `~/.config/waybar/styles.css`:
-
-  ```css
-  #pulseaudio {
-    background: @pulseaudio;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-right: 3px;
-    padding-right: 6px;
-  }
-  ```
+- Отключить модуль `custom/backlight` waybar в `~/.config/waybar/config.jsonc`.
 
 ## Восстановление резервной копии конфигов
 
@@ -139,7 +138,7 @@
 
 ## Hyprland
 
-Оконный менеджер (WM)
+Оконный менеджер (WM).
 
 - [[Основной конфиг](./Configs/.config/hypr/hyprland.conf)]
 - [[Бинды](./Configs/.config/hypr/keybindings.conf)]
@@ -268,25 +267,25 @@ yay -S rose-pine-cursor rose-pine-hyprcursor
 
 ## Шрифты
 
-- [Noto](https://www.google.com/get/noto/) - поддержка всех языков + эмодзи + специальные символы
+- [Noto](https://www.google.com/get/noto/) - поддержка всех языков + эмодзи + специальные символы:
 
   ```
   sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
   ```
 
-- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и [Waybar](#waybar)
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и [Waybar](#waybar):
 
   ```
   sudo pacman -S ttf-jetbrains-mono-nerd
   ```
 
-- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) рекомендуемый шрифт для powerlevel10k (Zsh тема)
+- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) рекомендуемый шрифт для powerlevel10k (Zsh тема):
 
   ```
   yay -S ttf-meslo-nerd-font-powerlevel10k
   ```
 
-- [Inter](https://rsms.me/inter/) необходимый шрифт для [Hyprlock](#hyprlock)
+- [Inter](https://rsms.me/inter/) необходимый шрифт для [Hyprlock](#hyprlock):
 
   ```
   sudo pacman -S inter-font
@@ -294,7 +293,7 @@ yay -S rose-pine-cursor rose-pine-hyprcursor
 
 ## Hypridle
 
-Поведение при бездействии [[конфиг](./Configs/.config/hypr/hypridle.conf)]
+Поведение при бездействии. [[конфиг](./Configs/.config/hypr/hypridle.conf)]
 
 https://wiki.hypr.land/Hypr-Ecosystem/hypridle |
 https://github.com/hyprwm/hypridle
@@ -313,7 +312,7 @@ sudo pacman -S hypridle
 
 ## Hyprlock
 
-Экран блокировки [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
+Экран блокировки. [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
 
 https://github.com/hyprwm/hyprlock
 
@@ -329,7 +328,7 @@ sudo pacman -S hyprlock
 
 ## Waybar
 
-Wayland бар [[конфиг](./Configs/.config/waybar/)]
+Wayland бар. [[конфиг](./Configs/.config/waybar/)]
 
 https://github.com/Alexays/Waybar
 
@@ -345,7 +344,7 @@ sudo pacman -S waybar
 
 ## Rofi
 
-Запуск приложений, интерфейс для буфера обмена [[конфиг](./Configs/.config/rofi/)]
+Запуск приложений, интерфейс для буфера обмена. [[конфиг](./Configs/.config/rofi/)]
 
 https://github.com/davatorium/rofi
 
@@ -383,13 +382,13 @@ yay -S wlogout
 
 ## Терминал
 
-Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/.config/kitty/)]
+Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty). [[конфиг](./Configs/.config/kitty/)]
 
-Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc)]
+Оболочка - [Zsh](https://www.zsh.org/). [[конфиг](./Configs/.zshrc)]
 
-Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
 
-Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh)]
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k). [[конфиг](./Configs/.p10k.zsh)]
 
 <details><summary><b>Скриншот</b></summary>
 
@@ -397,25 +396,25 @@ yay -S wlogout
 
 </details><br>
 
-Установка Kitty и Zsh
+Установка Kitty и Zsh:
 
 ```
 sudo pacman -S kitty zsh
 ```
 
-Смена оболочки
+Смена оболочки:
 
 ```
 chsh -s $(which zsh)
 ```
 
-Установка Oh My Zsh
+Установка Oh My Zsh:
 
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Установка темы powerlevel10k
+Установка темы powerlevel10k:
 
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -423,19 +422,19 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 Установка плагинов для zsh через Oh My Zsh:
 
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting):
 
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions):
 
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-Установка [lsd](https://github.com/lsd-rs/lsd) (замена ls)
+Установка [lsd](https://github.com/lsd-rs/lsd) (замена ls):
 
 ```
 sudo pacman -S lsd
@@ -443,7 +442,7 @@ sudo pacman -S lsd
 
 ## Nwg-look
 
-Настройка GTK [[конфиг](./Configs/.config/nwg-look/)]
+Настройка GTK. [[конфиг](./Configs/.config/nwg-look/)]
 
 https://github.com/nwg-piotr/nwg-look
 
@@ -466,8 +465,9 @@ gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 
 ## Qt5 Qt6
 
-Настройка Qt5 [[конфиг](./Configs/.config/qt5ct/)]
-Настройка Qt6 [[конфиг](./Configs/.config/qt6ct/)]
+Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
+
+Настройка Qt6. [[конфиг](./Configs/.config/qt6ct/)]
 
 https://sourceforge.net/projects/qt5ct/
 https://www.opencode.net/trialuser/qt6ct
@@ -478,7 +478,7 @@ sudo pacman -S qt5ct qt6ct
 
 ## SwayNC
 
-Уведомления [[конфиг](./Configs/.config/swaync/)]
+Уведомления. [[конфиг](./Configs/.config/swaync/)]
 
 https://github.com/ErikReider/SwayNotificationCenter
 
@@ -488,7 +488,7 @@ sudo pacman -S swaync
 
 ## Waypaper
 
-GUI для простого управление обоями
+GUI для простого управление обоями.
 
 https://github.com/anufrievroman/waypaper
 
@@ -496,13 +496,13 @@ https://github.com/anufrievroman/waypaper
 yay -S waypaper
 ```
 
-Для статичных изображений и gif (необходим)
+Для статичных изображений и gif (необходим):
 
 ```
 sudo pacman -S swww
 ```
 
-Для видео
+Для видео (опционально):
 
 ```
 sudo pacman -S mpvpaper
@@ -515,7 +515,7 @@ sudo pacman -S mpvpaper
 
 ## Emote
 
-Выбор эмодзи
+Выбор эмодзи.
 
 https://github.com/tom-james-watson/Emote
 
@@ -525,7 +525,7 @@ yay -S emote
 
 ## Flameshot
 
-Мощная утилита для скриншотов [[конфиг](./Configs/.config/flameshot/)]
+Мощная утилита для скриншотов. [[конфиг](./Configs/.config/flameshot/)]
 
 https://flameshot.org
 
