@@ -486,6 +486,15 @@ https://github.com/ErikReider/SwayNotificationCenter
 sudo pacman -S swaync
 ```
 
+<details><summary><b>Скриншоты</b></summary>
+
+![Screenshot](./Assets/screenshots/swaync-notification.png)
+<br>
+
+![Screenshot](./Assets/screenshots/swaync-control-center.png)
+
+</details>
+
 ## Waypaper
 
 GUI для простого управление обоями.
