@@ -129,6 +129,7 @@
 - playerctl
 - polkit-gnome-authentication-agent
 - power-profile-daemon
+- wl-clip-persist
 - wf-recorder
 - xdg-utils
 - xdg-desktop-portal
