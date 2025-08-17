@@ -19,6 +19,7 @@ window#waybar > box {
   background-color: @background;
   border-radius: 15px;
   border: 2px solid @selected;
+  opacity: 0.95;
 }
 
 /* -- Tooltip Styling -- */
@@ -88,6 +89,10 @@ tooltip {
   background: @selected;
   animation: ws_hover 20s ease-in-out 1;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#window {
+  margin-left: 0;
 }
 
 /* -- Right Modules -- */

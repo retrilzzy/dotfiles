@@ -68,53 +68,11 @@
   "hyprland/window": {
     "format": "{}",
     "separate-outputs": true,
+    "icon": true,
+    "icon-size": 14,
     "rewrite": {
       // Desktop
       "": " Hyprland",
-
-      // Terminal
-      "(.*):~": "  $1",
-
-      // Brave
-      "(.*) - Brave": "<span foreground='#e07f00'> </span> $1",
-
-      // VSCode
-      "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
-      "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
-
-      // Discord
-      "(.*) - Discord": "<span foreground='#89b4fa'> </span> Discord$2",
-
-      // Obsidian
-      "(.*) - Obsidian(.*)": "<span foreground='#9B59B6'> </span> $1",
-
-      // Steam
-      "(.*)Big Picture": "<span foreground='#66C0F4'> </span> Steam Big Picture",
-      "(.*)Steam": "<span foreground='#66C0F4'> </span> Steam",
-
-      // OBS Studio
-      "OBS (.*)": "<span foreground='#a6adc8'>󰐌 </span> OBS Studio",
-
-      // VLC Media Player
-      "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
-      "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
-
-      // Office
-      "ONLYOFFICE": "<span foreground='#C6C6C6'> </span> OnlyOffice",
-      "LibreOffice": "<span foreground='#34C34F'> </span> LibreOffice",
-      "(.*).docx(.*)": "<span foreground='#89b4fa'> </span> $1.docx",
-      "(.*).xlsx(.*)": "<span foreground='#00B05A'> </span> $1.xlsx",
-      "(.*).pptx(.*)": "<span foreground='#E88A50'> </span> $1.pptx",
-      "(.*).pdf(.*)": "<span foreground='#E53935'> </span> $1.pdf",
-
-      // Image Viewer
-      "Image Viewer": "  Image Viewer",
-      "(.*).jpg": "  $1.jpg",
-      "(.*).png": "  $1.png",
-      "(.*).svg": "  $1.svg",
-
-      // Timeshift
-      "Timeshift-gtk": "<span foreground='#a6e3a1'>󰁯 </span> Timeshift",
 
       // Security
       "Authenticate": "  Authenticate"
