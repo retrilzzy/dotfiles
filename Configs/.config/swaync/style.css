@@ -1,8 +1,8 @@
 :root {
-  --cc-bg: rgba(46, 46, 46, 0.9);
+  --cc-bg: rgb(46, 46, 46);
   --noti-border-color: rgba(255, 255, 255, 0.15);
   --noti-bg: 48, 48, 48;
-  --noti-bg-alpha: 0.8;
+  --noti-bg-alpha: 0.98;
   --noti-bg-darker: rgb(38, 38, 38);
   --noti-bg-hover: rgb(56, 56, 56);
   --noti-bg-focus: rgba(68, 68, 68, 0.6);
