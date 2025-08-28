@@ -33,14 +33,14 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
 git
-zsh-syntax-highlighting
-zsh-autosuggestions
-zsh-wakatime
-dirhistory
-docker
 archlinux
-poetry
-golang
+zsh-autosuggestions
+zsh-syntax-highlighting
+dirhistory
+# zsh-wakatime
+# docker
+# poetry
+# golang
 )
 
 
