@@ -66,29 +66,40 @@ backup_configs() {
 
     local date_now
     date_now=$(date +%Y-%m-%d_%H-%M-%S)
-    local backup_dir=~/.config-backups/"$date_now"
-    mkdir -p "$backup_dir/.config"
+    local backup_dir="$HOME/.config-backups/$date_now"
 
+    mkdir -p "$backup_dir/.config" "$backup_dir/etc"
+
+    shopt -s nullglob
     for dir in "$DOTFILES_DIR"/Configs/.config/*; do
         local name
         name=$(basename "$dir")
-        if [ -d ~/.config/"$name" ]; then
-            echo -e "${BLUE}↳ Копирование ~/.config/$name в $backup_dir/.config/${RESET}"
-            cp -r ~/.config/"$name" "$backup_dir/.config/"
+        if [ -d "$HOME/.config/$name" ]; then
+            echo -e "${BLUE} Копирование ~/.config/$name в $backup_dir/.config/${RESET}"
+            cp -a "$HOME/.config/$name" "$backup_dir/.config/"
         fi
     done
 
     local home_files=(".zshrc" ".p10k.zsh" ".nanorc")
     for file in "${home_files[@]}"; do
-        if [ -f ~/"$file" ]; then
-            echo -e "${BLUE}↳ Копирование ~/$file в $backup_dir/${RESET}"
-            cp ~/"$file" "$backup_dir/"
+        if [ -f "$HOME/$file" ]; then
+            echo -e "${BLUE} Копирование ~/$file в $backup_dir/${RESET}"
+            cp -a "$HOME/$file" "$backup_dir/"
         fi
     done
 
+    for dir in "$DOTFILES_DIR"/Configs/etc/*; do
+        local name
+        name=$(basename "$dir")
+        if [ -d "/etc/$name" ]; then
+            echo -e "${BLUE} Копирование /etc/$name в $backup_dir/etc/${RESET}"
+            cp -a "/etc/$name" "$backup_dir/etc/"
+        fi
+    done
+    shopt -u nullglob
+
     echo -e "${GREEN}Бэкап сохранён в $backup_dir${RESET}"
 }
-
 
 
 clone_repo() {
@@ -100,9 +111,15 @@ clone_repo() {
 
 apply_new_configs() {
     print_section "Применение новых конфигураций"
-    cp -a "$DOTFILES_DIR/Configs/.config/." ~/.config/
-    
-    cp "$DOTFILES_DIR/Configs/.zshrc" "$DOTFILES_DIR/Configs/.p10k.zsh" "$DOTFILES_DIR/Configs/.nanorc" ~/
+
+    cp -a "$DOTFILES_DIR/Configs/.config/." "$HOME/.config/"
+
+    cp "$DOTFILES_DIR/Configs/.zshrc" \
+        "$DOTFILES_DIR/Configs/.p10k.zsh" \
+        "$DOTFILES_DIR/Configs/.nanorc" "$HOME/"
+
+    sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
+
     echo -e "${GREEN}Новые конфигурации применены.${RESET}"
 }
 
