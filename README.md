@@ -354,7 +354,7 @@ https://github.com/davatorium/rofi
 https://github.com/lbonn/rofi
 
 ```
-sudo pacman -S rofi-wayland wl-clipboard cliphist
+sudo pacman -S rofi wl-clipboard cliphist
 ```
 
 <details><summary><b>Скриншот (Лаунчер приложений)</b></summary>

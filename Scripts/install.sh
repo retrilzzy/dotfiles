@@ -196,7 +196,7 @@ main() {
 
     print_section "Интерфейс и утилиты"
     install_yay wlogout swaync
-    install_pacman waybar rofi-wayland wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch emote
+    install_pacman waybar rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch emote
 
     print_section "Обои и оформление"
     install_yay waypaper swww
