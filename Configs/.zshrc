@@ -67,3 +67,6 @@ alias clck="tty-clock -c -s -b -C 7"
 alias icat="kitten icat"
 alias s="kitten ssh"
 alias d="kitten diff"
+
+alias rmt='trash-put'
+alias clean-trash='trash-empty 30'
