@@ -120,6 +120,8 @@ apply_new_configs() {
 
     sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
 
+    sudo cp -a "$DOTFILES_DIR/Configs/.local/. $HOME/.local/"
+
     echo -e "${GREEN}Новые конфигурации применены.${RESET}"
 }
 
