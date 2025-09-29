@@ -151,7 +151,8 @@ reload_services() {
     if pgrep -x "waybar" > /dev/null; then
         killall waybar && sleep 1
     fi
-    uwsm app -- waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/styles.css > /dev/null 2>&1 & disown || waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/styles.css > /dev/null 2>&1 & disown
+
+    uwsm app -- waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/styles.css > /dev/null 2>&1 & disown
     echo -e "${GREEN}Waybar перезапущен.${RESET}"
 }
 
@@ -175,7 +176,7 @@ main() {
     install_pacman networkmanager network-manager-applet
 
     print_section "Установка PipeWire"
-    install_pacman pipewire pipewire-pulse pipewire-audio pipewire-alsa pipewire-jack
+    install_pacman pipewire pipewire-pulse pipewire-audio pipewire-alsa
 
     print_section "Bluetooth"
     install_pacman bluez bluez-tools blueman
@@ -187,7 +188,7 @@ main() {
     install_pacman brightnessctl playerctl
 
     print_section "Шрифты"
-    install_pacman noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono inter-font
+    install_pacman noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd inter-font
     install_yay ttf-meslo-nerd-font-powerlevel10k
 
     print_section "Темы и иконки"
@@ -195,14 +196,14 @@ main() {
     install_pacman papirus-icon-theme
 
     print_section "Интерфейс и утилиты"
-    install_yay wlogout swaync
-    install_pacman waybar rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch emote
+    install_yay wlogout swaync emote
+    install_pacman waybar uwsm rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch
 
     print_section "Обои и оформление"
     install_yay waypaper swww
 
     print_section "Видео-обои"
-    install_yay mpvpaper-git
+    install_yay mpvpaper
 
     print_section "Скриншоты и запись экрана"
     install_pacman grim wf-recorder hyprshot

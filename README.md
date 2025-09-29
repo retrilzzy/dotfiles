@@ -629,7 +629,7 @@ sudo pacman -S swww
 Для видео (опционально):
 
 ```
-sudo pacman -S mpvpaper
+yay -S mpvpaper
 ```
 
 ### Обои
