@@ -221,7 +221,8 @@ main() {
     git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
 
     print_section "GTK и Qt оформление"
-    install_pacman nwg-look qt5ct qt6ct
+    install_pacman nwg-look kvantum
+    install_yay qt6cd-kde
 
     clone_repo
     backup_configs
