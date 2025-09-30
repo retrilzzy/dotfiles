@@ -586,7 +586,11 @@ https://github.com/tsujan/Kvantum
 
 https://www.opencode.net/trialuser/qt6ct
 
-Настройка Qt. [[конфиг](./Configs/.config/qt6ct/)]
+Настройка Qt6. [[конфиг](./Configs/.config/qt6ct/)]
+
+https://sourceforge.net/projects/qt5ct/
+
+Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
 
 ```
 sudo pacman -S kvantum
