@@ -184,7 +184,7 @@ main() {
     install_pacman bluez bluez-tools blueman
 
     print_section "Интеграция с окружением"
-    install_pacman xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr
+    install_pacman xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
 
     print_section "Управление устройствами"
     install_pacman brightnessctl playerctl
@@ -199,7 +199,7 @@ main() {
 
     print_section "Интерфейс и утилиты"
     install_yay wlogout swaync emote
-    install_pacman waybar uwsm rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli
+    install_pacman waybar uwsm rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
 
     print_section "Обои и оформление"
     install_yay waypaper swww

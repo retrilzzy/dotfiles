@@ -99,7 +99,10 @@
 
 # Детальный обзор
 
-## Дополнительные пакеты
+<details>
+   <summary>
+      <h3>Дополнительные пакеты</h3>
+   </summary>
 
 Используемые в биндах Hyprland и модулях Waybar, a также для улучшения опыта использования.
 
@@ -134,8 +137,11 @@
 - xdg-utils
 - xdg-desktop-portal
 - xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gnome
 - xdg-desktop-portal-gtk
 - xdg-desktop-portal-wlr
+
+</details>
 
 ## Hyprland
 
