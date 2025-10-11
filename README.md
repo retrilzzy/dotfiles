@@ -79,8 +79,8 @@
 **Общее:**
 
 - Запустить nwg-look (GTK Settings) для настройки GTK.
-- Запустить Qt5ct и Qt6ct для настройки Qt5 и Qt6.
-- Добавить свои обои в ~/Pictures/Wallpapers.
+- Запустить Qt5ct, Qt6ct и Kvantum для настройки Qt.
+- Добавить свои обои в `~/Pictures/Wallpapers`.
 - Запустить `p10k configure` для настройки темы терминала.
 - Убрать лишние для вас плагины Zsh в `~/.zshrc`:
   ```zsh
@@ -106,8 +106,7 @@
 
 Используемые в биндах Hyprland и модулях Waybar, a также для улучшения опыта использования.
 
-> [!NOTE]
-> Исключения из списка: пакеты которые подробнее упомянуты в этом README.md и программы по типу браузеров, терминалов и т.д.
+> Исключения из списка: пакеты которые подробнее упомянуты в этом README.md и программы по типу браузеров, редакторов.
 
 - Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
 
@@ -128,7 +127,6 @@
 - pipewire-pulse
 - pipewire-alsa
 - pipewire-audio
-- pipewire-jack
 - playerctl
 - polkit-gnome-authentication-agent
 - power-profile-daemon
@@ -163,17 +161,19 @@
 | <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                         |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)      |
 | <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)                   |
-| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений с запуском через Oniux\* |
+| <kbd>Super</kbd> + <kbd>O</kbd>                    | Меню приложений с запуском через Oniux\* |
 | <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)             |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode)                   |
-| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave)                          |
-| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (Keepassxc)             |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode\*)                   |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                          |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)             |
 | <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Cliphist)                  |
 | <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (Swaync)               |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)             |
 
-\*Oniux - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/
+***\*Oniux** - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.*
+
+***\*Oniux, VSCode, Brave, KeePassXC** - НЕ устанавливаются автоматически [скриптом](./Scripts/install.sh).*
 
 </details>
 
@@ -188,7 +188,7 @@
 | <kbd>F11</kbd>                                             | Полный экран (fullscreen)                         |
 | <kbd>Super</kbd> + <kbd>A</kbd>                            | Максимизировать активное окно                     |
 | <kbd>Super</kbd> + <kbd>F</kbd>                            | Переключение окна в режим "плавающее" (float)     |
-| <kbd>Super</kbd> + <kbd>A</kbd>                            | Переключение на псевдоплиточный режим (pseudo)    |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>                            | Переключение на псевдоплиточный режим (pseudo)    |
 | <kbd>Super</kbd> + <kbd>S</kbd>                            | Закрепление окна поверх всех рабочих столов (pin) |
 | <kbd>Super</kbd> + <kbd>D</kbd>                            | Переключение режима разделения окна               |
 | <kbd>Alt</kbd> + <kbd>Tab</kbd>                            | Переключение на следующее окно                    |
@@ -434,8 +434,8 @@ yay -S wlogout
 | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>                | Создать новое окно с горизонтальным разделением |
 | <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>-</kbd>                    | Горизонтальное разделение в текущей директории  |
 | <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>-</kbd> | Горизонтальное разделение                       |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>\</kbd>                    | Вертикальное разделение в текущей директории    |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>\</kbd> | Вертикальное разделение                         |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>\|</kbd>                    | Вертикальное разделение в текущей директории    |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>\|</kbd> | Вертикальное разделение                         |
 | <kbd>F4</kbd>                                                    | Разделить окно                                  |
 | <kbd>F7</kbd>                                                    | Повернуть расположение окон                     |
 
@@ -599,7 +599,7 @@ https://sourceforge.net/projects/qt5ct/
 Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
 
 ```
-sudo pacman -S kvantum
+sudo pacman -S kvantum qt5ct
 yay -S qt6cd-kde
 ```
 
