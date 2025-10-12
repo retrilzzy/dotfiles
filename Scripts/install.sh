@@ -184,7 +184,7 @@ main() {
     install_pacman bluez bluez-tools blueman
 
     print_section "Интеграция с окружением"
-    install_pacman xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
+    install_pacman xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome polkit-gnome
 
     print_section "Управление устройствами"
     install_pacman brightnessctl playerctl
