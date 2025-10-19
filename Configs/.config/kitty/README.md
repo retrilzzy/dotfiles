@@ -1,3 +1,5 @@
+## Бинды
+
 <details>
    <summary>
       <b>Управление окнами и вкладками</b>
@@ -101,3 +103,7 @@
 | <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>S</kbd>                    | Сохранить сессию                         |
 
 </details>
+
+## Источник
+
+- https://github.com/ttys3/oh-my-kitty
