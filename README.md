@@ -120,6 +120,7 @@
 - brightnessctl
 - cliphist
 - gnome-bluetooth-3.0
+- gpu-screen-recorder
 - hyprshot
 - network-manager-applet
 - networkmanager
@@ -131,7 +132,6 @@
 - polkit-gnome
 - power-profile-daemon
 - wl-clip-persist
-- wf-recorder
 - xdg-utils
 - xdg-desktop-portal
 - xdg-desktop-portal-hyprland
@@ -247,12 +247,12 @@
       <b>Остальное</b>
    </summary>
 
-| Клавиши                                            | Действие                                   |
-| :------------------------------------------------- | :----------------------------------------- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                     |
-| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers     |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать запись области экрана (wf-recorder) |
-| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона             |
+| Клавиши                                            | Действие                                           |
+| :------------------------------------------------- | :------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                             |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать запись области экрана (gpu-screen-recorder) |
+| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона                     |
 
 </details>
 
