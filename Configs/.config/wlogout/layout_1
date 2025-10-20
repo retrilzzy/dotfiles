@@ -1,6 +1,6 @@
 {
     "label": "lock",
-    "action": "~/.config/wlogout/current_wall.sh && loginctl lock-session",
+    "action": "~/.config/retrilz-scripts/current-wall.sh && loginctl lock-session",
     "text": "Lock",
     "keybind": "l"
 }
@@ -14,7 +14,7 @@
 
 {
     "label": "suspend",
-    "action": "~/.config/wlogout/current_wall.sh && systemctl suspend",
+    "action": "~/.config/retrilz-scripts/current-wall.sh && systemctl suspend",
     "text": "Suspend",
     "keybind": "s"
 }
@@ -28,7 +28,7 @@
 
 {
     "label": "hibernate",
-    "action": "~/.config/wlogout/current_wall.sh && systemctl hibernate",
+    "action": "~/.config/retrilz-scripts/current-wall.sh && systemctl hibernate",
     "text": "Hibernate",
     "keybind": "h"
 }

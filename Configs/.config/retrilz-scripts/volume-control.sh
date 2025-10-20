@@ -3,7 +3,7 @@
 # Define functions
 print_error() {
     cat <<"EOF"
-Usage: ./volumecontrol.sh -[device] <actions>
+Usage: ./volume-control.sh -[device] <actions>
 ...valid devices are...
     i   -- input device
     o   -- output device

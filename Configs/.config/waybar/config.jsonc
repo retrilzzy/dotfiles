@@ -2,7 +2,6 @@
   "layer": "top",
   "position": "top",
   "mode": "dock",
-  // "height": 24, // uncomment to set fixed height
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
@@ -39,8 +38,8 @@
 
   // Left modules
   "custom/idle_inhibitor": {
-    "exec": "~/.config/waybar/scripts/idle-inhibitor.sh",
-    "on-click": "~/.config/waybar/scripts/idle-inhibitor.sh --toggle",
+    "exec": "~/.config/retrilz-scripts/idle-inhibitor.sh",
+    "on-click": "~/.config/retrilz-scripts/idle-inhibitor.sh --toggle",
     "return-type": "json",
     "tooltip": true,
     "interval": 10,
@@ -84,7 +83,7 @@
 
   // Central modules
   "custom/cpu": {
-    "exec": "~/.config/waybar/scripts/cpuusage.sh",
+    "exec": "~/.config/retrilz-scripts/cpu-usage.sh",
     "return-type": "json",
     "tooltip": true,
     "interval": 5,
@@ -92,7 +91,7 @@
     "max-length": 6
   },
   "custom/cpuinfo": {
-    "exec": "~/.config/waybar/scripts/cpuinfo.sh",
+    "exec": "~/.config/retrilz-scripts/cpu-info.sh",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
@@ -208,20 +207,20 @@
     },
     "tooltip": true,
     "tooltip-format": "Device: {desc}",
-    "on-click": "~/.config/waybar/scripts/volumecontrol.sh -o m",
-    "on-scroll-up": "~/.config/waybar/scripts/volumecontrol.sh -o i",
-    "on-scroll-down": "~/.config/waybar/scripts/volumecontrol.sh -o d",
+    "on-click": "~/.config/retrilz-scripts/volume-control.sh -o m",
+    "on-scroll-up": "~/.config/retrilz-scripts/volume-control.sh -o i",
+    "on-scroll-down": "~/.config/retrilz-scripts/volume-control.sh -o d",
     "min-length": 6,
     "max-length": 6
   },
 
   "custom/backlight": {
-    "exec": "~/.config/waybar/scripts/brightnesscontrol.sh",
+    "exec": "~/.config/retrilz-scripts/brightness-control.sh",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
-    "on-scroll-up": "~/.config/waybar/scripts/brightnesscontrol.sh -o i",
-    "on-scroll-down": "~/.config/waybar/scripts/brightnesscontrol.sh -o d",
+    "on-scroll-up": "~/.config/retrilz-scripts/brightness-control.sh -o i",
+    "on-scroll-down": "~/.config/retrilz-scripts/brightness-control.sh -o d",
     "interval": 1,
     "min-length": 6,
     "max-length": 6
@@ -272,8 +271,8 @@
   "custom/power": {
     "format": " ",
     "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/logoutlaunch.sh 2",
-    "on-click-right": "~/.config/waybar/scripts/logoutlaunch.sh 1",
+    "on-click": "~/.config/retrilz-scripts/logout-launch.sh 2",
+    "on-click-right": "~/.config/retrilz-scripts/logout-launch.sh 1",
     "interval": 86400
   }
 }

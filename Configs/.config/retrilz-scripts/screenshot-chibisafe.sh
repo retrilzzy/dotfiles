@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 # Chibisafe
 # https://chibisafe.app/
@@ -42,13 +42,13 @@ url=$(echo "$response" | jq -r '.url // empty')
 if [[ -n "$url" ]]; then
     echo "✅ File uploaded successfully."
     echo "Response: $response"
-    
+
     send_notification "✅ File uploaded successfully"
     copy_to_clipboard "$url"
 else
     echo "❌ Upload failed"
     echo "Response: $response"
-    
+
     send_notification "❌ Upload failed"
     exit 1
 fi

@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 # Zipline
 # https://zipline.diced.sh/

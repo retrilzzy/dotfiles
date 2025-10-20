@@ -3,7 +3,7 @@
 # Print error message for invalid arguments
 print_error() {
     cat <<"EOF"
-Usage: ./brightnesscontrol.sh <action>
+Usage: ./brightness-control.sh <action>
 Valid actions are:
     i -- <i>ncrease brightness [+5%]
     d -- <d>ecrease brightness [-5%]

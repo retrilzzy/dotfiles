@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 PID_FILE="$HOME/.cache/idle_inhibit.pid"
 
@@ -8,7 +8,7 @@ toggle() {
         rm -f "$PID_FILE"
     else
         systemd-inhibit --what=idle:sleep --why="Manual Idle Inhibit" sleep infinity &
-        echo $! > "$PID_FILE"
+        echo $! >"$PID_FILE"
     fi
 }
 
@@ -21,6 +21,6 @@ status_json() {
 }
 
 case "$1" in
-    --toggle) toggle ;;
-    *) status_json ;;
+--toggle) toggle ;;
+*) status_json ;;
 esac
