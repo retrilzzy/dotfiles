@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 set -euo pipefail
 
@@ -10,13 +10,11 @@ GREEN='[1;32m'
 YELLOW='[1;33m'
 RESET='[0m'
 
-
 print_section() {
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e "$1"
     echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 }
-
 
 install_pacman() {
     for pkg in "$@"; do
@@ -30,7 +28,6 @@ install_pacman() {
     done
 }
 
-
 install_yay() {
     for pkg in "$@"; do
         if ! yay -Qq "$pkg" &>/dev/null; then
@@ -42,7 +39,6 @@ install_yay() {
         fi
     done
 }
-
 
 ensure_yay() {
     if ! command -v yay &>/dev/null; then
@@ -60,7 +56,6 @@ ensure_yay() {
     fi
 }
 
-
 backup_configs() {
     print_section "Резервное копирование существующих конфигураций"
 
@@ -75,7 +70,7 @@ backup_configs() {
         local name
         name=$(basename "$dir")
         if [ -d "$HOME/.config/$name" ]; then
-            echo -e "${BLUE} Копирование ~/.config/$name в $backup_dir/.config/${RESET}"
+            echo -e "${BLUE} Копирование $HOME/.config/$name в $backup_dir/.config/${RESET}"
             cp -a "$HOME/.config/$name" "$backup_dir/.config/"
         fi
     done
@@ -83,7 +78,7 @@ backup_configs() {
     local home_files=(".zshrc" ".p10k.zsh" ".nanorc")
     for file in "${home_files[@]}"; do
         if [ -f "$HOME/$file" ]; then
-            echo -e "${BLUE} Копирование ~/$file в $backup_dir/${RESET}"
+            echo -e "${BLUE} Копирование $HOME/$file в $backup_dir/${RESET}"
             cp -a "$HOME/$file" "$backup_dir/"
         fi
     done
@@ -101,13 +96,11 @@ backup_configs() {
     echo -e "${GREEN}Бэкап сохранён в $backup_dir${RESET}"
 }
 
-
 clone_repo() {
     print_section "Клонирование репозитория"
 
     git clone https://github.com/retrilzzy/dotfiles.git "$DOTFILES_DIR" || true
 }
-
 
 apply_new_configs() {
     print_section "Применение новых конфигураций"
@@ -125,39 +118,36 @@ apply_new_configs() {
     echo -e "${GREEN}Новые конфигурации применены.${RESET}"
 }
 
-
 setup_theme() {
     print_section "Применение темы"
-    
-    mkdir -p ~/.themes/Adwaita-Dark/gtk-3.0
-    echo '@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");' > ~/.themes/Adwaita-Dark/gtk-3.0/gtk.css
+
+    mkdir -p "$HOME/.themes/Adwaita-Dark/gtk-3.0"
+    echo '@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");' >"$HOME/.themes/Adwaita-Dark/gtk-3.0/gtk.css"
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark || echo -e "${YELLOW}Не удалось установить color-scheme через gsettings.${RESET}"
     gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark || echo -e "${YELLOW}Не удалось установить gtk-theme через gsettings.${RESET}"
     nwg-look -a || echo -e "${YELLOW}Не удалось применить тему через nwg-look.${RESET}"
     echo -e "${GREEN}Тема GTK настроена.${RESET}"
 }
 
-
 setup_wallpapers() {
-    local wallpaper_dest=~/Pictures/Wallpapers
+    local wallpaper_dest="$HOME/Pictures/Wallpapers"
     mkdir -p "$wallpaper_dest"
     cp -r "$DOTFILES_DIR/Assets/wallpapers/"* "$wallpaper_dest/"
     echo -e "${GREEN}Обои скопированы в $wallpaper_dest${RESET}"
-    
+
     waypaper --backend swww --random --folder "$wallpaper_dest" || echo -e "${YELLOW}Не удалось установить обои через waypaper.${RESET}"
     echo -e "${GREEN}Обои установлены.${RESET}"
 }
 
-
 reload_services() {
-    if pgrep -x "waybar" > /dev/null; then
+    if pgrep -x "waybar" >/dev/null; then
         killall waybar && sleep 1
     fi
 
-    uwsm app -- waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/styles.css > /dev/null 2>&1 & disown
+    uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
+    disown
     echo -e "${GREEN}Waybar перезапущен.${RESET}"
 }
-
 
 main() {
     if [ -z "${WAYLAND_DISPLAY:-}" ]; then
@@ -208,11 +198,12 @@ main() {
     install_yay mpvpaper
 
     print_section "Скриншоты и запись экрана"
-    install_pacman grim wf-recorder hyprshot
+    install_pacman grim hyprshot
+    install_yay gpu-screen-recorder
 
     print_section "Zsh и плагины"
     install_pacman zsh
-    if [ ! -d ~/.oh-my-zsh ]; then
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
     fi
     sudo chsh -s /bin/zsh "$USER"
