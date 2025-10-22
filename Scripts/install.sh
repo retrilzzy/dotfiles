@@ -189,7 +189,7 @@ main() {
 
     print_section "Интерфейс и утилиты"
     install_yay wlogout swaync emote
-    install_pacman waybar uwsm rofi wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
+    install_pacman waybar uwsm rofi hypridle wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
 
     print_section "Обои и оформление"
     install_yay waypaper swww
