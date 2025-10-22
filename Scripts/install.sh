@@ -40,6 +40,22 @@ install_yay() {
     done
 }
 
+clone_repo() {
+    print_section "Клонирование репозитория"
+    git clone https://github.com/retrilzzy/dotfiles.git "$DOTFILES_DIR" || true
+}
+
+setup_pacman() {
+    print_section "Настройка Pacman"
+
+    sudo cp /etc/pacman.conf /etc/pacman.conf.bak 2>/dev/null
+    sudo cp "$DOTFILES_DIR/Configs/etc/pacman.conf" /etc/pacman.conf
+
+    sudo pacman -Syu --noconfirm
+
+    echo -e "${GREEN}Настройка Pacman завершена${RESET}"
+}
+
 ensure_yay() {
     if ! command -v yay &>/dev/null; then
         print_section "Установка AUR помощника yay"
@@ -94,12 +110,6 @@ backup_configs() {
     shopt -u nullglob
 
     echo -e "${GREEN}Бэкап сохранён в $backup_dir${RESET}"
-}
-
-clone_repo() {
-    print_section "Клонирование репозитория"
-
-    git clone https://github.com/retrilzzy/dotfiles.git "$DOTFILES_DIR" || true
 }
 
 apply_new_configs() {
@@ -161,6 +171,10 @@ main() {
 
     print_section "Git"
     install_pacman git
+
+    clone_repo
+
+    setup_pacman
 
     ensure_yay
 
