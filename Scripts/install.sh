@@ -72,6 +72,16 @@ ensure_yay() {
     fi
 }
 
+setup_zsh_plugins() {
+    if [ ! -d "$HOME/.oh-my-zsh" ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
+    fi
+    sudo chsh -s /bin/zsh "$USER"
+    git clone https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || true
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || true
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
+}
+
 backup_configs() {
     print_section "Резервное копирование существующих конфигураций"
 
@@ -206,10 +216,7 @@ main() {
     install_pacman waybar uwsm rofi hypridle wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
 
     print_section "Обои и оформление"
-    install_yay waypaper swww
-
-    print_section "Видео-обои"
-    install_yay mpvpaper
+    install_yay waypaper swww mpvpaper
 
     print_section "Скриншоты и запись экрана"
     install_pacman grim hyprshot
@@ -217,19 +224,12 @@ main() {
 
     print_section "Zsh и плагины"
     install_pacman zsh
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
-    fi
-    sudo chsh -s /bin/zsh "$USER"
-    git clone https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || true
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || true
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
+    setup_zsh_plugins
 
     print_section "GTK и Qt оформление"
-    install_yay qt6ct-kde
+    install_yay qt6ct-kde || install_pacman qt6ct
     install_pacman nwg-look qt5ct kvantum
 
-    clone_repo
     backup_configs
     apply_new_configs
     setup_theme
