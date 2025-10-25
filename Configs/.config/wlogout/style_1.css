@@ -55,7 +55,7 @@ button:hover#suspend {
     margin : ${hvr}px 0px ${hvr}px 0px;
 }
 
-button:hover#shutdown {
+button:hover#poweroff {
     border-radius: ${active_rad}px;
     margin : ${hvr}px 0px ${hvr}px 0px;
 }
