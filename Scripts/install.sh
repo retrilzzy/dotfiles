@@ -143,10 +143,13 @@ setup_theme() {
 
     mkdir -p "$HOME/.themes/Adwaita-Dark/gtk-3.0"
     echo '@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");' >"$HOME/.themes/Adwaita-Dark/gtk-3.0/gtk.css"
+
     gsettings set org.gnome.desktop.interface color-scheme prefer-dark || echo -e "${YELLOW}Не удалось установить color-scheme через gsettings.${RESET}"
     gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark || echo -e "${YELLOW}Не удалось установить gtk-theme через gsettings.${RESET}"
+
     nwg-look -a || echo -e "${YELLOW}Не удалось применить тему через nwg-look.${RESET}"
-    echo -e "${GREEN}Тема GTK настроена.${RESET}"
+
+    echo -e "${GREEN}Темы применены.${RESET}"
 }
 
 setup_wallpapers() {
@@ -155,7 +158,7 @@ setup_wallpapers() {
     cp -r "$DOTFILES_DIR/Assets/wallpapers/"* "$wallpaper_dest/"
     echo -e "${GREEN}Обои скопированы в $wallpaper_dest${RESET}"
 
-    waypaper --backend swww --random --folder "$wallpaper_dest" || echo -e "${YELLOW}Не удалось установить обои через waypaper.${RESET}"
+    "$DOTFILES_DIR/Configs/.config/retrilz-scripts/change-wall.sh" ~/Pictures/Wallpapers
     echo -e "${GREEN}Обои установлены.${RESET}"
 }
 
@@ -166,6 +169,7 @@ reload_services() {
 
     uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
     disown
+
     echo -e "${GREEN}Waybar перезапущен.${RESET}"
 }
 
@@ -216,7 +220,7 @@ main() {
     install_pacman waybar uwsm rofi hypridle wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
 
     print_section "Обои и оформление"
-    install_yay waypaper swww mpvpaper
+    install_yay waypaper swww
 
     print_section "Скриншоты и запись экрана"
     install_pacman grim hyprshot
@@ -227,8 +231,8 @@ main() {
     setup_zsh_plugins
 
     print_section "GTK и Qt оформление"
-    install_yay qt6ct-kde || install_pacman qt6ct
-    install_pacman nwg-look qt5ct kvantum
+    install_yay qt6ct-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
+    install_pacman nwg-look
 
     backup_configs
     apply_new_configs

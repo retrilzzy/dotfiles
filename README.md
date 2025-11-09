@@ -586,21 +586,16 @@ gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
 
 ## Qt
 
-https://github.com/tsujan/Kvantum
-
-Настройка Kvantum. [[конфиг](./Configs/.config/kvantum/)]
-
-https://www.opencode.net/trialuser/qt6ct
+https://aur.archlinux.org/packages/qt6ct-kde
 
 Настройка Qt6. [[конфиг](./Configs/.config/qt6ct/)]
 
-https://sourceforge.net/projects/qt5ct/
+https://aur.archlinux.org/packages/qt5ct-kde
 
 Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
 
 ```
-sudo pacman -S kvantum qt5ct
-yay -S qt6cd-kde
+yay -S qt6cd-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
 ```
 
 ## SwayNC
