@@ -1,6 +1,4 @@
-@define-color wl-bg             rgba(0, 0, 0, 0.3);
-@define-color wl-button-bg      rgb(33, 33, 33);
-@define-color wl-button-fg      rgba(200, 200, 200, 1.0);
+@import "$HOME/.config/wlogout/colors.css";
 
 
 * {
@@ -59,7 +57,6 @@ button:hover#poweroff {
     border-radius: ${active_rad}px;
     margin : ${hvr}px 0px ${hvr}px 0px;
 }
-
 button:hover#hibernate {
     border-radius: ${active_rad}px;
     margin : ${hvr}px 0px ${hvr}px 0px;
