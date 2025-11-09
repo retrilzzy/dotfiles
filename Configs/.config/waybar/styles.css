@@ -1,4 +1,4 @@
-@import "./theme.css";
+@import "./colors.css";
 
 /* -- Global Styling -- */
 * {
@@ -19,7 +19,7 @@ window#waybar > box {
   background-color: @background;
   border-radius: 15px;
   border: 2px solid @selected;
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 /* -- Tooltip Styling -- */
@@ -55,28 +55,33 @@ tooltip {
 }
 
 /* -- Left Modules -- */
-.modules-left {
-  margin-left: 6px;
-}
-
 /* Idle Inhibitor */
 #custom-idle_inhibitor {
-  padding: 0 0 0 4px;
+  padding: 0 6px 0 1px;
+  margin-left: 6px;
+  margin-right: 0;
+}
+
+#custom-idle_inhibitor:hover {
+  background: @selected;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  border-radius: 13px;
 }
 
 /* Workspaces */
 /* Workspace Button */
 #workspaces button {
   color: @foreground;
-  border-radius: 8px;
-  margin: 2px 1px;
+  border-radius: 9px;
+  margin: 2px 0px;
   padding: 0 2px;
+  margin-left: 0;
   animation: ws_normal 20s ease-in-out 1;
 }
 
 /* Active Workspace Button */
 #workspaces button.active {
-  background: @selected;
+  background: @active;
   margin-right: 2px;
   margin-left: 2px;
   padding: 0 5px;
@@ -143,12 +148,14 @@ tooltip {
 
 /* Power Button */
 #custom-power {
-  padding-right: 3px;
-  padding-left: 9px;
+  padding-left: 6px;
+  padding-right: 9px;
   border-radius: 8px;
+  margin-right: 4px;
 }
 
 #custom-power:hover {
   background: @selected;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  border-radius: 12px;
 }

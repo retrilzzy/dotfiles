@@ -269,10 +269,10 @@
   },
 
   "custom/power": {
-    "format": " ",
+    "format": "",
     "tooltip": false,
-    "on-click": "~/.config/retrilz-scripts/logout-launch.sh 2",
-    "on-click-right": "~/.config/retrilz-scripts/logout-launch.sh 1",
+    "on-click": "~/.config/retrilz-scripts/logout-launch.sh",
+    "on-click-right": "~/.config/retrilz-scripts/logout-launch.sh",
     "interval": 86400
   }
 }
