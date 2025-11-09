@@ -1,0 +1,44 @@
+[config]
+reload_apps = true
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland.conf'
+output_path = '~/.config/hypr/hyprland/colors.conf'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.qt]
+input_path = '~/.config/matugen/templates/qt.conf'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+[templates.matugen]
+input_path = '~/.config/matugen/templates/matugen.css'
+output_path = '~/.config/matugen/matugen.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.swaync]
+input_path = '~/.config/matugen/templates/swaync.css'
+output_path = '~/.config/swaync/theme.css'
+post_hook = 'swaync-client --reload-css'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout.css'
+output_path = '~/.config/wlogout/colors.css'

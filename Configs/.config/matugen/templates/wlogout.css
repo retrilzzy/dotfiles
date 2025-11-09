@@ -1,0 +1,3 @@
+@define-color wl-bg             rgba({{ colors.surface_container.default.red }}, {{ colors.surface_container.default.green }}, {{ colors.surface_container.default.blue }}, 0.3);
+@define-color wl-button-bg      rgba({{colors.surface_container_low.default.red}}, {{colors.surface_container_low.default.green}}, {{colors.surface_container_low.default.blue}}, 0.95);
+@define-color wl-button-fg      {{colors.on_surface.default.hex}};

@@ -1,0 +1,4 @@
+@define-color background      {{colors.surface_container.default.hex}};
+@define-color foreground      {{colors.on_surface_variant.default.hex}};
+@define-color selected        {{colors.surface_bright.default.hex}};
+@define-color active          {{colors.outline_variant.default.hex}};

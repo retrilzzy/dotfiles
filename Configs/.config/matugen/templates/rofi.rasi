@@ -1,0 +1,7 @@
+* {
+    background:      {{colors.surface_container.default.hex}};
+    background-alt:  {{colors.surface_container_high.default.hex}};
+    foreground:      {{colors.on_surface_variant.default.hex}};
+    selected:        {{colors.outline_variant.default.hex}};
+    active:          {{colors.surface_bright.default.hex}};
+}
