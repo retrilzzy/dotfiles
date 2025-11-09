@@ -220,7 +220,7 @@ main() {
     install_pacman waybar uwsm rofi hypridle wl-clipboard cliphist wl-clip-persist kitty flameshot fastfetch lsd trash-cli nautilus
 
     print_section "Обои и оформление"
-    install_yay waypaper swww
+    install_yay waypaper swww matugen-bin
 
     print_section "Скриншоты и запись экрана"
     install_pacman grim hyprshot
