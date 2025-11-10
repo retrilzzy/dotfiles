@@ -67,7 +67,7 @@
    curl https://raw.githubusercontent.com/retrilzzy/dotfiles/refs/heads/main/Scripts/install.sh | bash
    ```
 
-   - Установит необходимые пакеты.
+   - Установит [необходимые пакеты](#зависимости).
    - Клонирует этот репозиторий в `~/dotfiles`.
    - Создаст резервную копию конфигов в `~/.config-backups/$date_time`.
    - Применит новые конфиги из этого репозитория.
@@ -79,7 +79,7 @@
 **Общее:**
 
 - Запустить nwg-look (GTK Settings) для настройки GTK.
-- Запустить Qt5ct, Qt6ct и Kvantum для настройки Qt.
+- Запустить Qt5ct и Qt6ct для настройки Qt.
 - Добавить свои обои в `~/Pictures/Wallpapers`.
 - Запустить `p10k configure` для настройки темы терминала.
 - Убрать лишние для вас плагины Zsh в `~/.zshrc`:
@@ -99,45 +99,107 @@
 
 # Детальный обзор
 
+## Зависимости
+
+Здесь перечислены все пакеты, устанавливаемые скриптом [`install.sh`](./Scripts/install.sh).
+
 <details>
-   <summary>
-      <h3>Дополнительные пакеты</h3>
-   </summary>
+<summary><b>Общее</b></summary>
 
-Используемые в биндах Hyprland и модулях Waybar, a также для улучшения опыта использования.
+| Пакет        | Описание                         |
+| :----------- | :------------------------------- |
+| `base-devel` | Группа пакетов для сборки из AUR |
+| `git`        | Система контроля версий          |
+| `yay`        | AUR-хелпер для установки пакетов |
 
-> Исключения из списка: пакеты которые подробнее упомянуты в этом README.md и программы по типу браузеров, редакторов.
+</details>
 
-- Помощник для установки пакетов из AUR - [yay](https://github.com/Jguer/yay)
+<details>
+<summary><b>Основные компоненты интерфейса</b></summary>
 
-  ```
-  sudo pacman -S --needed git base-devel \
-   && git clone https://aur.archlinux.org/yay.git \
-   && cd yay && makepkg -si
-  ```
+| Пакет      | Описание                                   |
+| :--------- | :----------------------------------------- |
+| `hypridle` | Демон для управления бездействием          |
+| `hyprshot` | Утилита для создания скриншотов в Hyprland |
+| `waybar`   | Панель состояния для Wayland               |
+| `rofi`     | Лаунчер приложений и меню                  |
+| `kitty`    | Эмулятор терминала                         |
+| `zsh`      | Командная оболочка                         |
+| `nwg-look` | Утилита для настройки GTK тем              |
+| `wlogout`  | Меню выхода из системы                     |
+| `swaync`   | Центр уведомлений                          |
+| `waypaper` | Управление обоями                          |
+| `emote`    | Выбор эмодзи                               |
 
-- blueman
-- brightnessctl
-- cliphist
-- gnome-bluetooth-3.0
-- gpu-screen-recorder
-- hyprshot
-- network-manager-applet
-- networkmanager
-- pipewire
-- pipewire-pulse
-- pipewire-alsa
-- pipewire-audio
-- playerctl
-- polkit-gnome
-- power-profile-daemon
-- wl-clip-persist
-- xdg-utils
-- xdg-desktop-portal
-- xdg-desktop-portal-hyprland
-- xdg-desktop-portal-gnome
-- xdg-desktop-portal-gtk
-- xdg-desktop-portal-wlr
+</details>
+
+<details>
+<summary><b>Утилиты и инструменты</b></summary>
+
+| Пакет                    | Описание                                |
+| :----------------------- | :-------------------------------------- |
+| `networkmanager`         | Управление сетевыми подключениями       |
+| `network-manager-applet` | Апплет для управления сетью             |
+| `brightnessctl`          | Управление яркостью экрана              |
+| `playerctl`              | Управление медиаплеерами                |
+| `wl-clipboard`           | Работа с буфером обмена в Wayland       |
+| `cliphist`               | История буфера обмена                   |
+| `wl-clip-persist`        | Сохранение содержимого буфера обмена    |
+| `flameshot`              | Утилита для создания скриншотов         |
+| `fastfetch`              | Отображение информации о системе        |
+| `lsd`                    | `ls` с иконками                         |
+| `trash-cli`              | Корзина для командной строки            |
+| `nautilus`               | Файловый менеджер                       |
+| `grim`                   | Захват изображений из Wayland           |
+| `uwsm`                   | Утилита для управления рабочими столами |
+| `gpu-screen-recorder`    | Запись экрана                           |
+
+</details>
+
+<details>
+<summary><b>Система, звук и Bluetooth</b></summary>
+
+| Пакет                         | Описание                                |
+| :---------------------------- | :-------------------------------------- |
+| `pipewire`                    | Звуковой сервер                         |
+| `pipewire-pulse`              | Совместимость с PulseAudio              |
+| `pipewire-audio`              | Аудио-профиль                           |
+| `pipewire-alsa`               | Совместимость с ALSA                    |
+| `bluez`                       | Стек Bluetooth                          |
+| `bluez-tools`                 | Утилиты для Bluetooth                   |
+| `blueman`                     | Менеджер Bluetooth                      |
+| `xdg-utils`                   | Утилиты для интеграции с рабочим столом |
+| `xdg-desktop-portal`          | Портал для десктопных приложений        |
+| `xdg-desktop-portal-hyprland` | Реализация портала для Hyprland         |
+| `xdg-desktop-portal-gtk`      | Реализация портала для GTK              |
+| `xdg-desktop-portal-wlr`      | Реализация портала для wlroots          |
+| `xdg-desktop-portal-gnome`    | Реализация портала для GNOME            |
+| `polkit-gnome`                | Агент аутентификации PolicyKit          |
+
+</details>
+
+<details>
+<summary><b>Шрифты, темы и иконки</b></summary>
+
+| Пакет                               | Описание                                      |
+| :---------------------------------- | :-------------------------------------------- |
+| `noto-fonts`                        | Набор шрифтов от Google                       |
+| `noto-fonts-cjk`                    | Шрифты для китайского, японского и корейского |
+| `noto-fonts-emoji`                  | Шрифты с эмодзи                               |
+| `noto-fonts-extra`                  | Дополнительные шрифты Noto                    |
+| `ttf-jetbrains-mono-nerd`           | Шрифт JetBrains Mono с Nerd-глифами           |
+| `inter-font`                        | Шрифт Inter                                   |
+| `papirus-icon-theme`                | Тема иконок Papirus                           |
+| `adw-gtk-theme`                     | Тема Adwaita для GTK                          |
+| `swww`                              | Управление обоями                             |
+| `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo для Powerlevel10k                 |
+| `rose-pine-cursor`                  | Тема курсора Rosé Pine                        |
+| `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland           |
+| `qt6ct-kde`                         | Настройка тем Qt6                             |
+| `qt5ct-kde`                         | Настройка тем Qt5                             |
+| `darkly-qt5-git`                    | Темная тема для Qt5                           |
+| `darkly-qt6-git`                    | Темная тема для Qt6                           |
+| `matugen-bin`                       | Генерация тем из обоев                        |
 
 </details>
 
@@ -166,7 +228,7 @@
 | <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode\*)                 |
 | <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                        |
 | <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)           |
-| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Cliphist)                  |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Rofi + Cliphist)           |
 | <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (Swaync)               |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)             |
@@ -586,6 +648,8 @@ gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings
 https://aur.archlinux.org/packages/qt6ct-kde
 
 https://aur.archlinux.org/packages/qt5ct-kde
+
+https://github.com/Bali10050/Darkly
 
 ```
 yay -S qt6cd-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
