@@ -141,11 +141,7 @@ apply_new_configs() {
 setup_theme() {
     print_section "Применение темы"
 
-    mkdir -p "$HOME/.themes/Adwaita-Dark/gtk-3.0"
-    echo '@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");' >"$HOME/.themes/Adwaita-Dark/gtk-3.0/gtk.css"
-
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark || echo -e "${YELLOW}Не удалось установить color-scheme через gsettings.${RESET}"
-    gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark || echo -e "${YELLOW}Не удалось установить gtk-theme через gsettings.${RESET}"
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
     nwg-look -a || echo -e "${YELLOW}Не удалось применить тему через nwg-look.${RESET}"
 
@@ -232,7 +228,7 @@ main() {
 
     print_section "GTK и Qt оформление"
     install_yay qt6ct-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
-    install_pacman nwg-look
+    install_pacman nwg-look adw-gtk-theme
 
     backup_configs
     apply_new_configs

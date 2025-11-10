@@ -567,32 +567,25 @@ sudo pacman -S lsd
 
 https://github.com/nwg-piotr/nwg-look
 
-```
-sudo pacman -S nwg-look
-```
-
-**Дефолтная темная тема**
+https://github.com/lassekongo83/adw-gtk3
 
 ```
-> ~/.themes/Adwaita-Dark/gtk-3.0/gtk.css
-
-@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+sudo pacman -S nwg-look adw-gtk-theme
 ```
 
 ```
-gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
 ## Qt
 
-https://aur.archlinux.org/packages/qt6ct-kde
-
 Настройка Qt6. [[конфиг](./Configs/.config/qt6ct/)]
 
-https://aur.archlinux.org/packages/qt5ct-kde
-
 Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
+
+https://aur.archlinux.org/packages/qt6ct-kde
+
+https://aur.archlinux.org/packages/qt5ct-kde
 
 ```
 yay -S qt6cd-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
