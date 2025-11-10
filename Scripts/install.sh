@@ -154,6 +154,8 @@ setup_wallpapers() {
     cp -r "$DOTFILES_DIR/Assets/wallpapers/"* "$wallpaper_dest/"
     echo -e "${GREEN}Обои скопированы в $wallpaper_dest${RESET}"
 
+    mkdir "$HOME/.local/share/color-schemes"
+
     "$DOTFILES_DIR/Configs/.config/retrilz-scripts/change-wall.sh" ~/Pictures/Wallpapers
     echo -e "${GREEN}Обои установлены.${RESET}"
 }
