@@ -38,8 +38,8 @@
 
   // Left modules
   "custom/idle_inhibitor": {
-    "exec": "~/.config/retrilz-scripts/idle-inhibitor.sh",
-    "on-click": "~/.config/retrilz-scripts/idle-inhibitor.sh --toggle",
+    "exec": "~/.config/bin/idle-inhibitor.sh",
+    "on-click": "~/.config/bin/idle-inhibitor.sh --toggle",
     "return-type": "json",
     "tooltip": true,
     "interval": 10,
@@ -83,7 +83,7 @@
 
   // Central modules
   "custom/cpu": {
-    "exec": "~/.config/retrilz-scripts/cpu-usage.sh",
+    "exec": "~/.config/bin/cpu-usage.sh",
     "return-type": "json",
     "tooltip": true,
     "interval": 5,
@@ -91,7 +91,7 @@
     "max-length": 6
   },
   "custom/cpuinfo": {
-    "exec": "~/.config/retrilz-scripts/cpu-info.sh",
+    "exec": "~/.config/bin/cpu-info.sh",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
@@ -207,20 +207,20 @@
     },
     "tooltip": true,
     "tooltip-format": "Device: {desc}",
-    "on-click": "~/.config/retrilz-scripts/volume-control.sh -o m",
-    "on-scroll-up": "~/.config/retrilz-scripts/volume-control.sh -o i",
-    "on-scroll-down": "~/.config/retrilz-scripts/volume-control.sh -o d",
+    "on-click": "~/.config/bin/volume-control.sh -o m",
+    "on-scroll-up": "~/.config/bin/volume-control.sh -o i",
+    "on-scroll-down": "~/.config/bin/volume-control.sh -o d",
     "min-length": 6,
     "max-length": 6
   },
 
   "custom/backlight": {
-    "exec": "~/.config/retrilz-scripts/brightness-control.sh",
+    "exec": "~/.config/bin/brightness-control.sh",
     "return-type": "json",
     "format": "{}",
     "tooltip": true,
-    "on-scroll-up": "~/.config/retrilz-scripts/brightness-control.sh -o i",
-    "on-scroll-down": "~/.config/retrilz-scripts/brightness-control.sh -o d",
+    "on-scroll-up": "~/.config/bin/brightness-control.sh -o i",
+    "on-scroll-down": "~/.config/bin/brightness-control.sh -o d",
     "interval": 1,
     "min-length": 6,
     "max-length": 6
@@ -271,8 +271,8 @@
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.config/retrilz-scripts/logout-launch.sh",
-    "on-click-right": "~/.config/retrilz-scripts/logout-launch.sh",
+    "on-click": "~/.config/bin/logout-launch.sh",
+    "on-click-right": "~/.config/bin/logout-launch.sh",
     "interval": 86400
   }
 }

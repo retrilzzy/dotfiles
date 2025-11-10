@@ -156,7 +156,7 @@ setup_wallpapers() {
 
     mkdir "$HOME/.local/share/color-schemes"
 
-    "$DOTFILES_DIR/Configs/.config/retrilz-scripts/change-wall.sh" ~/Pictures/Wallpapers
+    "$DOTFILES_DIR/Configs/.config/bin/change-wall.sh" ~/Pictures/Wallpapers
     echo -e "${GREEN}Обои установлены.${RESET}"
 }
 
