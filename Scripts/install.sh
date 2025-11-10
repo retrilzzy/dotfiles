@@ -195,7 +195,7 @@ main() {
     install_pacman pipewire pipewire-pulse pipewire-audio pipewire-alsa
 
     print_section "Bluetooth"
-    install_pacman bluez bluez-tools blueman
+    install_pacman bluez blueman
 
     print_section "Интеграция с окружением"
     install_pacman xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome polkit-gnome
