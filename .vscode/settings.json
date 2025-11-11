@@ -32,6 +32,7 @@
         "killactive",
         "killall",
         "logoutlaunch",
+        "meslo",
         "movefocus",
         "movetoworkspace",
         "movewindow",

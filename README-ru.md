@@ -1,0 +1,749 @@
+<h1 align="center">Retrilz's Dotfiles</h1>
+
+<table align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./Assets/screenshots/general.png" width="600"><br>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./Assets/screenshots/hyprlock.png" width="200"><br>
+      <sub>Hyprlock</sub>
+    </td>
+    <td align="center">
+      <img src="./Assets/screenshots/rofi-launcher.png" width="200"><br>
+      <sub>Rofi</sub>
+    </td>
+    <td align="center">
+      <img src="./Assets/screenshots/terminal.png" width="200"><br>
+      <sub>Kitty</sub>
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+  <p>【 🇷🇺 Русский 】 <a href="./README.md">【 🇬🇧 English 】</a></p>
+   <img alt="Last README modification" src="https://img.shields.io/github/last-commit/retrilzzy/dotfiles?path=README-ru.md&style=for-the-badge&logo=readdotcv&logoColor=ffff&label=Last%20README%20modification&labelColor=0D1117&color=0D1117">
+</div>
+
+# Навигация
+
+- [Установка](#установка)
+- [Детальный обзор](#детальный-обзор)
+  - [Зависимости](#зависимости) - пакеты, необходимые для работы.
+  - [Hyprland](#hyprland) - оконный менеджер.
+    - [Бинды](#бинды) - все сочетания клавиш.
+    - [Иконки](#иконки) - пак иконок.
+    - [Курсор](#курсор) - тема курсора.
+    - [Шрифты](#шрифты) - установка шрифтов.
+    - [Hypridle](#hypridle) - поведение при бездействии.
+    - [Hyprlock](#hyprlock) - экран блокировки.
+  - [Waybar](#waybar) - wayland бар.
+  - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена.
+  - [Wlogout](#wlogout) - меню выхода.
+  - [Nwg-look](#nwg-look) - настройка GTK.
+  - [Qt](#qt) - настройка Qt.
+  - [Терминал](#терминал) - настройка терминала.
+  - [Swaync](#swaync) - уведомления.
+  - [Waypaper](#waypaper) - GUI для простого управление обоями.
+    - [Обои](#обои) - коллекция обоев/фонов.
+  - [Emote](#emote) - меню выбора эмодзи.
+  - [Flameshot](#flameshot) - мощная утилита для скриншотов.
+  - [Fastfetch](#fastfetch) - похвастаться линуксом.
+
+> [!WARNING]  
+> Мои конфиги не рассчитаны на универсальное применение и не автоматизированы на 100%, поэтому они могут потребовать ручной донастройки. Я не гарантирую корректную работу конфигов или программного обеспечения на вашей системе.
+
+# Установка
+
+> [!NOTE]
+> Перед установкой у вас должен быть работающий Hyprland.
+
+> [!IMPORTANT]  
+> Скрипт установки был протестирован только на **Arch Linux**.
+
+0. Обновление системы:
+
+   ```
+   sudo pacman -Syu
+   ```
+
+1. Запуск [скрипта установки](./Scripts/install.sh):
+
+   ```
+   curl https://raw.githubusercontent.com/retrilzzy/dotfiles/refs/heads/main/Scripts/install.sh | bash
+   ```
+
+   - Установит [необходимые пакеты](#зависимости).
+   - Клонирует этот репозиторий в `~/dotfiles`.
+   - Создаст резервную копию конфигов в `~/.config-backups/$date_time`.
+   - Применит новые конфиги из этого репозитория.
+
+## После установки
+
+Действия которые вы вероятно хотите сделать.
+
+**Общее:**
+
+- Добавить свои обои в `~/Pictures/Wallpapers`.
+- Запустить `p10k configure` для настройки темы терминала.
+- Убрать лишние для вас плагины Zsh в `~/.zshrc`:
+  ```zsh
+  plugins=(...)
+  ```
+
+**ПК юзерам:**
+
+- Отключить модуль `custom/backlight` Waybar в `~/.config/waybar/config.jsonc`.
+
+## Восстановление резервной копии конфигов
+
+```
+~/dotfiles/Scripts/restore.sh
+```
+
+# Детальный обзор
+
+## Зависимости
+
+Здесь перечислены все пакеты, устанавливаемые скриптом [`install.sh`](./Scripts/install.sh).
+
+<details>
+<summary><b>Общее</b></summary>
+
+| Пакет        | Описание                         |
+| :----------- | :------------------------------- |
+| `base-devel` | Группа пакетов для сборки из AUR |
+| `git`        | Система контроля версий          |
+| `yay`        | AUR-хелпер для установки пакетов |
+
+</details>
+
+<details>
+<summary><b>Основные компоненты интерфейса</b></summary>
+
+| Пакет      | Описание                          |
+| :--------- | :-------------------------------- |
+| `hypridle` | Демон для управления бездействием |
+| `hyprshot` | Утилита для создания скриншотов   |
+| `waybar`   | Wayland бар                       |
+| `rofi`     | Лаунчер приложений и меню         |
+| `kitty`    | Эмулятор терминала                |
+| `zsh`      | Командная оболочка                |
+| `nwg-look` | Утилита для настройки GTK тем     |
+| `wlogout`  | Меню выхода из системы            |
+| `swaync`   | Центр уведомлений                 |
+| `waypaper` | Управление обоями                 |
+| `emote`    | Выбор эмодзи                      |
+
+</details>
+
+<details>
+<summary><b>Утилиты и инструменты</b></summary>
+
+| Пакет                    | Описание                             |
+| :----------------------- | :----------------------------------- |
+| `networkmanager`         | Управление сетевыми подключениями    |
+| `network-manager-applet` | Апплет для управления сетью          |
+| `brightnessctl`          | Управление яркостью экрана           |
+| `playerctl`              | Управление медиаплеерами             |
+| `wl-clipboard`           | Работа с буфером обмена в Wayland    |
+| `cliphist`               | История буфера обмена                |
+| `wl-clip-persist`        | Сохранение содержимого буфера обмена |
+| `flameshot`              | Утилита для создания скриншотов      |
+| `fastfetch`              | Отображение информации о системе     |
+| `lsd`                    | `ls` с иконками                      |
+| `trash-cli`              | Корзина для командной строки         |
+| `nautilus`               | Файловый менеджер                    |
+| `grim`                   | Захват изображений из Wayland        |
+| `uwsm`                   | Universal Wayland Session Manager    |
+| `gpu-screen-recorder`    | Запись экрана                        |
+
+</details>
+
+<details>
+<summary><b>Система, звук и Bluetooth</b></summary>
+
+| Пакет                         | Описание                                |
+| :---------------------------- | :-------------------------------------- |
+| `pipewire`                    | Звуковой сервер                         |
+| `pipewire-pulse`              | Совместимость с PulseAudio              |
+| `pipewire-audio`              | Аудио-профиль                           |
+| `pipewire-alsa`               | Совместимость с ALSA                    |
+| `bluez`                       | Стек Bluetooth                          |
+| `blueman`                     | Менеджер Bluetooth                      |
+| `xdg-utils`                   | Утилиты для интеграции с рабочим столом |
+| `xdg-desktop-portal`          | Портал для десктопных приложений        |
+| `xdg-desktop-portal-hyprland` | Реализация портала для Hyprland         |
+| `xdg-desktop-portal-gtk`      | Реализация портала для GTK              |
+| `xdg-desktop-portal-wlr`      | Реализация портала для wlroots          |
+| `xdg-desktop-portal-gnome`    | Реализация портала для GNOME            |
+| `polkit-gnome`                | Агент аутентификации PolicyKit          |
+
+</details>
+
+<details>
+<summary><b>Шрифты, темы и иконки</b></summary>
+
+| Пакет                               | Описание                                      |
+| :---------------------------------- | :-------------------------------------------- |
+| `noto-fonts`                        | Набор шрифтов                                 |
+| `noto-fonts-cjk`                    | Шрифты для китайского, японского и корейского |
+| `noto-fonts-emoji`                  | Шрифты с эмодзи                               |
+| `noto-fonts-extra`                  | Дополнительные шрифты Noto                    |
+| `ttf-jetbrains-mono-nerd`           | Шрифт JetBrains Mono с Nerd-глифами           |
+| `inter-font`                        | Шрифт Inter                                   |
+| `papirus-icon-theme`                | Тема иконок Papirus                           |
+| `adw-gtk-theme`                     | Тема Adwaita для GTK                          |
+| `swww`                              | Управление обоями                             |
+| `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo для Powerlevel10k                 |
+| `rose-pine-cursor`                  | Тема курсора Rosé Pine                        |
+| `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland           |
+| `qt6ct-kde`                         | Настройка тем Qt6                             |
+| `qt5ct-kde`                         | Настройка тем Qt5                             |
+| `darkly-qt5-git`                    | Темная тема для Qt5                           |
+| `darkly-qt6-git`                    | Темная тема для Qt6                           |
+| `matugen-bin`                       | Генерация тем из обоев                        |
+
+</details>
+
+## Hyprland
+
+Оконный менеджер (WM).
+
+- [[Основной конфиг](./Configs/.config/hypr/hyprland.conf)]
+- [[Бинды](./Configs/.config/hypr/keybindings.conf)]
+- [[Правила окон и рабочих столов](./Configs/.config/hypr/rules.conf)]
+
+## Бинды
+
+<details>
+   <summary>
+      <b>Запуск приложений</b>
+   </summary>
+
+| Клавиши                                            | Действие                                 |
+| :------------------------------------------------- | :--------------------------------------- |
+| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                         |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)      |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)                   |
+| <kbd>Super</kbd> + <kbd>O</kbd>                    | Меню приложений с запуском через Oniux\* |
+| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)             |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode\*)                 |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                        |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)           |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Rofi + Cliphist)           |
+| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (SwayNC)               |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)             |
+
+<b><i>\*Oniux</b> - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.</i>
+
+<b><i>\*Oniux, VSCode, Brave, KeePassXC</b> - НЕ устанавливаются автоматически [скриптом установки](./Scripts/install.sh).</i>
+
+</details>
+
+<details>
+   <summary>
+      <b>Взаимодействие с окнами</b>
+   </summary>
+
+| Клавиши                                                    | Действие                                          |
+| :--------------------------------------------------------- | :------------------------------------------------ |
+| <kbd>Super</kbd> + <kbd>Q</kbd>                            | Закрыть активное окно                             |
+| <kbd>F11</kbd>                                             | Полный экран (fullscreen)                         |
+| <kbd>Super</kbd> + <kbd>A</kbd>                            | Максимизировать активное окно                     |
+| <kbd>Super</kbd> + <kbd>F</kbd>                            | Переключение окна в режим "плавающее" (float)     |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>         | Переключение на псевдоплиточный режим (pseudo)    |
+| <kbd>Super</kbd> + <kbd>S</kbd>                            | Закрепление окна поверх всех рабочих столов (pin) |
+| <kbd>Super</kbd> + <kbd>D</kbd>                            | Переключение режима разделения окна               |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd>                            | Переключение на следующее окно                    |
+| <kbd>Super</kbd> + <kbd>Стрелки</kbd>                      | Перемещение фокуса между окнами                   |
+| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Стрелки</kbd> | Изменение размера активного окна                  |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Стрелки</kbd>   | Перемещение окон                                  |
+| <kbd>Super</kbd> + <kbd>ЛКМ</kbd>                          | Перемещение окон мышью                            |
+| <kbd>Super</kbd> + <kbd>ПКМ</kbd>                          | Изменение размера окон мышью                      |
+
+</details>
+
+<details>
+   <summary>
+      <b>Рабочие пространства (столы)</b>
+   </summary>
+
+| Клавиши                                                | Действие                                             |
+| :----------------------------------------------------- | :--------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>[0-9]</kbd>                    | Переключение между рабочими пространствами с 1 по 10 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10    |
+| <kbd>Super</kbd> + <kbd>Tab</kbd>                      | Переключение на специальное рабочее пространство     |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>   | Перемещение окна в специальное рабочее пространство  |
+| <kbd>Super</kbd> + <kbd>Колесо мыши</kbd>              | Переключение между рабочими пространствами           |
+
+</details>
+
+<details>
+   <summary>
+      <b> Управление экраном/питанием</b>
+   </summary>
+
+| Клавиши                                          | Действие                                       |
+| :----------------------------------------------- | :--------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>L</kbd>                  | Заблокировать экран                            |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>D</kbd> | Включить/выключить дисплей                     |
+| <kbd>Super</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Заблокировать экран и перевести в спящий режим |
+
+</details>
+
+<details>
+   <summary>
+      <b>Скриншоты</b>
+   </summary>
+
+| Клавиши                                            | Действие                                                         |
+| :------------------------------------------------- | :--------------------------------------------------------------- |
+| <kbd>Print</kbd>                                   | Скриншот всего экрана                                            |
+| <kbd>Shift</kbd> + <kbd>Print</kbd>                | Скриншот выделенной области                                      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (утилита для скриншотов)                           |
+| <kbd>Super</kbd> + <kbd>Print</kbd>                | Скриншот и авто загрузка на [Zipline](https://zipline.diced.sh/) |
+
+</details>
+
+<details>
+   <summary>
+      <b>Остальное</b>
+   </summary>
+
+| Клавиши                                            | Действие                                                                |
+| :------------------------------------------------- | :---------------------------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                                                  |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers + Генерация темы к ним (matugen) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать/остановить запись области экрана (gpu-screen-recorder)           |
+| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона                                          |
+
+</details>
+
+## Иконки
+
+https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+
+```
+sudo pacman -S papirus-icon-theme
+```
+
+## Курсор
+
+https://github.com/rose-pine/cursor
+
+https://github.com/ndom91/rose-pine-hyprcursor
+
+```
+yay -S rose-pine-cursor rose-pine-hyprcursor
+```
+
+## Шрифты
+
+- [Noto](https://www.google.com/get/noto/) - поддержка всех языков + эмодзи + специальные символы:
+
+  ```
+  sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
+  ```
+
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и [Waybar](#waybar):
+
+  ```
+  sudo pacman -S ttf-jetbrains-mono-nerd
+  ```
+
+- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) рекомендуемый шрифт для powerlevel10k ([Zsh тема](#терминал)):
+
+  ```
+  yay -S ttf-meslo-nerd-font-powerlevel10k
+  ```
+
+- [Inter](https://rsms.me/inter/) необходимый шрифт для [Hyprlock](#hyprlock):
+
+  ```
+  sudo pacman -S inter-font
+  ```
+
+## Hypridle
+
+Поведение при бездействии. [[конфиг](./Configs/.config/hypr/hypridle.conf)]
+
+https://wiki.hypr.land/Hypr-Ecosystem/hypridle |
+https://github.com/hyprwm/hypridle
+
+```
+sudo pacman -S hypridle
+```
+
+| Действие          | Таймаут |
+| ----------------- | ------- |
+| Снижение яркости  | 10 мин. |
+| Уведомление       | 13 мин. |
+| Блокировка сессии | 15 мин. |
+| Выключение экрана | 16 мин. |
+| Спящий режим      | 18 мин. |
+
+## Hyprlock
+
+Экран блокировки. [[конфиг](./Configs/.config/hypr/hyprlock.conf)]
+
+https://github.com/hyprwm/hyprlock
+
+```
+sudo pacman -S hyprlock
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/hyprlock.png)
+
+</details>
+
+## Waybar
+
+Wayland бар. [[конфиг](./Configs/.config/waybar/)]
+
+https://github.com/Alexays/Waybar
+
+```
+sudo pacman -S waybar
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/waybar.png)
+
+</details>
+
+## Rofi
+
+Запуск приложений, интерфейс для буфера обмена. [[конфиг](./Configs/.config/rofi/)]
+
+https://github.com/davatorium/rofi
+
+https://github.com/lbonn/rofi
+
+```
+sudo pacman -S rofi wl-clipboard cliphist
+```
+
+<details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
+
+![Screenshot](./Assets/screenshots/rofi-launcher.png)
+
+</details>
+
+<details><summary><b>Скриншот (Буфер обмена)</b></summary>
+
+![Screenshot](./Assets/screenshots/rofi-clipboard.png)
+
+</details>
+
+## Wlogout
+
+Меню выхода. [[конфиг](./Configs/.config/wlogout/)]
+
+https://github.com/ArtsyMacaw/wlogout
+
+```
+yay -S wlogout
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/wlogout.png)
+
+</details>
+
+## Терминал
+
+Эмулятор терминала - [Kitty](https://sw.kovidgoyal.net/kitty) [[конфиг](./Configs/.config/kitty/)]
+
+Оболочка - [Zsh](https://www.zsh.org/) [[конфиг](./Configs/.zshrc)]
+
+Расширение для Zsh - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+Тема - [powerlevel10k](https://github.com/romkatv/powerlevel10k) [[конфиг](./Configs/.p10k.zsh)]
+
+<details><summary><b>Бинды Kitty</b></summary>
+<br>
+<details>
+   <summary>
+      <b>Управление окнами и вкладками</b>
+   </summary>
+
+| Клавиши                                         | Действие                                  |
+| :---------------------------------------------- | :---------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>X</kbd>   | Закрыть активное окно                     |
+| <kbd>Ctrl</kbd> + <kbd>Q</kbd>                  | Закрыть окно kitty                        |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>]</kbd>   | Следующее окно                            |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>[</kbd>   | Предыдущее окно                           |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>.</kbd>   | Переместить окно вперед                   |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>,</kbd>   | Переместить окно назад                    |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>C</kbd>   | Создать новую вкладку в той же директории |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>1-9</kbd> | Перейти на вкладку 1-9                    |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>0</kbd>   | Перейти на вкладку 10                     |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>,</kbd>   | Установить заголовок вкладки              |
+| <kbd>F11</kbd>                                  | Полноэкранный режим                       |
+
+</details>
+
+<details>
+   <summary>
+      <b>Разделение окон</b>
+   </summary>
+
+| Клавиши                                                           | Действие                                        |
+| :---------------------------------------------------------------- | :---------------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>                 | Создать новое окно с горизонтальным разделением |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>-</kbd>                     | Горизонтальное разделение в текущей директории  |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>-</kbd>  | Горизонтальное разделение                       |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>\|</kbd>                    | Вертикальное разделение в текущей директории    |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>\|</kbd> | Вертикальное разделение                         |
+| <kbd>F4</kbd>                                                     | Разделить окно                                  |
+| <kbd>F7</kbd>                                                     | Повернуть расположение окон                     |
+
+</details>
+
+<details>
+   <summary>
+      <b>Перемещение и фокус</b>
+   </summary>
+
+| Клавиши                                                                       | Действие                |
+| :---------------------------------------------------------------------------- | :---------------------- |
+| <kbd>Shift</kbd> + <kbd>↑</kbd>                                               | Переместить окно вверх  |
+| <kbd>Shift</kbd> + <kbd>↓</kbd>                                               | Переместить окно вниз   |
+| <kbd>Shift</kbd> + <kbd>←</kbd>                                               | Переместить окно влево  |
+| <kbd>Shift</kbd> + <kbd>→</kbd>                                               | Переместить окно вправо |
+| <kbd>Alt</kbd> + <kbd>↑</kbd> / <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>K</kbd> | Фокус на окно сверху    |
+| <kbd>Alt</kbd> + <kbd>↓</kbd> / <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>J</kbd> | Фокус на окно снизу     |
+| <kbd>Alt</kbd> + <kbd>←</kbd> / <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>H</kbd> | Фокус на окно слева     |
+| <kbd>Alt</kbd> + <kbd>→</kbd> / <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>L</kbd> | Фокус на окно справа    |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Q</kbd>                                 | Фокус на видимое окно   |
+
+</details>
+
+<details>
+   <summary>
+      <b>Изменение размера окон</b>
+   </summary>
+
+| Клавиши                                       | Действие                        |
+| :-------------------------------------------- | :------------------------------ |
+| <kbd>Alt</kbd> + <kbd>N</kbd>                 | Сделать окно уже                |
+| <kbd>Alt</kbd> + <kbd>W</kbd>                 | Сделать окно шире               |
+| <kbd>Alt</kbd> + <kbd>U</kbd>                 | Сделать окно выше               |
+| <kbd>Alt</kbd> + <kbd>D</kbd>                 | Сделать окно ниже               |
+| <kbd>Ctrl</kbd> + <kbd>Home</kbd>             | Сбросить размер окна            |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Z</kbd> | Приблизить/отдалить окно (zoom) |
+
+</details>
+
+<details>
+   <summary>
+      <b>Шрифт</b>
+   </summary>
+
+| Клавиши                                                         | Действие                |
+| :-------------------------------------------------------------- | :---------------------- |
+| <kbd>Ctrl</kbd> + <kbd>=</kbd> / <kbd>Ctrl</kbd> + <kbd>+</kbd> | Увеличить размер шрифта |
+| <kbd>Ctrl</kbd> + <kbd>-</kbd>                                  | Уменьшить размер шрифта |
+| <kbd>Ctrl</kbd> + <kbd>0</kbd>                                  | Сбросить размер шрифта  |
+
+</details>
+
+<details>
+   <summary>
+      <b>Разное</b>
+   </summary>
+
+| Клавиши                                                          | Действие                                 |
+| :--------------------------------------------------------------- | :--------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>E</kbd> | Редактировать kitty.conf в новой вкладке |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>R</kbd> | Перезагрузить конфигурацию kitty         |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Shift</kbd> + <kbd>D</kbd> | Отладка конфигурации                     |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Space</kbd>                | Режим подсказок (hints)                  |
+| <kbd>F3</kbd>                                                    | Режим подсказок для всего                |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>Ctrl</kbd> + <kbd>A</kbd>  | Отправить ^A (как в tmux)                |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>T</kbd>                    | Выбрать тему оформления                  |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> > <kbd>S</kbd>                    | Сохранить сессию                         |
+
+</details>
+
+</details>
+
+<br>
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/terminal.png)
+
+</details><br>
+
+Установка Kitty и Zsh:
+
+```
+sudo pacman -S kitty zsh
+```
+
+Смена оболочки:
+
+```
+chsh -s $(which zsh)
+```
+
+Установка Oh My Zsh:
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Установка темы powerlevel10k:
+
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+Установка плагинов для zsh через Oh My Zsh:
+
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting):
+
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions):
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+Установка [lsd](https://github.com/lsd-rs/lsd) (замена ls):
+
+```
+sudo pacman -S lsd
+```
+
+## Nwg-look
+
+Настройка GTK. [[конфиг](./Configs/.config/nwg-look/)]
+
+https://github.com/nwg-piotr/nwg-look
+
+https://github.com/lassekongo83/adw-gtk3
+
+```
+sudo pacman -S nwg-look adw-gtk-theme
+```
+
+```
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+```
+
+## Qt
+
+Настройка Qt6. [[конфиг](./Configs/.config/qt6ct/)]
+
+Настройка Qt5. [[конфиг](./Configs/.config/qt5ct/)]
+
+https://aur.archlinux.org/packages/qt6ct-kde
+
+https://aur.archlinux.org/packages/qt5ct-kde
+
+https://github.com/Bali10050/Darkly
+
+```
+yay -S qt6cd-kde qt5ct-kde darkly-qt5-git darkly-qt6-git
+```
+
+## SwayNC
+
+Уведомления. [[конфиг](./Configs/.config/swaync/)]
+
+https://github.com/ErikReider/SwayNotificationCenter
+
+```
+sudo pacman -S swaync
+```
+
+<details><summary><b>Скриншоты</b></summary>
+
+![Screenshot](./Assets/screenshots/swaync-notification.png)
+<br>
+
+![Screenshot](./Assets/screenshots/swaync-control-center.png)
+
+</details>
+
+## Waypaper
+
+GUI для простого управление обоями.
+
+https://github.com/anufrievroman/waypaper
+
+```
+yay -S waypaper
+```
+
+Для статичных изображений и gif (необходим):
+
+```
+sudo pacman -S swww
+```
+
+Для видео (опционально):
+
+```
+yay -S mpvpaper
+```
+
+### Обои
+
+- [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
+- Возможно будут еще...
+
+## Emote
+
+Выбор эмодзи.
+
+https://github.com/tom-james-watson/Emote
+
+```
+yay -S emote
+```
+
+## Flameshot
+
+Мощная утилита для скриншотов. [[конфиг](./Configs/.config/flameshot/)]
+
+https://flameshot.org
+
+```
+sudo pacman -S flameshot
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/flameshot.png)
+
+</details>
+
+## Fastfetch
+
+Похвастаться линуксом [[конфиг](./Configs/.config/fastfetch/)]
+
+https://github.com/fastfetch-cli/fastfetch
+
+```
+sudo pacman -S fastfetch
+```
+
+<details><summary><b>Скриншот</b></summary>
+
+![Screenshot](./Assets/screenshots/fastfetch.png)
+
+</details>
