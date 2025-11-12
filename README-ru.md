@@ -109,102 +109,96 @@
 
 Здесь перечислены все пакеты, устанавливаемые скриптом [`install.sh`](./Scripts/install.sh).
 
-<details>
-<summary><b>Общее</b></summary>
-
-| Пакет        | Описание                         |
-| :----------- | :------------------------------- |
-| `base-devel` | Группа пакетов для сборки из AUR |
-| `git`        | Система контроля версий          |
-| `yay`        | AUR-хелпер для установки пакетов |
-
-</details>
+---
 
 <details>
-<summary><b>Основные компоненты интерфейса</b></summary>
+<summary><b>Система и интерфейс</b></summary>
 
 | Пакет      | Описание                          |
 | :--------- | :-------------------------------- |
+| `hyprlock` | Экран блокировки                  |
 | `hypridle` | Демон для управления бездействием |
 | `hyprshot` | Утилита для создания скриншотов   |
-| `waybar`   | Wayland бар                       |
-| `rofi`     | Лаунчер приложений и меню         |
 | `kitty`    | Эмулятор терминала                |
-| `zsh`      | Командная оболочка                |
 | `nwg-look` | Утилита для настройки GTK тем     |
-| `wlogout`  | Меню выхода из системы            |
+| `rofi`     | Лаунчер приложений и меню         |
 | `swaync`   | Центр уведомлений                 |
+| `waybar`   | Wayland бар                       |
 | `waypaper` | Управление обоями                 |
-| `emote`    | Выбор эмодзи                      |
+| `wlogout`  | Меню выхода из системы            |
+| `swww`     | Демон обоев                       |
+| `zsh`      | Командная оболочка                |
 
 </details>
 
 <details>
 <summary><b>Утилиты и инструменты</b></summary>
 
-| Пакет                    | Описание                             |
-| :----------------------- | :----------------------------------- |
-| `networkmanager`         | Управление сетевыми подключениями    |
-| `network-manager-applet` | Апплет для управления сетью          |
-| `brightnessctl`          | Управление яркостью экрана           |
-| `playerctl`              | Управление медиаплеерами             |
-| `wl-clipboard`           | Работа с буфером обмена в Wayland    |
-| `cliphist`               | История буфера обмена                |
-| `wl-clip-persist`        | Сохранение содержимого буфера обмена |
-| `flameshot`              | Утилита для создания скриншотов      |
-| `fastfetch`              | Отображение информации о системе     |
-| `lsd`                    | `ls` с иконками                      |
-| `trash-cli`              | Корзина для командной строки         |
-| `nautilus`               | Файловый менеджер                    |
-| `grim`                   | Захват изображений из Wayland        |
-| `uwsm`                   | Universal Wayland Session Manager    |
-| `gpu-screen-recorder`    | Запись экрана                        |
+| Пакет                    | Описание                              |
+| :----------------------- | :------------------------------------ |
+| `base-devel`             | Инструменты разработки для сборок AUR |
+| `brightnessctl`          | Управление яркостью экрана            |
+| `cliphist`               | Менеджер истории буфера обмена        |
+| `emote`                  | Выбор эмодзи                          |
+| `fastfetch`              | Просмотр информации о системе         |
+| `flameshot`              | Утилита для создания скриншотов       |
+| `git`                    | Система контроля версий               |
+| `gpu-screen-recorder`    | Запись экрана с ускорением GPU        |
+| `grim`                   | Утилита для скриншотов Wayland        |
+| `lsd`                    | Альтернатива `ls` с иконками          |
+| `nautilus`               | Файловый менеджер                     |
+| `network-manager-applet` | Апплет для управления сетью           |
+| `playerctl`              | Управление медиаплеерами              |
+| `trash-cli`              | Утилита корзины командной строки      |
+| `uwsm`                   | Менеджер сессий Wayland               |
+| `wl-clip-persist`        | Сохранение содержимого буфера обмена  |
+| `wl-clipboard`           | Утилиты буфера обмена Wayland         |
+| `yay`                    | AUR-хелпер                            |
 
 </details>
 
 <details>
-<summary><b>Система, звук и Bluetooth</b></summary>
+<summary><b>Сеть, аудио и порталы</b></summary>
 
-| Пакет                         | Описание                                |
-| :---------------------------- | :-------------------------------------- |
-| `pipewire`                    | Звуковой сервер                         |
-| `pipewire-pulse`              | Совместимость с PulseAudio              |
-| `pipewire-audio`              | Аудио-профиль                           |
-| `pipewire-alsa`               | Совместимость с ALSA                    |
-| `bluez`                       | Стек Bluetooth                          |
-| `blueman`                     | Менеджер Bluetooth                      |
-| `xdg-utils`                   | Утилиты для интеграции с рабочим столом |
-| `xdg-desktop-portal`          | Портал для десктопных приложений        |
-| `xdg-desktop-portal-hyprland` | Реализация портала для Hyprland         |
-| `xdg-desktop-portal-gtk`      | Реализация портала для GTK              |
-| `xdg-desktop-portal-wlr`      | Реализация портала для wlroots          |
-| `xdg-desktop-portal-gnome`    | Реализация портала для GNOME            |
-| `polkit-gnome`                | Агент аутентификации PolicyKit          |
+| Пакет                         | Описание                         |
+| :---------------------------- | :------------------------------- |
+| `bluez`                       | Стек Bluetooth                   |
+| `blueman`                     | Менеджер Bluetooth               |
+| `networkmanager`              | Менеджер сетевых подключений     |
+| `pipewire`                    | Аудио- и видеосервер             |
+| `pipewire-alsa`               | Уровень совместимости ALSA       |
+| `pipewire-pulse`              | Уровень совместимости PulseAudio |
+| `polkit-gnome`                | Агент аутентификации PolicyKit   |
+| `xdg-desktop-portal`          | Служба портала рабочего стола    |
+| `xdg-desktop-portal-gnome`    | Бэкенд портала GNOME             |
+| `xdg-desktop-portal-gtk`      | Бэкенд портала GTK               |
+| `xdg-desktop-portal-hyprland` | Бэкенд портала Hyprland          |
+| `xdg-desktop-portal-wlr`      | Бэкенд портала wlroots           |
+| `xdg-utils`                   | Утилиты интеграции XDG           |
 
 </details>
 
 <details>
-<summary><b>Шрифты, темы и иконки</b></summary>
+<summary><b>Внешний вид и темы</b></summary>
 
-| Пакет                               | Описание                                      |
-| :---------------------------------- | :-------------------------------------------- |
-| `noto-fonts`                        | Набор шрифтов                                 |
-| `noto-fonts-cjk`                    | Шрифты для китайского, японского и корейского |
-| `noto-fonts-emoji`                  | Шрифты с эмодзи                               |
-| `noto-fonts-extra`                  | Дополнительные шрифты Noto                    |
-| `ttf-jetbrains-mono-nerd`           | Шрифт JetBrains Mono с Nerd-глифами           |
-| `inter-font`                        | Шрифт Inter                                   |
-| `papirus-icon-theme`                | Тема иконок Papirus                           |
-| `adw-gtk-theme`                     | Тема Adwaita для GTK                          |
-| `swww`                              | Управление обоями                             |
-| `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo для Powerlevel10k                 |
-| `rose-pine-cursor`                  | Тема курсора Rosé Pine                        |
-| `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland           |
-| `qt6ct-kde`                         | Настройка тем Qt6                             |
-| `qt5ct-kde`                         | Настройка тем Qt5                             |
-| `darkly-qt5-git`                    | Темная тема для Qt5                           |
-| `darkly-qt6-git`                    | Темная тема для Qt6                           |
-| `matugen-bin`                       | Генерация тем из обоев                        |
+| Пакет                               | Описание                                       |
+| :---------------------------------- | :--------------------------------------------- |
+| `adw-gtk-theme`                     | Тема Adwaita для GTK                           |
+| `darkly-bin`                        | Темная тема Qt5/Qt6                            |
+| `frameworkintegration`              | Фреймворк интеграции рабочего пространства KDE |
+| `inter-font`                        | Семейство шрифтов Inter                        |
+| `matugen-bin`                       | Генерация тем из обоев                         |
+| `noto-fonts`                        | Семейство шрифтов Noto                         |
+| `noto-fonts-cjk`                    | Шрифты Noto для языков CJK                     |
+| `noto-fonts-emoji`                  | Шрифты Noto с эмодзи                           |
+| `noto-fonts-extra`                  | Дополнительные шрифты Noto                     |
+| `papirus-icon-theme`                | Тема иконок Papirus                            |
+| `qt5ct-kde`                         | Настройка тем Qt5                              |
+| `qt6ct-kde`                         | Настройка тем Qt6                              |
+| `rose-pine-cursor`                  | Тема курсора Rosé Pine                         |
+| `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland            |
+| `ttf-jetbrains-mono-nerd`           | JetBrains Mono с Nerd-глифами                  |
+| `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo Nerd для Powerlevel10k             |
 
 </details>
 

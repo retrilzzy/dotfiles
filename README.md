@@ -107,104 +107,98 @@ Actions you probably want to do.
 
 ## Dependencies
 
-Here are all the packages installed by the [`install.sh`](./Scripts/install.sh) script.
+Packages installed by [`install.sh`](./Scripts/install.sh).
+
+---
 
 <details>
-<summary><b>General</b></summary>
+<summary><b>System and interface</b></summary>
 
-| Package      | Description                             |
-| :----------- | :-------------------------------------- |
-| `base-devel` | Group of packages for building from AUR |
-| `git`        | Version control system                  |
-| `yay`        | AUR helper for installing packages      |
-
-</details>
-
-<details>
-<summary><b>Main interface components</b></summary>
-
-| Package    | Description                        |
-| :--------- | :--------------------------------- |
-| `hypridle` | Daemon for idle management         |
-| `hyprshot` | Screenshot utility                 |
-| `waybar`   | Wayland bar                        |
-| `rofi`     | Application launcher and menu      |
-| `kitty`    | Terminal emulator                  |
-| `zsh`      | Command shell                      |
-| `nwg-look` | Utility for configuring GTK themes |
-| `wlogout`  | System logout menu                 |
-| `swaync`   | Notification center                |
-| `waypaper` | Wallpaper management               |
-| `emote`    | Emoji picker                       |
+| Package    | Description                  |
+| :--------- | :--------------------------- |
+| `hyprlock` | Lock screen                  |
+| `hypridle` | Idle management daemon       |
+| `hyprshot` | Screenshot tool              |
+| `kitty`    | Terminal emulator            |
+| `nwg-look` | GTK theme configuration tool |
+| `rofi`     | App launcher and menu        |
+| `swaync`   | Notification center          |
+| `waybar`   | Wayland status bar           |
+| `waypaper` | Wallpaper manager            |
+| `wlogout`  | Logout menu                  |
+| `swww`     | Wallpaper daemon             |
+| `zsh`      | Command shell                |
 
 </details>
 
 <details>
 <summary><b>Utilities and tools</b></summary>
 
-| Package                  | Description                           |
-| :----------------------- | :------------------------------------ |
-| `networkmanager`         | Network connection management         |
-| `network-manager-applet` | Applet for network management         |
-| `brightnessctl`          | Screen brightness management          |
-| `playerctl`              | Media player management               |
-| `wl-clipboard`           | Working with the clipboard in Wayland |
-| `cliphist`               | Clipboard history                     |
-| `wl-clip-persist`        | Saving clipboard content              |
-| `flameshot`              | Screenshot utility                    |
-| `fastfetch`              | Displaying system information         |
-| `lsd`                    | `ls` with icons                       |
-| `trash-cli`              | Command line trash can                |
-| `nautilus`               | File manager                          |
-| `grim`                   | Capturing images from Wayland         |
-| `uwsm`                   | Universal Wayland Session Manager     |
-| `gpu-screen-recorder`    | Screen recording                      |
+| Package                  | Description                      |
+| :----------------------- | :------------------------------- |
+| `base-devel`             | Development tools for AUR builds |
+| `brightnessctl`          | Brightness control               |
+| `cliphist`               | Clipboard history manager        |
+| `emote`                  | Emoji picker                     |
+| `fastfetch`              | System information viewer        |
+| `flameshot`              | Screenshot tool                  |
+| `git`                    | Version control system           |
+| `gpu-screen-recorder`    | GPU-accelerated screen recorder  |
+| `grim`                   | Wayland screenshot tool          |
+| `lsd`                    | `ls` alternative with icons      |
+| `nautilus`               | File manager                     |
+| `network-manager-applet` | Network management tray applet   |
+| `playerctl`              | Media player control             |
+| `trash-cli`              | Command-line trash utility       |
+| `uwsm`                   | Wayland session manager          |
+| `wl-clip-persist`        | Clipboard persistence            |
+| `wl-clipboard`           | Wayland clipboard utilities      |
+| `yay`                    | AUR helper                       |
 
 </details>
 
 <details>
-<summary><b>System, sound and Bluetooth</b></summary>
+<summary><b>Networking, audio and portals</b></summary>
 
-| Package                       | Description                        |
-| :---------------------------- | :--------------------------------- |
-| `pipewire`                    | Sound server                       |
-| `pipewire-pulse`              | Compatibility with PulseAudio      |
-| `pipewire-audio`              | Audio profile                      |
-| `pipewire-alsa`               | Compatibility with ALSA            |
-| `bluez`                       | Bluetooth stack                    |
-| `blueman`                     | Bluetooth manager                  |
-| `xdg-utils`                   | Utilities for desktop integration  |
-| `xdg-desktop-portal`          | Portal for desktop applications    |
-| `xdg-desktop-portal-hyprland` | Portal implementation for Hyprland |
-| `xdg-desktop-portal-gtk`      | Portal implementation for GTK      |
-| `xdg-desktop-portal-wlr`      | Portal implementation for wlroots  |
-| `xdg-desktop-portal-gnome`    | Portal implementation for GNOME    |
-| `polkit-gnome`                | PolicyKit authentication agent     |
+| Package                       | Description                    |
+| :---------------------------- | :----------------------------- |
+| `bluez`                       | Bluetooth stack                |
+| `blueman`                     | Bluetooth manager              |
+| `networkmanager`              | Network connection manager     |
+| `pipewire`                    | Audio and video server         |
+| `pipewire-alsa`               | ALSA compatibility layer       |
+| `pipewire-pulse`              | PulseAudio compatibility layer |
+| `polkit-gnome`                | PolicyKit authentication agent |
+| `xdg-desktop-portal`          | Desktop portal service         |
+| `xdg-desktop-portal-gnome`    | GNOME portal backend           |
+| `xdg-desktop-portal-gtk`      | GTK portal backend             |
+| `xdg-desktop-portal-hyprland` | Hyprland portal backend        |
+| `xdg-desktop-portal-wlr`      | wlroots portal backend         |
+| `xdg-utils`                   | XDG integration utilities      |
 
 </details>
 
 <details>
-<summary><b>Fonts, themes and icons</b></summary>
+<summary><b>Appearance and themes</b></summary>
 
-| Package                             | Description                            |
-| :---------------------------------- | :------------------------------------- |
-| `noto-fonts`                        | Font set                               |
-| `noto-fonts-cjk`                    | Fonts for Chinese, Japanese and Korean |
-| `noto-fonts-emoji`                  | Fonts with emoji                       |
-| `noto-fonts-extra`                  | Additional Noto fonts                  |
-| `ttf-jetbrains-mono-nerd`           | JetBrains Mono font with Nerd glyphs   |
-| `inter-font`                        | Inter font                             |
-| `papirus-icon-theme`                | Papirus icon theme                     |
-| `adw-gtk-theme`                     | Adwaita theme for GTK                  |
-| `swww`                              | Wallpaper management                   |
-| `ttf-meslo-nerd-font-powerlevel10k` | Meslo font for Powerlevel10k           |
-| `rose-pine-cursor`                  | Rosé Pine cursor theme                 |
-| `rose-pine-hyprcursor`              | Rosé Pine cursor theme for Hyprland    |
-| `qt6ct-kde`                         | Qt6 theme settings                     |
-| `qt5ct-kde`                         | Qt5 theme settings                     |
-| `darkly-qt5-git`                    | Dark theme for Qt5                     |
-| `darkly-qt6-git`                    | Dark theme for Qt6                     |
-| `matugen-bin`                       | Generating themes from wallpapers      |
+| Package                             | Description                         |
+| :---------------------------------- | :---------------------------------- |
+| `adw-gtk-theme`                     | Adwaita theme for GTK               |
+| `darkly-bin`                        | Qt5/Qt6 dark theme                  |
+| `frameworkintegration`              | KDE workspace integration framework |
+| `inter-font`                        | Inter font family                   |
+| `matugen-bin`                       | Generate themes from wallpapers     |
+| `noto-fonts`                        | Noto font family                    |
+| `noto-fonts-cjk`                    | Noto fonts for CJK languages        |
+| `noto-fonts-emoji`                  | Noto emoji fonts                    |
+| `noto-fonts-extra`                  | Additional Noto fonts               |
+| `papirus-icon-theme`                | Papirus icon theme                  |
+| `qt5ct-kde`                         | Qt5 theme configuration             |
+| `qt6ct-kde`                         | Qt6 theme configuration             |
+| `rose-pine-cursor`                  | Rosé Pine cursor theme              |
+| `rose-pine-hyprcursor`              | Rosé Pine cursor theme for Hyprland |
+| `ttf-jetbrains-mono-nerd`           | JetBrains Mono with Nerd glyphs     |
+| `ttf-meslo-nerd-font-powerlevel10k` | Meslo Nerd font for Powerlevel10k   |
 
 </details>
 
