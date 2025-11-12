@@ -13,7 +13,7 @@ output_path = '~/.config/gtk-4.0/colors.css'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland.conf'
 output_path = '~/.config/hypr/hyprland/colors.conf'
-post_hook = 'hyprctl reload
+post_hook = 'hyprctl reload'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf'
