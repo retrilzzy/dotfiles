@@ -3,15 +3,17 @@ reload_apps = true
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk.css'
-output_path = '~/.config/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = "gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk.css'
-output_path = '~/.config/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland.conf'
 output_path = '~/.config/hypr/hyprland/colors.conf'
+post_hook = 'hyprctl reload
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.conf'
