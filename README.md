@@ -109,8 +109,6 @@ Actions you probably want to do.
 
 Packages installed by [`install.sh`](./Scripts/install.sh).
 
----
-
 <details>
 <summary><b>System and interface</b></summary>
 
