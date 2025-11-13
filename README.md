@@ -204,9 +204,13 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 
 Window manager (WM).
 
-- [[Main config](./Configs/.config/hypr/hyprland.conf)]
-- [[Keybinds](./Configs/.config/hypr/keybindings.conf)]
-- [[Window and workspace rules](./Configs/.config/hypr/rules.conf)]
+- [[Environment variables](./Configs/.config/hypr/hyprland/env.conf)]
+- [[Autostart](./Configs/.config/hypr/hyprland/exec.conf)]
+- [[Input configuration](./Configs/.config/hypr/hyprland/input.conf)]
+- [[Keybindings](./Configs/.config/hypr/hyprland/keybindings.conf)]
+- [[Look and feel settings](./Configs/.config/hypr/hyprland/looknfeel.conf)]
+- [[Monitor configuration](./Configs/.config/hypr/hyprland/monitors.conf)]
+- [[Window and workspace rules](./Configs/.config/hypr/hyprland/rules.conf)]
 
 ## Keybinds
 

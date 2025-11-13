@@ -24,7 +24,7 @@
 
 <div align="center">
   <p>【 🇷🇺 Русский 】 <a href="./README.md">【 🇬🇧 English 】</a></p>
-   <img alt="Last README modification" src="https://img.shields.io/github/last-commit/retrilzzy/dotfiles?path=README-ru.md&style=for-the-badge&logo=readdotcv&logoColor=ffff&label=Last%20README%20modification&labelColor=0D1117&color=0D1117">
+   <img alt="Last README modification" src="https://img.shields.io/github/last-commit/retrilzzy/dotfiles?path=README-ru.md&style=for-the-badge&logo=readdotcv&logoColor=ffff&label=Last%20README-ru%20modification&labelColor=0D1117&color=0D1117">
 </div>
 
 # Навигация
@@ -204,9 +204,13 @@
 
 Оконный менеджер (WM).
 
-- [[Основной конфиг](./Configs/.config/hypr/hyprland.conf)]
-- [[Бинды](./Configs/.config/hypr/keybindings.conf)]
-- [[Правила окон и рабочих столов](./Configs/.config/hypr/rules.conf)]
+- [[Переемные окружения](./Configs/.config/hypr/hyprland/env.conf)]
+- [[Автостарт](./Configs/.config/hypr/hyprland/exec.conf)]
+- [[Конфигурация ввода](./Configs/.config/hypr/hyprland/input.conf)]
+- [[Сочетания клавиш](./Configs/.config/hypr/hyprland/keybindings.conf)]
+- [[Настройки внешнего вида](./Configs/.config/hypr/hyprland/looknfeel.conf)]
+- [[Конфигурация мониторов](./Configs/.config/hypr/hyprland/monitors.conf)]
+- [[Правила окон и рабочих столов](./Configs/.config/hypr/hyprland/rules.conf)]
 
 ## Бинды
 
