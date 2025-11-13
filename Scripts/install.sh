@@ -18,27 +18,39 @@ print_section() {
 }
 
 install_pacman() {
+    local to_install_pacman=()
     for pkg in "$@"; do
         if ! pacman -Qq "$pkg" &>/dev/null; then
-            echo -e "${BLUE}Installing: ${pkg}${RESET}"
-            sudo pacman -S --noconfirm --needed "$pkg"
-            echo -e "${GREEN}Installed: ${pkg}${RESET}"
+            echo -e "${BLUE}Will install: ${pkg}${RESET}"
+            to_install_pacman+=("$pkg")
         else
             echo -e "${YELLOW}Skipped (already installed): ${pkg}${RESET}"
         fi
     done
+
+    if [ ${#to_install_pacman[@]} -gt 0 ]; then
+        echo -e "${BLUE}Installing Pacman packages: ${to_install_pacman[*]}${RESET}"
+        sudo pacman -S --noconfirm --needed "${to_install_pacman[@]}"
+        echo -e "${GREEN}Pacman packages installed: ${to_install_pacman[*]}${RESET}"
+    fi
 }
 
 install_yay() {
+    local to_install_yay=()
     for pkg in "$@"; do
         if ! yay -Qq "$pkg" &>/dev/null; then
-            echo -e "${BLUE}Installing (AUR): ${pkg}${RESET}"
-            yay -S --noconfirm "$pkg"
-            echo -e "${GREEN}Installed (AUR): ${pkg}${RESET}"
+            echo -e "${BLUE}Will install (AUR): ${pkg}${RESET}"
+            to_install_yay+=("$pkg")
         else
             echo -e "${YELLOW}Skipped (already installed): ${pkg}${RESET}"
         fi
     done
+
+    if [ ${#to_install_yay[@]} -gt 0 ]; then
+        echo -e "${BLUE}Installing AUR packages (Yay): ${to_install_yay[*]}${RESET}"
+        yay -S --noconfirm "${to_install_yay[@]}"
+        echo -e "${GREEN}AUR packages installed (Yay): ${to_install_yay[*]}${RESET}"
+    fi
 }
 
 clone_repo() {
@@ -68,8 +80,10 @@ clone_repo() {
 setup_pacman() {
     print_section "Configuring Pacman"
 
-    read -rp "$(echo -e "${YELLOW}Overwrite /etc/pacman.conf with default configuration? (Y/n): ${RESET}")" confirm
-    if [[ "$confirm" =~ ^[Yy]$ ]]; then
+    read -rp "$(echo -e "${YELLOW}Overwrite /etc/pacman.conf? (Y/n): ${RESET}")" confirm
+
+    confirm=${confirm:-Y}
+    if [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
         echo -e "${BLUE}Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak${RESET}"
         sudo cp /etc/pacman.conf /etc/pacman.conf.bak 2>/dev/null
 
@@ -112,11 +126,13 @@ ensure_yay() {
     fi
 }
 
-setup_zsh_plugins() {
+setup_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
     fi
-    sudo chsh -s /bin/zsh "$USER"
+
+    sudo chsh -s "$(which zsh)" "$USER"
+
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || true
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || true
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
@@ -178,14 +194,31 @@ apply_new_configs() {
     echo -e "${GREEN}New configurations applied.${RESET}"
 }
 
-setup_theme() {
-    print_section "Applying theme"
+run_services() {
+    print_section "Running services"
 
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    if pgrep -x "waybar" >/dev/null; then
+        killall waybar && sleep 1
+    fi
+    uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
+    disown
 
-    nwg-look -a || echo -e "${YELLOW}Failed to apply theme via nwg-look.${RESET}"
+    if pgrep -x "dunst" >/dev/null; then
+        killall dunst && sleep 1
+    fi
+    uwsm app -- swaync -c "$HOME/.config/swaync/config.json" >/dev/null 2>&1 &
+    disown
 
-    echo -e "${GREEN}Themes applied.${RESET}"
+    uwsm app -- nm-applet >/dev/null 2>&1 &
+    disown
+
+    uwsm app -- wl-paste --type text --watch cliphist -max-items 50 store >/dev/null 2>&1 &
+    disown
+
+    uwsm app -- swww-daemon >/dev/null 2>&1 &
+    disown
+
+    echo -e "${GREEN}Services started.${RESET}"
 }
 
 setup_wallpapers() {
@@ -196,15 +229,22 @@ setup_wallpapers() {
 
     mkdir "$HOME/.local/share/color-schemes" || true
 
-    uwsm app -- swww-daemon >/dev/null 2>&1 &
-    disown
-
     "$DOTFILES_DIR/Configs/.config/bin/change-wall.sh" ~/Pictures/Wallpapers
     echo -e "${GREEN}Wallpapers set.${RESET}"
 }
 
-run_services() {
-    print_section "Running services"
+setup_theme() {
+    print_section "Applying theme"
+
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+    nwg-look -a || echo -e "${YELLOW}Failed to apply theme via nwg-look.${RESET}"
+
+    echo -e "${GREEN}Themes applied.${RESET}"
+}
+
+reload_services() {
+    print_section "Reloading services"
 
     if pgrep -x "waybar" >/dev/null; then
         killall waybar && sleep 1
@@ -212,16 +252,7 @@ run_services() {
     uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
     disown
 
-    uwsm app -- swaync -c "$HOME/.config/swaync/config.json" >/dev/null 2>&1 &
-    disown
-
-    uwsm app -- nm-applet >/dev/null 2>&1 &
-    disown
-
-    uwsm app -- wl-paste --type text --watch cliphist -max-items 50 store >/dev/null 2>&1 &
-    disown
-
-    echo -e "${GREEN}Services started.${RESET}"
+    echo -e "${GREEN}Services reloaded.${RESET}"
 }
 
 main() {
@@ -249,8 +280,8 @@ main() {
     ensure_yay
 
     print_section "System and interface"
-    install_pacman hyprlock hypridle kitty nwg-look rofi swaync waybar wlogout swww
-    install_yay hyprshot waypaper
+    install_pacman hyprlock hypridle kitty nwg-look rofi swaync waybar swww hyprshot
+    install_yay waypaper wlogout
 
     print_section "Utilities and tools"
     install_pacman brightnessctl cliphist fastfetch grim lsd playerctl trash-cli uwsm wl-clipboard wl-clip-persist
@@ -265,16 +296,22 @@ main() {
 
     print_section "Zsh and Plugins"
     install_pacman zsh
-    setup_zsh_plugins
+    setup_zsh
 
     backup_configs
     apply_new_configs
-    setup_theme
-    setup_wallpapers
     run_services
+
+    sleep 2
+    setup_wallpapers
+    setup_theme
+
+    reload_services
 
     echo -e "${GREEN}Installation complete!${RESET}"
     echo -e "${CYAN}It is recommended to reboot the system for changes to fully apply.${RESET}"
+
+    exec zsh
 }
 
 main "$@"
