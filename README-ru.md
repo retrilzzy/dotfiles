@@ -226,17 +226,17 @@
 | <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)                   |
 | <kbd>Super</kbd> + <kbd>O</kbd>                    | Меню приложений с запуском через Oniux\* |
 | <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)             |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCode\*)                 |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCodium\*)               |
 | <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                        |
 | <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)           |
 | <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Rofi + Cliphist)           |
 | <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (SwayNC)               |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Управление обоями (Waypaper)             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Выбор обоев (Rofi + Скрипт)              |
 
 <b><i>\*Oniux</b> - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.</i>
 
-<b><i>\*Oniux, VSCode, Brave, KeePassXC</b> - НЕ устанавливаются автоматически [скриптом установки](./Scripts/install.sh).</i>
+<b><i>\*Oniux, VSCodium, Brave, KeePassXC</b> - НЕ устанавливаются автоматически [скриптом установки](./Scripts/install.sh).</i>
 
 </details>
 
@@ -274,7 +274,6 @@
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Перемещение окна в рабочее пространство с 1 по 10    |
 | <kbd>Super</kbd> + <kbd>Tab</kbd>                      | Переключение на специальное рабочее пространство     |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>   | Перемещение окна в специальное рабочее пространство  |
-| <kbd>Super</kbd> + <kbd>Колесо мыши</kbd>              | Переключение между рабочими пространствами           |
 
 </details>
 
@@ -310,12 +309,15 @@
       <b>Остальное</b>
    </summary>
 
-| Клавиши                                            | Действие                                                                |
-| :------------------------------------------------- | :---------------------------------------------------------------------- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                                                  |
-| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон из директории Wallpapers + Генерация темы к ним (matugen) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать/остановить запись области экрана (gpu-screen-recorder)           |
-| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона                                          |
+| Клавиши                                            | Действие                                                      |
+| :------------------------------------------------- | :------------------------------------------------------------ |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                                        |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон + Генерация темы (matugen)                      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать/остановить запись области экрана (gpu-screen-recorder) |
+| <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона                                |
+| <kbd>Super</kbd> + <kbd>Z</kbd>                    | Увеличить масштаб курсора                                     |
+| <kbd>Super</kbd> + <kbd>Колесико мыши</kbd>        | Увеличить/уменьшить масштаб курсора                           |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> | Сбросить масштаб курсора                                      |
 
 </details>
 

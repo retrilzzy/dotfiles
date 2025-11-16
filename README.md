@@ -226,17 +226,17 @@ Window manager (WM).
 | <kbd>Super</kbd> + <kbd>R</kbd>                    | Application menu (Rofi)                  |
 | <kbd>Super</kbd> + <kbd>O</kbd>                    | Application menu with launch via Oniux\* |
 | <kbd>Super</kbd> + <kbd>E</kbd>                    | File manager (Nautilus)                  |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Code editor (VSCode\*)                   |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Code editor (VSCodium\*)                 |
 | <kbd>Super</kbd> + <kbd>B</kbd>                    | Browser (Brave\*)                        |
 | <kbd>Super</kbd> + <kbd>K</kbd>                    | Password manager (KeePassXC\*)           |
 | <kbd>Super</kbd> + <kbd>V</kbd>                    | Clipboard (Rofi + Cliphist)              |
 | <kbd>Super</kbd> + <kbd>N</kbd>                    | Notification center (SwayNC)             |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Emoji menu (Emote)                       |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Wallpaper management (Waypaper)          |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Wallpaper selector (Rofi + Script)       |
 
 <b><i>\*Oniux</b> - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.</i>
 
-<b><i>\*Oniux, VSCode, Brave, KeePassXC</b> - are NOT installed automatically by the [installation script](./Scripts/install.sh).</i>
+<b><i>\*Oniux, VSCodium, Brave, KeePassXC</b> - are NOT installed automatically by the [installation script](./Scripts/install.sh).</i>
 
 </details>
 
@@ -274,7 +274,6 @@ Window manager (WM).
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>[0-9]</kbd> | Move window to workspace 1 to 10   |
 | <kbd>Super</kbd> + <kbd>Tab</kbd>                      | Switch to a special workspace      |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd>   | Move window to a special workspace |
-| <kbd>Super</kbd> + <kbd>Mouse wheel</kbd>              | Switch between workspaces          |
 
 </details>
 
@@ -310,12 +309,15 @@ Window manager (WM).
       <b>Other</b>
    </summary>
 
-| Keys                                               | Action                                                                             |
-| :------------------------------------------------- | :--------------------------------------------------------------------------------- |
-| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Hide/show Waybar                                                                   |
-| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Random background from the Wallpapers directory + Generate theme from it (matugen) |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Start/stop recording a screen area (gpu-screen-recorder)                           |
-| <kbd>Super</kbd> + <kbd>M</kbd>                    | Mute/unmute microphone                                                             |
+| Keys                                               | Action                                                   |
+| :------------------------------------------------- | :------------------------------------------------------- |
+| <kbd>Super</kbd> + <kbd>Escape</kbd>               | Hide/show Waybar                                         |
+| <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Random background + Generate theme (matugen)             |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Start/stop recording a screen area (gpu-screen-recorder) |
+| <kbd>Super</kbd> + <kbd>M</kbd>                    | Mute/unmute microphone                                   |
+| <kbd>Super</kbd> + <kbd>Z</kbd>                    | Zoom in                                                  |
+| <kbd>Super</kbd> + <kbd>Mouse wheel</kbd>          | Zoom in/out                                              |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd> | Reset zoom                                               |
 
 </details>
 
