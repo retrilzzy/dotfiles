@@ -4,12 +4,12 @@ set -euo pipefail
 
 DOTFILES_DIR="$HOME/dotfiles"
 
+RED='\033[1;31m'
+YELLOW='\033[1;33m'
+GREEN='\033[1;32m'
 CYAN='\033[1;36m'
 BLUE='\033[1;34m'
-GREEN='\033[1;32m'
-YELLOW='\033[1;33m'
 RESET='\033[0m'
-RED='\033[1;31m'
 
 print_section() {
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -309,7 +309,7 @@ main() {
     reload_services
 
     echo -e "${GREEN}Installation complete!${RESET}"
-    echo -e "${CYAN}It is recommended to reboot the system for changes to fully apply.${RESET}"
+    echo -e "${CYAN}To fully apply the changes, it is recommended to restart the system.${RESET}"
 
     exec zsh
 }
