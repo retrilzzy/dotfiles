@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-cache_dir="$HOME/.cache"
-lock_bg_path="$cache_dir/lock_background"
+CACHE_DIR="$HOME/.cache"
+LOCK_BG_PATH="$CACHE_DIR/lock_background"
 
 if [[ $# -lt 1 ]]; then
     echo "Usage: $0 <wallpapers-folder>"
@@ -16,6 +16,7 @@ if [[ ! -d "$folder" ]]; then
     exit 1
 fi
 
+# Get a random image from the folder
 mapfile -t all_images < <(
     find "$folder" -type f \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.jpeg' \) | sort
 )
@@ -43,15 +44,26 @@ fi
 
 echo "Selected image: $selected_image"
 
+# Get a random transition position
+px=$(printf "%.2f" "$(awk -v r=$RANDOM 'BEGIN{s=r/32767} END{print s}')")
+py=$(printf "%.2f" "$(awk -v r=$RANDOM 'BEGIN{s=r/32767} END{print s}')")
+transition_pos="$px,$py"
+
+echo "Transition position: $transition_pos"
+
+# Set the selected image
 swww img -t grow \
+    --transition-pos "$transition_pos" \
     --transition-duration 1.8 \
-    --transition-step 200 \
+    --transition-step 255 \
     --transition-fps 60 \
     "$selected_image"
 
+# Generate a color palette
 matugen image "$selected_image"
 
-mkdir -p "$cache_dir"
-cp "$selected_image" "$lock_bg_path"
+# Set the lock background
+mkdir -p "$CACHE_DIR"
+cp "$selected_image" "$LOCK_BG_PATH"
 
-echo "Lock background saved to: $lock_bg_path"
+echo "Lock background saved to: $LOCK_BG_PATH"
