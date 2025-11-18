@@ -187,9 +187,9 @@ apply_new_configs() {
         "$DOTFILES_DIR/Configs/.p10k.zsh" \
         "$DOTFILES_DIR/Configs/.nanorc" "$HOME/"
 
-    sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
+    cp -a "$DOTFILES_DIR/Configs/.local/." "$HOME/.local/"
 
-    sudo cp -a "$DOTFILES_DIR/Configs/.local/." "$HOME/.local/"
+    sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
 
     echo -e "${GREEN}New configurations applied.${RESET}"
 }
