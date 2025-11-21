@@ -1,6 +1,11 @@
 [config]
 reload_apps = true
 
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = "pkill -USR1 cava"
+
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-3.0/colors.css'
