@@ -9,14 +9,12 @@
         "borderangle",
         "brightnessctl",
         "bringactivetotop",
-        "Chibisafe",
         "cliphist",
         "cyclenext",
         "dmenu",
-        "Dotfiles",
+        "dotfiles",
         "dpms",
-        "equicord",
-        "Fastfetch",
+        "fastfetch",
         "flameshot",
         "hypr",
         "hyprctl",
@@ -53,6 +51,7 @@
         "togglefloating",
         "togglespecialworkspace",
         "togglesplit",
+        "vicinae",
         "Waybar",
         "waypaper",
         "windowrulev",
@@ -60,8 +59,5 @@
         "wpctl",
         "XCURSOR",
         "ZIPLINE",
-        "бэкапов",
-        "донастройки",
-        "конфигов"
     ]
 }

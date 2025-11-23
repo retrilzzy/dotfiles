@@ -33,14 +33,15 @@ output_path = '~/.local/share/color-schemes/Matugen.colors'
 input_path = '~/.config/matugen/templates/matugen.css'
 output_path = '~/.config/matugen/matugen.css'
 
-[templates.rofi]
-input_path = '~/.config/matugen/templates/rofi.rasi'
-output_path = '~/.config/rofi/colors.rasi'
-
 [templates.swaync]
 input_path = '~/.config/matugen/templates/swaync.css'
 output_path = '~/.config/swaync/theme.css'
 post_hook = 'swaync-client --reload-css'
+
+[templates.vicinae]
+input_path = './templates/vicinae.toml'
+output_path = '~/.local/share/vicinae/themes/matugen.toml'
+post_hook = 'vicinae theme set matugen'
 
 [templates.waybar]
 input_path = '~/.config/matugen/templates/waybar.css'

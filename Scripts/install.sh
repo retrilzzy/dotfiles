@@ -212,7 +212,7 @@ run_services() {
     uwsm app -- nm-applet >/dev/null 2>&1 &
     disown
 
-    uwsm app -- wl-paste --type text --watch cliphist -max-items 50 store >/dev/null 2>&1 &
+    uwsm app -- vicinae server >/dev/null 2>&1 &
     disown
 
     uwsm app -- swww-daemon >/dev/null 2>&1 &
@@ -280,12 +280,12 @@ main() {
     ensure_yay
 
     print_section "System and interface"
-    install_pacman hyprlock hypridle kitty nwg-look rofi swaync waybar swww hyprshot
-    install_yay waypaper wlogout
+    install_pacman hyprlock hypridle kitty nwg-look swaync waybar swww hyprshot
+    install_yay waypaper wlogout vicinae-bin
 
     print_section "Utilities and tools"
-    install_pacman brightnessctl cliphist fastfetch grim lsd playerctl trash-cli uwsm wl-clipboard wl-clip-persist
-    install_yay emote flameshot gpu-screen-recorder nautilus network-manager-applet
+    install_pacman brightnessctl fastfetch grim lsd playerctl trash-cli uwsm wl-clipboard wl-clip-persist
+    install_yay flameshot gpu-screen-recorder nautilus network-manager-applet
 
     print_section "Networking, audio and portals"
     install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome

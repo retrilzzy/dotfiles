@@ -40,15 +40,14 @@
     - [Hypridle](#hypridle) - idle behavior.
     - [Hyprlock](#hyprlock) - lock screen.
   - [Waybar](#waybar) - wayland bar.
-  - [Rofi](#rofi) - application launcher, clipboard interface.
+  - [Vicinae](#vicinae) - focused launcher.
   - [Wlogout](#wlogout) - logout menu.
+  - [Terminal](#terminal) - terminal settings.
   - [Nwg-look](#nwg-look) - GTK settings.
   - [Qt](#qt) - Qt settings.
-  - [Terminal](#terminal) - terminal settings.
   - [Swaync](#swaync) - notifications.
   - [Waypaper](#waypaper) - GUI for easy wallpaper management.
     - [Wallpapers](#wallpapers) - collection of wallpapers.
-  - [Emote](#emote) - emoji picker.
   - [Flameshot](#flameshot) - powerful screenshot utility.
   - [Fastfetch](#fastfetch) - show off your linux.
 
@@ -119,8 +118,8 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `hyprshot` | Screenshot tool              |
 | `kitty`    | Terminal emulator            |
 | `nwg-look` | GTK theme configuration tool |
-| `rofi`     | App launcher and menu        |
 | `swaync`   | Notification center          |
+| `vicinae`  | Native launcher              |
 | `waybar`   | Wayland status bar           |
 | `waypaper` | Wallpaper manager            |
 | `wlogout`  | Logout menu                  |
@@ -136,8 +135,6 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | :----------------------- | :------------------------------- |
 | `base-devel`             | Development tools for AUR builds |
 | `brightnessctl`          | Brightness control               |
-| `cliphist`               | Clipboard history manager        |
-| `emote`                  | Emoji picker                     |
 | `fastfetch`              | System information viewer        |
 | `flameshot`              | Screenshot tool                  |
 | `git`                    | Version control system           |
@@ -219,24 +216,21 @@ Window manager (WM).
       <b>Application launch</b>
    </summary>
 
-| Keys                                               | Action                                   |
-| :------------------------------------------------- | :--------------------------------------- |
-| <kbd>Super</kbd> + <kbd>W</kbd>                    | Terminal (Kitty)                         |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Terminal in floating mode (float)        |
-| <kbd>Super</kbd> + <kbd>R</kbd>                    | Application menu (Rofi)                  |
-| <kbd>Super</kbd> + <kbd>O</kbd>                    | Application menu with launch via Oniux\* |
-| <kbd>Super</kbd> + <kbd>E</kbd>                    | File manager (Nautilus)                  |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Code editor (VSCodium\*)                 |
-| <kbd>Super</kbd> + <kbd>B</kbd>                    | Browser (Brave\*)                        |
-| <kbd>Super</kbd> + <kbd>K</kbd>                    | Password manager (KeePassXC\*)           |
-| <kbd>Super</kbd> + <kbd>V</kbd>                    | Clipboard (Rofi + Cliphist)              |
-| <kbd>Super</kbd> + <kbd>N</kbd>                    | Notification center (SwayNC)             |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Emoji menu (Emote)                       |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Wallpaper selector (Rofi + Script)       |
+| Keys                                               | Action                                |
+| :------------------------------------------------- | :------------------------------------ |
+| <kbd>Super</kbd> + <kbd>W</kbd>                    | Terminal (Kitty)                      |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Terminal in floating mode             |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Application menu (Vicinae)            |
+| <kbd>Super</kbd> + <kbd>E</kbd>                    | File manager (Nautilus)               |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Code editor (VSCodium\*)              |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Browser (Brave\*)                     |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Password manager (KeePassXC\*)        |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Clipboard (Vicinae Clipboard)         |
+| <kbd>Super</kbd> + <kbd>N</kbd>                    | Notification center (SwayNC)          |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Emoji menu (Vicinae Emoji)            |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Wallpaper selector (Vicinae + Script) |
 
-<b><i>\*Oniux</b> - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.</i>
-
-<b><i>\*Oniux, VSCodium, Brave, KeePassXC</b> - are NOT installed automatically by the [installation script](./Scripts/install.sh).</i>
+<b><i>\*VSCodium, Brave, KeePassXC</b> - are NOT installed automatically by the [installation script](./Scripts/install.sh).</i>
 
 </details>
 
@@ -245,21 +239,21 @@ Window manager (WM).
       <b>Window interaction</b>
    </summary>
 
-| Keys                                                      | Action                                    |
-| :-------------------------------------------------------- | :---------------------------------------- |
-| <kbd>Super</kbd> + <kbd>Q</kbd>                           | Close active window                       |
-| <kbd>F11</kbd>                                            | Fullscreen                                |
-| <kbd>Super</kbd> + <kbd>A</kbd>                           | Maximize active window                    |
-| <kbd>Super</kbd> + <kbd>F</kbd>                           | Toggle window to "floating" mode (float)  |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>        | Switch to pseudo-tiling mode (pseudo)     |
-| <kbd>Super</kbd> + <kbd>S</kbd>                           | Pin window on top of all workspaces (pin) |
-| <kbd>Super</kbd> + <kbd>D</kbd>                           | Toggle window split mode                  |
-| <kbd>Alt</kbd> + <kbd>Tab</kbd>                           | Switch to the next window                 |
-| <kbd>Super</kbd> + <kbd>Arrows</kbd>                      | Move focus between windows                |
-| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Arrows</kbd> | Resize active window                      |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Arrows</kbd>   | Move windows                              |
-| <kbd>Super</kbd> + <kbd>LMB</kbd>                         | Move windows with the mouse               |
-| <kbd>Super</kbd> + <kbd>RMB</kbd>                         | Resize windows with the mouse             |
+| Keys                                                      | Action                              |
+| :-------------------------------------------------------- | :---------------------------------- |
+| <kbd>Super</kbd> + <kbd>Q</kbd>                           | Close active window                 |
+| <kbd>F11</kbd>                                            | Fullscreen                          |
+| <kbd>Super</kbd> + <kbd>A</kbd>                           | Maximize active window              |
+| <kbd>Super</kbd> + <kbd>F</kbd>                           | Toggle window to "float" mode       |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>        | Switch to pseudo-tiling mode        |
+| <kbd>Super</kbd> + <kbd>S</kbd>                           | Pin window on top of all workspaces |
+| <kbd>Super</kbd> + <kbd>D</kbd>                           | Toggle window split mode            |
+| <kbd>Alt</kbd> + <kbd>Tab</kbd>                           | Switch to the next window           |
+| <kbd>Super</kbd> + <kbd>Arrows</kbd>                      | Move focus between windows          |
+| <kbd>Super</kbd> + <kbd>Control</kbd> + <kbd>Arrows</kbd> | Resize active window                |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Arrows</kbd>   | Move windows                        |
+| <kbd>Super</kbd> + <kbd>LMB</kbd>                         | Move windows with the mouse         |
+| <kbd>Super</kbd> + <kbd>RMB</kbd>                         | Resize windows with the mouse       |
 
 </details>
 
@@ -416,29 +410,11 @@ sudo pacman -S waybar
 
 </details>
 
-## Rofi
+## Vicinae
 
-Application launcher, clipboard interface. [[config](./Configs/.config/rofi/)]
+Focused launcher. [[config](./Configs/.config/vicinae/)]
 
-https://github.com/davatorium/rofi
-
-https://github.com/lbonn/rofi
-
-```
-sudo pacman -S rofi wl-clipboard cliphist
-```
-
-<details><summary><b>Screenshot (Application launcher)</b></summary>
-
-![Screenshot](./Assets/screenshots/rofi-launcher.png)
-
-</details>
-
-<details><summary><b>Screenshot (Clipboard)</b></summary>
-
-![Screenshot](./Assets/screenshots/rofi-clipboard.png)
-
-</details>
+https://github.com/vicinaehq/vicinae
 
 ## Wlogout
 
@@ -703,16 +679,6 @@ yay -S mpvpaper
 
 - [Monochrome](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Maybe there will be more...
-
-## Emote
-
-Emoji picker.
-
-https://github.com/tom-james-watson/Emote
-
-```
-yay -S emote
-```
 
 ## Flameshot
 

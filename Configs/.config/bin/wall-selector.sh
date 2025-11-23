@@ -1,52 +1,43 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -euo pipefail
 
 CACHE_DIR="$HOME/.cache"
 LOCK_BG_PATH="$CACHE_DIR/lock_background"
 
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-IMAGE_PICKER_CONFIG="$HOME/.config/rofi/wallpapers.rasi"
-
-mapfile -t WALLPAPERS < <(
-    find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort
-)
-
-CURRENT_WALLPAPER=$(basename "$(swww query | awk '/image:/ {print $NF}')")
-
-ROFI_MENU=""
-for path in "${WALLPAPERS[@]}"; do
-    name=$(basename "$path")
-    if [[ "$name" == "$CURRENT_WALLPAPER" ]]; then
-        ROFI_MENU+="${name} (current)\0icon\x1f${path}\n"
-    else
-        ROFI_MENU+="${name}\0icon\x1f${path}\n"
-    fi
-done
-
-SELECTED=$(printf "%b" "$ROFI_MENU" | rofi -dmenu -theme "$IMAGE_PICKER_CONFIG" -p " ")
-
-[[ -z "$SELECTED" ]] && exit 0
-
-SELECTED_CLEAN=${SELECTED// \(current\)/}
-
-SELECTED_PATH="$WALLPAPER_DIR/$SELECTED_CLEAN"
-if [[ ! -f "$SELECTED_PATH" ]]; then
-    notify-send "Wallpaper error" "File not found: $SELECTED_PATH"
+if [[ $# -lt 1 ]]; then
+    echo "Usage: $0 <wallpapers-directory>"
     exit 1
 fi
 
-px=$(shuf -i 0-100 -n 1 | awk '{printf "%.2f", $1/100}')
-py=$(shuf -i 0-100 -n 1 | awk '{printf "%.2f", $1/100}')
+DIR="$1"
+if [[ ! -d "$DIR" ]]; then
+    echo "Directory not found: $DIR"
+    exit 1
+fi
+
+SELECTED=$(
+    find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) |
+        sort |
+        vicinae dmenu --no-metadata -p " Pick a wallpaper..."
+)
+[[ -z "$SELECTED" ]] && exit 0
+
+rand() {
+    printf "%.2f" "$(awk -v r=$((RANDOM % 101)) 'BEGIN {print r/100}')"
+}
+
+px=$(rand)
+py=$(rand)
 transition_pos="$px,$py"
 
-swww img -t grow \
+swww img "$SELECTED" \
+    -t grow \
     --transition-pos "$transition_pos" \
     --transition-duration 1.8 \
     --transition-step 255 \
-    --transition-fps 60 \
-    "$SELECTED_PATH"
+    --transition-fps 60
 
-matugen image "$SELECTED_PATH"
+matugen image "$SELECTED"
 
 mkdir -p "$CACHE_DIR"
-cp "$SELECTED_PATH" "$LOCK_BG_PATH"
+cp "$SELECTED" "$LOCK_BG_PATH"

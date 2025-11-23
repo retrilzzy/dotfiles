@@ -40,15 +40,14 @@
     - [Hypridle](#hypridle) - поведение при бездействии.
     - [Hyprlock](#hyprlock) - экран блокировки.
   - [Waybar](#waybar) - wayland бар.
-  - [Rofi](#rofi) - запуск приложений, интерфейс для буфера обмена.
+  - [Vicinae](#vicinae) - фокусированный мульти-лаунчер.
   - [Wlogout](#wlogout) - меню выхода.
+  - [Терминал](#терминал) - настройка терминала.
   - [Nwg-look](#nwg-look) - настройка GTK.
   - [Qt](#qt) - настройка Qt.
-  - [Терминал](#терминал) - настройка терминала.
   - [Swaync](#swaync) - уведомления.
   - [Waypaper](#waypaper) - GUI для простого управление обоями.
     - [Обои](#обои) - коллекция обоев/фонов.
-  - [Emote](#emote) - меню выбора эмодзи.
   - [Flameshot](#flameshot) - мощная утилита для скриншотов.
   - [Fastfetch](#fastfetch) - похвастаться линуксом.
 
@@ -119,8 +118,8 @@
 | `hyprshot` | Утилита для создания скриншотов   |
 | `kitty`    | Эмулятор терминала                |
 | `nwg-look` | Утилита для настройки GTK тем     |
-| `rofi`     | Лаунчер приложений и меню         |
 | `swaync`   | Центр уведомлений                 |
+| `vicinae`  | Фокусированный мульти-лаунчер     |
 | `waybar`   | Wayland бар                       |
 | `waypaper` | Управление обоями                 |
 | `wlogout`  | Меню выхода из системы            |
@@ -136,8 +135,6 @@
 | :----------------------- | :------------------------------------ |
 | `base-devel`             | Инструменты разработки для сборок AUR |
 | `brightnessctl`          | Управление яркостью экрана            |
-| `cliphist`               | Менеджер истории буфера обмена        |
-| `emote`                  | Выбор эмодзи                          |
 | `fastfetch`              | Просмотр информации о системе         |
 | `flameshot`              | Утилита для создания скриншотов       |
 | `git`                    | Система контроля версий               |
@@ -219,24 +216,20 @@
       <b>Запуск приложений</b>
    </summary>
 
-| Клавиши                                            | Действие                                 |
-| :------------------------------------------------- | :--------------------------------------- |
-| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                         |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float)      |
-| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Rofi)                   |
-| <kbd>Super</kbd> + <kbd>O</kbd>                    | Меню приложений с запуском через Oniux\* |
-| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)             |
-| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCodium\*)               |
-| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                        |
-| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)           |
-| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Rofi + Cliphist)           |
-| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (SwayNC)               |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> | Меню эмодзи (Emote)                      |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Выбор обоев (Rofi + Скрипт)              |
+| Клавиши                                            | Действие                            |
+| :------------------------------------------------- | :---------------------------------- |
+| <kbd>Super</kbd> + <kbd>W</kbd>                    | Терминал (Kitty)                    |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> | Терминал в плавающем режиме (float) |
+| <kbd>Super</kbd> + <kbd>R</kbd>                    | Меню приложений (Vicinae)           |
+| <kbd>Super</kbd> + <kbd>E</kbd>                    | Файловый менеджер (Nautilus)        |
+| <kbd>Super</kbd> + <kbd>C</kbd>                    | Редактор кода (VSCodium\*)          |
+| <kbd>Super</kbd> + <kbd>B</kbd>                    | Браузер (Brave\*)                   |
+| <kbd>Super</kbd> + <kbd>K</kbd>                    | Менеджер паролей (KeePassXC\*)      |
+| <kbd>Super</kbd> + <kbd>V</kbd>                    | Буфер обмена (Vicinae Clipboard)    |
+| <kbd>Super</kbd> + <kbd>N</kbd>                    | Центр уведомлений (SwayNC)          |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Выбор обоев (Vicinae + Скрипт)      |
 
-<b><i>\*Oniux</b> - https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/.</i>
-
-<b><i>\*Oniux, VSCodium, Brave, KeePassXC</b> - НЕ устанавливаются автоматически [скриптом установки](./Scripts/install.sh).</i>
+<b><i>\*VSCodium, Brave, KeePassXC</b> - НЕ устанавливаются автоматически [скриптом установки](./Scripts/install.sh).</i>
 
 </details>
 
@@ -416,29 +409,11 @@ sudo pacman -S waybar
 
 </details>
 
-## Rofi
+## Vicinae
 
-Запуск приложений, интерфейс для буфера обмена. [[конфиг](./Configs/.config/rofi/)]
+Фокусированный мульти-лаунчер. [[конфиг](./Configs/.config/vicinae/)]
 
-https://github.com/davatorium/rofi
-
-https://github.com/lbonn/rofi
-
-```
-sudo pacman -S rofi wl-clipboard cliphist
-```
-
-<details><summary><b>Скриншот (Лаунчер приложений)</b></summary>
-
-![Screenshot](./Assets/screenshots/rofi-launcher.png)
-
-</details>
-
-<details><summary><b>Скриншот (Буфер обмена)</b></summary>
-
-![Screenshot](./Assets/screenshots/rofi-clipboard.png)
-
-</details>
+https://github.com/vicinaehq/vicinae
 
 ## Wlogout
 
@@ -703,16 +678,6 @@ yay -S mpvpaper
 
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
 - Возможно будут еще...
-
-## Emote
-
-Выбор эмодзи.
-
-https://github.com/tom-james-watson/Emote
-
-```
-yay -S emote
-```
 
 ## Flameshot
 
