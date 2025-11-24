@@ -1,25 +1,28 @@
 <h1 align="center">Retrilz's Dotfiles</h1>
 
 <table align="center">
-  <tr>
-    <td colspan="3" align="center">
-      <img src="./Assets/screenshots/general.png" width="600"><br>
-    </td>
+   <tr>
+      <td colspan="3" align="center">
+         <img src="https://share.rzx.ovh/go/rdots-general" width="fit"><br>
+         <sub><b>General</b></sub>
+      </td>
+   </tr>
+   <tr>
+      <td align="center">
+         <img src="https://share.rzx.ovh/go/rdots-hyprlock" width="fit"><br>
+         <sub><b>Hyprlock</b></sub>
+      </td>
+      <td align="center">
+         <img src="https://share.rzx.ovh/go/rdots-terminals" width="fit"><br>
+         <sub><b>Terminals</b></sub>
+      </td>
   </tr>
   <tr>
-    <td align="center">
-      <img src="./Assets/screenshots/hyprlock.png" width="200"><br>
-      <sub>Hyprlock</sub>
-    </td>
-    <td align="center">
-      <img src="./Assets/screenshots/rofi-launcher.png" width="200"><br>
-      <sub>Rofi</sub>
-    </td>
-    <td align="center">
-      <img src="./Assets/screenshots/terminal.png" width="200"><br>
-      <sub>Kitty</sub>
-    </td>
-  </tr>
+      <td colspan="3" align="center">
+         <img src="https://share.rzx.ovh/go/rdots-gtk-qt" width="fit"><br>
+         <sub><b>GTK & Qt</b></sub>
+      </td>
+   </tr>
 </table>
 
 <div align="center">
@@ -387,12 +390,6 @@ https://github.com/hyprwm/hyprlock
 sudo pacman -S hyprlock
 ```
 
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/hyprlock.png)
-
-</details>
-
 ## Waybar
 
 Wayland бар. [[конфиг](./Configs/.config/waybar/)]
@@ -403,17 +400,15 @@ https://github.com/Alexays/Waybar
 sudo pacman -S waybar
 ```
 
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/waybar.png)
-
-</details>
-
 ## Vicinae
 
 Фокусированный мульти-лаунчер. [[конфиг](./Configs/.config/vicinae/)]
 
 https://github.com/vicinaehq/vicinae
+
+```
+yay -S vicinae-bin
+```
 
 ## Wlogout
 
@@ -427,7 +422,7 @@ yay -S wlogout
 
 <details><summary><b>Скриншот</b></summary>
 
-![Screenshot](./Assets/screenshots/wlogout.png)
+![Screenshot](https://share.rzx.ovh/go/rdots-wlogout)
 
 </details>
 
@@ -549,14 +544,6 @@ yay -S wlogout
 
 </details>
 
-<br>
-
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/terminal.png)
-
-</details><br>
-
 Установка Kitty и Zsh:
 
 ```
@@ -643,15 +630,6 @@ https://github.com/ErikReider/SwayNotificationCenter
 sudo pacman -S swaync
 ```
 
-<details><summary><b>Скриншоты</b></summary>
-
-![Screenshot](./Assets/screenshots/swaync-notification.png)
-<br>
-
-![Screenshot](./Assets/screenshots/swaync-control-center.png)
-
-</details>
-
 ## Waypaper
 
 GUI для простого управление обоями.
@@ -677,7 +655,7 @@ yay -S mpvpaper
 ### Обои
 
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
-- Возможно будут еще...
+- Скоро...
 
 ## Flameshot
 
@@ -689,12 +667,6 @@ https://flameshot.org
 sudo pacman -S flameshot
 ```
 
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/flameshot.png)
-
-</details>
-
 ## Fastfetch
 
 Похвастаться линуксом [[конфиг](./Configs/.config/fastfetch/)]
@@ -704,9 +676,3 @@ https://github.com/fastfetch-cli/fastfetch
 ```
 sudo pacman -S fastfetch
 ```
-
-<details><summary><b>Скриншот</b></summary>
-
-![Screenshot](./Assets/screenshots/fastfetch.png)
-
-</details>
