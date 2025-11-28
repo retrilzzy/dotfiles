@@ -665,7 +665,7 @@ Powerful screenshot utility. [[config](./Configs/.config/flameshot/)]
 https://flameshot.org
 
 ```
-sudo pacman -S flameshot
+yay -S flameshot-git
 ```
 
 ## Fastfetch
