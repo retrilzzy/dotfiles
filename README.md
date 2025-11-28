@@ -311,6 +311,7 @@ Window manager (WM).
 | <kbd>Super</kbd> + <kbd>Escape</kbd>               | Hide/show Waybar                                         |
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Random background + Generate theme (matugen)             |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Start/stop recording a screen area (gpu-screen-recorder) |
+| <kbd>Super</kbd> + <kbd>H</kbd>                    | Toggle windows and layers visibility on screen share     |
 | <kbd>Super</kbd> + <kbd>M</kbd>                    | Mute/unmute microphone                                   |
 | <kbd>Super</kbd> + <kbd>Z</kbd>                    | Zoom in                                                  |
 | <kbd>Super</kbd> + <kbd>Mouse wheel</kbd>          | Zoom in/out                                              |

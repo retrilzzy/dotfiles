@@ -310,6 +310,7 @@
 | <kbd>Super</kbd> + <kbd>Escape</kbd>               | Скрыть/показать Waybar                                        |
 | <kbd>Super</kbd> +<kbd>Alt</kbd> + <kbd>P</kbd>    | Случайный фон + Генерация темы (matugen)                      |
 | <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Начать/остановить запись области экрана (gpu-screen-recorder) |
+| <kbd>Super</kbd> + <kbd>H</kbd>                    | Переключить видимость окон и слоев на демонстрации экрана     |
 | <kbd>Super</kbd> + <kbd>M</kbd>                    | Включение/выключение микрофона                                |
 | <kbd>Super</kbd> + <kbd>Z</kbd>                    | Увеличить масштаб курсора                                     |
 | <kbd>Super</kbd> + <kbd>Колесико мыши</kbd>        | Увеличить/уменьшить масштаб курсора                           |
