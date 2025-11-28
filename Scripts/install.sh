@@ -285,7 +285,8 @@ main() {
 
     print_section "Utilities and tools"
     install_pacman brightnessctl fastfetch grim lsd playerctl trash-cli uwsm wl-clipboard wl-clip-persist
-    install_yay flameshot gpu-screen-recorder nautilus network-manager-applet
+    git clone https://github.com/flameshot-org/flameshot "$HOME/.cache/yay/flameshot-git/flameshot"
+    install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
 
     print_section "Networking, audio and portals"
     install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
