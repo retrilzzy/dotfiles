@@ -664,7 +664,7 @@ yay -S mpvpaper
 https://flameshot.org
 
 ```
-sudo pacman -S flameshot
+yay -S flameshot-git
 ```
 
 ## Fastfetch
