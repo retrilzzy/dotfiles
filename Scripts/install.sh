@@ -4,16 +4,16 @@ set -euo pipefail
 
 DOTFILES_DIR="$HOME/dotfiles"
 
-RED='\033[1;31m'
-YELLOW='\033[1;33m'
-GREEN='\033[1;32m'
-CYAN='\033[1;36m'
-BLUE='\033[1;34m'
-RESET='\033[0m'
+RED="\033[1;31m"
+YELLOW="\033[1;33m"
+GREEN="\033[1;32m"
+CYAN="\033[1;36m"
+BLUE="\033[1;34m"
+RESET="\033[0m"
 
 print_section() {
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo -e "$1"
+    echo -e "   $1"
     echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 }
 
@@ -222,15 +222,31 @@ run_services() {
 }
 
 setup_wallpapers() {
-    local wallpaper_dest="$HOME/Pictures/Wallpapers"
+    print_section "Wallpapers"
+
+    local wallpaper_dest="$HOME/Pictures/Wallpapers-test"
     mkdir -p "$wallpaper_dest"
-    cp -r "$DOTFILES_DIR/Assets/wallpapers/"* "$wallpaper_dest/"
-    echo -e "${GREEN}Wallpapers copied to $wallpaper_dest${RESET}"
+
+    echo -e "${BLUE}Downloading 5 random wallpapers${RESET}"
+    echo -e "${BLUE}All wallpapers:${RESET} https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
+
+    curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv" |
+        jq -r '.files[].name' |
+        shuf -n 5 |
+        while read -r name; do
+            [ -z "$name" ] && continue
+
+            local url="https://share.rzx.ovh/raw/$name"
+            echo -e "${GREEN}Downloading wallpaper:${RESET} $url"
+            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$wallpaper_dest/$name" || echo -e "${RED}Failed to download wallpaper:${RESET} $name"
+        done
+
+    echo -e "${GREEN}Wallpapers saved to $wallpaper_dest${RESET}"
 
     mkdir "$HOME/.local/share/color-schemes" || true
 
-    "$DOTFILES_DIR/Configs/.config/bin/change-wall.sh" ~/Pictures/Wallpapers
-    echo -e "${GREEN}Wallpapers set.${RESET}"
+    "$HOME/.config/bin/change-wall.sh" "$wallpaper_dest"
+    echo -e "${GREEN}Wallpaper set.${RESET}"
 }
 
 setup_theme() {
