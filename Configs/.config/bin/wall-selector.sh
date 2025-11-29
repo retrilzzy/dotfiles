@@ -15,6 +15,7 @@ if [[ ! -d "$DIR" ]]; then
     exit 1
 fi
 
+# Select a wallpaper
 SELECTED=$(
     find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) |
         sort |
@@ -22,14 +23,14 @@ SELECTED=$(
 )
 [[ -z "$SELECTED" ]] && exit 0
 
-rand() {
-    printf "%.2f" "$(awk -v r=$((RANDOM % 101)) 'BEGIN {print r/100}')"
-}
+# Get a random transition position
+rand() { printf "0.%02d\n" $((RANDOM % 100)); }
 
 px=$(rand)
 py=$(rand)
 transition_pos="$px,$py"
 
+# Set the selected image
 swww img "$SELECTED" \
     -t grow \
     --transition-pos "$transition_pos" \
@@ -37,7 +38,11 @@ swww img "$SELECTED" \
     --transition-step 255 \
     --transition-fps 60
 
+# Generate a color palette
 matugen image "$SELECTED"
 
+# Set the lock background
 mkdir -p "$CACHE_DIR"
 cp "$SELECTED" "$LOCK_BG_PATH"
+
+echo "Lock background saved to: $LOCK_BG_PATH"

@@ -45,11 +45,11 @@ fi
 echo "Selected image: $selected_image"
 
 # Get a random transition position
-px=$(printf "%.2f" "$(awk -v r=$RANDOM 'BEGIN{s=r/32767} END{print s}')")
-py=$(printf "%.2f" "$(awk -v r=$RANDOM 'BEGIN{s=r/32767} END{print s}')")
-transition_pos="$px,$py"
+rand() { printf "0.%02d\n" $((RANDOM % 100)); }
 
-echo "Transition position: $transition_pos"
+px=$(rand)
+py=$(rand)
+transition_pos="$px,$py"
 
 # Set the selected image
 swww img -t grow \
