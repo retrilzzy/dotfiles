@@ -2,8 +2,10 @@
 
 set -euo pipefail
 
+# Variables
 DOTFILES_DIR="$HOME/dotfiles"
 
+# Colors
 RED="\033[1;31m"
 YELLOW="\033[1;33m"
 GREEN="\033[1;32m"
@@ -11,12 +13,14 @@ CYAN="\033[1;36m"
 BLUE="\033[1;34m"
 RESET="\033[0m"
 
+# Print a section header
 print_section() {
     echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e "   $1"
     echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 }
 
+# Install packages with pacman if they are not already installed
 install_pacman() {
     local to_install_pacman=()
     for pkg in "$@"; do
@@ -35,6 +39,7 @@ install_pacman() {
     fi
 }
 
+# Install packages with yay if they are not already installed
 install_yay() {
     local to_install_yay=()
     for pkg in "$@"; do
@@ -53,6 +58,7 @@ install_yay() {
     fi
 }
 
+# Clone or update the dotfiles repository
 clone_repo() {
     print_section "Cloning or updating dotfiles repository"
     if [ -d "$DOTFILES_DIR" ]; then
@@ -77,6 +83,7 @@ clone_repo() {
     fi
 }
 
+# Configure pacman and update the system
 setup_pacman() {
     print_section "Configuring Pacman"
 
@@ -84,7 +91,7 @@ setup_pacman() {
 
     confirm=${confirm:-Y}
     if [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-        echo -e "${BLUE}Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak${RESET}"
+        echo -e "${BLUE} Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak${RESET}"
         sudo cp /etc/pacman.conf /etc/pacman.conf.bak 2>/dev/null
 
         sudo cp "$DOTFILES_DIR/Configs/etc/pacman.conf" /etc/pacman.conf
@@ -100,6 +107,7 @@ setup_pacman() {
     echo -e "${GREEN}Pacman configuration complete${RESET}"
 }
 
+# Install yay if it is not already installed
 ensure_yay() {
     if ! command -v yay &>/dev/null; then
         print_section "Installing Yay"
@@ -126,6 +134,7 @@ ensure_yay() {
     fi
 }
 
+# Setup Zsh, Oh My Zsh and plugins
 setup_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
@@ -138,6 +147,7 @@ setup_zsh() {
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
 }
 
+# Backup existing configurations
 backup_configs() {
     print_section "Backing up existing configurations"
 
@@ -151,6 +161,11 @@ backup_configs() {
     for dir in "$DOTFILES_DIR"/Configs/.config/*; do
         local name
         name=$(basename "$dir")
+
+        if [ "$name" = "discord" ]; then
+            continue
+        fi
+
         if [ -d "$HOME/.config/$name" ]; then
             echo -e "${BLUE} Copying $HOME/.config/$name to $backup_dir/.config/${RESET}"
             cp -a "$HOME/.config/$name" "$backup_dir/.config/"
@@ -178,6 +193,7 @@ backup_configs() {
     echo -e "${GREEN}Backup saved to $backup_dir${RESET}"
 }
 
+# Apply new configurations from the dotfiles repository
 apply_new_configs() {
     print_section "Applying new configurations"
 
@@ -194,6 +210,7 @@ apply_new_configs() {
     echo -e "${GREEN}New configurations applied.${RESET}"
 }
 
+# Run essential services
 run_services() {
     print_section "Running services"
 
@@ -221,6 +238,7 @@ run_services() {
     echo -e "${GREEN}Services started.${RESET}"
 }
 
+# Download and set up wallpapers
 setup_wallpapers() {
     print_section "Wallpapers"
 
@@ -237,7 +255,7 @@ setup_wallpapers() {
             [ -z "$name" ] && continue
 
             local url="https://share.rzx.ovh/raw/$name"
-            echo -e "${GREEN}Downloading wallpaper:${RESET} $url"
+            echo -e "${GREEN} Downloading wallpaper:${RESET} $url"
             curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$wallpaper_dest/$name" || echo -e "${RED}Failed to download wallpaper:${RESET} $name"
         done
 
@@ -249,6 +267,7 @@ setup_wallpapers() {
     echo -e "${GREEN}Wallpaper set.${RESET}"
 }
 
+# Apply GTK theme
 setup_theme() {
     print_section "Applying theme"
 
@@ -259,6 +278,7 @@ setup_theme() {
     echo -e "${GREEN}Themes applied.${RESET}"
 }
 
+# Reload services after theme and wallpaper changes
 reload_services() {
     print_section "Reloading services"
 
@@ -271,12 +291,15 @@ reload_services() {
     echo -e "${GREEN}Services reloaded.${RESET}"
 }
 
+# Main function
 main() {
+    # Check if the script is run as root
     if [ "$EUID" -eq 0 ]; then
         echo -e "${RED}Error: This script should not be run as root or with sudo. Please run it as a regular user.${RESET}"
         exit 1
     fi
 
+    # Check if the script is run in a Wayland session
     if [ -z "${WAYLAND_DISPLAY:-}" ]; then
         echo -e "${YELLOW}The script must be run in an active Wayland session (Hyprland).${RESET}"
         exit 1
