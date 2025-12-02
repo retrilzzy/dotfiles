@@ -156,9 +156,9 @@
   },
 
   "tray": {
-    "icon-size": 18,
+    "icon-size": 13,
     "rotate": 0,
-    "spacing": 8
+    "spacing": 10
   },
 
   "privacy": {
@@ -208,6 +208,7 @@
     "tooltip": true,
     "tooltip-format": "Device: {desc}",
     "on-click": "~/.config/bin/volume-control.sh -o m",
+    "on-click-right": "pavucontrol",
     "on-scroll-up": "~/.config/bin/volume-control.sh -o i",
     "on-scroll-down": "~/.config/bin/volume-control.sh -o d",
     "min-length": 6,
