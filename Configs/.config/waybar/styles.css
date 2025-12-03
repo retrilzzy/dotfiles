@@ -57,9 +57,10 @@ tooltip {
 /* -- Left Modules -- */
 /* Idle Inhibitor */
 #custom-idle_inhibitor {
-  padding: 0 6px 0 1px;
+  padding: 0 7px 0 2px;
   margin-left: 6px;
   margin-right: 0;
+  border-radius: 4px;
 }
 
 #custom-idle_inhibitor:hover {
@@ -148,10 +149,10 @@ tooltip {
 
 /* Power Button */
 #custom-power {
-  padding-left: 6px;
-  padding-right: 9px;
-  border-radius: 8px;
-  margin-right: 4px;
+  padding-left: 3px;
+  padding-right: 5px;
+  border-radius: 4px;
+  margin-right: 6px;
 }
 
 #custom-power:hover {

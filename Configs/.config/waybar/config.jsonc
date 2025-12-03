@@ -274,6 +274,8 @@
     "tooltip": false,
     "on-click": "~/.config/bin/logout-launch.sh",
     "on-click-right": "~/.config/bin/logout-launch.sh",
-    "interval": 86400
+    "interval": 86400,
+    "max-length": 2,
+    "min-length": 2
   }
 }
