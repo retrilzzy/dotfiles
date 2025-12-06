@@ -143,9 +143,11 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `git`                    | Version control system           |
 | `gpu-screen-recorder`    | GPU-accelerated screen recorder  |
 | `grim`                   | Wayland screenshot tool          |
+| `imagemagick`            | Image manipulation tools         |
 | `lsd`                    | `ls` alternative with icons      |
 | `nautilus`               | File manager                     |
 | `network-manager-applet` | Network management tray applet   |
+| `pavucontrol`            | PulseAudio volume control        |
 | `playerctl`              | Media player control             |
 | `trash-cli`              | Command-line trash utility       |
 | `uwsm`                   | Wayland session manager          |
