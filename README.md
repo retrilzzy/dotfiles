@@ -33,7 +33,7 @@
 # Navigation
 
 - [Installation](#installation)
-- [Detailed overview](#details)
+- [Detailed overview](#detailed-overview)
   - [Dependencies](#dependencies) - required packages.
   - [Hyprland](#hyprland) - window manager.
     - [Keybinds](#keybinds) - all key combinations.
