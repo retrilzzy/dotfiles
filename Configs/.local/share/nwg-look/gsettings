@@ -2,8 +2,8 @@
 gtk-theme=adw-gtk3-dark
 icon-theme=Papirus-Dark
 font-name=Noto Sans 12
-cursor-theme=BreezeX-RosePine-Linux
-cursor-size=28
+cursor-theme=Bibata-Modern-Classic
+cursor-size=22
 toolbar-style=both-horiz
 toolbar-icons-size=small
 font-hinting=slight

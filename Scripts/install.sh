@@ -134,6 +134,23 @@ ensure_yay() {
     fi
 }
 
+# Install Bibata cursor
+install_bibata_cursor() {
+    print_section "Installing Bibata cursor"
+
+    echo -e "${BLUE}Installing Bibata cursor...${RESET}"
+    local tmp_dir
+    tmp_dir=$(mktemp -d)
+    if curl -L "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz" -o "$tmp_dir/bibata.tar.xz"; then
+        tar -xf "$tmp_dir/bibata.tar.xz" -C "$tmp_dir"
+        sudo cp -r "$tmp_dir/Bibata-Modern-Classic" /usr/share/icons/
+        echo -e "${GREEN}Bibata cursor installed.${RESET}"
+    else
+        echo -e "${RED}Failed to download Bibata cursor.${RESET}"
+    fi
+    rm -rf "$tmp_dir"
+}
+
 # Setup Zsh, Oh My Zsh and plugins
 setup_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -323,7 +340,7 @@ main() {
     install_yay waypaper wlogout vicinae-bin
 
     print_section "Utilities and tools"
-    install_pacman brightnessctl imagemagick fastfetch grim lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
+    install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
     git clone https://github.com/flameshot-org/flameshot "$HOME/.cache/yay/flameshot-git/flameshot"
     install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
 
@@ -332,7 +349,8 @@ main() {
 
     print_section "Appearance and themes"
     install_pacman adw-gtk-theme frameworkintegration inter-font noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme ttf-jetbrains-mono-nerd
-    install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin rose-pine-cursor rose-pine-hyprcursor ttf-meslo-nerd-font-powerlevel10k
+    install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin ttf-meslo-nerd-font-powerlevel10k
+    install_bibata_cursor
 
     print_section "Zsh and Plugins"
     install_pacman zsh

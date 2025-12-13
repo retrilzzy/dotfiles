@@ -195,7 +195,6 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `papirus-icon-theme`                | Papirus icon theme                  |
 | `qt5ct-kde`                         | Qt5 theme configuration             |
 | `qt6ct-kde`                         | Qt6 theme configuration             |
-| `rose-pine-cursor`                  | Rosé Pine cursor theme              |
 | `rose-pine-hyprcursor`              | Rosé Pine cursor theme for Hyprland |
 | `ttf-jetbrains-mono-nerd`           | JetBrains Mono with Nerd glyphs     |
 | `ttf-meslo-nerd-font-powerlevel10k` | Meslo Nerd font for Powerlevel10k   |
@@ -331,12 +330,15 @@ sudo pacman -S papirus-icon-theme
 
 ## Cursor
 
-https://github.com/rose-pine/cursor
+https://github.com/ful1e5/Bibata_Cursor
 
-https://github.com/ndom91/rose-pine-hyprcursor
+The [installation script](./Scripts/install.sh) installs the [`Bibata-Modern-Classic`](https://github.com/ful1e5/Bibata_Cursor/releases/tag/v2.0.7) cursor theme.
 
 ```
-yay -S rose-pine-cursor rose-pine-hyprcursor
+mkdir -p /tmp/bibata
+curl -L https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz -o /tmp/bibata/bibata.tar.xz
+tar -xf /tmp/bibata/bibata.tar.xz -C /tmp/bibata
+sudo cp -r /tmp/bibata/Bibata-Modern-Classic /usr/share/icons/
 ```
 
 ## Fonts

@@ -134,26 +134,26 @@
 <details>
 <summary><b>Утилиты и инструменты</b></summary>
 
-| Пакет                    | Описание                              |
-| :----------------------- | :------------------------------------ |
-| `base-devel`             | Инструменты разработки для сборок AUR |
-| `brightnessctl`          | Управление яркостью экрана            |
-| `fastfetch`              | Просмотр информации о системе         |
-| `flameshot`              | Утилита для создания скриншотов       |
-| `git`                    | Система контроля версий               |
-| `gpu-screen-recorder`    | Запись экрана с ускорением GPU        |
-| `grim`                   | Утилита для скриншотов Wayland        |
-| `imagemagick`            | Инструменты для работы с изображениями|
-| `lsd`                    | Альтернатива `ls` с иконками          |
-| `nautilus`               | Файловый менеджер                     |
-| `network-manager-applet` | Апплет для управления сетью           |
-| `pavucontrol`            | GUI для управления звуком             |
-| `playerctl`              | Управление медиаплеерами              |
-| `trash-cli`              | Утилита корзины командной строки      |
-| `uwsm`                   | Менеджер сессий Wayland               |
-| `wl-clip-persist`        | Сохранение содержимого буфера обмена  |
-| `wl-clipboard`           | Утилиты буфера обмена Wayland         |
-| `yay`                    | AUR-хелпер                            |
+| Пакет                    | Описание                               |
+| :----------------------- | :------------------------------------- |
+| `base-devel`             | Инструменты разработки для сборок AUR  |
+| `brightnessctl`          | Управление яркостью экрана             |
+| `fastfetch`              | Просмотр информации о системе          |
+| `flameshot`              | Утилита для создания скриншотов        |
+| `git`                    | Система контроля версий                |
+| `gpu-screen-recorder`    | Запись экрана с ускорением GPU         |
+| `grim`                   | Утилита для скриншотов Wayland         |
+| `imagemagick`            | Инструменты для работы с изображениями |
+| `lsd`                    | Альтернатива `ls` с иконками           |
+| `nautilus`               | Файловый менеджер                      |
+| `network-manager-applet` | Апплет для управления сетью            |
+| `pavucontrol`            | GUI для управления звуком              |
+| `playerctl`              | Управление медиаплеерами               |
+| `trash-cli`              | Утилита корзины командной строки       |
+| `uwsm`                   | Менеджер сессий Wayland                |
+| `wl-clip-persist`        | Сохранение содержимого буфера обмена   |
+| `wl-clipboard`           | Утилиты буфера обмена Wayland          |
+| `yay`                    | AUR-хелпер                             |
 
 </details>
 
@@ -195,7 +195,6 @@
 | `papirus-icon-theme`                | Тема иконок Papirus                            |
 | `qt5ct-kde`                         | Настройка тем Qt5                              |
 | `qt6ct-kde`                         | Настройка тем Qt6                              |
-| `rose-pine-cursor`                  | Тема курсора Rosé Pine                         |
 | `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland            |
 | `ttf-jetbrains-mono-nerd`           | JetBrains Mono с Nerd-глифами                  |
 | `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo Nerd для Powerlevel10k             |
@@ -330,12 +329,15 @@ sudo pacman -S papirus-icon-theme
 
 ## Курсор
 
-https://github.com/rose-pine/cursor
+https://github.com/ful1e5/Bibata_Cursor
 
-https://github.com/ndom91/rose-pine-hyprcursor
+Скрипт установки устанавливает курсор [`Bibata-Modern-Classic`](https://github.com/ful1e5/Bibata_Cursor/releases/tag/v2.0.7).
 
 ```
-yay -S rose-pine-cursor rose-pine-hyprcursor
+mkdir -p /tmp/bibata
+curl -L https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz -o /tmp/bibata/bibata.tar.xz
+tar -xf /tmp/bibata/bibata.tar.xz -C /tmp/bibata
+sudo cp -r /tmp/bibata/Bibata-Modern-Classic /usr/share/icons/
 ```
 
 ## Шрифты
