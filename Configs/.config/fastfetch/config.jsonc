@@ -1,75 +1,75 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    // Text logo
     "logo": {
+        "source": "~/.config/fastfetch/arch.txt",
+        "type": "file",
         "padding": {
-            "top": 2,
-            "right": 2,
-            "left": 1
+            "top": 1,
+            "right": 0,
+            "left": 0
         }
     },
+    // Image logo
     // "logo": {
-    //     "source": "~/.config/fastfetch/chad.png",
+    //     "source": "~/.config/fastfetch/banana.png",
+    //     "recache": true,
     //     "type": "auto",
     //     "height": 15,
-    //     "width": 32,
+    //     "preserveAspectRatio": true,
     //     "padding": {
-    //         "top": 4,
+    //         "top": 2,
     //         "right": 2,
-    //         "left": 2
+    //         "left": 1
     //     }
     // },
     "display": {
         "separator": " "
     },
     "modules": [
-        "break",
         {
-            "type": "custom",
-            "format": "\u001b[90m┌─────────Hardware─────────────────────────────┐"
+            "type": "title",
+            "outputColor": "white",
+            "format": "\u001b[90m┌────────────────────────────────────────────┐"
         },
         {
             "type": "host",
-            "key": "󰌢 Laptop",
+            "key": " Host",
             "keyColor": "green",
             "format": "{name}"
         },
         {
             "type": "display",
-            "key": "│ ├ Display",
+            "key": "│󰹑 Display",
             "keyColor": "green",
             "format": "{type} {width}x{height} @ {refresh-rate}Hz {inch}″"
         },
         {
             "type": "cpu",
-            "key": "│ ├󰻠 CPU",
+            "key": "│󰻠 CPU",
             "keyColor": "green",
             "format": "{name}"
         },
         {
             "type": "gpu",
-            "key": "│ ├󰍛 GPU",
+            "key": "│󰍛 GPU",
             "keyColor": "green",
-            "format": "{vendor} {name}"
+            "format": "{vendor} {name} [{driver}]"
+        },
+        {
+            "type": "memory",
+            "key": "│󰘚 RAM",
+            "keyColor": "green"
         },
         {
             "type": "disk",
-            "key": "│ ├ Disk",
+            "key": "│ Disk",
             "keyColor": "green",
             "format": "{size-used} / {size-total} ({size-percentage}) {filesystem}"
         },
         {
-            "type": "memory",
-            "key": "│ └󰘚 RAM",
-            "keyColor": "green"
-        },
-        {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────┘"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "\u001b[90m┌─────────Software─────────────────────────────┐"
+            "format": "\u001b[90m├────────────────────────────────────────────┤"
         },
         {
             "type": "os",
@@ -78,60 +78,38 @@
         },
         {
             "type": "de",
-            "key": "│ ├ DE",
+            "key": "│ DE",
             "keyColor": "yellow"
         },
         {
             "type": "wm",
-            "key": "│ ├ WM",
+            "key": "│ WM",
             "keyColor": "yellow"
         },
         {
             "type": "kernel",
-            "key": "│ ├ Kernel",
+            "key": "│ Kernel",
             "keyColor": "yellow"
         },
         {
             "type": "packages",
-            "key": "│ ├󰏖 Packages",
+            "key": "│󰏖 Packages",
             "keyColor": "yellow"
         },
         {
             "type": "shell",
-            "key": "│ └ Shell",
+            "key": "│ Shell",
             "keyColor": "yellow"
         },
         {
-            "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────┘"
-        },
-        "break",
-        {
-            "type": "custom",
-            "format": "\u001b[90m┌─────────Misc─────────────────────────────────┐"
-        },
-        {
             "type": "command",
-            "key": "│ 󰔟 OS Age",
-            "keyColor": "magenta",
+            "key": "│ Age",
+            "keyColor": "yellow",
             "text": "echo $((($(date +%s) - $(stat -c %W /)) / 86400)) days"
         },
-        // {
-        //     "type": "uptime",
-        //     "key": "│  Uptime",
-        //     "keyColor": "magenta"
-        // },
         {
-            "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────┘"
-        },
-        {
-            "type": "colors",
-            "paddingLeft": 15,
-            "symbol": "circle",
-            "block": {
-                "width": 20
-            }
+            "type": "title",
+            "format": "\u001b[90m└───────────────────────────\u001b[37m {user-name} @ {host-name} \u001b[90m────┘"
         }
     ]
 }
