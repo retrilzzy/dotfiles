@@ -341,7 +341,6 @@ main() {
 
     print_section "Utilities and tools"
     install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
-    git clone https://github.com/flameshot-org/flameshot "$HOME/.cache/yay/flameshot-git/flameshot"
     install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
 
     print_section "Networking, audio and portals"
