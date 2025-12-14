@@ -3,7 +3,7 @@
 <table align="center">
    <tr>
       <td colspan="3" align="center">
-         <img src="https://share.rzx.ovh/go/rdots-general" width="fit"><br>
+         <img src="https://share.rzx.ovh/go/rdots-general?v=2" width="fit"><br>
          <sub><b>General</b></sub>
       </td>
    </tr>
@@ -13,13 +13,13 @@
          <sub><b>Hyprlock</b></sub>
       </td>
       <td align="center">
-         <img src="https://share.rzx.ovh/go/rdots-terminals" width="fit"><br>
+         <img src="https://share.rzx.ovh/go/rdots-terminals?v=2" width="fit"><br>
          <sub><b>Terminals</b></sub>
       </td>
   </tr>
   <tr>
       <td colspan="3" align="center">
-         <img src="https://share.rzx.ovh/go/rdots-gtk-qt" width="fit"><br>
+         <img src="https://share.rzx.ovh/go/rdots-gtk-qt?v=2" width="fit"><br>
          <sub><b>GTK & Qt</b></sub>
       </td>
    </tr>
