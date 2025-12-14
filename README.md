@@ -195,7 +195,6 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `papirus-icon-theme`                | Papirus icon theme                  |
 | `qt5ct-kde`                         | Qt5 theme configuration             |
 | `qt6ct-kde`                         | Qt6 theme configuration             |
-| `rose-pine-hyprcursor`              | Rosé Pine cursor theme for Hyprland |
 | `ttf-jetbrains-mono-nerd`           | JetBrains Mono with Nerd glyphs     |
 | `ttf-meslo-nerd-font-powerlevel10k` | Meslo Nerd font for Powerlevel10k   |
 

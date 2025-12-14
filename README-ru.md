@@ -195,7 +195,6 @@
 | `papirus-icon-theme`                | Тема иконок Papirus                            |
 | `qt5ct-kde`                         | Настройка тем Qt5                              |
 | `qt6ct-kde`                         | Настройка тем Qt6                              |
-| `rose-pine-hyprcursor`              | Тема курсора Rosé Pine для Hyprland            |
 | `ttf-jetbrains-mono-nerd`           | JetBrains Mono с Nerd-глифами                  |
 | `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo Nerd для Powerlevel10k             |
 
