@@ -35,14 +35,14 @@
 - [Installation](#installation)
 - [Detailed overview](#detailed-overview)
   - [Dependencies](#dependencies) - required packages.
-  - [Hyprland](#hyprland) - window manager.
+  - [Hyprland](#hyprland) - dynamic tiling Wayland compositor.
     - [Keybinds](#keybinds) - all key combinations.
     - [Icons](#icons) - icon pack.
     - [Cursor](#cursor) - cursor theme.
     - [Fonts](#fonts) - font installation.
     - [Hypridle](#hypridle) - idle behavior.
     - [Hyprlock](#hyprlock) - lock screen.
-  - [Waybar](#waybar) - wayland bar.
+  - [Waybar](#waybar) - Wayland bar.
   - [Vicinae](#vicinae) - focused launcher.
   - [Wlogout](#wlogout) - logout menu.
   - [Terminal](#terminal) - terminal settings.
@@ -52,7 +52,7 @@
   - [Waypaper](#waypaper) - GUI for easy wallpaper management.
     - [Wallpapers](#wallpapers) - collection of wallpapers.
   - [Flameshot](#flameshot) - powerful screenshot utility.
-  - [Fastfetch](#fastfetch) - show off your linux.
+  - [Fastfetch](#fastfetch) - show off your Linux.
 
 > [!WARNING]  
 > My configs are not designed for universal use and are not 100% automated, so they may require manual adjustments. I do not guarantee the correct operation of the configs or software on your system.
@@ -202,7 +202,7 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 
 ## Hyprland
 
-Window manager (WM).
+Dynamic tiling Wayland compositor.
 
 - [[Environment variables](./Configs/.config/hypr/hyprland/env.conf)]
 - [[Autostart](./Configs/.config/hypr/hyprland/exec.conf)]
