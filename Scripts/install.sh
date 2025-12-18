@@ -3,7 +3,23 @@
 set -euo pipefail
 
 # Variables
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
+BACKUP_DIR="${BACKUP_DIR:-$HOME/.config-backups}"
+WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/Wallpapers}"
+
+SKIP_GIT_PULL=${SKIP_GIT_PULL:-false}
+SKIP_PACMAN_CONF=${SKIP_PACMAN_CONF:-false}
+SKIP_YAY_INSTALL=${SKIP_YAY_INSTALL:-false}
+
+SKIP_SYSTEM_INTERFACE=${SKIP_SYSTEM_INTERFACE:-false}
+SKIP_UTILITIES_TOOLS=${SKIP_UTILITIES_TOOLS:-false}
+SKIP_NETWORKING_AUDIO_PORTALS=${SKIP_NETWORKING_AUDIO_PORTALS:-false}
+SKIP_APPEARANCE_THEMES=${SKIP_APPEARANCE_THEMES:-false}
+
+SKIP_ZSH_SETUP=${SKIP_ZSH_SETUP:-false}
+SKIP_CONFIGS_APPLY=${SKIP_CONFIGS_APPLY:-false}
+SKIP_WALLPAPERS_SETUP=${SKIP_WALLPAPERS_SETUP:-false}
+SKIP_THEME_SETUP=${SKIP_THEME_SETUP:-false}
 
 # Output functions
 RESET="\033[0m"
@@ -76,10 +92,26 @@ install_yay() {
 clone_repo() {
     print_section "Cloning or updating dotfiles repository"
     if [ -d "$DOTFILES_DIR" ]; then
+        if [ "$SKIP_GIT_PULL" = true ]; then
+            print_warning "Skipping git pull."
+            return
+        fi
         print_info "Dotfiles directory already exists. Attempting to pull latest changes."
         pushd "$DOTFILES_DIR" >/dev/null
+
+        git stash
+
+        before_pull=$(git rev-parse HEAD)
         if git pull --rebase --autostash; then
             print_success "Dotfiles updated successfully."
+
+            after_pull=$(git rev-parse HEAD)
+            if [ "$before_pull" != "$after_pull" ]; then
+                if git diff --name-only "$before_pull" "$after_pull" | grep -q "Scripts/install.sh"; then
+                    print_info "The installation script has been updated. Restarting the script..."
+                    exec "$DOTFILES_DIR/Scripts/install.sh"
+                fi
+            fi
         else
             print_error "Failed to pull dotfiles. Please check your internet connection or repository access."
             popd >/dev/null
@@ -99,6 +131,11 @@ clone_repo() {
 
 # Configure pacman and update the system
 setup_pacman() {
+    if [ "$SKIP_PACMAN_CONF" = true ]; then
+        print_warning "Skipping Pacman configuration."
+        return
+    fi
+
     print_section "Configuring Pacman"
 
     read -rp "$(print_warning 'Overwrite /etc/pacman.conf? (Y/n): ')" confirm
@@ -123,6 +160,11 @@ setup_pacman() {
 
 # Install yay if it is not already installed
 ensure_yay() {
+    if [ "$SKIP_YAY_INSTALL" = true ]; then
+        print_warning "Skipping Yay installation."
+        return
+    fi
+
     if ! command -v yay &>/dev/null; then
         print_section "Installing Yay"
 
@@ -167,6 +209,11 @@ install_bibata_cursor() {
 
 # Setup Zsh, Oh My Zsh and plugins
 setup_zsh() {
+    if [ "$SKIP_ZSH_SETUP" = true ]; then
+        print_warning "Skipping Zsh setup."
+        return
+    fi
+
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
     fi
@@ -184,7 +231,7 @@ backup_configs() {
 
     local date_now
     date_now=$(date +%Y-%m-%d_%H-%M-%S)
-    local backup_dir="$HOME/.config-backups/$date_now"
+    local backup_dir="$BACKUP_DIR/$date_now"
 
     mkdir -p "$backup_dir/.config" "$backup_dir/etc"
 
@@ -271,10 +318,14 @@ run_services() {
 
 # Download and set up wallpapers
 setup_wallpapers() {
+    if [ "$SKIP_WALLPAPERS_SETUP" = true ]; then
+        print_warning "Skipping wallpaper setup."
+        return
+    fi
+
     print_section "Wallpapers"
 
-    local wallpaper_dest="$HOME/Pictures/Wallpapers-test"
-    mkdir -p "$wallpaper_dest"
+    mkdir -p "$WALLPAPER_DIR"
 
     print_info "Downloading 5 random wallpapers"
     print_info "All wallpapers: https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
@@ -287,19 +338,24 @@ setup_wallpapers() {
 
             local url="https://share.rzx.ovh/raw/$name"
             print_action "Downloading wallpaper: $url"
-            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$wallpaper_dest/$name" || print_error "Failed to download wallpaper: $name"
+            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$WALLPAPER_DIR/$name" || print_error "Failed to download wallpaper: $name"
         done
 
-    print_success "Wallpapers saved to $wallpaper_dest"
+    print_success "Wallpapers saved to $WALLPAPER_DIR"
 
     mkdir "$HOME/.local/share/color-schemes" || true
 
-    "$HOME/.config/bin/change-wall.sh" "$wallpaper_dest"
+    "$HOME/.config/bin/change-wall.sh" "$WALLPAPER_DIR"
     print_success "Wallpaper set."
 }
 
 # Apply GTK theme
 setup_theme() {
+    if [ "$SKIP_THEME_SETUP" = true ]; then
+        print_warning "Skipping theme setup."
+        return
+    fi
+
     print_section "Applying theme"
 
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -349,28 +405,48 @@ main() {
 
     ensure_yay
 
-    print_section "System and interface"
-    install_pacman hyprlock hypridle kitty nwg-look swaync waybar swww hyprshot
-    install_yay waypaper wlogout vicinae-bin
+    if [ "$SKIP_SYSTEM_INTERFACE" = false ]; then
+        print_section "System and interface"
+        install_pacman hyprlock hypridle kitty nwg-look swaync waybar swww hyprshot
+        install_yay waypaper wlogout vicinae-bin
+    else
+        print_warning "Skipping System and interface packages installation."
+    fi
 
-    print_section "Utilities and tools"
-    install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
-    install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
+    if [ "$SKIP_UTILITIES_TOOLS" = false ]; then
+        print_section "Utilities and tools"
+        install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
+        install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
+    else
+        print_warning "Skipping Utilities and tools packages installation."
+    fi
 
-    print_section "Networking, audio and portals"
-    install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
+    if [ "$SKIP_NETWORKING_AUDIO_PORTALS" = false ]; then
+        print_section "Networking, audio and portals"
+        install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
+    else
+        print_warning "Skipping Networking, audio and portals packages installation."
+    fi
 
-    print_section "Appearance and themes"
-    install_pacman adw-gtk-theme frameworkintegration inter-font noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme ttf-jetbrains-mono-nerd
-    install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin ttf-meslo-nerd-font-powerlevel10k
-    install_bibata_cursor
+    if [ "$SKIP_APPEARANCE_THEMES" = false ]; then
+        print_section "Appearance and themes"
+        install_pacman adw-gtk-theme frameworkintegration inter-font noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme ttf-jetbrains-mono-nerd
+        install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin ttf-meslo-nerd-font-powerlevel10k
+        install_bibata_cursor
+    else
+        print_warning "Skipping Appearance and themes packages installation."
+    fi
 
     print_section "Zsh and Plugins"
     install_pacman zsh
     setup_zsh
 
-    backup_configs
-    apply_new_configs
+    if [ "$SKIP_CONFIGS_APPLY" = false ]; then
+        backup_configs
+        apply_new_configs
+    else
+        print_warning "Skipping config backup and application."
+    fi
     run_services
 
     sleep 2
