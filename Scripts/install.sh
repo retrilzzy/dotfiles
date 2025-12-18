@@ -5,19 +5,33 @@ set -euo pipefail
 # Variables
 DOTFILES_DIR="$HOME/dotfiles"
 
-# Colors
-RED="\033[1;31m"
-YELLOW="\033[1;33m"
-GREEN="\033[1;32m"
-CYAN="\033[1;36m"
-BLUE="\033[1;34m"
+# Output functions
 RESET="\033[0m"
 
-# Print a section header
 print_section() {
-    echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e "   $1"
     echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+}
+
+print_info() {
+    echo -e "\033[1;34m $1${RESET}"
+}
+
+print_warning() {
+    echo -e "\033[1;33m $1${RESET}"
+}
+
+print_error() {
+    echo -e "\033[1;31m $1${RESET}"
+}
+
+print_success() {
+    echo -e "\033[1;32m $1${RESET}"
+}
+
+print_action() {
+    echo -e "\033[1;36m $1${RESET}"
 }
 
 # Install packages with pacman if they are not already installed
@@ -25,17 +39,17 @@ install_pacman() {
     local to_install_pacman=()
     for pkg in "$@"; do
         if ! pacman -Qq "$pkg" &>/dev/null; then
-            echo -e "${BLUE}Will install: ${pkg}${RESET}"
+            print_info "Will install: ${pkg}"
             to_install_pacman+=("$pkg")
         else
-            echo -e "${YELLOW}Skipped (already installed): ${pkg}${RESET}"
+            print_warning "Skipped (already installed): ${pkg}"
         fi
     done
 
     if [ ${#to_install_pacman[@]} -gt 0 ]; then
-        echo -e "${BLUE}Installing Pacman packages: ${to_install_pacman[*]}${RESET}"
+        print_info "Installing Pacman packages: ${to_install_pacman[*]}"
         sudo pacman -S --noconfirm --needed "${to_install_pacman[@]}"
-        echo -e "${GREEN}Pacman packages installed: ${to_install_pacman[*]}${RESET}"
+        print_success "Pacman packages installed: ${to_install_pacman[*]}"
     fi
 }
 
@@ -44,17 +58,17 @@ install_yay() {
     local to_install_yay=()
     for pkg in "$@"; do
         if ! yay -Qq "$pkg" &>/dev/null; then
-            echo -e "${BLUE}Will install (AUR): ${pkg}${RESET}"
+            print_info "Will install (AUR): ${pkg}"
             to_install_yay+=("$pkg")
         else
-            echo -e "${YELLOW}Skipped (already installed): ${pkg}${RESET}"
+            print_warning "Skipped (already installed): ${pkg}"
         fi
     done
 
     if [ ${#to_install_yay[@]} -gt 0 ]; then
-        echo -e "${BLUE}Installing AUR packages (Yay): ${to_install_yay[*]}${RESET}"
+        print_info "Installing AUR packages (Yay): ${to_install_yay[*]}"
         yay -S --noconfirm "${to_install_yay[@]}"
-        echo -e "${GREEN}AUR packages installed (Yay): ${to_install_yay[*]}${RESET}"
+        print_success "AUR packages installed (Yay): ${to_install_yay[*]}"
     fi
 }
 
@@ -62,22 +76,22 @@ install_yay() {
 clone_repo() {
     print_section "Cloning or updating dotfiles repository"
     if [ -d "$DOTFILES_DIR" ]; then
-        echo -e "${YELLOW}Dotfiles directory already exists. Attempting to pull latest changes.${RESET}"
+        print_info "Dotfiles directory already exists. Attempting to pull latest changes."
         pushd "$DOTFILES_DIR" >/dev/null
         if git pull --rebase --autostash; then
-            echo -e "${GREEN}Dotfiles updated successfully.${RESET}"
+            print_success "Dotfiles updated successfully."
         else
-            echo -e "${RED}Error: Failed to pull dotfiles. Please check your internet connection or repository access.${RESET}"
+            print_error "Failed to pull dotfiles. Please check your internet connection or repository access."
             popd >/dev/null
             exit 1
         fi
         popd >/dev/null
     else
-        echo -e "${BLUE}Cloning dotfiles repository.${RESET}"
+        print_info "Cloning dotfiles repository."
         if git clone --depth=10 https://github.com/retrilzzy/dotfiles.git "$DOTFILES_DIR"; then
-            echo -e "${GREEN}Dotfiles cloned successfully.${RESET}"
+            print_success "Dotfiles cloned successfully."
         else
-            echo -e "${RED}Error: Failed to clone dotfiles. Please check your internet connection or repository access.${RESET}"
+            print_error "Failed to clone dotfiles. Please check your internet connection or repository access."
             exit 1
         fi
     fi
@@ -87,24 +101,24 @@ clone_repo() {
 setup_pacman() {
     print_section "Configuring Pacman"
 
-    read -rp "$(echo -e "${YELLOW}Overwrite /etc/pacman.conf? (Y/n): ${RESET}")" confirm
+    read -rp "$(print_warning 'Overwrite /etc/pacman.conf? (Y/n): ')" confirm
 
     confirm=${confirm:-Y}
     if [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-        echo -e "${BLUE} Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak${RESET}"
+        print_info "Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak"
         sudo cp /etc/pacman.conf /etc/pacman.conf.bak 2>/dev/null
 
         sudo cp "$DOTFILES_DIR/Configs/etc/pacman.conf" /etc/pacman.conf
-        echo -e "${GREEN}Pacman.conf overwritten.${RESET}"
+        print_success "Pacman.conf overwritten."
     else
-        echo -e "${YELLOW}Pacman.conf overwrite skipped.${RESET}"
+        print_warning "Pacman.conf overwrite skipped."
     fi
 
     print_section "Updating system"
 
     sudo pacman -Syu --noconfirm
 
-    echo -e "${GREEN}Pacman configuration complete${RESET}"
+    print_success "Pacman configuration complete"
 }
 
 # Install yay if it is not already installed
@@ -124,13 +138,13 @@ ensure_yay() {
         rm -rf "$tmp_dir"
 
         if command -v yay &>/dev/null; then
-            echo -e "${GREEN}Yay installed successfully!${RESET}"
+            print_success "Yay installed successfully!"
         else
-            echo -e "${RED}Error: yay installation failed.${RESET}"
+            print_error "yay installation failed."
             exit 1
         fi
     else
-        echo -e "${YELLOW}Yay is already installed${RESET}"
+        print_warning "Yay is already installed"
     fi
 }
 
@@ -138,15 +152,15 @@ ensure_yay() {
 install_bibata_cursor() {
     print_section "Installing Bibata cursor"
 
-    echo -e "${BLUE}Installing Bibata cursor...${RESET}"
+    print_info "Installing Bibata cursor..."
     local tmp_dir
     tmp_dir=$(mktemp -d)
     if curl -L "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz" -o "$tmp_dir/bibata.tar.xz"; then
         tar -xf "$tmp_dir/bibata.tar.xz" -C "$tmp_dir"
         sudo cp -r "$tmp_dir/Bibata-Modern-Classic" /usr/share/icons/
-        echo -e "${GREEN}Bibata cursor installed.${RESET}"
+        print_success "Bibata cursor installed."
     else
-        echo -e "${RED}Failed to download Bibata cursor.${RESET}"
+        print_error "Failed to download Bibata cursor."
     fi
     rm -rf "$tmp_dir"
 }
@@ -184,7 +198,7 @@ backup_configs() {
         fi
 
         if [ -d "$HOME/.config/$name" ]; then
-            echo -e "${BLUE} Copying $HOME/.config/$name to $backup_dir/.config/${RESET}"
+            print_info "Copying $HOME/.config/$name to $backup_dir/.config/"
             cp -a "$HOME/.config/$name" "$backup_dir/.config/"
         fi
     done
@@ -192,7 +206,7 @@ backup_configs() {
     local home_files=(".zshrc" ".p10k.zsh" ".nanorc")
     for file in "${home_files[@]}"; do
         if [ -f "$HOME/$file" ]; then
-            echo -e "${BLUE} Copying $HOME/$file to $backup_dir/${RESET}"
+            print_info "Copying $HOME/$file to $backup_dir/"
             cp -a "$HOME/$file" "$backup_dir/"
         fi
     done
@@ -201,13 +215,13 @@ backup_configs() {
         local name
         name=$(basename "$dir")
         if [ -d "/etc/$name" ]; then
-            echo -e "${BLUE} Copying /etc/$name to $backup_dir/etc/${RESET}"
+            print_info "Copying /etc/$name to $backup_dir/etc/"
             cp -a "/etc/$name" "$backup_dir/etc/"
         fi
     done
     shopt -u nullglob
 
-    echo -e "${GREEN}Backup saved to $backup_dir${RESET}"
+    print_success "Backup saved to $backup_dir"
 }
 
 # Apply new configurations from the dotfiles repository
@@ -224,7 +238,7 @@ apply_new_configs() {
 
     sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
 
-    echo -e "${GREEN}New configurations applied.${RESET}"
+    print_success "New configurations applied."
 }
 
 # Run essential services
@@ -252,7 +266,7 @@ run_services() {
     uwsm app -- swww-daemon >/dev/null 2>&1 &
     disown
 
-    echo -e "${GREEN}Services started.${RESET}"
+    print_success "Services started."
 }
 
 # Download and set up wallpapers
@@ -262,8 +276,8 @@ setup_wallpapers() {
     local wallpaper_dest="$HOME/Pictures/Wallpapers-test"
     mkdir -p "$wallpaper_dest"
 
-    echo -e "${BLUE}Downloading 5 random wallpapers${RESET}"
-    echo -e "${BLUE}All wallpapers:${RESET} https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
+    print_info "Downloading 5 random wallpapers"
+    print_info "All wallpapers: https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
 
     curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv" |
         jq -r '.files[].name' |
@@ -272,16 +286,16 @@ setup_wallpapers() {
             [ -z "$name" ] && continue
 
             local url="https://share.rzx.ovh/raw/$name"
-            echo -e "${GREEN} Downloading wallpaper:${RESET} $url"
-            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$wallpaper_dest/$name" || echo -e "${RED}Failed to download wallpaper:${RESET} $name"
+            print_action "Downloading wallpaper: $url"
+            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$wallpaper_dest/$name" || print_error "Failed to download wallpaper: $name"
         done
 
-    echo -e "${GREEN}Wallpapers saved to $wallpaper_dest${RESET}"
+    print_success "Wallpapers saved to $wallpaper_dest"
 
     mkdir "$HOME/.local/share/color-schemes" || true
 
     "$HOME/.config/bin/change-wall.sh" "$wallpaper_dest"
-    echo -e "${GREEN}Wallpaper set.${RESET}"
+    print_success "Wallpaper set."
 }
 
 # Apply GTK theme
@@ -290,9 +304,9 @@ setup_theme() {
 
     gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-    nwg-look -a || echo -e "${YELLOW}Failed to apply theme via nwg-look.${RESET}"
+    nwg-look -a || print_warning "Failed to apply theme via nwg-look."
 
-    echo -e "${GREEN}Themes applied.${RESET}"
+    print_success "Themes applied."
 }
 
 # Reload services after theme and wallpaper changes
@@ -305,26 +319,26 @@ reload_services() {
     uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
     disown
 
-    echo -e "${GREEN}Services reloaded.${RESET}"
+    print_success "Services reloaded."
 }
 
 # Main function
 main() {
     # Check if the script is run as root
     if [ "$EUID" -eq 0 ]; then
-        echo -e "${RED}Error: This script should not be run as root or with sudo. Please run it as a regular user.${RESET}"
+        print_error "This script should not be run as root or with sudo. Please run it as a regular user."
         exit 1
     fi
 
     # Check if the script is run in a Wayland session
     if [ -z "${WAYLAND_DISPLAY:-}" ]; then
-        echo -e "${YELLOW}The script must be run in an active Wayland session (Hyprland).${RESET}"
+        print_warning "The script must be run in an active Wayland session (Hyprland)."
         exit 1
     fi
 
-    echo -e "${CYAN}Starting installation. 3...${RESET}" && sleep 1
-    echo -e "${CYAN}2...${RESET}" && sleep 1
-    echo -e "${CYAN}1...${RESET}" && sleep 1
+    print_action "Starting installation. 3..." && sleep 1
+    print_action "2..." && sleep 1
+    print_action "1..." && sleep 1
 
     print_section "Git"
     install_pacman git
@@ -365,8 +379,8 @@ main() {
 
     reload_services
 
-    echo -e "${GREEN}Installation complete!${RESET}"
-    echo -e "${CYAN}To fully apply the changes, it is recommended to restart the system.${RESET}"
+    print_success "Installation complete!"
+    print_action "To fully apply the changes, it is recommended to restart the system."
 
     exec zsh
 }
