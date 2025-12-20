@@ -423,7 +423,7 @@ main() {
 
     if [ "$SKIP_NETWORKING_AUDIO_PORTALS" = false ]; then
         print_section "Networking, audio and portals"
-        install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr xdg-desktop-portal-gnome
+        install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr
     else
         print_warning "Skipping Networking, audio and portals packages installation."
     fi

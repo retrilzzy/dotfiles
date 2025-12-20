@@ -170,7 +170,6 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `pipewire-pulse`              | PulseAudio compatibility layer |
 | `polkit-gnome`                | PolicyKit authentication agent |
 | `xdg-desktop-portal`          | Desktop portal service         |
-| `xdg-desktop-portal-gnome`    | GNOME portal backend           |
 | `xdg-desktop-portal-gtk`      | GTK portal backend             |
 | `xdg-desktop-portal-hyprland` | Hyprland portal backend        |
 | `xdg-desktop-portal-wlr`      | wlroots portal backend         |

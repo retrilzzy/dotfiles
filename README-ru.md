@@ -170,7 +170,6 @@
 | `pipewire-pulse`              | Уровень совместимости PulseAudio |
 | `polkit-gnome`                | Агент аутентификации PolicyKit   |
 | `xdg-desktop-portal`          | Служба портала рабочего стола    |
-| `xdg-desktop-portal-gnome`    | Бэкенд портала GNOME             |
 | `xdg-desktop-portal-gtk`      | Бэкенд портала GTK               |
 | `xdg-desktop-portal-hyprland` | Бэкенд портала Hyprland          |
 | `xdg-desktop-portal-wlr`      | Бэкенд портала wlroots           |
