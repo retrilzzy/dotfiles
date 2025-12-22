@@ -203,11 +203,9 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 
 Dynamic tiling Wayland compositor.
 
-- [[Environment variables](./Configs/.config/hypr/hyprland/env.conf)]
-- [[Autostart](./Configs/.config/hypr/hyprland/exec.conf)]
-- [[Input configuration](./Configs/.config/hypr/hyprland/input.conf)]
+- [[General](./Configs/.config/hypr/hyprland/general.conf)]
+- [[Autostart](./Configs/.config/hypr/hyprland/autostart.conf)]
 - [[Keybindings](./Configs/.config/hypr/hyprland/keybindings.conf)]
-- [[Look and feel settings](./Configs/.config/hypr/hyprland/looknfeel.conf)]
 - [[Monitor configuration](./Configs/.config/hypr/hyprland/monitors.conf)]
 - [[Window and workspace rules](./Configs/.config/hypr/hyprland/rules.conf)]
 

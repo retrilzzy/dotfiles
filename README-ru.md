@@ -203,11 +203,9 @@
 
 Динамический плиточный Wayland композитор.
 
-- [[Переемные окружения](./Configs/.config/hypr/hyprland/env.conf)]
-- [[Автостарт](./Configs/.config/hypr/hyprland/exec.conf)]
-- [[Конфигурация ввода](./Configs/.config/hypr/hyprland/input.conf)]
+- [[Основное](./Configs/.config/hypr/hyprland/general.conf)]
+- [[Автостарт](./Configs/.config/hypr/hyprland/autostart.conf)]
 - [[Сочетания клавиш](./Configs/.config/hypr/hyprland/keybindings.conf)]
-- [[Настройки внешнего вида](./Configs/.config/hypr/hyprland/looknfeel.conf)]
 - [[Конфигурация мониторов](./Configs/.config/hypr/hyprland/monitors.conf)]
 - [[Правила окон и рабочих столов](./Configs/.config/hypr/hyprland/rules.conf)]
 
