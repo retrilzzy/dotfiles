@@ -1,0 +1,133 @@
+// This configuration is merged with the default vicinae configuration file, which you can obtain by running the `vicinae config default` command.
+// Every item defined in this file takes precedence over the values defined in the default config or any other imported file.
+//
+// You can make manual edits to this file, however you should keep in mind that this file may be written to by vicinae when a configuration change is made through the GUI.
+// When that happens, any custom comments or formatting will be lost.
+//
+// If you want to maintain a configuration file with your own comments and formatting, you should create a separate file and add it to the 'imports' array.
+//
+// Learn more about configuration at https://docs.vicinae.com/config
+
+{
+   "close_on_focus_loss": false,
+   "font": {
+      "normal": {
+         "size": 11
+      }
+   },
+   "theme": {
+      "dark": {
+         "name": "matugen",
+         "icon_theme": "Papirus-Dark"
+      }
+   },
+   "launcher_window": {
+      "client_side_decorations": {
+         "enabled": true
+      }
+   },
+   "keybinds": {
+      "toggle-action-panel": "control+A"
+   },
+   "favorites": [
+      "@xeric/store.raycast.currency-exchange:index",
+      "@dagimg-dot/store.vicinae.player-pilot:player-pilot",
+      "@josephschmitt/store.raycast.gif-search:search",
+      "@gebeto/store.raycast.translate:translate"
+   ],
+   "providers": {
+      "@josephschmitt/store.raycast.gif-search": {
+         "preferences": {
+            "gridItemSize": "medium",
+            "gridTrendingItemSize": "medium"
+         }
+      },
+      "@leonkohli/store.vicinae.process-manager": {
+         "preferences": {
+            "process-limit": "100",
+            "show-system-processes": false,
+            "sort-by-memory": true
+         }
+      },
+      "@sovereign/store.vicinae.awww-switcher": {
+         "preferences": {
+            "colorGenTool": "matugen",
+            "postCommand": "cp ${wallpaper} ~/.cache/lock_background",
+            "transitionDuration": "2",
+            "transitionStep": "90",
+            "transitionType": "outer",
+            "wallpaperPath": "Pictures/Wallpapers"
+         }
+      },
+      "applications": {
+         "preferences": {
+            "launchPrefix": "uwsm app --"
+         }
+      },
+      "clipboard": {
+         "preferences": {
+            "encryption": true
+         },
+         "entrypoints": {
+            "history": {
+               "preferences": {
+                  "defaultAction": "copy"
+               }
+            }
+         }
+      },
+      "core": {
+         "entrypoints": {
+            "about": {
+               "enabled": false
+            },
+            "documentation": {
+               "enabled": false
+            },
+            "inspect-local-storage": {
+               "enabled": false
+            },
+            "open-default-config": {
+               "enabled": false
+            },
+            "sponsor": {
+               "enabled": false
+            },
+            "store": {
+               "preferences": {
+                  "alwaysShowIntro": false
+               }
+            }
+         }
+      },
+      "files": {
+         "preferences": {
+            "autoIndexing": false,
+            "excludedPaths": ".cache"
+         }
+      },
+      "power": {
+         "entrypoints": {
+            "sleep": {
+               "preferences": {
+                  "confirm": false
+               }
+            },
+            "suspend": {
+               "preferences": {
+                  "confirm": false
+               }
+            }
+         }
+      },
+      "system": {
+         "entrypoints": {
+            "run": {
+               "preferences": {
+                  "default-action": "run-in-terminal-hold"
+               }
+            }
+         }
+      }
+   }
+}
