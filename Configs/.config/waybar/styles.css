@@ -4,7 +4,7 @@
 * {
   border: none;
   font-family: "JetBrainsMono Nerd Font";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 14px;
   color: @foreground;
 }
@@ -14,8 +14,8 @@ window#waybar {
 }
 
 window#waybar > box {
-  margin: 5px 6px 0 6px;
-  padding: 2px 0;
+  margin: 7px 6px 0 6px;
+  padding: 1px 0;
   background-color: @background;
   border-radius: 15px;
   border: 2px solid @selected;
@@ -50,17 +50,19 @@ tooltip {
 #battery,
 #custom-power {
   opacity: 1;
-  padding: 0px 3px;
+  padding: 0px 2px;
   margin: 0px 3px;
 }
 
 /* -- Left Modules -- */
 /* Idle Inhibitor */
 #custom-idle_inhibitor {
-  padding: 0 7px 0 2px;
+  padding-left: 2px;
+  padding-right: 5px;
   margin-left: 6px;
   margin-right: 0;
   border-radius: 4px;
+  font-size: 16px;
 }
 
 #custom-idle_inhibitor:hover {
@@ -83,8 +85,7 @@ tooltip {
 /* Active Workspace Button */
 #workspaces button.active {
   background: @active;
-  margin-right: 2px;
-  margin-left: 2px;
+  margin: 2px 2px;
   padding: 0 5px;
   animation: ws_active 20s ease-in-out 1;
   transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
@@ -110,7 +111,6 @@ tooltip {
 /* Tray */
 #tray {
   padding: 0 6px;
-  background: @background;
 }
 
 #tray menu {
@@ -149,10 +149,10 @@ tooltip {
 
 /* Power Button */
 #custom-power {
-  padding-left: 3px;
-  padding-right: 5px;
-  border-radius: 4px;
+  padding-left: 4px;
+  padding-right: 6px;
   margin-right: 6px;
+  border-radius: 4px;
 }
 
 #custom-power:hover {

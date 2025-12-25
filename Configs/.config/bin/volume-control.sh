@@ -1,104 +1,51 @@
 #!/bin/bash
 
-# Define functions
+# Display usage help
 print_error() {
     cat <<"EOF"
-Usage: ./volume-control.sh -[device] <actions>
-...valid devices are...
-    i   -- input device
-    o   -- output device
-    p   -- player application
-...valid actions are...
-    i   -- increase volume [+5]
-    d   -- decrease volume [-5]
-    m   -- mute [x]
+Usage: ./volume-control.sh <action>
+Actions:
+    i   -- increase volume [+5%]
+    d   -- decrease volume [-5%]
+    m   -- toggle mute
 EOF
     exit 1
 }
 
+# Send notification for mute status
 notify_mute() {
     mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
     if [ "${mute}" = "yes" ]; then
-        notify-send -r 91190 "Volume" "Muted"
+        notify-send "Volume" "Muted" -i audio-volume-muted-symbolic -t 1000 -r 91190
     else
-        notify-send -r 91190 "Volume" "Unmuted"
+        notify-send "Volume" "Unmuted" -i audio-volume-muted-symbolic -t 1000 -r 91190
     fi
 }
 
+# Handle volume changes
 action_volume() {
+    current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -m1 'Volume:' | awk '{print $5}' | sed 's/%//')
+
     case "${1}" in
     i)
-        # Check current volume and increase only if below 100
-        current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
         if [ "$current_vol" -lt 100 ]; then
             new_vol=$((current_vol + 5))
-            if [ "$new_vol" -gt 100 ]; then
-                new_vol=100
-            fi
+            [ "$new_vol" -gt 100 ] && new_vol=100
             pactl set-sink-volume @DEFAULT_SINK@ "${new_vol}%"
         fi
         ;;
     d)
-        # Decrease volume, ensuring it doesn't drop below 0%
-        current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
         new_vol=$((current_vol - 5))
-        if [ "$new_vol" -lt 0 ]; then
-            new_vol=0
-        fi
+        [ "$new_vol" -lt 0 ] && new_vol=0
         pactl set-sink-volume @DEFAULT_SINK@ "${new_vol}%"
         ;;
     esac
 }
 
-select_output() {
-    if [ "$@" ]; then
-        desc="$*"
-        device=$(pactl list sinks | grep -C2 -F "Description: $desc" | grep Name | cut -d: -f2 | xargs)
-        if pactl set-default-sink "$device"; then
-            notify-send -r 91190 "Activated: $desc"
-        else
-            notify-send -r 91190 "Error activating $desc"
-        fi
-    else
-        pactl list sinks | grep -ie "Description:" | awk -F ': ' '{print $2}' | sort
-    fi
-}
-
-# Evaluate device option
-while getopts iops: DeviceOpt; do
-    case "${DeviceOpt}" in
-    i)
-        nsink=$(pactl list sources short | awk '{print $2}')
-        [ -z "${nsink}" ] && echo "ERROR: Input device not found..." && exit 0
-        srce="--default-source"
-        ;;
-    o)
-        nsink=$(pactl list sinks short | awk '{print $2}')
-        [ -z "${nsink}" ] && echo "ERROR: Output device not found..." && exit 0
-        srce=""
-        ;;
-    p)
-        nsink=$(playerctl --list-all | grep -w "${OPTARG}")
-        [ -z "${nsink}" ] && echo "ERROR: Player ${OPTARG} not active..." && exit 0
-        # shellcheck disable=SC2034
-        srce="${nsink}"
-        ;;
-    s)
-        # Select an output device
-        select_output "$@"
-        exit
-        ;;
-    *) print_error ;;
-    esac
-done
-
-# Set default variables
-shift $((OPTIND - 1))
-
-# Execute action
+# Main execution
 case "${1}" in
 i) action_volume i ;;
 d) action_volume d ;;
-m) pactl set-sink-mute @DEFAULT_SINK@ toggle && notify_mute && exit 0 ;;
+m) pactl set-sink-mute @DEFAULT_SINK@ toggle && notify_mute ;;
 *) print_error ;;
 esac

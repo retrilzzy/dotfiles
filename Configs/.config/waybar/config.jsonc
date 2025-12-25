@@ -7,7 +7,6 @@
   "gtk-layer-shell": true,
   "reload_style_on_change": true,
 
-
   // Positions
   "modules-left": [
     "custom/idle_inhibitor",
@@ -29,6 +28,7 @@
     "privacy",
     "hyprland/language", // language indicator
     "pulseaudio",
+    "pulseaudio#microphone",
     "custom/backlight",
     "power-profiles-daemon",
     "battery",
@@ -38,6 +38,7 @@
 
   // Left modules
   "custom/idle_inhibitor": {
+    "format": "󰣇",
     "exec": "~/.config/bin/idle-inhibitor.sh",
     "on-click": "~/.config/bin/idle-inhibitor.sh --toggle",
     "return-type": "json",
@@ -48,36 +49,31 @@
   },
 
   "hyprland/workspaces": {
-    "all-outputs": false,
-    "active-only": false,
-    "on-click": "activate",
     "disable-scroll": false,
+    "tooltip": false,
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
+    "sort-by-number": true,
     "persistent-workspaces": {
-      "1": [ ],
-      "2": [ ],
-      "3": [ ],
-      "4": [ ],
-      "5": [ ]
-    },
-    "sort-by-number": true
+      "*": [ 1, 2, 3 ]
+    }
   },
 
   "hyprland/window": {
     "format": "{}",
+    "tooltip": false,
     "separate-outputs": true,
     "icon": true,
     "icon-size": 14,
     "rewrite": {
       // Desktop
-      "": " Hyprland",
+      "": "  Hyprland",
 
       // Security
       "Authenticate": "  Authenticate"
     },
     "min-length": 3,
-    "max-length": 50
+    "max-length": 55
   },
 
 
@@ -85,6 +81,7 @@
   "custom/cpu": {
     "exec": "~/.config/bin/cpu-usage.sh",
     "return-type": "json",
+    "on-click": "missioncenter",
     "tooltip": true,
     "interval": 5,
     "min-length": 6,
@@ -94,6 +91,7 @@
     "exec": "~/.config/bin/cpu-info.sh",
     "return-type": "json",
     "format": "{}",
+    "on-click": "psensor",
     "tooltip": true,
     "interval": 5,
     "min-length": 6,
@@ -105,10 +103,11 @@
       "c": 90
     },
     "format": "󰘚 {percentage}%",
-    "format-c": "󰀪 {percentage}%",
+    "format-c": "󰀪 {percentage}%",
     "tooltip": true,
     "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
     "interval": 5,
+    "on-click": "kitty sh -c btop",
     "min-length": 6,
     "max-length": 6
   },
@@ -116,6 +115,7 @@
   "clock#time": {
     "format": "󱑂 {:%H:%M}",
     "tooltip": true,
+    "on-click": "gnome-clocks",
     "tooltip-format": "12-hour Format: {:%I:%M %p}",
     "min-length": 7,
     "max-length": 7
@@ -137,6 +137,7 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     },
+    "on-click": "gnome-calendar",
     "min-length": 7,
     "max-length": 7
   },
@@ -152,6 +153,7 @@
     "tooltip-format": "  {ifname} \n {bandwidthUpBytes}  {bandwidthDownBytes}",
     "tooltip-format-wifi": "󰖩 {essid} ({signalStrength}%) \n {bandwidthUpBytes}  {bandwidthDownBytes}",
     "tooltip-format-disconnected": "Disconnected",
+    "on-click-right": "portmaster",
     "max-length": 24
   },
 
@@ -206,13 +208,28 @@
       ]
     },
     "tooltip": true,
-    "tooltip-format": "Device: {desc}",
-    "on-click": "~/.config/bin/volume-control.sh -o m",
+    "tooltip-format": "{desc} - {volume}%",
+    "on-click": "~/.config/bin/volume-control.sh m",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "~/.config/bin/volume-control.sh -o i",
-    "on-scroll-down": "~/.config/bin/volume-control.sh -o d",
+    "on-scroll-up": "~/.config/bin/volume-control.sh i",
+    "on-scroll-down": "~/.config/bin/volume-control.sh d",
     "min-length": 6,
     "max-length": 6
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "rotate": 0,
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
+    "tooltip": true,
+    "tooltip-format": "{source_desc} - {source_volume}%",
+    "on-click": "~/.config/bin/mic-control.sh m",
+    "on-click-right": "easyeffects",
+    "on-scroll-up": "~/.config/bin/mic-control.sh i",
+    "on-scroll-down": "~/.config/bin/mic-control.sh d",
+    "min-length": 2,
+    "max-length": 2
   },
 
   "custom/backlight": {
@@ -237,8 +254,8 @@
       "balanced": "",
       "power-saver": ""
     },
-    "min-length": 1,
-    "max-length": 1
+    "min-length": 2,
+    "max-length": 2
   },
 
   "battery": {
