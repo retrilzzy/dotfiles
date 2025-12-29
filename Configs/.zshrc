@@ -63,6 +63,8 @@ if [ -x "$(command -v lsd)" ]; then
 fi
 
 alias clck="tty-clock -c -s -b -C 7"
+alias ff='fastfetch'
+alias psu='sudo pacman -Syuu'
 
 alias icat="kitten icat"
 alias s="kitten ssh"
