@@ -51,7 +51,6 @@
   - [Swaync](#swaync) - notifications.
   - [Waypaper](#waypaper) - GUI for easy wallpaper management.
     - [Wallpapers](#wallpapers) - collection of wallpapers.
-  - [Flameshot](#flameshot) - powerful screenshot utility.
   - [Fastfetch](#fastfetch) - show off your Linux.
 
 > [!WARNING]  
@@ -139,7 +138,6 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `base-devel`             | Development tools for AUR builds |
 | `brightnessctl`          | Brightness control               |
 | `fastfetch`              | System information viewer        |
-| `flameshot`              | Screenshot tool                  |
 | `git`                    | Version control system           |
 | `gpu-screen-recorder`    | GPU-accelerated screen recorder  |
 | `grim`                   | Wayland screenshot tool          |
@@ -149,6 +147,7 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `network-manager-applet` | Network management tray applet   |
 | `pavucontrol`            | PulseAudio volume control        |
 | `playerctl`              | Media player control             |
+| `satty`                  | Screenshot tool                  |
 | `trash-cli`              | Command-line trash utility       |
 | `uwsm`                   | Wayland session manager          |
 | `wl-clip-persist`        | Clipboard persistence            |
@@ -293,7 +292,7 @@ Dynamic tiling Wayland compositor.
 | :------------------------------------------------- | :----------------------------------------------------------------- |
 | <kbd>Print</kbd>                                   | Screenshot of the entire screen                                    |
 | <kbd>Shift</kbd> + <kbd>Print</kbd>                | Screenshot of the selected area                                    |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (screenshot utility)                                 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Satty (screenshot annotation tool)                                 |
 | <kbd>Super</kbd> + <kbd>Print</kbd>                | Screenshot and auto upload to [Zipline](https://zipline.diced.sh/) |
 
 </details>
@@ -658,16 +657,6 @@ yay -S mpvpaper
 
 - [Matugen](https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv)
 - [Monochrome](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
-
-## Flameshot
-
-Powerful screenshot utility. [[config](./Configs/.config/flameshot/)]
-
-https://flameshot.org
-
-```
-yay -S flameshot-git
-```
 
 ## Fastfetch
 

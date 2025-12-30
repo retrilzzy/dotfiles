@@ -51,7 +51,6 @@
   - [Swaync](#swaync) - уведомления.
   - [Waypaper](#waypaper) - GUI для простого управление обоями.
     - [Обои](#обои) - коллекция обоев/фонов.
-  - [Flameshot](#flameshot) - мощная утилита для скриншотов.
   - [Fastfetch](#fastfetch) - похвастаться Линуксом.
 
 > [!WARNING]  
@@ -139,7 +138,6 @@
 | `base-devel`             | Инструменты разработки для сборок AUR  |
 | `brightnessctl`          | Управление яркостью экрана             |
 | `fastfetch`              | Просмотр информации о системе          |
-| `flameshot`              | Утилита для создания скриншотов        |
 | `git`                    | Система контроля версий                |
 | `gpu-screen-recorder`    | Запись экрана с ускорением GPU         |
 | `grim`                   | Утилита для скриншотов Wayland         |
@@ -149,6 +147,7 @@
 | `network-manager-applet` | Апплет для управления сетью            |
 | `pavucontrol`            | GUI для управления звуком              |
 | `playerctl`              | Управление медиаплеерами               |
+| `satty`                  | Утилита для создания скриншотов        |
 | `trash-cli`              | Утилита корзины командной строки       |
 | `uwsm`                   | Менеджер сессий Wayland                |
 | `wl-clip-persist`        | Сохранение содержимого буфера обмена   |
@@ -292,7 +291,7 @@
 | :------------------------------------------------- | :--------------------------------------------------------------- |
 | <kbd>Print</kbd>                                   | Скриншот всего экрана                                            |
 | <kbd>Shift</kbd> + <kbd>Print</kbd>                | Скриншот выделенной области                                      |
-| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> | Flameshot GUI (утилита для скриншотов)                           |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Satty (инструмент для скриншотов с аннотациями)                  |
 | <kbd>Super</kbd> + <kbd>Print</kbd>                | Скриншот и авто загрузка на [Zipline](https://zipline.diced.sh/) |
 
 </details>
@@ -657,16 +656,6 @@ yay -S mpvpaper
 
 - [Matugen](https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv)
 - [Монохром](https://share.rzx.ovh/folder/cm8q1lxwp000mln01qsqbpb7f)
-
-## Flameshot
-
-Мощная утилита для скриншотов. [[конфиг](./Configs/.config/flameshot/)]
-
-https://flameshot.org
-
-```
-yay -S flameshot-git
-```
 
 ## Fastfetch
 

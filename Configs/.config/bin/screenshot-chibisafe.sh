@@ -5,12 +5,12 @@
 
 set -e
 
-if [[ -f "$HOME/.config/hypr/scripts/.env" ]]; then
-    source "$HOME/.config/hypr/scripts/.env"
+if [[ -f "$HOME/.config/bin/.env" ]]; then
+    source "$HOME/.config/bin/.env"
 fi
 
 if [[ -z "$CHIBISAFE_URL" || -z "$CHIBISAFE_API_KEY" ]]; then
-    echo "❌ CHIBISAFE_URL or CHIBISAFE_API_KEY is not set. Check the .env file."
+    echo "CHIBISAFE_URL or CHIBISAFE_API_KEY is not set. Check the .env file."
     exit 1
 fi
 
@@ -20,10 +20,10 @@ FILE_PATH="/tmp/$FILENAME"
 REGION=$(slurp) || exit 1
 [ -n "$REGION" ] || exit 1
 
-grim -g "$REGION" "$FILE_PATH" || exit 1
+grim -c -g "$(slurp -d)" -t ppm - | satty --filename - --fullscreen --disable-notifications --initial-tool brush --early-exit --output-filename "$FILE_PATH" || exit 1
 
 send_notification() {
-    notify-send "Chibisafe Uploader" "$1" -t 2000
+    notify-send "Chibisafe Uploader" "$1" -i browser-download -t 2000
 }
 
 copy_to_clipboard() {
@@ -40,15 +40,15 @@ response=$(curl -s -X POST "$CHIBISAFE_URL/api/upload" \
 url=$(echo "$response" | jq -r '.url // empty')
 
 if [[ -n "$url" ]]; then
-    echo "✅ File uploaded successfully."
+    echo "File uploaded successfully."
     echo "Response: $response"
 
-    send_notification "✅ File uploaded successfully"
+    send_notification "File uploaded successfully"
     copy_to_clipboard "$url"
 else
-    echo "❌ Upload failed"
+    echo "Upload failed"
     echo "Response: $response"
 
-    send_notification "❌ Upload failed"
+    send_notification "Upload failed"
     exit 1
 fi

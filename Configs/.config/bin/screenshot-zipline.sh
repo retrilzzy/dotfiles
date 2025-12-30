@@ -5,22 +5,22 @@
 
 set -e
 
-if [[ -f "$HOME/.config/hypr/scripts/.env" ]]; then
-    source "$HOME/.config/hypr/scripts/.env"
+if [[ -f "$HOME/.config/bin/.env" ]]; then
+    source "$HOME/.config/bin/.env"
 fi
 
 if [[ -z "$ZIPLINE_URL" || -z "$ZIPLINE_API_KEY" || -z "$ZIPLINE_FOLDER_ID" ]]; then
-    echo "❌ ZIPLINE_URL or ZIPLINE_API_KEY or ZIPLINE_FOLDER_ID is not set. Check the .env file."
+    echo "ZIPLINE_URL or ZIPLINE_API_KEY or ZIPLINE_FOLDER_ID is not set. Check the .env file."
     exit 1
 fi
 
 FILENAME="$(date +%F_$((RANDOM % 10000))).png"
 FILE_PATH="/tmp/$FILENAME"
 
-flameshot gui -p "$FILE_PATH" || exit 1
+grim -c -g "$(slurp -d)" -t ppm - | satty --filename - --fullscreen --disable-notifications --initial-tool brush --early-exit --output-filename "$FILE_PATH" || exit 1
 
 send_notification() {
-    notify-send "Zipline Uploader" "$1" -t 2000
+    notify-send "Zipline Uploader" "$1" -i browser-download -t 2000
 }
 
 copy_to_clipboard() {
@@ -43,16 +43,16 @@ response=$(
 url=$(echo "$response" | jq -r ".files[0].url // empty")
 
 if [[ -n "$url" ]]; then
-    echo "✅ File uploaded successfully."
+    echo "File uploaded successfully."
     echo "Response: $response"
 
-    send_notification "✅ File uploaded successfully"
+    send_notification "File uploaded successfully"
     copy_to_clipboard "$url"
 
 else
-    echo "❌ Upload failed"
+    echo "Upload failed"
     echo "Response: $response"
 
-    send_notification "❌ Upload failed"
+    send_notification "Upload failed"
     exit 1
 fi

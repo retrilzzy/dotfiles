@@ -415,8 +415,8 @@ main() {
 
     if [ "$SKIP_UTILITIES_TOOLS" = false ]; then
         print_section "Utilities and tools"
-        install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl trash-cli uwsm wl-clipboard wl-clip-persist
-        install_yay flameshot-git gpu-screen-recorder nautilus network-manager-applet
+        install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl satty trash-cli uwsm wl-clipboard wl-clip-persist
+        install_yay gpu-screen-recorder nautilus network-manager-applet
     else
         print_warning "Skipping Utilities and tools packages installation."
     fi
