@@ -17,9 +17,6 @@ fi
 FILENAME="$(date +%F_%H-%M-%S).png"
 FILE_PATH="/tmp/$FILENAME"
 
-REGION=$(slurp) || exit 1
-[ -n "$REGION" ] || exit 1
-
 grim -c -g "$(slurp -d)" -t ppm - | satty --filename - --fullscreen --disable-notifications --initial-tool brush --early-exit --output-filename "$FILE_PATH" || exit 1
 
 send_notification() {
