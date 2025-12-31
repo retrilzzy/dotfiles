@@ -17,7 +17,7 @@ fi
 FILENAME="$(date +%F_%H-%M-%S).png"
 FILE_PATH="/tmp/$FILENAME"
 
-grim -c -g "$(slurp -d)" -t ppm - | satty --filename - --fullscreen --disable-notifications --initial-tool brush --early-exit --output-filename "$FILE_PATH" || exit 1
+grim -g "$(slurp -d)" -t ppm - | satty --filename - --disable-notifications --early-exit --actions-on-enter save-to-file --output-filename "$FILE_PATH" || exit 1
 
 send_notification() {
     notify-send "Chibisafe Uploader" "$1" -i browser-download -t 2000

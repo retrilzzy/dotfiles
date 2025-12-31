@@ -1,0 +1,34 @@
+[general]
+# Exit directly after copy/save action
+early-exit = false
+
+# Draw corners of rectangles round
+corner-roundness = 8
+
+# Select the tool on startup [possible values: pointer, crop, line, arrow, rectangle, text, marker, blur, brush]
+initial-tool = "brush"
+
+# Configure the command to be called on copy
+copy-command = "wl-copy"
+
+# Increase or decrease the size of the annotations
+annotation-size-factor = 0.5
+
+# Filename to use for saving action. Omit to disable saving to file.
+# Might contain format specifiers: https://docs.rs/chrono/latest/chrono/format/strftime/index.html
+# starting with 0.20.0, can contain leading tilde (~) for home directory
+output-filename = "~/Pictures/Screen/%F_%H-%M-%S_satty.png"
+
+# Fill shapes by default
+default-fill-shapes = true
+
+[color-palette]
+palette = [
+    "#0078D4",
+    "#FF4444",
+    "#FFD700",
+    "#00FF88",
+    "#080808",
+    "#FF6BFF",
+    "#FF8C00",
+]
