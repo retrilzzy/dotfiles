@@ -2,8 +2,8 @@
 
 FILE="$HOME/.config/hypr/hyprland/rules.conf"
 
-LAYER_RULE="layerrule = noscreenshare,^(.*)$"
-WINDOW_RULE="windowrulev2 = noscreenshare, initialClass:^(.*)$"
+LAYER_RULE="layerrule = match:namespace ^(.*)$, no_screen_share on"
+WINDOW_RULE="windowrule = match:initial_class = ^(.*)$, no_screen_share on"
 
 escape_regex() {
     printf '%s\n' "$1" | sed -e 's/[][\/.^$*]/\\&/g'
