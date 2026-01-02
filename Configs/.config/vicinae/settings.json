@@ -22,6 +22,7 @@
       }
    },
    "launcher_window": {
+      "opacity": 0.95,
       "client_side_decorations": {
          "enabled": true
       }
@@ -30,9 +31,11 @@
       "toggle-action-panel": "control+A"
    },
    "favorites": [
-      "@xeric/store.raycast.currency-exchange:index",
+      "applications:obsidian",
+      "applications:discord",
+      "applications:org.telegram",
+      "applications:steam",
       "@dagimg-dot/store.vicinae.player-pilot:player-pilot",
-      "@josephschmitt/store.raycast.gif-search:search",
       "@gebeto/store.raycast.translate:translate"
    ],
    "providers": {
