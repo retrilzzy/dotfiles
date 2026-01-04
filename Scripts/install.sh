@@ -2,118 +2,111 @@
 
 set -euo pipefail
 
-# Variables
+# Directories
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
 BACKUP_DIR="${BACKUP_DIR:-$HOME/.config-backups}"
 WALLPAPER_DIR="${WALLPAPER_DIR:-$HOME/Pictures/Wallpapers}"
 
-SKIP_GIT_PULL=${SKIP_GIT_PULL:-false}
-SKIP_PACMAN_CONF=${SKIP_PACMAN_CONF:-false}
-SKIP_YAY_INSTALL=${SKIP_YAY_INSTALL:-false}
+# Colors
+C_ACCENT="#5BA3FF"
+C_ACCENT_BRIGHT="#5BC0FF"
+C_SUCCESS="#00FF7F"
+C_WARNING="#FFD700"
+C_ERROR="#FF1744"
+C_BORDER_HIGHLIGHT="#5BA3FF"
+C_BG_DARK="#0A0A0F"
+C_BG_MED="#2A2D3E"
 
-SKIP_SYSTEM_INTERFACE=${SKIP_SYSTEM_INTERFACE:-false}
-SKIP_UTILITIES_TOOLS=${SKIP_UTILITIES_TOOLS:-false}
-SKIP_NETWORKING_AUDIO_PORTALS=${SKIP_NETWORKING_AUDIO_PORTALS:-false}
-SKIP_APPEARANCE_THEMES=${SKIP_APPEARANCE_THEMES:-false}
+export GUM_CHOOSE_CURSOR_FOREGROUND="$C_ACCENT_BRIGHT"
+export GUM_CHOOSE_HEADER_FOREGROUND="$C_ACCENT"
+export GUM_CHOOSE_SELECTED_FOREGROUND="$C_ACCENT"
 
-SKIP_ZSH_SETUP=${SKIP_ZSH_SETUP:-false}
-SKIP_CONFIGS_APPLY=${SKIP_CONFIGS_APPLY:-false}
-SKIP_WALLPAPERS_SETUP=${SKIP_WALLPAPERS_SETUP:-false}
-SKIP_THEME_SETUP=${SKIP_THEME_SETUP:-false}
+export GUM_CONFIRM_PROMPT_FOREGROUND="$C_ACCENT"
+export GUM_CONFIRM_SELECTED_BACKGROUND="$C_ACCENT"
+export GUM_CONFIRM_SELECTED_FOREGROUND="$C_BG_DARK"
+export GUM_CONFIRM_UNSELECTED_BACKGROUND="$C_BG_MED"
 
-# Output functions
-RESET="\033[0m"
+export GUM_SPIN_SPINNER_FOREGROUND="$C_ACCENT"
 
+# Error handling
+handle_error() {
+    local exit_code=$?
+    local line_number=$1
+    local command=$2
+    local error_message="Error on line $line_number: command '$command' exited with status $exit_code"
+
+    if command -v gum &>/dev/null; then
+        gum style --foreground "$C_ERROR" "$error_message"
+    else
+        echo -e "\033[1;31m$error_message\033[0m"
+    fi
+
+    exit $exit_code
+}
+trap 'handle_error $LINENO "$BASH_COMMAND"' ERR
+
+# Output helpers
 print_section() {
-    echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo -e "   $1"
-    echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+    gum style --border normal --margin "1" --padding "1 2" --border-foreground "$C_BORDER_HIGHLIGHT" "$1"
 }
 
 print_info() {
-    echo -e "\033[1;34m $1${RESET}"
+    echo -n "$(gum style --bold --foreground "$C_ACCENT_BRIGHT" 'Info: ')"
+    gum style --foreground "$C_ACCENT_BRIGHT" "$1"
 }
 
 print_warning() {
-    echo -e "\033[1;33m $1${RESET}"
+    echo -n "$(gum style --bold --foreground "$C_WARNING" 'Warning: ')"
+    gum style --foreground "$C_WARNING" "$1"
 }
 
 print_error() {
-    echo -e "\033[1;31m $1${RESET}"
+    echo -n "$(gum style --bold --foreground "$C_ERROR" 'Error: ')"
+    gum style --foreground "$C_ERROR" "$1"
 }
 
 print_success() {
-    echo -e "\033[1;32m $1${RESET}"
+    echo -n "$(gum style --bold --foreground "$C_SUCCESS" 'Success: ')"
+    gum style --foreground "$C_SUCCESS" "$1"
 }
 
 print_action() {
-    echo -e "\033[1;36m $1${RESET}"
+    echo -n "$(gum style --bold --foreground "$C_ACCENT" 'Action: ')"
+    gum style --foreground "$C_ACCENT" "$1"
 }
 
-# Install packages with pacman if they are not already installed
-install_pacman() {
-    local to_install_pacman=()
-    for pkg in "$@"; do
-        if ! pacman -Qq "$pkg" &>/dev/null; then
-            print_info "Will install: ${pkg}"
-            to_install_pacman+=("$pkg")
-        else
-            print_warning "Skipped (already installed): ${pkg}"
-        fi
-    done
+confirm() {
+    gum confirm "$1" --affirmative="Yes" --negative="No"
+}
 
-    if [ ${#to_install_pacman[@]} -gt 0 ]; then
-        print_info "Installing Pacman packages: ${to_install_pacman[*]}"
-        sudo pacman -S --noconfirm --needed "${to_install_pacman[@]}"
-        print_success "Pacman packages installed: ${to_install_pacman[*]}"
+# Installation functions
+ensure_core_deps() {
+    if ! command -v pacman &>/dev/null; then
+        echo -e "\033[1;31mError: pacman is not available. This script is for Arch-based distributions.\033[0m"
+        exit 1
+    fi
+
+    if sudo pacman -S --noconfirm --needed git base-devel gum; then
+        echo -e "\033[1;32mCore dependencies ready.\033[0m"
+    else
+        echo -e "\033[1;31mFailed to install dependencies.\033[0m"
+        exit 1
     fi
 }
 
-# Install packages with yay if they are not already installed
-install_yay() {
-    local to_install_yay=()
-    for pkg in "$@"; do
-        if ! yay -Qq "$pkg" &>/dev/null; then
-            print_info "Will install (AUR): ${pkg}"
-            to_install_yay+=("$pkg")
-        else
-            print_warning "Skipped (already installed): ${pkg}"
-        fi
-    done
-
-    if [ ${#to_install_yay[@]} -gt 0 ]; then
-        print_info "Installing AUR packages (Yay): ${to_install_yay[*]}"
-        yay -S --noconfirm "${to_install_yay[@]}"
-        print_success "AUR packages installed (Yay): ${to_install_yay[*]}"
-    fi
-}
-
-# Clone or update the dotfiles repository
 clone_repo() {
-    print_section "Cloning or updating dotfiles repository"
+    print_section "Cloning or Updating Dotfiles Repository"
     if [ -d "$DOTFILES_DIR" ]; then
-        if [ "$SKIP_GIT_PULL" = true ]; then
-            print_warning "Skipping git pull."
-            return
-        fi
-        print_info "Dotfiles directory already exists. Attempting to pull latest changes."
+        print_info "Dotfiles directory exists. Pulling latest changes."
         pushd "$DOTFILES_DIR" >/dev/null
-
-        git stash
-
-        before_pull=$(git rev-parse HEAD)
         if git pull --rebase --autostash; then
-            print_success "Dotfiles updated successfully."
-
-            after_pull=$(git rev-parse HEAD)
-            if [ "$before_pull" != "$after_pull" ]; then
-                if git diff --name-only "$before_pull" "$after_pull" | grep -q "Scripts/install.sh"; then
-                    print_info "The installation script has been updated. Restarting the script..."
-                    exec "$DOTFILES_DIR/Scripts/install.sh"
-                fi
+            print_success "Dotfiles updated."
+            if git diff --name-only 'HEAD@{1}' HEAD | grep -q "Scripts/install.sh"; then
+                print_info "Installation script updated. Restarting..."
+                exec "$DOTFILES_DIR/Scripts/install.sh"
             fi
         else
-            print_error "Failed to pull dotfiles. Please check your internet connection or repository access."
+            print_error "Failed to pull dotfiles."
             popd >/dev/null
             exit 1
         fi
@@ -121,83 +114,107 @@ clone_repo() {
     else
         print_info "Cloning dotfiles repository."
         if git clone --depth=10 https://github.com/retrilzzy/dotfiles.git "$DOTFILES_DIR"; then
-            print_success "Dotfiles cloned successfully."
+            print_success "Dotfiles cloned."
         else
-            print_error "Failed to clone dotfiles. Please check your internet connection or repository access."
+            print_error "Failed to clone dotfiles."
             exit 1
         fi
     fi
 }
 
-# Configure pacman and update the system
 setup_pacman() {
-    if [ "$SKIP_PACMAN_CONF" = true ]; then
-        print_warning "Skipping Pacman configuration."
-        return
-    fi
-
-    print_section "Configuring Pacman"
-
-    read -rp "$(print_warning 'Overwrite /etc/pacman.conf? (Y/n): ')" confirm
-
-    confirm=${confirm:-Y}
-    if [[ "$confirm" =~ ^([Yy]|[Yy][Ee][Ss])$ ]]; then
-        print_info "Creating a backup of /etc/pacman.conf to /etc/pacman.conf.bak"
-        sudo cp /etc/pacman.conf /etc/pacman.conf.bak 2>/dev/null
-
+    print_section "Step 1/2: Configuring Pacman"
+    if confirm "Overwrite /etc/pacman.conf?"; then
+        print_info "Backing up /etc/pacman.conf to /etc/pacman.conf.bak"
+        sudo cp /etc/pacman.conf /etc/pacman.conf.bak || true
         sudo cp "$DOTFILES_DIR/Configs/etc/pacman.conf" /etc/pacman.conf
-        print_success "Pacman.conf overwritten."
+        print_success "pacman.conf overwritten."
     else
-        print_warning "Pacman.conf overwrite skipped."
+        print_warning "Skipping pacman.conf overwrite."
     fi
 
-    print_section "Updating system"
-
+    print_section "Step 2/2: Updating System"
     sudo pacman -Syu --noconfirm
-
-    print_success "Pacman configuration complete"
+    print_success "System updated."
 }
 
-# Install yay if it is not already installed
 ensure_yay() {
-    if [ "$SKIP_YAY_INSTALL" = true ]; then
-        print_warning "Skipping Yay installation."
-        return
-    fi
-
     if ! command -v yay &>/dev/null; then
-        print_section "Installing Yay"
-
-        sudo pacman -S --noconfirm --needed base-devel
-
+        print_section "Installing AUR Helper (yay)"
+        install_pacman base-devel
+        local tmp_dir
         tmp_dir=$(mktemp -d)
         git clone --depth=1 https://aur.archlinux.org/yay.git "$tmp_dir"
-
-        pushd "$tmp_dir" >/dev/null
-        makepkg -si --noconfirm
-        popd >/dev/null
-
+        (
+            cd "$tmp_dir"
+            makepkg -si --noconfirm
+        )
         rm -rf "$tmp_dir"
-
-        if command -v yay &>/dev/null; then
-            print_success "Yay installed successfully!"
-        else
-            print_error "yay installation failed."
-            exit 1
-        fi
+        print_success "Yay installed."
     else
-        print_warning "Yay is already installed"
+        print_warning "Yay is already installed."
     fi
 }
 
-# Install Bibata cursor
-install_bibata_cursor() {
-    print_section "Installing Bibata cursor"
+install_pacman() {
+    local to_install=()
+    for pkg in "$@"; do
+        if ! pacman -Qq "$pkg" &>/dev/null; then
+            to_install+=("$pkg")
+        fi
+    done
+    if [ ${#to_install[@]} -gt 0 ]; then
+        print_info "Installing Pacman packages: ${to_install[*]}"
+        sudo pacman -S --noconfirm --needed "${to_install[@]}"
+        print_success "Installed: ${to_install[*]}"
+    fi
+}
 
-    print_info "Installing Bibata cursor..."
+install_yay() {
+    local to_install=()
+    for pkg in "$@"; do
+        if ! yay -Qq "$pkg" &>/dev/null; then
+            to_install+=("$pkg")
+        fi
+    done
+    if [ ${#to_install[@]} -gt 0 ]; then
+        print_info "Installing AUR packages: ${to_install[*]}"
+        yay -S --noconfirm "${to_install[@]}"
+        print_success "Installed: ${to_install[*]}"
+    else
+        print_warning "packages already installed. (yay)"
+    fi
+}
+
+run_service() {
+    local service_name="$1"
+    shift
+    local cmd=("$@")
+
+    print_info "Starting service: $service_name"
+    if pgrep -x "$service_name" >/dev/null; then
+        print_warning "Service $service_name is already running. Killing it first."
+        killall "$service_name" && sleep 1
+    fi
+
+    local launch_cmd
+    if command -v uwsm &>/dev/null && [ -n "${UWSM_SESSION_ID:-}" ]; then
+        launch_cmd=(uwsm app -- "${cmd[@]}")
+    else
+        launch_cmd=("${cmd[@]}")
+    fi
+
+    "${launch_cmd[@]}" >/dev/null 2>&1 &
+    disown
+    print_success "$service_name started."
+}
+
+install_bibata_cursor() {
+    print_section "Installing Bibata Cursor"
     local tmp_dir
     tmp_dir=$(mktemp -d)
-    if curl -L "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz" -o "$tmp_dir/bibata.tar.xz"; then
+    if gum spin --spinner dot --title "Downloading Bibata cursor..." -- \
+        curl -L "https://github.com/ful1e5/Bibata_Cursor/releases/download/v2.0.7/Bibata-Modern-Classic.tar.xz" -o "$tmp_dir/bibata.tar.xz"; then
         tar -xf "$tmp_dir/bibata.tar.xz" -C "$tmp_dir"
         sudo cp -r "$tmp_dir/Bibata-Modern-Classic" /usr/share/icons/
         print_success "Bibata cursor installed."
@@ -207,258 +224,243 @@ install_bibata_cursor() {
     rm -rf "$tmp_dir"
 }
 
-# Setup Zsh, Oh My Zsh and plugins
 setup_zsh() {
-    if [ "$SKIP_ZSH_SETUP" = true ]; then
-        print_warning "Skipping Zsh setup."
-        return
-    fi
-
+    print_section "Setting up Zsh & Plugins"
+    install_pacman zsh
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended || true
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     fi
-
     sudo chsh -s "$(which zsh)" "$USER"
-
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" || true
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" || true
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || true
+    print_success "Zsh setup complete."
 }
 
-# Backup existing configurations
-backup_configs() {
-    print_section "Backing up existing configurations"
+backup_and_apply_configs() {
+    print_section "Backing Up Old & Applying New Configs"
 
     local date_now
     date_now=$(date +%Y-%m-%d_%H-%M-%S)
     local backup_dir="$BACKUP_DIR/$date_now"
+    mkdir -p "$backup_dir/.config" "$backup_dir/etc" "$backup_dir/.local/share/nwg-look"
 
-    mkdir -p "$backup_dir/.config" "$backup_dir/etc"
-
+    print_info "Backing up existing configs to $backup_dir"
     shopt -s nullglob
+
     for dir in "$DOTFILES_DIR"/Configs/.config/*; do
         local name
         name=$(basename "$dir")
-
-        if [ "$name" = "discord" ]; then
-            continue
-        fi
-
+        if [ "$name" = "discord" ]; then continue; fi
         if [ -d "$HOME/.config/$name" ]; then
-            print_info "Copying $HOME/.config/$name to $backup_dir/.config/"
-            cp -a "$HOME/.config/$name" "$backup_dir/.config/"
+            print_info "Moving $HOME/.config/$name to $backup_dir/.config/"
+            mv "$HOME/.config/$name" "$backup_dir/.config/"
         fi
     done
 
     local home_files=(".zshrc" ".p10k.zsh" ".nanorc")
     for file in "${home_files[@]}"; do
         if [ -f "$HOME/$file" ]; then
-            print_info "Copying $HOME/$file to $backup_dir/"
-            cp -a "$HOME/$file" "$backup_dir/"
+            print_info "Moving $HOME/$file to $backup_dir/"
+            mv "$HOME/$file" "$backup_dir/"
         fi
     done
 
-    for dir in "$DOTFILES_DIR"/Configs/etc/*; do
-        local name
-        name=$(basename "$dir")
-        if [ -d "/etc/$name" ]; then
-            print_info "Copying /etc/$name to $backup_dir/etc/"
-            cp -a "/etc/$name" "$backup_dir/etc/"
-        fi
-    done
+    cp "$HOME/.local/share/nwg-look/gsettings" "$backup_dir/.local/share/nwg-look/" || true
+
     shopt -u nullglob
+    print_success "Backup complete."
 
-    print_success "Backup saved to $backup_dir"
-}
-
-# Apply new configurations from the dotfiles repository
-apply_new_configs() {
-    print_section "Applying new configurations"
+    print_info "Applying new configurations..."
+    mkdir -p "$HOME/.config" "$HOME/.local/share/nwg-look"
 
     cp -a "$DOTFILES_DIR/Configs/.config/." "$HOME/.config/"
-
-    cp "$DOTFILES_DIR/Configs/.zshrc" \
-        "$DOTFILES_DIR/Configs/.p10k.zsh" \
-        "$DOTFILES_DIR/Configs/.nanorc" "$HOME/"
-
-    cp -a "$DOTFILES_DIR/Configs/.local/." "$HOME/.local/"
-
-    sudo cp -a "$DOTFILES_DIR/Configs/etc/." /etc/
+    cp "$DOTFILES_DIR/Configs/.zshrc" "$DOTFILES_DIR/Configs/.p10k.zsh" "$DOTFILES_DIR/Configs/.nanorc" "$HOME/"
 
     print_success "New configurations applied."
 }
 
-# Run essential services
-run_services() {
-    print_section "Running services"
-
-    if pgrep -x "waybar" >/dev/null; then
-        killall waybar && sleep 1
-    fi
-    uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
-    disown
+run_initial_services() {
+    print_section "Running Essential Services"
 
     if pgrep -x "dunst" >/dev/null; then
-        killall dunst && sleep 1
+        killall dunst && sleep 0.3
     fi
-    uwsm app -- swaync -c "$HOME/.config/swaync/config.json" >/dev/null 2>&1 &
-    disown
-
-    uwsm app -- nm-applet >/dev/null 2>&1 &
-    disown
-
-    uwsm app -- vicinae server >/dev/null 2>&1 &
-    disown
-
-    uwsm app -- swww-daemon >/dev/null 2>&1 &
-    disown
-
-    print_success "Services started."
+    if pgrep -x "mako" >/dev/null; then
+        killall mako && sleep 0.3
+    fi
+    run_service "swaync" swaync -c "$HOME/.config/swaync/config.json"
+    run_service "nm-applet" nm-applet
+    run_service "vicinae" vicinae server
+    run_service "swww-daemon" swww-daemon
+    run_service "waybar" waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css"
 }
 
-# Download and set up wallpapers
 setup_wallpapers() {
-    if [ "$SKIP_WALLPAPERS_SETUP" = true ]; then
-        print_warning "Skipping wallpaper setup."
-        return
-    fi
-
-    print_section "Wallpapers"
-
+    print_section "Setting Up Wallpapers"
     mkdir -p "$WALLPAPER_DIR"
+    print_info "Downloading a few random wallpapers..."
+    print_info "Full collection: https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
 
-    print_info "Downloading 5 random wallpapers"
-    print_info "All wallpapers: https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
+    local names
+    names=$(curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv" | jq -r '.files[].name' | shuf -n 5)
 
-    curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv" |
-        jq -r '.files[].name' |
-        shuf -n 5 |
-        while read -r name; do
-            [ -z "$name" ] && continue
+    if [ -z "$names" ]; then
+        print_error "Could not fetch wallpaper list. Is 'jq' installed and are you online?"
+        return 1
+    fi
 
-            local url="https://share.rzx.ovh/raw/$name"
-            print_action "Downloading wallpaper: $url"
-            curl --connect-timeout 5 --max-time 30 -L -s "$url" -o "$WALLPAPER_DIR/$name" || print_error "Failed to download wallpaper: $name"
-        done
+    local downloaded_count=0
+    set +e
+    while IFS= read -r name; do
+        [ -z "$name" ] && continue
+        local dest="$WALLPAPER_DIR/$name"
+        if [ -f "$dest" ]; then
+            print_info "Wallpaper '$name' already exists, skipping."
+            ((downloaded_count++))
+            continue
+        fi
 
-    print_success "Wallpapers saved to $WALLPAPER_DIR"
+        local url="https://share.rzx.ovh/raw/$name"
+        if gum spin --spinner dot --title "Downloading $name" -- \
+            curl --fail -L -s --connect-timeout 10 --max-time 60 -o "$dest" "$url"; then
+            print_success "Downloaded: $url"
+            ((downloaded_count++))
+        else
+            print_error "Failed to download $url."
+            rm -f "$dest"
+        fi
+    done <<<"$names"
+    set -e
 
-    mkdir "$HOME/.local/share/color-schemes" || true
+    if [ "$downloaded_count" -eq 0 ]; then
+        print_error "No wallpapers were downloaded. Cannot set theme."
+        return 1
+    fi
 
-    "$HOME/.config/bin/change-wall.sh" "$WALLPAPER_DIR"
-    print_success "Wallpaper set."
+    print_success "Downloaded $downloaded_count wallpapers to $WALLPAPER_DIR"
+
+    mkdir -p "$HOME/.local/share/color-schemes"
+    if "$HOME/.config/bin/change-wall.sh" "$WALLPAPER_DIR"; then
+        print_success "Wallpaper and theme set."
+    else
+        print_warning "Failed to set wallpaper. You can do it manually later."
+    fi
 }
 
-# Apply GTK theme
 setup_theme() {
-    if [ "$SKIP_THEME_SETUP" = true ]; then
-        print_warning "Skipping theme setup."
-        return
-    fi
+    print_section "Applying GTK Theme"
 
-    print_section "Applying theme"
+    cp "$DOTFILES_DIR/Configs/.local/share/nwg-look/gsettings" "$HOME/.local/share/nwg-look/gsettings"
 
-    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark' && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-    nwg-look -a || print_warning "Failed to apply theme via nwg-look."
+    nwg-look -a || print_warning "Failed to apply theme via nwg-look. It might not be critical."
 
-    print_success "Themes applied."
+    print_success "GTK theme applied."
 }
 
-# Reload services after theme and wallpaper changes
 reload_services() {
-    print_section "Reloading services"
-
-    if pgrep -x "waybar" >/dev/null; then
-        killall waybar && sleep 1
-    fi
-    uwsm app -- waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css" >/dev/null 2>&1 &
-    disown
-
+    print_section "Reloading Services"
+    run_service "waybar" waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css"
     print_success "Services reloaded."
 }
 
-# Main function
+# Entrypoint
 main() {
-    # Check if the script is run as root
+    if ! sudo -v; then
+        echo -e "\033[1;31mSudo privileges are required to run this script.\033[0m"
+        exit 1
+    fi
+
+    ensure_core_deps
+    clear
+
     if [ "$EUID" -eq 0 ]; then
-        print_error "This script should not be run as root or with sudo. Please run it as a regular user."
+        print_error "This script must not be run as root."
         exit 1
     fi
 
-    # Check if the script is run in a Wayland session
-    if [ -z "${WAYLAND_DISPLAY:-}" ]; then
-        print_warning "The script must be run in an active Wayland session (Hyprland)."
-        exit 1
+    if ! [[ "${XDG_CURRENT_DESKTOP:-}" == "Hyprland" && -n "${UWSM_FINALIZE_VARNAMES:-}" ]]; then
+        print_warning "This script is optimized for Hyprland with UWSM."
+        if ! confirm "You don't seem to be in a UWSM-managed Hyprland session. Some features might not work as expected. Continue anyway?"; then
+            exit 0
+        fi
     fi
 
-    print_action "Starting installation. 3..." && sleep 1
-    print_action "2..." && sleep 1
-    print_action "1..." && sleep 1
+    gum style --border normal --margin "1" --padding "1 2" --border-foreground "$C_ACCENT" "Retrilz's Dotfiles Installer"
 
-    print_section "Git"
-    install_pacman git
+    local CHOICES
+    CHOICES=$(gum choose --no-limit --height 15 --cursor " > " \
+        --header "Select components to install" \
+        "Clone/Update Dotfiles Repository" "Configure Pacman & Update System" "Install AUR Helper (yay)" \
+        "Install System Interface packages" "Install Utilities & Tools packages" \
+        "Install Networking & Audio packages" "Install Appearance & Theme packages" \
+        "Setup Zsh & Plugins" "Backup & Apply All Configs" "Run Essential Services" "Setup Wallpapers & GTK Theme" \
+        --selected "*")
 
-    clone_repo
+    if [[ "$CHOICES" == *"Clone/Update Dotfiles Repository"* ]]; then
+        clone_repo
+    fi
 
-    setup_pacman
+    if [[ "$CHOICES" == *"Configure Pacman & Update System"* ]]; then
+        setup_pacman
+    fi
 
-    ensure_yay
+    if [[ "$CHOICES" == *"Install AUR Helper (yay)"* ]]; then
+        ensure_yay
+    fi
 
-    if [ "$SKIP_SYSTEM_INTERFACE" = false ]; then
-        print_section "System and interface"
+    if [[ "$CHOICES" == *"Install System Interface packages"* ]]; then
+        print_section "Installing System Interface packages"
         install_pacman hyprlock hypridle kitty nwg-look swaync waybar swww hyprshot
         install_yay waypaper wlogout vicinae-bin
-    else
-        print_warning "Skipping System and interface packages installation."
     fi
 
-    if [ "$SKIP_UTILITIES_TOOLS" = false ]; then
-        print_section "Utilities and tools"
-        install_pacman brightnessctl imagemagick fastfetch grim tar lsd pavucontrol playerctl satty trash-cli uwsm wl-clipboard wl-clip-persist
+    if [[ "$CHOICES" == *"Install Utilities & Tools packages"* ]]; then
+        print_section "Installing Utilities & Tools"
+        install_pacman brightnessctl imagemagick fastfetch grim gnome-keyring tar lsd pavucontrol playerctl satty trash-cli uwsm wl-clipboard wl-clip-persist jq
         install_yay gpu-screen-recorder nautilus network-manager-applet
-    else
-        print_warning "Skipping Utilities and tools packages installation."
     fi
 
-    if [ "$SKIP_NETWORKING_AUDIO_PORTALS" = false ]; then
-        print_section "Networking, audio and portals"
+    if [[ "$CHOICES" == *"Install Networking & Audio packages"* ]]; then
+        print_section "Installing Networking & Audio packages"
         install_pacman networkmanager bluez blueman pipewire pipewire-pulse pipewire-audio pipewire-alsa polkit-gnome xdg-utils xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk xdg-desktop-portal-wlr
-    else
-        print_warning "Skipping Networking, audio and portals packages installation."
     fi
 
-    if [ "$SKIP_APPEARANCE_THEMES" = false ]; then
-        print_section "Appearance and themes"
+    if [[ "$CHOICES" == *"Install Appearance & Theme packages"* ]]; then
+        print_section "Installing Appearance & Theme packages"
         install_pacman adw-gtk-theme frameworkintegration inter-font noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme ttf-jetbrains-mono-nerd
         install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin ttf-meslo-nerd-font-powerlevel10k
         install_bibata_cursor
-    else
-        print_warning "Skipping Appearance and themes packages installation."
     fi
 
-    print_section "Zsh and Plugins"
-    install_pacman zsh
-    setup_zsh
-
-    if [ "$SKIP_CONFIGS_APPLY" = false ]; then
-        backup_configs
-        apply_new_configs
-    else
-        print_warning "Skipping config backup and application."
+    if [[ "$CHOICES" == *"Setup Zsh & Plugins"* ]]; then
+        setup_zsh
     fi
-    run_services
 
-    sleep 2
-    setup_wallpapers
-    setup_theme
+    if [[ "$CHOICES" == *"Backup & Apply All Configs"* ]]; then
+        backup_and_apply_configs
+    fi
 
-    reload_services
+    if [[ "$CHOICES" == *"Run Essential Services"* ]]; then
+        run_initial_services
+    fi
+
+    if [[ "$CHOICES" == *"Setup Wallpapers & GTK Theme"* ]]; then
+        sleep 2
+        setup_wallpapers
+        setup_theme
+        reload_services
+    fi
 
     print_success "Installation complete!"
-    print_action "To fully apply the changes, it is recommended to restart the system."
+    print_action "It is recommended to reboot your system to apply all changes."
 
-    exec zsh
+    if confirm "Switch to zsh now?"; then
+        exec zsh
+    fi
 }
 
 main "$@"

@@ -141,6 +141,7 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 | `git`                    | Version control system           |
 | `gpu-screen-recorder`    | GPU-accelerated screen recorder  |
 | `grim`                   | Wayland screenshot tool          |
+| `gnome-keyring`          | Stores encryption keys           |
 | `imagemagick`            | Image manipulation tools         |
 | `lsd`                    | `ls` alternative with icons      |
 | `nautilus`               | File manager                     |
