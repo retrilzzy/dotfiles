@@ -236,15 +236,15 @@ setup_zsh() {
     print_success "Zsh setup complete."
 }
 
-backup_and_apply_configs() {
-    print_section "Backing Up Old & Applying New Configs"
+backup_configs() {
+    print_section "Backing Up Current Configs"
 
     local date_now
     date_now=$(date +%Y-%m-%d_%H-%M-%S)
     local backup_dir="$BACKUP_DIR/$date_now"
     mkdir -p "$backup_dir/.config" "$backup_dir/etc" "$backup_dir/.local/share/nwg-look"
 
-    print_info "Backing up existing configs to $backup_dir"
+    print_info "Backing up current configs to $backup_dir"
     shopt -s nullglob
 
     for dir in "$DOTFILES_DIR"/Configs/.config/*; do
@@ -269,6 +269,10 @@ backup_and_apply_configs() {
 
     shopt -u nullglob
     print_success "Backup complete."
+}
+
+apply_configs() {
+    print_section "Applying New Configs"
 
     print_info "Applying new configurations..."
     mkdir -p "$HOME/.config" "$HOME/.local/share/nwg-look"
@@ -396,7 +400,7 @@ main() {
         "Clone/Update Dotfiles Repository" "Configure Pacman & Update System" "Install AUR Helper (yay)" \
         "Install System Interface packages" "Install Utilities & Tools packages" \
         "Install Networking & Audio packages" "Install Appearance & Theme packages" \
-        "Setup Zsh & Plugins" "Backup & Apply All Configs" "Run Essential Services" "Setup Wallpapers & GTK Theme" \
+        "Setup Zsh & Plugins" "Backup Current Configs" "Apply New Configs" "Run Essential Services" "Setup Wallpapers & GTK Theme" \
         --selected "*")
 
     if [[ "$CHOICES" == *"Clone/Update Dotfiles Repository"* ]]; then
@@ -439,8 +443,12 @@ main() {
         setup_zsh
     fi
 
-    if [[ "$CHOICES" == *"Backup & Apply All Configs"* ]]; then
-        backup_and_apply_configs
+    if [[ "$CHOICES" == *"Backup Current Configs"* ]]; then
+        backup_configs
+    fi
+
+    if [[ "$CHOICES" == *"Apply New Configs"* ]]; then
+        apply_configs
     fi
 
     if [[ "$CHOICES" == *"Run Essential Services"* ]]; then
