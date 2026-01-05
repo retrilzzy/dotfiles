@@ -123,7 +123,7 @@ clone_repo() {
 }
 
 setup_pacman() {
-    print_section "Step 1/2: Configuring Pacman"
+    print_section "Configuring Pacman"
     if confirm "Overwrite /etc/pacman.conf?"; then
         print_info "Backing up /etc/pacman.conf to /etc/pacman.conf.bak"
         sudo cp /etc/pacman.conf /etc/pacman.conf.bak || true
@@ -133,7 +133,7 @@ setup_pacman() {
         print_warning "Skipping pacman.conf overwrite."
     fi
 
-    print_section "Step 2/2: Updating System"
+    print_section "Updating System"
     sudo pacman -Syu --noconfirm
     print_success "System updated."
 }
@@ -141,7 +141,6 @@ setup_pacman() {
 ensure_yay() {
     if ! command -v yay &>/dev/null; then
         print_section "Installing AUR Helper (yay)"
-        install_pacman base-devel
         local tmp_dir
         tmp_dir=$(mktemp -d)
         git clone --depth=1 https://aur.archlinux.org/yay.git "$tmp_dir"
@@ -369,6 +368,11 @@ reload_services() {
 
 # Entrypoint
 main() {
+    if [ "$EUID" -eq 0 ]; then
+        echo -e "\033[1;31mThis script must not be run as root.\033[0m"
+        exit 1
+    fi
+
     if ! sudo -v; then
         echo -e "\033[1;31mSudo privileges are required to run this script.\033[0m"
         exit 1
@@ -376,11 +380,6 @@ main() {
 
     ensure_core_deps
     clear
-
-    if [ "$EUID" -eq 0 ]; then
-        print_error "This script must not be run as root."
-        exit 1
-    fi
 
     if ! [[ "${XDG_CURRENT_DESKTOP:-}" == "Hyprland" && -n "${UWSM_FINALIZE_VARNAMES:-}" ]]; then
         print_warning "This script is optimized for Hyprland with UWSM."
