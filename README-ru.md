@@ -180,22 +180,21 @@
 <details>
 <summary><b>Внешний вид и темы</b></summary>
 
-| Пакет                               | Описание                                       |
-| :---------------------------------- | :--------------------------------------------- |
-| `adw-gtk-theme`                     | Тема Adwaita для GTK                           |
-| `darkly-bin`                        | Темная тема Qt5/Qt6                            |
-| `frameworkintegration`              | Фреймворк интеграции рабочего пространства KDE |
-| `inter-font`                        | Семейство шрифтов Inter                        |
-| `matugen-bin`                       | Генерация тем из обоев                         |
-| `noto-fonts`                        | Семейство шрифтов Noto                         |
-| `noto-fonts-cjk`                    | Шрифты Noto для языков CJK                     |
-| `noto-fonts-emoji`                  | Шрифты Noto с эмодзи                           |
-| `noto-fonts-extra`                  | Дополнительные шрифты Noto                     |
-| `papirus-icon-theme`                | Тема иконок Papirus                            |
-| `qt5ct-kde`                         | Настройка тем Qt5                              |
-| `qt6ct-kde`                         | Настройка тем Qt6                              |
-| `ttf-jetbrains-mono-nerd`           | JetBrains Mono с Nerd-глифами                  |
-| `ttf-meslo-nerd-font-powerlevel10k` | Шрифт Meslo Nerd для Powerlevel10k             |
+| Пакет                     | Описание                                       |
+| :------------------------ | :--------------------------------------------- |
+| `adw-gtk-theme`           | Тема Adwaita для GTK                           |
+| `darkly-bin`              | Темная тема Qt5/Qt6                            |
+| `frameworkintegration`    | Фреймворк интеграции рабочего пространства KDE |
+| `inter-font`              | Семейство шрифтов Inter                        |
+| `matugen-bin`             | Генерация тем из обоев                         |
+| `noto-fonts`              | Семейство шрифтов Noto                         |
+| `noto-fonts-cjk`          | Шрифты Noto для языков CJK                     |
+| `noto-fonts-emoji`        | Шрифты Noto с эмодзи                           |
+| `noto-fonts-extra`        | Дополнительные шрифты Noto                     |
+| `papirus-icon-theme`      | Тема иконок Papirus                            |
+| `qt5ct-kde`               | Настройка тем Qt5                              |
+| `qt6ct-kde`               | Настройка тем Qt6                              |
+| `ttf-jetbrains-mono-nerd` | JetBrains Mono с Nerd-глифами                  |
 
 </details>
 
@@ -344,16 +343,10 @@ sudo cp -r /tmp/bibata/Bibata-Modern-Classic /usr/share/icons/
   sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
   ```
 
-- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для VSCode и [Waybar](#waybar):
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) для [Waybar](#waybar) и [Kitty](#терминал):
 
   ```
   sudo pacman -S ttf-jetbrains-mono-nerd
-  ```
-
-- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) рекомендуемый шрифт для powerlevel10k ([Zsh тема](#терминал)):
-
-  ```
-  yay -S ttf-meslo-nerd-font-powerlevel10k
   ```
 
 - [Inter](https://rsms.me/inter/) необходимый шрифт для [Hyprlock](#hyprlock):

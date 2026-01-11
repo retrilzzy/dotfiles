@@ -180,22 +180,21 @@ Packages installed by [`install.sh`](./Scripts/install.sh).
 <details>
 <summary><b>Appearance and themes</b></summary>
 
-| Package                             | Description                         |
-| :---------------------------------- | :---------------------------------- |
-| `adw-gtk-theme`                     | Adwaita theme for GTK               |
-| `darkly-bin`                        | Qt5/Qt6 dark theme                  |
-| `frameworkintegration`              | KDE workspace integration framework |
-| `inter-font`                        | Inter font family                   |
-| `matugen-bin`                       | Generate themes from wallpapers     |
-| `noto-fonts`                        | Noto font family                    |
-| `noto-fonts-cjk`                    | Noto fonts for CJK languages        |
-| `noto-fonts-emoji`                  | Noto emoji fonts                    |
-| `noto-fonts-extra`                  | Additional Noto fonts               |
-| `papirus-icon-theme`                | Papirus icon theme                  |
-| `qt5ct-kde`                         | Qt5 theme configuration             |
-| `qt6ct-kde`                         | Qt6 theme configuration             |
-| `ttf-jetbrains-mono-nerd`           | JetBrains Mono with Nerd glyphs     |
-| `ttf-meslo-nerd-font-powerlevel10k` | Meslo Nerd font for Powerlevel10k   |
+| Package                   | Description                         |
+| :------------------------ | :---------------------------------- |
+| `adw-gtk-theme`           | Adwaita theme for GTK               |
+| `darkly-bin`              | Qt5/Qt6 dark theme                  |
+| `frameworkintegration`    | KDE workspace integration framework |
+| `inter-font`              | Inter font family                   |
+| `matugen-bin`             | Generate themes from wallpapers     |
+| `noto-fonts`              | Noto font family                    |
+| `noto-fonts-cjk`          | Noto fonts for CJK languages        |
+| `noto-fonts-emoji`        | Noto emoji fonts                    |
+| `noto-fonts-extra`        | Additional Noto fonts               |
+| `papirus-icon-theme`      | Papirus icon theme                  |
+| `qt5ct-kde`               | Qt5 theme configuration             |
+| `qt6ct-kde`               | Qt6 theme configuration             |
+| `ttf-jetbrains-mono-nerd` | JetBrains Mono with Nerd glyphs     |
 
 </details>
 
@@ -345,16 +344,10 @@ sudo cp -r /tmp/bibata/Bibata-Modern-Classic /usr/share/icons/
   sudo pacman -S noto-fonts noto-fonts-emoji noto-fonts-cjk noto-fonts-extra
   ```
 
-- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) for VSCode and [Waybar](#waybar):
+- [JetBrains Mono Nerd](https://www.jetbrains.com/lp/mono/) for [Waybar](#waybar) and [Kitty](#terminal):
 
   ```
   sudo pacman -S ttf-jetbrains-mono-nerd
-  ```
-
-- [Meslo Nerd](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts) recommended font for powerlevel10k ([Zsh theme](#terminal)):
-
-  ```
-  yay -S ttf-meslo-nerd-font-powerlevel10k
   ```
 
 - [Inter](https://rsms.me/inter/) required font for [Hyprlock](#hyprlock):

@@ -435,7 +435,7 @@ main() {
     if [[ "$CHOICES" == *"Install Appearance & Theme packages"* ]]; then
         print_section "Installing Appearance & Theme packages"
         install_pacman adw-gtk-theme frameworkintegration inter-font noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme ttf-jetbrains-mono-nerd
-        install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin ttf-meslo-nerd-font-powerlevel10k
+        install_yay matugen-bin qt5ct-kde qt6ct-kde darkly-bin
         install_bibata_cursor
     fi
 
