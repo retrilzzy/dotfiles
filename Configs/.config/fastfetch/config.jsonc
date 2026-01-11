@@ -42,7 +42,7 @@
             "type": "display",
             "key": "│󰹑 Display",
             "keyColor": "green",
-            "format": "{type} {width}x{height} @ {refresh-rate}Hz {inch}″"
+            "format": "{name} {width}x{height} @ {refresh-rate}Hz {inch}″"
         },
         {
             "type": "cpu",
@@ -54,7 +54,7 @@
             "type": "gpu",
             "key": "│󰍛 GPU",
             "keyColor": "green",
-            "format": "{vendor} {name} [{driver}]"
+            "format": "{vendor} {name}"
         },
         {
             "type": "memory",
@@ -63,7 +63,7 @@
         },
         {
             "type": "disk",
-            "key": "│ Disk",
+            "key": "│󰋊 Disk",
             "keyColor": "green",
             "format": "{size-used} / {size-total} ({size-percentage}) {filesystem}"
         },
@@ -73,7 +73,7 @@
         },
         {
             "type": "os",
-            "key": " OS",
+            "key": "󰌽 OS",
             "keyColor": "yellow"
         },
         {
@@ -109,7 +109,7 @@
         },
         {
             "type": "title",
-            "format": "\u001b[90m└───────────────────────────\u001b[37m {user-name} @ {host-name} \u001b[90m────┘"
+            "format": "\u001b[90m└────────────────────────────────────────────┘"
         }
     ]
 }
