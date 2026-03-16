@@ -9,10 +9,12 @@
 // Learn more about configuration at https://docs.vicinae.com/config
 
 {
-   "close_on_focus_loss": false,
+   "$schema": "https://vicinae.com/schemas/config.json",
+   "close_on_focus_loss": true,
    "font": {
       "normal": {
-         "size": 11
+         "family": "Noto Sans",
+         "size": 12
       }
    },
    "theme": {
@@ -21,8 +23,11 @@
          "icon_theme": "Papirus-Dark"
       }
    },
+   "telemetry": {
+      "system_info": false
+   },
    "launcher_window": {
-      "opacity": 0.95,
+      "opacity": 0.98,
       "client_side_decorations": {
          "enabled": true
       }
@@ -31,12 +36,12 @@
       "toggle-action-panel": "control+A"
    },
    "favorites": [
-      "applications:obsidian",
+      "applications:codium",
+      "applications:brave-browser",
+      "applications:md.obsidian.Obsidian",
       "applications:discord",
       "applications:org.telegram",
-      "applications:steam",
-      "@dagimg-dot/store.vicinae.player-pilot:player-pilot",
-      "@gebeto/store.raycast.translate:translate"
+      "applications:steam"
    ],
    "providers": {
       "@josephschmitt/store.raycast.gif-search": {
@@ -93,6 +98,9 @@
             "open-default-config": {
                "enabled": false
             },
+            "report-bug": {
+               "enabled": false
+            },
             "sponsor": {
                "enabled": false
             },
@@ -103,7 +111,11 @@
             }
          }
       },
+      "developer": {
+         "enabled": false
+      },
       "files": {
+         "enabled": false,
          "preferences": {
             "autoIndexing": false,
             "excludedPaths": ".cache"
