@@ -67,7 +67,7 @@ start_screenrecording() {
     # Merge audio tracks into one - separate tracks only play one at a time in most players
     [[ "$AUDIO" == "true" ]] && audio_args="-a default_output|default_input"
 
-    notify-send "Screen recording" "Starting recording to $filename" -t 1000
+    notify-send "Screen recording" "Starting recording to $filename" -t 1000 -i record-desktop
     sleep 1.1
 
     gpu-screen-recorder -w "$@" -f 60 -c mp4 -o "$filename" $audio_args &

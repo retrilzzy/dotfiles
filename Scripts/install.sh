@@ -295,7 +295,7 @@ run_initial_services() {
     run_service "swaync" swaync -c "$HOME/.config/swaync/config.json"
     run_service "nm-applet" nm-applet
     run_service "vicinae" vicinae server
-    run_service "swww-daemon" swww-daemon
+    run_service "awww-daemon" awww-daemon
     run_service "waybar" waybar -c "$HOME/.config/waybar/config.jsonc" -s "$HOME/.config/waybar/styles.css"
 }
 
@@ -417,7 +417,7 @@ main() {
 
     if [[ "$CHOICES" == *"Install System Interface packages"* ]]; then
         print_section "Installing System Interface packages"
-        install_pacman hyprlock hypridle kitty nwg-look swaync waybar swww hyprshot
+        install_pacman hyprlock hypridle kitty nwg-look swaync waybar awww hyprshot
         install_yay waypaper wlogout vicinae-bin
     fi
 

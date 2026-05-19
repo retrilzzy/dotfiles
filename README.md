@@ -240,7 +240,7 @@ Dynamic tiling Wayland compositor.
 
 | Keys                                                      | Action                              |
 | :-------------------------------------------------------- | :---------------------------------- |
-| <kbd>Super</kbd> + <kbd>Q</kbd>                           | Close active window                 |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd>                           | Close active window                 |
 | <kbd>F11</kbd>                                            | Fullscreen                          |
 | <kbd>Super</kbd> + <kbd>A</kbd>                           | Maximize active window              |
 | <kbd>Super</kbd> + <kbd>F</kbd>                           | Toggle window to "float" mode       |
