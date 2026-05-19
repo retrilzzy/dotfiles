@@ -28,7 +28,7 @@ fi
 
 mapfile -t shuffled_images < <(shuf -e "${all_images[@]}")
 
-current_image=$(swww query -a | grep -oP 'image:\s*\K.*' || true)
+current_image=$(awww query -a | grep -oP 'image:\s*\K.*' || true)
 selected_image=""
 
 for img in "${shuffled_images[@]}"; do
@@ -52,7 +52,7 @@ py=$(rand)
 transition_pos="$px,$py"
 
 # Set the selected image
-swww img -t grow \
+awww img -t grow \
     --transition-pos "$transition_pos" \
     --transition-duration 1.8 \
     --transition-step 255 \

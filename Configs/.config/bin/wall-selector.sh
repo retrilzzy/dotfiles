@@ -31,7 +31,7 @@ py=$(rand)
 transition_pos="$px,$py"
 
 # Set the selected image
-swww img "$SELECTED" \
+awww img "$SELECTED" \
     -t grow \
     --transition-pos "$transition_pos" \
     --transition-duration 1.8 \
