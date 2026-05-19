@@ -10,7 +10,7 @@
 
 {
    "$schema": "https://vicinae.com/schemas/config.json",
-   "close_on_focus_loss": true,
+   "close_on_focus_loss": false,
    "font": {
       "normal": {
          "family": "Noto Sans",
@@ -33,7 +33,7 @@
       }
    },
    "keybinds": {
-      "toggle-action-panel": "control+A"
+      "toggle-action-panel": "control+w"
    },
    "favorites": [
       "applications:codium",
@@ -74,7 +74,10 @@
       },
       "clipboard": {
          "preferences": {
-            "encryption": true
+            "encryption": true,
+            "eraseOnStartup": false,
+            "ignorePasswords": true,
+            "monitoring": true
          },
          "entrypoints": {
             "history": {
