@@ -1,30 +1,31 @@
 #!/bin/bash
 
-FILE="$HOME/.config/hypr/hyprland/rules.conf"
+FILE="$HOME/.config/hypr/hyprland/rules.lua"
 
-LAYER_RULE="layerrule = match:namespace ^(.*)$, no_screen_share on"
-WINDOW_RULE="windowrule = match:initial_class = ^(.*)$, no_screen_share on"
-
-escape_regex() {
-    printf '%s\n' "$1" | sed -e 's/[][\/.^$*]/\\&/g'
-}
+LAYER_RULE='hl.layer_rule({ match = { namespace = "^(.*)$" }, no_screen_share = true })'
+WINDOW_RULE='hl.window_rule({ match = { initial_class = "^(.*)$" }, no_screen_share = true })'
 
 toggle_rule() {
-    local RULE_ESC
-    RULE_ESC=$(escape_regex "$1")
+    local RULE="$1"
+    local LINE_NUM
 
-    # uncomment if commented
-    if grep -q "^# $RULE_ESC" "$FILE"; then
-        sed -i "s/^# \(.*$RULE_ESC\)/\1/" "$FILE"
+    # Try to find commented version
+    LINE_NUM=$(grep -nF -- "-- $RULE" "$FILE" | head -1 | cut -d: -f1)
+    if [ -n "$LINE_NUM" ]; then
+        sed -i "${LINE_NUM}s/^-- //" "$FILE"
         echo "Enabled"
-
-    # comment if uncommented
-    elif grep -q "^$RULE_ESC" "$FILE"; then
-        sed -i "s/^\($RULE_ESC\)/# \1/" "$FILE"
-        echo "Disabled"
-    else
-        echo "None"
+        return
     fi
+
+    # Try to find uncommented version
+    LINE_NUM=$(grep -nF -- "$RULE" "$FILE" | head -1 | cut -d: -f1)
+    if [ -n "$LINE_NUM" ]; then
+        sed -i "${LINE_NUM}s/^/-- /" "$FILE"
+        echo "Disabled"
+        return
+    fi
+
+    echo "None"
 }
 
 LAYER_STATE=$(toggle_rule "$LAYER_RULE")

@@ -16,8 +16,8 @@ input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 
 [templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland.conf'
-output_path = '~/.config/hypr/hyprland/colors.conf'
+input_path = '~/.config/matugen/templates/hyprland.lua'
+output_path = '~/.config/hypr/hyprland/colors.lua'
 post_hook = 'hyprctl reload'
 
 [templates.kitty]
