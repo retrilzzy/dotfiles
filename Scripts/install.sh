@@ -306,7 +306,7 @@ setup_wallpapers() {
     print_info "Full collection: https://share.rzx.ovh/folder/cmik5z0om005001pc7996irnv"
 
     local names
-    names=$(curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv" | jq -r '.files[].name' | shuf -n 5)
+    names=$(curl -s "https://share.rzx.ovh/api/server/folder/cmik5z0om005001pc7996irnv?page=1" | jq -r '.page[].name' | shuf -n 5)
 
     if [ -z "$names" ]; then
         print_error "Could not fetch wallpaper list. Is 'jq' installed and are you online?"
