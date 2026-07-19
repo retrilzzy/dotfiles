@@ -20,6 +20,7 @@ hl.on("hyprland.start", function()
 
     hl.exec_cmd("uwsm app -- swaync -c ~/.config/swaync/config.json")
     hl.exec_cmd("uwsm app -- waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/styles.css")
+    hl.exec_cmd("uwsm app -- vicinae server --replace")
 
     --- Recommended
     hl.exec_cmd("uwsm app -- nm-applet")
