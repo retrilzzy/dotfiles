@@ -39,7 +39,7 @@ awww img "$SELECTED" \
     --transition-fps 60
 
 # Generate a color palette
-matugen image "$SELECTED"
+matugen image "$SELECTED" -t scheme-neutral --prefer value
 
 # Set the lock background
 mkdir -p "$CACHE_DIR"

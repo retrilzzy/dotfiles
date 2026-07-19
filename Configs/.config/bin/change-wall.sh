@@ -60,7 +60,7 @@ awww img -t grow \
     "$selected_image"
 
 # Generate a color palette
-matugen image "$selected_image"
+matugen image "$selected_image" -t scheme-neutral --prefer value
 
 # Set the lock background
 mkdir -p "$CACHE_DIR"

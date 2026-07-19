@@ -15,6 +15,6 @@ fi
 
 echo "Current wallpaper: $image_path"
 
-matugen image "$image_path"
+matugen image "$image_path" -t scheme-neutral --prefer value
 
 echo "Color palette generated for: $image_path"
