@@ -14,8 +14,8 @@ wLayout="${confDir}/wlogout/layout"
 wlTmplt="${confDir}/wlogout/style.css"
 
 # Detect monitor resolution
-y_mon=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .height')
-hypr_scale=$(hyprctl -j monitors | jq '.[] | select(.focused == true) | .scale' | sed 's/\.//')
+y_mon=$(hyprctl -j monitors | jq '(.[] | select(.focused == true) | .height) // 1080')
+hypr_scale=$(hyprctl -j monitors | jq '(.[] | select(.focused == true) | .scale * 100 | round) // 100')
 
 wlColms=6
 export mgn=$((y_mon * 38 / hypr_scale))
@@ -25,7 +25,7 @@ export hvr=$((y_mon * 33 / hypr_scale))
 export fntSize=$((y_mon * 2 / 100))
 
 # Evaluate hypr border radius
-hypr_border="$(hyprctl -j getoption decoration:rounding | jq '.int')"
+hypr_border="$(hyprctl -j getoption decoration:rounding | jq '.int // 10')"
 export hypr_border
 export active_rad=$((hypr_border * 5))
 export button_rad=$((hypr_border * 8))
